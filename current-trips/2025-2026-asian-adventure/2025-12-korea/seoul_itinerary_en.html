@@ -35,6 +35,25 @@
             position: relative;
         }
 
+        .home-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            background: white;
+            color: #667eea;
+        }
+
         .lang-switch {
             position: absolute;
             top: 20px;
@@ -327,7 +346,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <a href="seoul_itinerary_cn.html" class="lang-switch">🇨🇳</a>
+            <a href="../../../index.html" class="home-button">🏠 Home</a>
+            <a href="seoul_itinerary_cn.html" class="lang-switch">🇨🇳 中文</a>
             <h1>🇰🇷 Seoul Trip Itinerary</h1>
             <p>December 3-9, 2025</p>
         </div>
