@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Planners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .trips-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+        }
+
+        .trips-section h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .trips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .trip-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .trip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .trip-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .trip-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .trip-card p {
+            font-size: 1em;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .trip-card .languages {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .trip-card .lang-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #999;
+        }
+
+        .empty-state .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            opacity: 0.5;
+        }
+
+        .empty-state p {
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .trips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌍 Trip Planners</h1>
+            <p>Your travel itineraries and plans</p>
+        </div>
+
+        <!-- Current Trips -->
+        <div class="trips-section">
+            <h2>✈️ Current Trips</h2>
+            <div class="trips-grid">
+                <a href="seoul-2025/seoul_itinerary_en.html" class="trip-card">
+                    <div class="icon">🇰🇷</div>
+                    <h3>Seoul, South Korea</h3>
+                    <p>December 3-9, 2025</p>
+                    <p style="font-size: 0.9em;">6-day itinerary with Gyeongbokgung Palace, Bukchon Hanok Village, Spa On Air overnight, and more!</p>
+                    <div class="languages">
+                        <span class="lang-badge">🇬🇧 English</span>
+                        <span class="lang-badge">🇨🇳 中文</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Past Trips -->
+        <div class="trips-section">
+            <h2>📚 Past Trips</h2>
+            <div class="empty-state">
+                <div class="icon">🗺️</div>
+                <p>No past trips yet. Your completed trips will appear here!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
