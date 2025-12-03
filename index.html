@@ -109,13 +109,25 @@
             border-radius: 20px;
             font-size: 0.9em;
             border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            text-decoration: none;
+            color: white !important;
+            text-decoration: none !important;
             transition: background 0.3s ease;
+            display: inline-block;
         }
 
         .trip-card .lang-badge:hover {
             background: rgba(255,255,255,0.3);
+            text-decoration: none !important;
+        }
+
+        .trip-card .lang-badge:visited {
+            color: white !important;
+            text-decoration: none !important;
+        }
+
+        .trip-card .lang-badge:active {
+            color: white !important;
+            text-decoration: none !important;
         }
 
         .empty-state {
