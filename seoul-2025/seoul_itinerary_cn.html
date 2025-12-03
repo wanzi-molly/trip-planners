@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首尔旅行行程 Dec 3-9</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .exchange-rate {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .day-card {
+            margin: 30px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-header:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .day-content {
+            padding: 25px;
+            display: none;
+        }
+
+        .day-content.open {
+            display: block;
+        }
+
+        .transport {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .transport-title {
+            font-weight: bold;
+            color: #1976D2;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .price {
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+
+        .itinerary-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .itinerary-list li {
+            padding: 12px 15px;
+            margin: 10px 0;
+            background: #f5f5f5;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            transition: background 0.3s ease;
+        }
+
+        .itinerary-list li:hover {
+            background: #ede7f6;
+        }
+
+        .activity-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .activity-price {
+            color: #2e7d32;
+            font-size: 0.95em;
+        }
+
+        .location-link {
+            font-size: 0.9em;
+            color: #1976D2;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .location-link:hover {
+            text-decoration: underline;
+        }
+
+        .total-budget {
+            background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+            color: white;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .total-budget h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .total-budget p {
+            font-size: 1.3em;
+            margin: 10px 0;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-top: 15px;
+            color: #856404;
+        }
+
+        .calculator {
+            background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+            padding: 25px;
+            margin: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .calculator h3 {
+            color: white;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .calculator-inputs {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-group label {
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .input-group input {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            width: 150px;
+            text-align: center;
+        }
+
+        .calculator-result {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .apps-container {
+            padding: 10px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .app-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 250px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .app-card h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .app-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .app-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .day-card {
+                margin: 20px;
+            }
+
+            .calculator {
+                margin: 20px;
+            }
+
+            .calculator-inputs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="seoul_itinerary_en.html" class="lang-switch">🇬🇧</a>
+            <h1>🇰🇷 首尔旅行行程</h1>
+            <p>2025年12月3日 - 12月9日</p>
+        </div>
+
+        <div class="exchange-rate">
+            <strong>📍 住宿地址：</strong> <a href="https://www.google.com/maps/search/?api=1&query=Seoul+Gwanak+남부순환로260길+119" target="_blank" style="color: #1976D2; text-decoration: none;">Seoul Gwanak 남부순환로260길 119</a><br>
+            <strong>💱 汇率：</strong> 1,000 KRW ≈ 6.47 SEK
+        </div>
+
+        <!-- T-Money Card Info -->
+        <div class="day-card" style="margin: 20px 30px;">
+            <div class="day-header" onclick="toggleDay('tmoney-content')" style="background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);">
+                <span>💳 T-Money交通卡 - 推荐使用</span>
+                <span class="toggle-icon" id="tmoney-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="tmoney-content">
+                <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="color: #2e7d32; margin-bottom: 10px;">💰 费用明细</h3>
+                    <p style="color: #333; line-height: 1.8;">
+                        <strong>首次购买：</strong>₩5,000（卡片押金，可退）≈ 32 SEK<br>
+                        <strong>建议充值金额：</strong>₩25,000-30,000 ≈ 162-194 SEK<br>
+                        <strong>总投入：</strong>₩30,000-35,000 ≈ 194-226 SEK/人<br>
+                        <strong>单次乘车：</strong>₩1,400 ≈ 9 SEK（使用T-money优惠价）
+                    </p>
+                </div>
+
+                <div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="color: #e65100; margin-bottom: 10px;">🛒 在哪里购买</h3>
+                    <ul style="color: #333; line-height: 2;">
+                        <li><strong>便利店：</strong>CU、GS25、7-Eleven（最常见）</li>
+                        <li><strong>地铁站：</strong>自动售票机或服务台</li>
+                        <li><strong>机场：</strong>仁川机场便利店或咨询台</li>
+                        <li><strong>小贴士：</strong>只需说"T-money card please"并出示₩5,000即可</li>
+                    </ul>
+                </div>
+
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="color: #1976D2; margin-bottom: 10px;">💵 如何充值</h3>
+                    <ol style="color: #333; line-height: 2;">
+                        <li><strong>在便利店：</strong>把卡交给收银员，说明金额（如"10,000 won"），付现金</li>
+                        <li><strong>在地铁站：</strong>使用充值机（找"Recharge"或"충전"按钮）</li>
+                        <li><strong>最低充值：</strong>₩1,000，建议每次充值₩10,000-20,000</li>
+                    </ol>
+                </div>
+
+                <div style="background: #f3e5f5; padding: 20px; border-radius: 10px;">
+                    <h3 style="color: #7b1fa2; margin-bottom: 10px;">✅ 如何使用</h3>
+                    <ul style="color: #333; line-height: 2;">
+                        <li><strong>进地铁：</strong>在闸机感应区刷卡（听到"哔"声即成功）</li>
+                        <li><strong>出地铁：</strong>出站时再次刷卡（自动计算费用）</li>
+                        <li><strong>公交车：</strong>上车和下车时都要刷卡</li>
+                        <li><strong>换乘优惠：</strong>30分钟内地铁/公交换乘自动享受优惠</li>
+                        <li><strong>查询余额：</strong>在任意地铁闸机感应区轻触（无需进站）</li>
+                    </ul>
+                    <div class="note" style="margin-top: 15px;">
+                        <strong>💡 实用小贴士：</strong><br>
+                        • 第1天在机场或住宿附近购买<br>
+                        • 保持至少₩5,000余额，避免无法乘车<br>
+                        • 全国通用 - 去其他城市也能用！<br>
+                        • 离开韩国前可在便利店退卡退押金
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Currency Calculator -->
+        <div class="calculator">
+            <h3>💰 货币计算器</h3>
+            <div class="calculator-inputs">
+                <div class="input-group">
+                    <label for="krw-input">韩元 (₩)</label>
+                    <input type="number" id="krw-input" placeholder="输入韩元" oninput="convertCurrency()">
+                </div>
+                <div style="color: white; font-size: 1.5em; font-weight: bold;">⇄</div>
+                <div class="input-group">
+                    <label for="sek-output">瑞典克朗 (kr)</label>
+                    <input type="text" id="sek-output" placeholder="0.00" readonly style="background: #e8f5e9;">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function convertCurrency() {
+                const krw = document.getElementById('krw-input').value;
+                const sekOutput = document.getElementById('sek-output');
+
+                if (krw && krw > 0) {
+                    const exchangeRate = 0.00647; // 1 KRW = 0.00647 SEK (1,000 KRW = 6.47 SEK)
+                    const sek = (krw * exchangeRate).toFixed(2);
+                    sekOutput.value = sek;
+                } else {
+                    sekOutput.value = '';
+                }
+            }
+
+            function toggleDay(dayId) {
+                const content = document.getElementById(dayId);
+                const icon = document.getElementById(dayId + '-icon');
+
+                if (content.classList.contains('open')) {
+                    content.classList.remove('open');
+                    icon.classList.add('collapsed');
+                } else {
+                    content.classList.add('open');
+                    icon.classList.remove('collapsed');
+                }
+            }
+
+            // Initialize all icons as collapsed on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                const icons = document.querySelectorAll('.toggle-icon');
+                icons.forEach(icon => {
+                    icon.classList.add('collapsed');
+                });
+            });
+        </script>
+
+        <!-- Day 1 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day1-content')">
+                <span>12月3日 - 星期三（抵达夜）✅ 已完成</span>
+                <span class="toggle-icon" id="day1-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day1-content">
+                <div class="transport" style="background: #e8f5e9; border-left-color: #4caf50;">
+                    <div class="transport-title" style="color: #2e7d32;">🚕 机场 → Sadang（已完成 - 乘坐出租车）</div>
+                    <p class="price" style="color: #2e7d32;">
+                        ✓ 出租车费用: ₩58,900 = 381 SEK（两人总计）
+                    </p>
+                </div>
+                <ul class="itinerary-list">
+                    <li style="background: #e8f5e9; border-left-color: #4caf50;">
+                        <div class="activity-name">✅ 办理入住 & 休息</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day2-content')">
+                <span>12月4日 - 星期四（景福宫 + 韩屋 + 仁寺洞 + 新沙洞）</span>
+                <span class="toggle-icon" id="day2-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day2-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 交通费用</div>
+                    <p class="price">地铁往返: ₩3,100 ≈ 24 SEK/人</p>
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">1️⃣ 景福宫 Gyeongbokgung Palace</div>
+                        <div class="activity-price">门票: ₩3,000 ≈ 24 SEK/人</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Gyeongbokgung+Palace+161+Sajik-ro+Jongno-gu+Seoul" target="_blank" class="location-link">📍 161 Sajik-ro, Jongno-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">2️⃣ 北村韩屋村 Bukchon Hanok Village</div>
+                        <div class="activity-price">免费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bukchon+Hanok+Village+Seoul" target="_blank" class="location-link">📍 37 Gyedong-gil, Jongno-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ 仁寺洞街 Insadong Street</div>
+                        <div class="activity-price">免费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Insadong+Street+Seoul" target="_blank" class="location-link">📍 Insadong-gil, Jongno-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">4️⃣ 南山塔 + 便利店观景点（南山711）</div>
+                        <div class="activity-price">免费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=N+Seoul+Tower+105+Namsangongwon-gil+Yongsan-gu+Seoul" target="_blank" class="location-link">📍 105 Namsangongwon-gil, Yongsan-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">5️⃣ 新沙洞 Sinsa-dong</div>
+                        <div class="activity-price">• Jennie海报墙（Tamburins）免费<br>• 新沙夜市（仅餐饮费用）</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Garosu-gil+Sinsa-dong+Gangnam-gu+Seoul" target="_blank" class="location-link">📍 Garosu-gil, Sinsa-dong, Gangnam-gu, Seoul</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day3-content')">
+                <span>12月5日 - 星期五（明洞卡通街 + 乐天塔 + 城南 + 弘大）</span>
+                <span class="toggle-icon" id="day3-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day3-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 交通费用</div>
+                    <p class="price">
+                        • 地铁多次: 约 ₩6,000-8,000 ≈ 48-64 SEK/人<br>
+                        • 城南盆唐线: ₩2,000-2,500 ≈ 16-20 SEK/人
+                    </p>
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">1️⃣ 明洞卡通街 Myeongdong Cartoon Street</div>
+                        <div class="activity-price">免费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Cartoon+Street+Jung-gu+Seoul" target="_blank" class="location-link">📍 Myeongdong-gil, Jung-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">2️⃣ 乐天塔对比照小巷 Lotte Tower Alley</div>
+                        <div class="activity-price">免费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Lotte+World+Tower+300+Olympic-ro+Songpa-gu+Seoul" target="_blank" class="location-link">📍 300 Olympic-ro, Songpa-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ 城南太平洞 Seongnam Taepyeong-dong</div>
+                        <div class="activity-price">免费（景点）</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Taepyeong-dong+Sujeong-gu+Seongnam-si+Gyeonggi-do" target="_blank" class="location-link">📍 Taepyeong-dong, Sujeong-gu, Seongnam-si</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">4️⃣ 弘大夜街 Hongdae Night Street</div>
+                        <div class="activity-price">免费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hongdae+Street+Mapo-gu+Seoul" target="_blank" class="location-link">📍 Hongik-ro, Mapo-gu, Seoul</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day4-content')">
+                <span>12月6日 - 星期六（国乐院 + 松坡 + 水原 + 钻石宫 + 梨泰院）</span>
+                <span class="toggle-icon" id="day4-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day4-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 交通费用</div>
+                    <p class="price">
+                        • 地铁多次: 约 ₩6,000-8,000 ≈ 48-64 SEK/人<br>
+                        • 盆唐线（水原）: ₩2,000-2,500 ≈ 16-20 SEK/人
+                    </p>
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">1️⃣ 国立国乐院（周六音乐会）🎭</div>
+                        <div class="activity-price">免费 • 英语导览 • 建筑前的户外音乐会</div>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">⏰ 周六文化课 + 音乐会: 通常下午2:00 - 3:30</div>
+                        <div style="font-size: 0.9em; margin-top: 5px;">🌐 <a href="https://www.gugak.go.kr/site/main/index001" target="_blank" style="color: #1976D2; text-decoration: none;">www.gugak.go.kr</a></div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=National+Gugak+Center+2364+Nambusunhwan-ro+Seocho-gu+Seoul" target="_blank" class="location-link">📍 2364 Nambusunhwan-ro, Seocho-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">2️⃣ 首尔"点灯"酒馆（松坡）</div>
+                        <div class="activity-price">免费（除非点餐）</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Seokchon+Lake+Songpa-gu+Seoul" target="_blank" class="location-link">📍 Seokchon Lake area, Songpa-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ 水原Starfield图书馆</div>
+                        <div class="activity-price">免费进入</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Starfield+Suwon+83+Jungbu-daero+Yeongtong-gu+Suwon-si" target="_blank" class="location-link">📍 83 Jungbu-daero, Yeongtong-gu, Suwon-si</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">4️⃣ 钻石宫 Diamond Palace (Inspire)</div>
+                        <div class="activity-price">免费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Inspire+Entertainment+Resort+350+Yeongjonghaeannam-ro+Jung-gu+Incheon" target="_blank" class="location-link">📍 350 Yeongjonghaeannam-ro, Jung-gu, Incheon</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">5️⃣ Urban Cliff - 梨泰院日落观景</div>
+                        <div class="activity-price">免费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Urban+Cliff+Itaewon+Yongsan-gu+Seoul" target="_blank" class="location-link">📍 Itaewon-dong, Yongsan-gu, Seoul</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day5-content')">
+                <span>12月7日 - 星期日（龙山 + 汉南洞 + 梨泰院）</span>
+                <span class="toggle-icon" id="day5-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day5-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 交通费用</div>
+                    <p class="price">地铁往返: ₩3,100 ≈ 24 SEK/人</p>
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">1️⃣ 龙山《我的大叔》拍摄地</div>
+                        <div class="activity-price">免费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Yongsan+Station+Yongsan-gu+Seoul" target="_blank" class="location-link">📍 Yongsan Station area, Yongsan-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">2️⃣ 汉南洞咖啡厅</div>
+                        <div class="activity-price">按点单付费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hannam-dong+Yongsan-gu+Seoul" target="_blank" class="location-link">📍 Hannam-dong, Yongsan-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ 梨泰院晚餐</div>
+                        <div class="activity-price">按餐厅付费</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Itaewon+Street+Yongsan-gu+Seoul" target="_blank" class="location-link">📍 Itaewon-ro, Yongsan-gu, Seoul</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day6-content')">
+                <span>12月8日 - 星期一（乐天超市 + 购物 + 机场温泉过夜）</span>
+                <span class="toggle-icon" id="day6-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day6-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 交通费用</div>
+                    <p class="price">
+                        • 上午/下午地铁: ₩3,100 ≈ 24 SEK/人<br>
+                        • 晚上前往机场: 地铁 + AREX: ₩6,600 ≈ 43 SEK/人
+                    </p>
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">1️⃣ 乐天超市 Lotte Mart（采购手信）</div>
+                        <div class="activity-price">购物费用</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Seoul+Station+426+Cheongpa-ro+Jung-gu+Seoul" target="_blank" class="location-link">📍 426 Cheongpa-ro, Jung-gu, Seoul (首尔站)</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">2️⃣ 购物：东大门（冬季服装和鞋子）🛍️</div>
+                        <div class="activity-price">
+                            • 斗塔购物中心和美利来（营业至凌晨5点！）<br>
+                            • 冬季外套、鞋子、韩国时尚，价格实惠
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=275+Jangchungdan-ro+Jung-gu+Seoul" target="_blank" class="location-link">📍 275 Jangchungdan-ro, Jung-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ 可选：明洞或COEX继续购物</div>
+                        <div class="activity-price">
+                            • 明洞：国际品牌（Uniqlo, H&M, Zara）<br>
+                            • COEX：江南高档购物中心
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=COEX+Mall+513+Yeongdong-daero+Gangnam-gu+Seoul" target="_blank" class="location-link">📍 COEX: 513 Yeongdong-daero, Gangnam-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">4️⃣ 回住处收拾行李退房</div>
+                    </li>
+                    <li>
+                        <div class="activity-name">5️⃣ 晚上：前往仁川机场（约晚上8-9点出发）</div>
+                        <div class="activity-price">地铁 + AREX 交通费已包含在上方</div>
+                    </li>
+                    <li style="background: #e3f2fd; border-left-color: #2196F3;">
+                        <div class="activity-name">6️⃣ Spa On Air 스파온에어 过夜（T1航站楼4楼）🛁</div>
+                        <div class="activity-price">
+                            <strong>价格: ₩15,000-25,000 ≈ 97-162 SEK/人</strong><br>
+                            • 24小时韩式汗蒸房（桑拿/温泉）<br>
+                            • 设施：冷热浴池、桑拿房、睡眠区、淋浴间<br>
+                            • 航班前过夜的完美选择！<br>
+                            • 早上5:30起床，直接步行到值机柜台
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Spa+On+Air+Incheon+Airport+Terminal+1" target="_blank" class="location-link">📍 仁川机场T1航站楼4楼</a>
+                        <div class="note" style="margin-top: 10px; background: #e3f2fd; border-left-color: #2196F3; color: #1565c0;">
+                            <strong>ℹ️ 男女安排说明：</strong><br>
+                            • 洗浴区（热浴池、淋浴、桑拿）：男女分开，无需穿衣（传统韩式）<br>
+                            • 公共休息区和睡眠区：男女混合，需穿提供的温泉服装<br>
+                            • 分开洗浴后，可在公共区域一起休息睡觉
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day7-content')">
+                <span>12月9日 - 星期二（飞往大阪 - 已在机场！）</span>
+                <span class="toggle-icon" id="day7-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day7-content">
+                <div class="transport" style="background: #e8f5e9; border-left-color: #4caf50;">
+                    <div class="transport-title" style="color: #2e7d32;">🛁 Spa On Air 早晨安排</div>
+                    <p style="color: #333;">
+                        <strong>⏰ 早晨时间安排（已在T1航站楼！）：</strong><br>
+                        • 5:30 AM - 在温泉起床，淋浴清洁<br>
+                        • 5:50 AM - 离开温泉，前往值机柜台<br>
+                        • 6:00 AM - 办理值机（起飞前1.5小时）<br>
+                        • 6:30 AM - 过安检<br>
+                        • 7:30 AM - 起飞
+                    </p>
+                    <div class="note" style="background: #e8f5e9; border-left-color: #4caf50;">
+                        <strong style="color: #2e7d32;">✅ 温泉过夜的好处：</strong><br>
+                        • 无需清晨打出租车（节省₩60,000-70,000！）<br>
+                        • 无需匆忙紧张<br>
+                        • 放松的首尔之旅结束方式<br>
+                        • 已在机场 - 步行到值机柜台即可！
+                    </div>
+                </div>
+                <div class="transport" style="background: #fff3e0; border-left-color: #ff9800;">
+                    <div class="transport-title" style="color: #e65100;">✈️ 航班信息</div>
+                    <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>乐桃航空 MM712</strong></p>
+                    <p class="price" style="color: #333;">
+                        • 起飞：7:30 AM from ICN T1航站楼<br>
+                        • 到达：9:15 AM at KIX (关西国际机场，大阪)<br>
+                        • 飞行时长：1小时45分钟<br>
+                        • 直飞航班
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Apps & Cards -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('apps-content')" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">
+                <span>📱 推荐应用与卡片</span>
+                <span class="toggle-icon" id="apps-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="apps-content">
+                <!-- T-Money Card Section -->
+                <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #4caf50;">
+                    <h3 style="color: #2e7d32; margin-bottom: 15px;">💳 T-Money交通卡 - 必备出行卡</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 15px;">
+                        <div style="background: white; padding: 15px; border-radius: 8px;">
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">💰 费用</h4>
+                            <p style="color: #333; font-size: 0.95em; line-height: 1.6;">
+                                • 卡片：₩5,000（可退）<br>
+                                • 余额：₩25,000-30,000<br>
+                                • 总计：₩30,000-35,000 ≈ 194-226 SEK
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px;">
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🛒 购买地点</h4>
+                            <p style="color: #333; font-size: 0.95em; line-height: 1.6;">
+                                • CU、GS25、7-Eleven<br>
+                                • 地铁站<br>
+                                • 仁川机场
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px;">
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">✅ 使用方法</h4>
+                            <p style="color: #333; font-size: 0.95em; line-height: 1.6;">
+                                • 进出地铁时刷卡<br>
+                                • 公交车上下车刷卡<br>
+                                • 自动换乘优惠（30分钟）
+                            </p>
+                        </div>
+                    </div>
+                    <div style="background: white; padding: 12px; border-radius: 6px; border-left: 3px solid #4caf50;">
+                        <strong style="color: #2e7d32;">💡 小贴士：</strong>第1天购买，保持₩5,000最低余额，离开韩国前退卡退押金！
+                    </div>
+                </div>
+
+                <!-- Apps Section -->
+                <h3 style="color: #333; margin-bottom: 15px; padding-left: 5px;">📱 必备应用</h3>
+                <div class="apps-container">
+                    <div class="app-card">
+                        <div class="app-icon">💳</div>
+                        <h4>T-money App</h4>
+                        <p>首尔地铁和公交的官方交通卡应用。可以充值、查询余额和追踪行程。</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🎫</div>
+                        <h4>Klook</h4>
+                        <p>提前预订景点、旅游和体验活动。获取热门景点门票，节省时间。</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🗺️</div>
+                        <h4>Naver Map (네이버 지도)</h4>
+                        <p>韩国最准确的导航应用。比Google地图更适合查找位置、公共交通路线和实时公交到站信息。</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🌐</div>
+                        <h4>Papago (파파고)</h4>
+                        <p>Naver的翻译应用，支持语音、文字和图像翻译。韩语翻译比Google翻译更准确，包含对话模式。</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🍜</div>
+                        <h4>Kakao Map (카카오맵)</h4>
+                        <p>查找餐厅、咖啡店和商店，并查看评论。适合发现本地美食和查询营业时间。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 30px; text-align: center; color: #666; font-size: 0.9em;">
+            <p>祝您旅途愉快！🎉</p>
+            <p style="margin-top: 10px;">注：价格仅供参考，实际费用可能有所变动</p>
+        </div>
+    </div>
+</body>
+</html>

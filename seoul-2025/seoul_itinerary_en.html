@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoul Trip Itinerary Dec 3-9</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switch:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .exchange-rate {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            font-size: 1.1em;
+            color: #333;
+        }
+        
+        .day-card {
+            margin: 30px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-header:hover {
+            background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.collapsed {
+            transform: rotate(-90deg);
+        }
+        
+        .day-content {
+            padding: 25px;
+            display: none;
+        }
+
+        .day-content.open {
+            display: block;
+        }
+        
+        .transport {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+        
+        .transport-title {
+            font-weight: bold;
+            color: #1976D2;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .price {
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+        
+        .itinerary-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .itinerary-list li {
+            padding: 12px 15px;
+            margin: 10px 0;
+            background: #f5f5f5;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            transition: background 0.3s ease;
+        }
+        
+        .itinerary-list li:hover {
+            background: #ede7f6;
+        }
+        
+        .activity-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .activity-price {
+            color: #2e7d32;
+            font-size: 0.95em;
+        }
+
+        .location-link {
+            font-size: 0.9em;
+            color: #1976D2;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .location-link:hover {
+            text-decoration: underline;
+        }
+        
+        .total-budget {
+            background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+            color: white;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .total-budget h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .total-budget p {
+            font-size: 1.3em;
+            margin: 10px 0;
+        }
+        
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-top: 15px;
+            color: #856404;
+        }
+
+        .calculator {
+            background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+            padding: 25px;
+            margin: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .calculator h3 {
+            color: white;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .calculator-inputs {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-group label {
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .input-group input {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            width: 150px;
+            text-align: center;
+        }
+
+        .calculator-result {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .apps-container {
+            padding: 10px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .app-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            width: 250px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .app-card h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .app-card p {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .app-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .day-card {
+                margin: 20px;
+            }
+
+            .calculator {
+                margin: 20px;
+            }
+
+            .calculator-inputs {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="seoul_itinerary_cn.html" class="lang-switch">🇨🇳</a>
+            <h1>🇰🇷 Seoul Trip Itinerary</h1>
+            <p>December 3-9, 2025</p>
+        </div>
+
+        <div class="exchange-rate">
+            <strong>📍 Accommodation:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Seoul+Gwanak+남부순환로260길+119" target="_blank" style="color: #1976D2; text-decoration: none;">Seoul Gwanak 남부순환로260길 119</a><br>
+            <strong>💱 Exchange Rate:</strong> 1,000 KRW ≈ 6.47 SEK
+        </div>
+
+        <!-- T-Money Card Info -->
+        <div class="day-card" style="margin: 20px 30px;">
+            <div class="day-header" onclick="toggleDay('tmoney-content')" style="background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);">
+                <span>💳 T-Money Card - Recommended Transportation Card</span>
+                <span class="toggle-icon" id="tmoney-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="tmoney-content">
+                <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="color: #2e7d32; margin-bottom: 10px;">💰 Cost Breakdown</h3>
+                    <p style="color: #333; line-height: 1.8;">
+                        <strong>Initial Purchase:</strong> ₩5,000 (card deposit, refundable) ≈ 32 SEK<br>
+                        <strong>Recommended Balance:</strong> ₩25,000-30,000 ≈ 162-194 SEK<br>
+                        <strong>Total Investment:</strong> ₩30,000-35,000 ≈ 194-226 SEK per person<br>
+                        <strong>Single Ride:</strong> ₩1,400 ≈ 9 SEK (with T-money discount)
+                    </p>
+                </div>
+
+                <div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="color: #e65100; margin-bottom: 10px;">🛒 Where to Buy</h3>
+                    <ul style="color: #333; line-height: 2;">
+                        <li><strong>Convenience Stores:</strong> CU, GS25, 7-Eleven (most common)</li>
+                        <li><strong>Subway Stations:</strong> Ticket vending machines or information desks</li>
+                        <li><strong>Airport:</strong> Incheon Airport convenience stores or information counters</li>
+                        <li><strong>Tip:</strong> Just say "T-money card please" and show ₩5,000</li>
+                    </ul>
+                </div>
+
+                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                    <h3 style="color: #1976D2; margin-bottom: 10px;">💵 How to Top Up (Recharge)</h3>
+                    <ol style="color: #333; line-height: 2;">
+                        <li><strong>At Convenience Stores:</strong> Hand your card to cashier, say amount (e.g., "10,000 won"), pay cash</li>
+                        <li><strong>At Subway Stations:</strong> Use charging machines (look for "Recharge" or "충전" button)</li>
+                        <li><strong>Minimum top-up:</strong> ₩1,000, recommended ₩10,000-20,000 at a time</li>
+                    </ol>
+                </div>
+
+                <div style="background: #f3e5f5; padding: 20px; border-radius: 10px;">
+                    <h3 style="color: #7b1fa2; margin-bottom: 10px;">✅ How to Use</h3>
+                    <ul style="color: #333; line-height: 2;">
+                        <li><strong>Entering Subway:</strong> Tap card on sensor at turnstile (beep sound = success)</li>
+                        <li><strong>Exiting Subway:</strong> Tap again when leaving (fare calculated automatically)</li>
+                        <li><strong>Bus:</strong> Tap when boarding and exiting</li>
+                        <li><strong>Transfer Discount:</strong> Automatically applied within 30 minutes between subway/bus</li>
+                        <li><strong>Check Balance:</strong> Tap on any subway gate sensor (without going through)</li>
+                    </ul>
+                    <div class="note" style="margin-top: 15px;">
+                        <strong>💡 Pro Tips:</strong><br>
+                        • Buy your card on Day 1 at the airport or near your accommodation<br>
+                        • Keep at least ₩5,000 balance to avoid getting stuck<br>
+                        • Card works nationwide - use it in other cities too!<br>
+                        • Return card at convenience stores for deposit refund before leaving Korea
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Currency Calculator -->
+        <div class="calculator">
+            <h3>💰 Currency Calculator</h3>
+            <div class="calculator-inputs">
+                <div class="input-group">
+                    <label for="krw-input">KRW (₩)</label>
+                    <input type="number" id="krw-input" placeholder="Enter KRW" oninput="convertCurrency()">
+                </div>
+                <div style="color: white; font-size: 1.5em; font-weight: bold;">⇄</div>
+                <div class="input-group">
+                    <label for="sek-output">SEK (kr)</label>
+                    <input type="text" id="sek-output" placeholder="0.00" readonly style="background: #e8f5e9;">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function convertCurrency() {
+                const krw = document.getElementById('krw-input').value;
+                const sekOutput = document.getElementById('sek-output');
+
+                if (krw && krw > 0) {
+                    const exchangeRate = 0.00647; // 1 KRW = 0.00647 SEK (1,000 KRW = 6.47 SEK)
+                    const sek = (krw * exchangeRate).toFixed(2);
+                    sekOutput.value = sek;
+                } else {
+                    sekOutput.value = '';
+                }
+            }
+
+            function toggleDay(dayId) {
+                const content = document.getElementById(dayId);
+                const icon = document.getElementById(dayId + '-icon');
+
+                if (content.classList.contains('open')) {
+                    content.classList.remove('open');
+                    icon.classList.add('collapsed');
+                } else {
+                    content.classList.add('open');
+                    icon.classList.remove('collapsed');
+                }
+            }
+
+            // Initialize all icons as collapsed on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                const icons = document.querySelectorAll('.toggle-icon');
+                icons.forEach(icon => {
+                    icon.classList.add('collapsed');
+                });
+            });
+        </script>
+
+        <!-- Day 1 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day1-content')">
+                <span>Dec 3 - Wednesday (Arrival Night) ✅ COMPLETED</span>
+                <span class="toggle-icon" id="day1-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day1-content">
+                <div class="transport" style="background: #e8f5e9; border-left-color: #4caf50;">
+                    <div class="transport-title" style="color: #2e7d32;">🚕 Airport → Sadang (COMPLETED - Took Taxi)</div>
+                    <p class="price" style="color: #2e7d32;">
+                        ✓ Taxi cost: ₩58,900 = 381 SEK (total for two people)
+                    </p>
+                </div>
+                <ul class="itinerary-list">
+                    <li style="background: #e8f5e9; border-left-color: #4caf50;">
+                        <div class="activity-name">✅ Check-in & Rest</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day2-content')">
+                <span>Dec 4 - Thursday (Gyeongbokgung + Hanok + Insadong + Sinsa)</span>
+                <span class="toggle-icon" id="day2-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day2-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 Transport Cost</div>
+                    <p class="price">Subway round-trip: ₩3,100 ≈ 24 SEK per person</p>
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">1️⃣ Gyeongbokgung Palace 景福宫</div>
+                        <div class="activity-price">Ticket: ₩3,000 ≈ 24 SEK per person</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Gyeongbokgung+Palace+161+Sajik-ro+Jongno-gu+Seoul" target="_blank" class="location-link">📍 161 Sajik-ro, Jongno-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">2️⃣ Bukchon Hanok Village 北村韩屋村</div>
+                        <div class="activity-price">Free</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Bukchon+Hanok+Village+Seoul" target="_blank" class="location-link">📍 37 Gyedong-gil, Jongno-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ Insadong Street 仁寺洞</div>
+                        <div class="activity-price">Free</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Insadong+Street+Seoul" target="_blank" class="location-link">📍 Insadong-gil, Jongno-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">4️⃣ Namsan Tower + Convenience Store Viewpoint (Namsan 711)</div>
+                        <div class="activity-price">Free</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=N+Seoul+Tower+105+Namsangongwon-gil+Yongsan-gu+Seoul" target="_blank" class="location-link">📍 105 Namsangongwon-gil, Yongsan-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">5️⃣ Sinsa-dong 新沙洞</div>
+                        <div class="activity-price">• Jennie Poster Wall (Tamburins) - Free<br>• Sinsa Night Market (food cost only)</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Garosu-gil+Sinsa-dong+Gangnam-gu+Seoul" target="_blank" class="location-link">📍 Garosu-gil, Sinsa-dong, Gangnam-gu, Seoul</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day3-content')">
+                <span>Dec 5 - Friday (Myeongdong Cartoon Street + Lotte Tower + Seongnam + Hongdae)</span>
+                <span class="toggle-icon" id="day3-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day3-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 Transport Cost</div>
+                    <p class="price">
+                        • Multiple subway trips: approx. ₩6,000-8,000 ≈ 48-64 SEK per person<br>
+                        • Bundang Line (Seongnam): ₩2,000-2,500 ≈ 16-20 SEK per person
+                    </p>
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">1️⃣ Myeongdong Cartoon Street</div>
+                        <div class="activity-price">Free</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Myeongdong+Cartoon+Street+Jung-gu+Seoul" target="_blank" class="location-link">📍 Myeongdong-gil, Jung-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">2️⃣ Lotte Tower Contrast-Photo Alley</div>
+                        <div class="activity-price">Free</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Lotte+World+Tower+300+Olympic-ro+Songpa-gu+Seoul" target="_blank" class="location-link">📍 300 Olympic-ro, Songpa-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ Seongnam Taepyeong-dong</div>
+                        <div class="activity-price">Free (attraction)</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Taepyeong-dong+Sujeong-gu+Seongnam-si+Gyeonggi-do" target="_blank" class="location-link">📍 Taepyeong-dong, Sujeong-gu, Seongnam-si</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">4️⃣ Hongdae Night Street</div>
+                        <div class="activity-price">Free</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hongdae+Street+Mapo-gu+Seoul" target="_blank" class="location-link">📍 Hongik-ro, Mapo-gu, Seoul</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day4-content')">
+                <span>Dec 6 - Saturday (Gugak Center + Songpa + Suwon + Diamond Palace + Itaewon)</span>
+                <span class="toggle-icon" id="day4-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day4-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 Transport Cost</div>
+                    <p class="price">
+                        • Multiple subway trips: approx. ₩6,000-8,000 ≈ 48-64 SEK per person<br>
+                        • Bundang Line (Suwon): ₩2,000-2,500 ≈ 16-20 SEK per person
+                    </p>
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">1️⃣ National Gugak Center (Saturday Concert) 🎭</div>
+                        <div class="activity-price">Free • English-guided curating • Outdoor concert in front of building</div>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">⏰ Saturday Cultural Class + Concert: Usually 2:00 PM - 3:30 PM</div>
+                        <div style="font-size: 0.9em; margin-top: 5px;">🌐 <a href="https://www.gugak.go.kr/site/main/index001" target="_blank" style="color: #1976D2; text-decoration: none;">www.gugak.go.kr</a></div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=National+Gugak+Center+2364+Nambusunhwan-ro+Seocho-gu+Seoul" target="_blank" class="location-link">📍 2364 Nambusunhwan-ro, Seocho-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">2️⃣ Seoul "Light-Up" Tavern (Songpa)</div>
+                        <div class="activity-price">Free (unless ordering food)</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Seokchon+Lake+Songpa-gu+Seoul" target="_blank" class="location-link">📍 Seokchon Lake area, Songpa-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ Suwon Starfield Library</div>
+                        <div class="activity-price">Free entry</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Starfield+Suwon+83+Jungbu-daero+Yeongtong-gu+Suwon-si" target="_blank" class="location-link">📍 83 Jungbu-daero, Yeongtong-gu, Suwon-si</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">4️⃣ Diamond Palace (Inspire)</div>
+                        <div class="activity-price">Free</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Inspire+Entertainment+Resort+350+Yeongjonghaeannam-ro+Jung-gu+Incheon" target="_blank" class="location-link">📍 350 Yeongjonghaeannam-ro, Jung-gu, Incheon</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">5️⃣ Urban Cliff - Itaewon Sunset View</div>
+                        <div class="activity-price">Free</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Urban+Cliff+Itaewon+Yongsan-gu+Seoul" target="_blank" class="location-link">📍 Itaewon-dong, Yongsan-gu, Seoul</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day5-content')">
+                <span>Dec 7 - Sunday (Yongsan + Hannam-dong + Itaewon)</span>
+                <span class="toggle-icon" id="day5-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day5-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 Transport Cost</div>
+                    <p class="price">Subway round-trip: ₩3,100 ≈ 24 SEK per person</p>
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">1️⃣ Yongsan "My Mister" Filming Spot</div>
+                        <div class="activity-price">Free</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Yongsan+Station+Yongsan-gu+Seoul" target="_blank" class="location-link">📍 Yongsan Station area, Yongsan-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">2️⃣ Hannam-dong Cafés</div>
+                        <div class="activity-price">Paid only for orders</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hannam-dong+Yongsan-gu+Seoul" target="_blank" class="location-link">📍 Hannam-dong, Yongsan-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ Itaewon Dinner</div>
+                        <div class="activity-price">Restaurant pricing</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Itaewon+Street+Yongsan-gu+Seoul" target="_blank" class="location-link">📍 Itaewon-ro, Yongsan-gu, Seoul</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day6-content')">
+                <span>Dec 8 - Monday (Lotte Mart + Shopping + Overnight at Airport Spa)</span>
+                <span class="toggle-icon" id="day6-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day6-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 Transport Cost</div>
+                    <p class="price">
+                        • Morning/Afternoon subway: ₩3,100 ≈ 24 SEK per person<br>
+                        • Evening to Airport: Subway + AREX: ₩6,600 ≈ 43 SEK per person
+                    </p>
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">1️⃣ Lotte Mart (Grocery Shopping)</div>
+                        <div class="activity-price">Shopping cost</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Lotte+Mart+Seoul+Station+426+Cheongpa-ro+Jung-gu+Seoul" target="_blank" class="location-link">📍 426 Cheongpa-ro, Jung-gu, Seoul (Seoul Station)</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">2️⃣ Shopping: Dongdaemun (Winter Clothes & Shoes) 🛍️</div>
+                        <div class="activity-price">• Doota Mall & Migliore (open until 5am!)<br>• Great prices for jackets, shoes, Korean fashion</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Doota+Mall+Dongdaemun+275+Jangchungdan-ro+Jung-gu+Seoul" target="_blank" class="location-link">📍 275 Jangchungdan-ro, Jung-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ Optional: Myeongdong or COEX for more shopping</div>
+                        <div class="activity-price">• Myeongdong: International brands (Uniqlo, H&M, Zara)<br>• COEX: Upscale mall in Gangnam</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=COEX+Mall+513+Yeongdong-daero+Gangnam-gu+Seoul" target="_blank" class="location-link">📍 COEX: 513 Yeongdong-daero, Gangnam-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">4️⃣ Return to accommodation, pack & checkout</div>
+                    </li>
+                    <li>
+                        <div class="activity-name">5️⃣ Evening: Travel to Incheon Airport (depart around 8-9 PM)</div>
+                        <div class="activity-price">Subway + AREX included in transport above</div>
+                    </li>
+                    <li style="background: #e3f2fd; border-left-color: #2196F3;">
+                        <div class="activity-name">6️⃣ Overnight at Spa On Air 스파온에어 (Terminal 1, 4F) 🛁</div>
+                        <div class="activity-price">
+                            <strong>Price: ₩15,000-25,000 ≈ 97-162 SEK per person</strong><br>
+                            • 24-hour Korean jjimjilbang (sauna/spa)<br>
+                            • Facilities: Hot/cold baths, sauna rooms, sleeping area, showers<br>
+                            • Perfect for overnight stay before early flight!<br>
+                            • Wake up at 5:30 AM, walk straight to check-in
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Spa+On+Air+Incheon+Airport+Terminal+1" target="_blank" class="location-link">📍 Incheon Airport Terminal 1, 4th Floor</a>
+                        <div class="note" style="margin-top: 10px; background: #e3f2fd; border-left-color: #2196F3; color: #1565c0;">
+                            <strong>ℹ️ Gender Arrangements:</strong><br>
+                            • Bathing areas (hot tubs, showers, saunas): Gender-separated, clothing-free (traditional Korean style)<br>
+                            • Common areas & sleeping rooms: Co-ed/mixed, wear provided spa clothing<br>
+                            • You can rest and sleep together in shared areas after bathing separately
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day7-content')">
+                <span>Dec 9 - Tuesday (Flight to Osaka - Already at Airport!)</span>
+                <span class="toggle-icon" id="day7-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day7-content">
+                <div class="transport" style="background: #e8f5e9; border-left-color: #4caf50;">
+                    <div class="transport-title" style="color: #2e7d32;">🛁 Morning at Spa On Air</div>
+                    <p style="color: #333;">
+                        <strong>⏰ Morning Timeline (Already at Terminal 1!):</strong><br>
+                        • 5:30 AM - Wake up at spa, shower & freshen up<br>
+                        • 5:50 AM - Leave spa, head to check-in counter<br>
+                        • 6:00 AM - Check in for flight (1.5 hours before departure)<br>
+                        • 6:30 AM - Pass through security<br>
+                        • 7:30 AM - Departure
+                    </p>
+                    <div class="note" style="background: #e8f5e9; border-left-color: #4caf50;">
+                        <strong style="color: #2e7d32;">✅ Benefits of overnight spa:</strong><br>
+                        • No need for early morning taxi (saves ₩60,000-70,000!)<br>
+                        • No rush or stress<br>
+                        • Relaxing end to Seoul trip<br>
+                        • Already at airport - just walk to check-in!
+                    </div>
+                </div>
+                <div class="transport" style="background: #fff3e0; border-left-color: #ff9800;">
+                    <div class="transport-title" style="color: #e65100;">✈️ Flight Information</div>
+                    <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>Peach Aviation MM712</strong></p>
+                    <p class="price" style="color: #333;">
+                        • Departure: 7:30 AM from ICN Terminal 1<br>
+                        • Arrival: 9:15 AM at KIX (Kansai International Airport, Osaka)<br>
+                        • Flight Duration: 1h 45min<br>
+                        • Direct Flight
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Apps & Cards -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('apps-content')" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">
+                <span>📱 Recommended Apps & Cards</span>
+                <span class="toggle-icon" id="apps-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="apps-content">
+                <!-- T-Money Card Section -->
+                <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #4caf50;">
+                    <h3 style="color: #2e7d32; margin-bottom: 15px;">💳 T-Money Card - MUST HAVE for Transportation</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 15px;">
+                        <div style="background: white; padding: 15px; border-radius: 8px;">
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">💰 Cost</h4>
+                            <p style="color: #333; font-size: 0.95em; line-height: 1.6;">
+                                • Card: ₩5,000 (refundable)<br>
+                                • Balance: ₩25,000-30,000<br>
+                                • Total: ₩30,000-35,000 ≈ 194-226 SEK
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px;">
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">🛒 Where to Buy</h4>
+                            <p style="color: #333; font-size: 0.95em; line-height: 1.6;">
+                                • CU, GS25, 7-Eleven<br>
+                                • Subway stations<br>
+                                • Incheon Airport
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px;">
+                            <h4 style="color: #2e7d32; margin-bottom: 8px;">✅ How to Use</h4>
+                            <p style="color: #333; font-size: 0.95em; line-height: 1.6;">
+                                • Tap entering/exiting subway<br>
+                                • Tap on bus (boarding/exiting)<br>
+                                • Auto transfer discount (30 min)
+                            </p>
+                        </div>
+                    </div>
+                    <div style="background: white; padding: 12px; border-radius: 6px; border-left: 3px solid #4caf50;">
+                        <strong style="color: #2e7d32;">💡 Pro Tip:</strong> Buy on Day 1, keep ₩5,000 minimum balance, return for refund before leaving Korea!
+                    </div>
+                </div>
+
+                <!-- Apps Section -->
+                <h3 style="color: #333; margin-bottom: 15px; padding-left: 5px;">📱 Essential Apps</h3>
+                <div class="apps-container">
+                    <div class="app-card">
+                        <div class="app-icon">💳</div>
+                        <h4>T-money App</h4>
+                        <p>Official transportation card app for Seoul subway and buses. Top up your card, check balance, and track your trips easily.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🎫</div>
+                        <h4>Klook</h4>
+                        <p>Book attractions, tours, and experiences in advance. Get tickets for popular spots and save time with skip-the-line options.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🗺️</div>
+                        <h4>Naver Map</h4>
+                        <p>Most accurate navigation in Korea. Better than Google Maps for finding locations, public transport routes, and real-time bus arrivals.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🌐</div>
+                        <h4>Papago</h4>
+                        <p>Naver's translation app with voice, text, and image translation. Better for Korean than Google Translate, includes conversation mode.</p>
+                    </div>
+                    <div class="app-card">
+                        <div class="app-icon">🍜</div>
+                        <h4>Kakao Map</h4>
+                        <p>Find restaurants, cafes, and shops with reviews. Great for discovering local favorites and checking business hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 30px; text-align: center; color: #666; font-size: 0.9em;">
+            <p>Have a wonderful trip! 🎉</p>
+            <p style="margin-top: 10px;">Note: Prices are for reference only, actual costs may vary</p>
+        </div>
+    </div>
+</body>
+</html>
