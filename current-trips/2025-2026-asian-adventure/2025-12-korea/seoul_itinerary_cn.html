@@ -620,13 +620,83 @@
         <!-- Day 5 -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('day5-content')">
-                <span>12月7日 - 星期日（灵活安排）</span>
+                <span>12月7日 - 星期日（理发 + 江南购物 + 打卡）</span>
                 <span class="toggle-icon" id="day5-content-icon">▼</span>
             </div>
             <div class="day-content" id="day5-content">
-                <div class="note" style="background: #f3e5f5; border-left-color: #9c27b0;">
-                    <strong style="color: #7b1fa2;">🎯 今日行程待定：</strong><br>
-                    今天的行程还没有具体安排。我们可以从"待体验/待去"列表中选择感兴趣的地方！
+                <div class="note" style="background: #e8f5e9; border-left-color: #4caf50; margin-bottom: 15px;">
+                    <strong style="color: #2e7d32;">📍 今日路线规划：</strong><br>
+                    今天的路线集中在江南区域，所有地点都在地铁2号线沿线，交通非常方便！
+                </div>
+
+                <div class="transport">
+                    <div class="transport-title">🚇 交通方式</div>
+                    <p class="price">地铁2号线为主 • 全天约: ₩4,000-6,000 ≈ 26-39 SEK/人</p>
+                </div>
+
+                <ul class="itinerary-list">
+                    <li style="background: #fff3e0; border-left-color: #ff9800;">
+                        <div class="activity-name">1️⃣ 上午：韩式理发 Korean Hair Salon</div>
+                        <div class="activity-price">₩15,000-50,000 ≈ 97-323 SEK</div>
+                        <div style="font-size: 0.9em; color: #e65100; margin-top: 5px; font-weight: 500;">
+                            💡 <strong>推荐区域：</strong>江南站、COEX Mall附近有很多高质量理发店<br>
+                            🔍 可以用Naver Map搜索"미용실" (理发店) 或 "헤어샵" (Hair Shop)<br>
+                            ⏰ 建议早上10-11点去，避开下午高峰
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hair+Salon+Gangnam+Seoul" target="_blank" class="location-link">📍 搜索江南站附近理发店</a>
+                    </li>
+                    <li style="background: #e3f2fd; border-left-color: #2196F3;">
+                        <div class="activity-name">2️⃣ 中午：COEX Mall购物 + 午餐</div>
+                        <div class="activity-price">购物费用 + 餐费</div>
+                        <div style="font-size: 0.9em; color: #1976D2; margin-top: 5px; font-weight: 500;">
+                            🛍️ <strong>购物推荐：</strong><br>
+                            • COEX Mall内有各种品牌店、化妆品店、服装店<br>
+                            • 再次打卡Starfield图书馆拍照<br>
+                            • 美食广场或餐厅午餐
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=COEX+Mall+Seoul" target="_blank" class="location-link">📍 513 Yeongdong-daero, Gangnam-gu, Seoul</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">3️⃣ 下午：江南地下购物中心 Gangnam Underground Shopping Center</div>
+                        <div class="activity-price">免费逛 • 购物按需</div>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                            💡 江南站地下有超大型购物中心，连接多个地铁出口<br>
+                            🛍️ 服装、饰品、鞋子、化妆品应有尽有，价格比地面店便宜<br>
+                            📸 很有首尔地下购物街的特色体验
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Gangnam+Underground+Shopping+Center+Seoul" target="_blank" class="location-link">📍 江南站地下（2号线）</a>
+                    </li>
+                    <li>
+                        <div class="activity-name">4️⃣ 傍晚：新沙洞林荫道 Garosu-gil (可选打卡)</div>
+                        <div class="activity-price">免费 • 咖啡/小吃按需</div>
+                        <div style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                            💡 从江南站坐2号线1站到新沙站（3号出口）<br>
+                            🌳 林荫大道两旁都是精品店、咖啡厅、甜品店<br>
+                            📸 首尔最ins风的街道，适合拍照打卡<br>
+                            ☕ 可以找个咖啡厅休息
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Garosu-gil+Sinsa+Seoul" target="_blank" class="location-link">📍 新沙站3号出口，Garosu-gil</a>
+                    </li>
+                    <li style="background: #f3e5f5; border-left-color: #9c27b0;">
+                        <div class="activity-name">5️⃣ 晚上：弘大 OR 梨泰院 晚餐+夜生活（可选）</div>
+                        <div class="activity-price">餐费 + 酒吧费用（如需）</div>
+                        <div style="font-size: 0.9em; color: #7b1fa2; margin-top: 5px; font-weight: 500;">
+                            🌃 <strong>两个选择：</strong><br>
+                            • <strong>弘大：</strong>年轻、热闹、韩国本地夜生活（2号线→弘大入口站）<br>
+                            • <strong>梨泰院：</strong>国际化、异国美食、外国人多（6号线梨泰院站）
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hongdae+Seoul" target="_blank" class="location-link">📍 弘大入口站 (地铁2号线)</a><br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Itaewon+Seoul" target="_blank" class="location-link">📍 梨泰院站 (地铁6号线)</a>
+                    </li>
+                </ul>
+
+                <div class="note">
+                    <strong>💡 今日小贴士：</strong><br>
+                    • 全程基本在地铁2号线沿线，交通超级方便<br>
+                    • 理发建议早上去，人少不用等<br>
+                    • COEX和江南地下商城可以逛很久，注意时间分配<br>
+                    • 新沙洞林荫道是拍照打卡好地方，但可选（如果累了可以跳过）<br>
+                    • 晚上如果累了可以直接回住处，不一定要去夜生活
                 </div>
             </div>
         </div>
@@ -634,12 +704,12 @@
         <!-- Day 6 -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('day6-content')">
-                <span>12月8日 - 星期一（灵活安排 + 机场温泉过夜）</span>
+                <span>12月8日 - 星期一（还未安排 + 机场温泉过夜）</span>
                 <span class="toggle-icon" id="day6-content-icon">▼</span>
             </div>
             <div class="day-content" id="day6-content">
                 <div class="note" style="background: #f3e5f5; border-left-color: #9c27b0; margin-bottom: 20px;">
-                    <strong style="color: #7b1fa2;">🎯 白天行程待定：</strong><br>
+                    <strong style="color: #7b1fa2;">🎯 白天行程还未安排：</strong><br>
                     今天白天的行程还没有具体安排。我们可以从"待体验/待去"列表中选择感兴趣的地方！<br>
                     <strong style="color: #d32f2f;">⚠️ 记得：</strong>下午需要回住处收拾行李退房，晚上前往机场温泉过夜。
                 </div>
@@ -741,11 +811,6 @@
                             <div class="activity-price">免费</div>
                             <div style="font-size: 0.9em; color: #666; margin-top: 5px;">💡 传统韩屋建筑群，适合拍照</div>
                             <a href="https://www.google.com/maps/search/?api=1&query=Bukchon+Hanok+Village+Seoul" target="_blank" class="location-link">📍 37 Gyedong-gil, Jongno-gu, Seoul</a>
-                        </li>
-                        <li>
-                            <div class="activity-name">韩服租赁体验</div>
-                            <div class="activity-price">₩10,000-20,000 ≈ 65-130 SEK/人</div>
-                            <div style="font-size: 0.9em; color: #666; margin-top: 5px;">💡 穿韩服进景福宫免门票</div>
                         </li>
                         <li>
                             <div class="activity-name">仁寺洞艺术街 Insadong</div>
