@@ -1,40 +1,70 @@
-# Trip Planner Template - Project Instructions
+# 旅行规划模板 - 项目指令
 
-## Purpose
-This template helps create comprehensive travel itinerary HTML files for any city, based on the Seoul itinerary structure.
+## 目的
+此模板用于为任何城市创建完整的旅行行程HTML文件，基于首尔行程的结构。
 
-## When to Use
-When the user requests to create a new trip itinerary for a city, use this template to generate a well-structured HTML file with all necessary sections.
+## 何时使用
+当用户请求为某个城市创建新的旅行行程时，使用此模板生成包含所有必要部分的结构化HTML文件。
 
-## Required Information from User
-Before creating the itinerary, ask the user for:
-1. **City/Destination name** (Chinese & English)
-2. **Travel dates** (start and end date)
-3. **Accommodation address** (with map link)
-4. **Local currency** (e.g., KRW, JPY, USD)
-5. **Number of travelers**
-6. **Any specific activities or preferences**
+## 重要：创建两个HTML文件
+**始终创建两个语言版本：**
+1. `{city}_itinerary_cn.html` - 中文版
+2. `{city}_itinerary_en.html` - 英文版
 
-## HTML Structure Template
+两个文件右上角都应该有语言切换按钮，可以相互链接。
 
-### 1. Header Section
-- **Title**: City name in both Chinese and English
-- **Trip duration and dates**
-- **Currency exchange rates**:
-  - Local currency → CNY (人民币)
-  - Local currency → SEK (瑞典克朗)
-  - Format: `1 [Currency] = X CNY ≈ Y SEK`
-  - Always show conversion for both CNY and SEK
+## 需要向用户询问的信息
+创建行程前，询问用户：
+1. **城市/目的地名称**（中英文）
+2. **旅行日期**（开始和结束日期）
+3. **住宿地址**（带地图链接）
+4. **当地货币**（如 KRW, JPY, USD）
+5. **旅行人数**
+6. **任何特定活动或偏好**
 
-### 2. Accommodation Section (住宿信息)
-**Must include**:
-- 🏠 Accommodation name
-- 📍 Full address with Google Maps link
-- 🔑 Check-in/Check-out dates and times
-- 💡 Host recommendations (if available)
-- 🚇 Nearest subway/public transport stations
+## HTML结构模板
 
-**HTML Format**:
+### 0. 语言切换器（右上角）
+**两个版本都必须包含：**
+
+中文版 (`_cn.html`)：
+```html
+<div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+    <a href="./{city}_itinerary_en.html" style="background: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; color: #667eea; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 2px solid #667eea;">
+        English
+    </a>
+</div>
+```
+
+英文版 (`_en.html`)：
+```html
+<div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+    <a href="./{city}_itinerary_cn.html" style="background: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; color: #667eea; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 2px solid #667eea;">
+        中文
+    </a>
+</div>
+```
+
+### 1. 标题部分
+**中文版：**
+- **标题**：城市名 旅行行程
+- **旅行时长和日期**（中文格式）
+- **货币汇率**：当地货币 → 人民币 → 瑞典克朗
+
+**英文版：**
+- **Title**: City Name Travel Itinerary
+- **Trip duration and dates**（英文格式）
+- **Currency exchange rates**: Local → CNY → SEK
+
+### 2. 住宿信息部分
+**必须包含**:
+- 🏠 住宿名称
+- 📍 完整地址和Google地图链接
+- 🔑 入住/退房日期和时间
+- 💡 房东推荐（如有）
+- 🚇 最近的地铁/公共交通站
+
+**HTML格式**:
 ```html
 <div class="day-card">
     <div class="day-header" onclick="toggleDay('accommodation-content')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
@@ -42,52 +72,52 @@ Before creating the itinerary, ask the user for:
         <span class="toggle-icon" id="accommodation-content-icon">▼</span>
     </div>
     <div class="day-content" id="accommodation-content">
-        <!-- Accommodation details -->
+        <!-- 住宿详细信息 -->
     </div>
 </div>
 ```
 
-### 3. Daily Itinerary (每日行程)
-**For each day, include**:
-- Date with day of week (Chinese & English)
-- 🚇 Transportation method and estimated costs
-- Numbered activities (1️⃣, 2️⃣, 3️⃣...)
-- Each activity should have:
-  - Activity name (Chinese & English)
-  - Price in local currency → CNY → SEK
-  - Description and tips
-  - Google Maps link
-  - Time recommendations
+### 3. 每日行程
+**每天包含**:
+- 日期和星期（中文版：12月7日 - 星期日 / 英文版：December 7 - Sunday）
+- 🚇 交通方式和预估费用
+- 编号活动（1️⃣, 2️⃣, 3️⃣...）
+- 每个活动应该有：
+  - 活动名称（中英文）
+  - 价格：当地货币 → 人民币 → 瑞典克朗
+  - 描述和小贴士
+  - Google地图链接
+  - 时间建议
 
-**Status markers**:
-- ✅ Completed days: Add "已完成" in header, use green note boxes for recommendations
-- ⚠️ Disappointing experiences: Use yellow warning boxes
-- Pending days: Show as "待安排" or "还未安排"
+**状态标记**:
+- ✅ 已完成的日子：标题加"已完成"，用绿色提示框标注推荐
+- ⚠️ 失望的体验：使用黄色警告框
+- 待定的日子：显示为"待安排"或"还未安排"
 
-**HTML Format**:
+**HTML格式**:
 ```html
 <div class="day-card">
     <div class="day-header" onclick="toggleDay('day1-content')">
-        <span>Day 1 - Date（Activity themes）✅ 已完成</span>
+        <span>12月7日 - 星期日（活动主题）✅ 已完成</span>
         <span class="toggle-icon" id="day1-content-icon">▼</span>
     </div>
     <div class="day-content" id="day1-content">
-        <!-- Daily activities -->
+        <!-- 每日活动 -->
     </div>
 </div>
 ```
 
-### 4. To Experience Section (待体验/待去)
-**Must include before Apps section**:
-- Purple gradient header
-- Note explaining this is a flexible list
-- Categorized activities:
-  - 🎎 Traditional/Cultural experiences
-  - 🛍️ Shopping & Modern attractions
-  - 🌃 Nightlife & Entertainment
-  - (Other categories as needed)
+### 4. 待体验/待去部分
+**必须在Apps部分之前包含**:
+- 紫色渐变标题
+- 说明这是灵活列表的提示
+- 分类活动：
+  - 🎎 传统/文化体验
+  - 🛍️ 购物与现代景点
+  - 🌃 夜生活与娱乐
+  - （根据需要添加其他分类）
 
-**HTML Format**:
+**HTML格式**:
 ```html
 <div class="day-card">
     <div class="day-header" onclick="toggleDay('to-experience-content')" style="background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);">
@@ -99,35 +129,35 @@ Before creating the itinerary, ask the user for:
             <strong style="color: #7b1fa2;">💡 关于这个列表：</strong><br>
             这里收集了所有还没去的地方和体验。每天我们可以讨论明天想去哪里，灵活安排行程！
         </div>
-        <!-- Categorized experiences -->
+        <!-- 分类体验 -->
     </div>
 </div>
 ```
 
-### 5. Apps & Transportation Section (推荐应用与交通方式)
-**Must include**:
+### 5. 推荐应用与交通方式部分
+**必须包含**:
 
-#### A. Public Transportation Card/System
-- 🚇 Card name and description
-- 💰 Pricing:
-  - Per-entry/per-trip cost
-  - Card deposit (if applicable)
-  - Suggested recharge amount
-- 💳 Two usage methods (if applicable):
-  - **Method 1**: Physical card (purchase location, deposit, recharge, refund)
-  - **Method 2**: Mobile/virtual card (recommended if available)
-- ✅ How to use (entry/exit, transfers, discounts)
+#### A. 公共交通卡/系统
+- 🚇 交通卡名称和描述
+- 💰 价格：
+  - 每次进站/单程费用
+  - 卡片押金（如适用）
+  - 建议充值金额
+- 💳 两种使用方式（如适用）：
+  - **方式1**：实体卡（购买地点、押金、充值方式、退卡）
+  - **方式2**：手机/虚拟卡（如有则推荐）
+- ✅ 使用方法（进出站、换乘、优惠）
 
-#### B. Essential Apps
-Recommend 4-6 essential apps:
-- 💳 Transit/transportation app
-- 🗺️ Local navigation app (better than Google Maps)
-- 🌐 Translation app
-- 🍜 Food/restaurant discovery app
-- 🎫 Booking/ticket app (if applicable)
-- 💳 Payment app (if applicable)
+#### B. 必备应用
+推荐4-6个必备应用：
+- 💳 交通/运输应用
+- 🗺️ 当地导航应用（比Google地图更好）
+- 🌐 翻译应用
+- 🍜 美食/餐厅发现应用
+- 🎫 预订/门票应用（如适用）
+- 💳 支付应用（如适用）
 
-**HTML Format**:
+**HTML格式**:
 ```html
 <div class="day-card">
     <div class="day-header" onclick="toggleDay('apps-content')" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">
@@ -135,13 +165,13 @@ Recommend 4-6 essential apps:
         <span class="toggle-icon" id="apps-content-icon">▼</span>
     </div>
     <div class="day-content" id="apps-content">
-        <!-- Transportation section -->
-        <!-- Apps section -->
+        <!-- 交通部分 -->
+        <!-- 应用部分 -->
     </div>
 </div>
 ```
 
-### 6. Footer
+### 6. 页脚
 ```html
 <div style="padding: 30px; text-align: center; color: #666; font-size: 0.9em;">
     <p>祝您旅途愉快！🎉</p>
@@ -149,79 +179,96 @@ Recommend 4-6 essential apps:
 </div>
 ```
 
-## Styling Guidelines
+## 样式指南
 
-### Color Schemes by Section Type
-- **Accommodation**: Purple gradient `#667eea → #764ba2`
-- **Completed days**: Green accents `#4caf50`
-- **Warning/Disappointments**: Yellow accents `#ffc107`
-- **To Experience**: Purple gradient `#9c27b0 → #7b1fa2`
-- **Apps & Transportation**: Red-pink gradient `#ff6b6b → #ee5a6f`
-- **Transportation details**: Green background `#e8f5e9`
+### 各部分配色方案
+- **住宿**：紫色渐变 `#667eea → #764ba2`
+- **已完成日子**：绿色强调 `#4caf50`
+- **警告/失望**：黄色强调 `#ffc107`
+- **待体验**：紫色渐变 `#9c27b0 → #7b1fa2`
+- **应用与交通**：红粉渐变 `#ff6b6b → #ee5a6f`
+- **交通详情**：绿色背景 `#e8f5e9`
 
-### Activity Categories
-- **Traditional/Cultural**: Orange `#ff9800`
-- **Shopping/Modern**: Blue `#2196F3`
-- **Nightlife/Entertainment**: Purple `#9c27b0`
-- **Food/Dining**: Can use green or custom color
+### 活动分类
+- **传统/文化**：橙色 `#ff9800`
+- **购物/现代**：蓝色 `#2196F3`
+- **夜生活/娱乐**：紫色 `#9c27b0`
+- **美食/餐饮**：可使用绿色或自定义颜色
 
-### Recommended vs Not Recommended
-- ✅ **Recommended**: Green background `#e8f5e9`, green border `#4caf50`
-- ⚠️ **Not recommended**: Yellow background `#fff3cd`, yellow border `#ffc107`
-- 💡 **Tips**: Light blue background `#e3f2fd`, blue border `#2196F3`
+### 推荐 vs 不推荐
+- ✅ **推荐**：绿色背景 `#e8f5e9`，绿色边框 `#4caf50`
+- ⚠️ **不推荐**：黄色背景 `#fff3cd`，黄色边框 `#ffc107`
+- 💡 **小贴士**：浅蓝背景 `#e3f2fd`，蓝色边框 `#2196F3`
 
-## Language Requirements
-- **All section headers**: Chinese + English
-- **Activity names**: Chinese + English
-- **Descriptions**: Primarily Chinese, with key English terms in parentheses where helpful
-- **Currency**: Always show: Local Currency → CNY → SEK
-- **Dates**: Chinese format with English weekday
+## 语言要求
 
-## Interactive Features
-All collapsible sections must include:
+### 中文版 (`_cn.html`)
+- **所有部分标题**：中文带英文括号（如"住宿信息 Accommodation"）
+- **活动名称**：中文 + 英文
+- **描述**：主要为中文
+- **货币**：当地货币 → 人民币 → 瑞典克朗
+- **日期**：中文格式（如"12月7日 - 星期日"）
+- **语言切换器**：右上角链接到英文版
+
+### 英文版 (`_en.html`)
+- **所有部分标题**：英文带中文括号（如"Accommodation 住宿信息"）
+- **活动名称**：英文 + 中文
+- **描述**：主要为英文
+- **货币**：当地货币 → CNY → SEK（保持相同）
+- **日期**：英文格式（如"December 7 - Sunday"）
+- **语言切换器**：右上角链接到中文版
+
+## 交互功能
+所有可折叠部分必须包含：
 ```javascript
 onclick="toggleDay('section-id')"
 ```
-And corresponding toggle icon with ID: `section-id-icon`
+以及对应的切换图标ID：`section-id-icon`
 
-## Price Format
-Always display prices in this format:
+## 价格格式
+始终以此格式显示价格：
 - `₩1,550 ≈ 10 CNY ≈ 6.5 SEK`
-- Local currency → CNY (人民币) → SEK (克朗)
-- Round to reasonable decimal places
+- 当地货币 → 人民币 → 瑞典克朗
+- 保留合理的小数位数
 
-## Tips for Honest Reviews
-When user completes activities:
-- Use green boxes for highly recommended experiences
-- Use yellow warning boxes for disappointing experiences
-- Include specific details: what was good/bad, prices, who it's suitable for
-- Add host recommendations when applicable
-- Provide practical tips (timing, booking, what to avoid)
+## 诚实评价的小贴士
+当用户完成活动时：
+- 对高度推荐的体验使用绿色框
+- 对失望的体验使用黄色警告框
+- 包含具体细节：好在哪里/不好在哪里、价格、适合谁
+- 添加房东推荐（如适用）
+- 提供实用建议（时间、预订、避免什么）
 
-## File Naming Convention
-`{city-name-english}_itinerary_cn.html`
+## 文件命名规范
+- 中文版：`{city-name-english}_itinerary_cn.html`
+- 英文版：`{city-name-english}_itinerary_en.html`
 
-Example: `seoul_itinerary_cn.html`, `tokyo_itinerary_cn.html`
+示例：
+- `seoul_itinerary_cn.html` + `seoul_itinerary_en.html`
+- `tokyo_itinerary_cn.html` + `tokyo_itinerary_en.html`
 
-## Example Usage
+## 使用示例
 
-When user says: "Help me create an itinerary for Tokyo"
+当用户说："帮我创建东京的行程"
 
-1. Ask for required information (dates, accommodation, currency rate, preferences)
-2. Create HTML file using this template structure
-3. Include all mandatory sections:
-   - Header with currency conversion
-   - Accommodation
-   - Daily itinerary (with flexible days as "待安排")
-   - To Experience section
-   - Apps & Transportation
-   - Footer
-4. Populate with Tokyo-specific content (transit system, apps, activities)
-5. Ensure all prices show JPY → CNY → SEK conversion
+1. 询问所需信息（日期、住宿、汇率、偏好）
+2. 创建**两个**HTML文件使用此模板结构
+3. 包含所有必需部分：
+   - 带语言切换器的标题
+   - 带汇率转换的标题
+   - 住宿信息
+   - 每日行程（灵活日子标为"待安排"）
+   - 待体验部分
+   - 应用与交通
+   - 页脚
+4. 填充东京特定内容（交通系统、应用、活动）
+5. 确保所有价格显示 JPY → CNY → SEK 转换
+6. 中文版主要用中文描述，英文版主要用英文描述
 
-## Notes
-- Always base structure on the Seoul itinerary example
-- Keep the same CSS classes and styling
-- Maintain bilingual content throughout
-- Include practical, honest, and detailed information
-- Make the itinerary flexible with "To Experience" section for unplanned days
+## 注意事项
+- 始终基于首尔行程示例的结构
+- 保持相同的CSS类和样式
+- 两个版本都要维护双语内容（标题和关键词）
+- 包含实用、诚实和详细的信息
+- 通过"待体验"部分使行程保持灵活性
+- **记住：始终创建两个文件（中文版和英文版）**
