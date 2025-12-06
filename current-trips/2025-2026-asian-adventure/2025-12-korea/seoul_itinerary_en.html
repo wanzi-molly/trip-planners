@@ -441,30 +441,66 @@
         <!-- Currency Calculator -->
         <div class="calculator">
             <h3>💰 Currency Calculator</h3>
+            <p style="font-size: 0.9em; color: #999; margin-bottom: 15px;">Enter any currency, others will auto-calculate</p>
             <div class="calculator-inputs">
                 <div class="input-group">
                     <label for="krw-input">KRW (₩)</label>
-                    <input type="number" id="krw-input" placeholder="Enter KRW" oninput="convertCurrency()">
+                    <input type="number" id="krw-input" placeholder="Enter KRW" oninput="convertFromKRW()" step="any">
                 </div>
                 <div style="color: white; font-size: 1.5em; font-weight: bold;">⇄</div>
                 <div class="input-group">
-                    <label for="sek-output">SEK (kr)</label>
-                    <input type="text" id="sek-output" placeholder="0.00" readonly style="background: #e8f5e9;">
+                    <label for="cny-input">CNY (¥)</label>
+                    <input type="number" id="cny-input" placeholder="Enter CNY" oninput="convertFromCNY()" step="any">
+                </div>
+                <div style="color: white; font-size: 1.5em; font-weight: bold;">⇄</div>
+                <div class="input-group">
+                    <label for="sek-input">SEK (kr)</label>
+                    <input type="number" id="sek-input" placeholder="Enter SEK" oninput="convertFromSEK()" step="any">
                 </div>
             </div>
         </div>
 
         <script>
-            function convertCurrency() {
-                const krw = document.getElementById('krw-input').value;
-                const sekOutput = document.getElementById('sek-output');
+            // Exchange rates (as of Dec 2025)
+            const rates = {
+                KRW_TO_SEK: 0.00647,  // 1 KRW = 0.00647 SEK
+                KRW_TO_CNY: 0.00513,  // 1 KRW = 0.00513 CNY
+                CNY_TO_SEK: 1.26,     // 1 CNY = 1.26 SEK
+                CNY_TO_KRW: 195,      // 1 CNY = 195 KRW
+                SEK_TO_KRW: 154.56,   // 1 SEK = 154.56 KRW
+                SEK_TO_CNY: 0.79      // 1 SEK = 0.79 CNY
+            };
 
-                if (krw && krw > 0) {
-                    const exchangeRate = 0.00647; // 1 KRW = 0.00647 SEK (1,000 KRW = 6.47 SEK)
-                    const sek = (krw * exchangeRate).toFixed(2);
-                    sekOutput.value = sek;
+            function convertFromKRW() {
+                const krw = parseFloat(document.getElementById('krw-input').value);
+                if (krw && krw >= 0) {
+                    document.getElementById('cny-input').value = (krw * rates.KRW_TO_CNY).toFixed(2);
+                    document.getElementById('sek-input').value = (krw * rates.KRW_TO_SEK).toFixed(2);
                 } else {
-                    sekOutput.value = '';
+                    document.getElementById('cny-input').value = '';
+                    document.getElementById('sek-input').value = '';
+                }
+            }
+
+            function convertFromCNY() {
+                const cny = parseFloat(document.getElementById('cny-input').value);
+                if (cny && cny >= 0) {
+                    document.getElementById('krw-input').value = (cny * rates.CNY_TO_KRW).toFixed(0);
+                    document.getElementById('sek-input').value = (cny * rates.CNY_TO_SEK).toFixed(2);
+                } else {
+                    document.getElementById('krw-input').value = '';
+                    document.getElementById('sek-input').value = '';
+                }
+            }
+
+            function convertFromSEK() {
+                const sek = parseFloat(document.getElementById('sek-input').value);
+                if (sek && sek >= 0) {
+                    document.getElementById('krw-input').value = (sek * rates.SEK_TO_KRW).toFixed(0);
+                    document.getElementById('cny-input').value = (sek * rates.SEK_TO_CNY).toFixed(2);
+                } else {
+                    document.getElementById('krw-input').value = '';
+                    document.getElementById('cny-input').value = '';
                 }
             }
 
