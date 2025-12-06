@@ -420,23 +420,42 @@
             }
 
             .calculator {
-                margin: 12px 8px;
-                padding: 15px;
+                margin: 10px 8px;
+                padding: 12px;
             }
 
             .calculator h3 {
-                font-size: 1.1em;
-                margin-bottom: 10px;
+                font-size: 0.95em;
+                margin-bottom: 6px;
+            }
+
+            .calculator p {
+                font-size: 0.75em;
+                margin-bottom: 8px;
             }
 
             .calculator-inputs {
-                flex-direction: column;
-                gap: 10px;
+                flex-direction: row;
+                gap: 6px;
+                align-items: center;
+            }
+
+            .calculator-inputs > div[style*="font-size: 1.5em"] {
+                font-size: 1em !important;
+            }
+
+            .input-group {
+                flex: 1;
+            }
+
+            .input-group label {
+                font-size: 0.75em;
+                margin-bottom: 2px;
             }
 
             .input-group input {
-                padding: 8px 10px;
-                font-size: 0.95em;
+                padding: 6px 8px;
+                font-size: 0.85em;
                 width: 100%;
             }
 
@@ -467,15 +486,12 @@
 
         <div class="exchange-rate">
             <strong>📍 Accommodation Address:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Seoul+Gwanak+남부순환로260길+119" target="_blank" style="color: #1976D2; text-decoration: none;">Seoul Gwanak 남부순환로260길 119</a><br>
-            <strong>🏠 Accommodation Type:</strong> Home Exchange (Free Stay)<br>
-            <span style="font-size: 0.9em; color: #666;">💡 We used Home Exchange platform for house swap, Seoul accommodation was completely free! <a href="https://www.homeexchange.com/?sponsorkey=menglei-05fb0" target="_blank" style="color: #1976D2; text-decoration: none;">Learn more here</a></span><br>
             <strong>💱 Exchange Rate Reference:</strong> 1,000 KRW ≈ 5.13 CNY ≈ 6.47 SEK
         </div>
 
         <!-- Currency Calculator -->
         <div class="calculator">
             <h3>💰 Currency Calculator</h3>
-            <p style="font-size: 0.9em; color: #999; margin-bottom: 15px;">Enter any currency, others will auto-calculate</p>
             <div class="calculator-inputs">
                 <div class="input-group">
                     <label for="krw-input">KRW (₩)</label>
@@ -572,6 +588,12 @@
                     <p class="price" style="color: #2e7d32;">
                         ✓ Taxi cost: ₩58,900 = 381 SEK (total for two people)
                     </p>
+                </div>
+                <div class="note" style="background: #e8f5e9; border-left-color: #4caf50; margin-bottom: 15px;">
+                    <strong style="color: #2e7d32;">🏠 Accommodation: Home Exchange</strong><br>
+                    💡 We used Home Exchange platform for house swap, Seoul accommodation was completely free!<br>
+                    📍 <a href="https://www.google.com/maps/search/?api=1&query=Seoul+Gwanak+남부순환로260길+119" target="_blank" style="color: #1976D2; text-decoration: none;">Seoul Gwanak 남부순환로260길 119</a><br>
+                    🔗 <a href="https://www.homeexchange.com/?sponsorkey=menglei-05fb0" target="_blank" style="color: #1976D2; text-decoration: none;">Learn more about Home Exchange</a>
                 </div>
                 <ul class="itinerary-list">
                     <li style="background: #e8f5e9; border-left-color: #4caf50;">
