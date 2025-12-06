@@ -873,44 +873,57 @@
             </div>
         </div>
 
-        <!-- Recommended Apps & Cards -->
+        <!-- Recommended Apps & Transportation -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('apps-content')" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">
-                <span>📱 推荐应用与卡片</span>
+                <span>📱 推荐应用与交通方式</span>
                 <span class="toggle-icon" id="apps-content-icon">▼</span>
             </div>
             <div class="day-content" id="apps-content">
                 <!-- T-Money Card Section -->
                 <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #4caf50;">
-                    <h3 style="color: #2e7d32; margin-bottom: 15px;">💳 T-Money交通卡 - 必备出行卡</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-bottom: 15px;">
-                        <div style="background: white; padding: 15px; border-radius: 8px;">
-                            <h4 style="color: #2e7d32; margin-bottom: 8px;">💰 费用</h4>
-                            <p style="color: #333; font-size: 0.95em; line-height: 1.6;">
-                                • 卡片：₩5,000（可退）<br>
-                                • 余额：₩25,000-30,000<br>
-                                • 总计：₩30,000-35,000 ≈ 194-226 SEK
-                            </p>
-                        </div>
+                    <h3 style="color: #2e7d32; margin-bottom: 15px;">🚇 T-Money交通卡 - 必备出行卡</h3>
+
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 3px solid #4caf50;">
+                        <h4 style="color: #2e7d32; margin-bottom: 8px;">💰 费用与价格</h4>
+                        <p style="color: #333; font-size: 0.95em; line-height: 1.8;">
+                            <strong>卡片押金：</strong>₩5,000（可退）≈ 32 SEK<br>
+                            <strong>建议充值：</strong>₩25,000-30,000 ≈ 162-194 SEK<br>
+                            <strong>每次进站：</strong>₩1,400 ≈ 9 SEK（地铁基础票价）
+                        </p>
+                    </div>
+
+                    <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 3px solid #2196F3;">
+                        <h4 style="color: #1976D2; margin-bottom: 8px;">💳 两种充值方式</h4>
+                        <p style="color: #333; font-size: 0.95em; line-height: 1.8;">
+                            <strong>方式1 - 便利店/地铁站充值（需现金）：</strong><br>
+                            • 便利店：把卡交给收银员，说明金额付现金<br>
+                            • 地铁站：使用充值机（找"Recharge"或"충전"）<br>
+                            <br>
+                            <strong>方式2 - 手机无现金充值（推荐✅）：</strong><br>
+                            • 使用 <strong>Daemdaem App + Apple Wallet中的T-Money</strong><br>
+                            • 随时随地手机充值，无需现金！<br>
+                            • 💡 实测经验：没带现金时超级方便
+                        </p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
                         <div style="background: white; padding: 15px; border-radius: 8px;">
                             <h4 style="color: #2e7d32; margin-bottom: 8px;">🛒 购买地点</h4>
                             <p style="color: #333; font-size: 0.95em; line-height: 1.6;">
                                 • CU、GS25、7-Eleven<br>
-                                • 地铁站<br>
-                                • 仁川机场
+                                • 地铁站售票机<br>
+                                • 仁川机场便利店
                             </p>
                         </div>
                         <div style="background: white; padding: 15px; border-radius: 8px;">
                             <h4 style="color: #2e7d32; margin-bottom: 8px;">✅ 使用方法</h4>
                             <p style="color: #333; font-size: 0.95em; line-height: 1.6;">
-                                • 进出地铁时刷卡<br>
-                                • 公交车上下车刷卡<br>
-                                • 自动换乘优惠（30分钟）
+                                • 进出地铁闸机刷卡<br>
+                                • 公交上下车都刷卡<br>
+                                • 30分钟内换乘优惠
                             </p>
                         </div>
-                    </div>
-                    <div style="background: white; padding: 12px; border-radius: 6px; border-left: 3px solid #4caf50;">
-                        <strong style="color: #2e7d32;">💡 小贴士：</strong>第1天购买，保持₩5,000最低余额，离开韩国前退卡退押金！
                     </div>
                 </div>
 
@@ -941,66 +954,6 @@
                         <div class="app-icon">🍜</div>
                         <h4>Kakao Map (카카오맵)</h4>
                         <p>查找餐厅、咖啡店和商店，并查看评论。适合发现本地美食和查询营业时间。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- T-Money Card Info -->
-        <div class="day-card" style="margin: 20px 30px;">
-            <div class="day-header" onclick="toggleDay('tmoney-detail-content')" style="background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);">
-                <span>💳 T-Money交通卡 - 详细使用指南</span>
-                <span class="toggle-icon" id="tmoney-detail-content-icon">▼</span>
-            </div>
-            <div class="day-content" id="tmoney-detail-content">
-                <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-                    <h3 style="color: #2e7d32; margin-bottom: 10px;">💰 费用明细</h3>
-                    <p style="color: #333; line-height: 1.8;">
-                        <strong>首次购买：</strong>₩5,000（卡片押金，可退）≈ 32 SEK<br>
-                        <strong>建议充值金额：</strong>₩25,000-30,000 ≈ 162-194 SEK<br>
-                        <strong>总投入：</strong>₩30,000-35,000 ≈ 194-226 SEK/人<br>
-                        <strong>单次乘车：</strong>₩1,400 ≈ 9 SEK（使用T-money优惠价）
-                    </p>
-                </div>
-
-                <div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-                    <h3 style="color: #e65100; margin-bottom: 10px;">🛒 在哪里购买</h3>
-                    <ul style="color: #333; line-height: 2;">
-                        <li><strong>便利店：</strong>CU、GS25、7-Eleven（最常见）</li>
-                        <li><strong>地铁站：</strong>自动售票机或服务台</li>
-                        <li><strong>机场：</strong>仁川机场便利店或咨询台</li>
-                        <li><strong>小贴士：</strong>只需说"T-money card please"并出示₩5,000即可</li>
-                    </ul>
-                </div>
-
-                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
-                    <h3 style="color: #1976D2; margin-bottom: 10px;">💵 如何充值</h3>
-                    <ol style="color: #333; line-height: 2;">
-                        <li><strong>在便利店：</strong>把卡交给收银员，说明金额（如"10,000 won"），付现金</li>
-                        <li><strong>在地铁站：</strong>使用充值机（找"Recharge"或"충전"按钮）</li>
-                        <li><strong>📱 无现金充值（推荐）：</strong>使用 <strong>Daemdaem App + Apple Wallet中的T-Money</strong>，可直接手机充值，无需现金！</li>
-                        <li><strong>最低充值：</strong>₩1,000，建议每次充值₩10,000-20,000</li>
-                    </ol>
-                    <div style="background: #e8f5e9; padding: 12px; border-radius: 8px; margin-top: 10px; border-left: 3px solid #4caf50;">
-                        <strong style="color: #2e7d32;">💡 实测经验：</strong>如果没带现金，在地铁站充值会比较麻烦。建议提前下载Daemdaem App并设置好Apple Wallet中的T-Money，可以随时随地充值！
-                    </div>
-                </div>
-
-                <div style="background: #f3e5f5; padding: 20px; border-radius: 10px;">
-                    <h3 style="color: #7b1fa2; margin-bottom: 10px;">✅ 如何使用</h3>
-                    <ul style="color: #333; line-height: 2;">
-                        <li><strong>进地铁：</strong>在闸机感应区刷卡（听到"哔"声即成功）</li>
-                        <li><strong>出地铁：</strong>出站时再次刷卡（自动计算费用）</li>
-                        <li><strong>公交车：</strong>上车和下车时都要刷卡</li>
-                        <li><strong>换乘优惠：</strong>30分钟内地铁/公交换乘自动享受优惠</li>
-                        <li><strong>查询余额：</strong>在任意地铁闸机感应区轻触（无需进站）</li>
-                    </ul>
-                    <div class="note" style="margin-top: 15px;">
-                        <strong>💡 实用小贴士：</strong><br>
-                        • 第1天在机场或住宿附近购买<br>
-                        • 保持至少₩5,000余额，避免无法乘车<br>
-                        • 全国通用 - 去其他城市也能用！<br>
-                        • 离开韩国前可在便利店退卡退押金
                     </div>
                 </div>
             </div>
