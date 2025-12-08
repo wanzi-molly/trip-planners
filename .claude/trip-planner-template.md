@@ -1,17 +1,17 @@
 # 旅行规划模板 - 项目指令
 
 ## 目的
-此模板用于为任何城市创建完整的旅行行程HTML文件，基于首尔行程的结构。
+此模板用于为任何城市创建完整的旅行行程HTML文件（仅中文版），基于首尔行程的结构。
 
 ## 何时使用
 当用户请求为某个城市创建新的旅行行程时，使用此模板生成包含所有必要部分的结构化HTML文件。
 
-## 重要：创建两个HTML文件
-**始终创建两个语言版本：**
-1. `{city}_itinerary_cn.html` - 中文版
-2. `{city}_itinerary_en.html` - 英文版
+## 重要：只创建中文版
+**只创建一个中文版本：**
+- `{city}_itinerary_cn.html` - 中文版
 
-两个文件右上角都应该有语言切换按钮，可以相互链接。
+**不需要创建英文版**，伴侣可以使用Google翻译查看。
+**不要添加语言切换按钮**。
 
 ## 需要向用户询问的信息
 创建行程前，询问用户：
@@ -24,37 +24,11 @@
 
 ## HTML结构模板
 
-### 0. 语言切换器（右上角）
-**两个版本都必须包含：**
-
-中文版 (`_cn.html`)：
-```html
-<div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
-    <a href="./{city}_itinerary_en.html" style="background: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; color: #667eea; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 2px solid #667eea;">
-        English
-    </a>
-</div>
-```
-
-英文版 (`_en.html`)：
-```html
-<div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
-    <a href="./{city}_itinerary_cn.html" style="background: white; padding: 8px 16px; border-radius: 20px; text-decoration: none; color: #667eea; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 2px solid #667eea;">
-        中文
-    </a>
-</div>
-```
-
 ### 1. 标题部分
-**中文版：**
 - **标题**：城市名 旅行行程
 - **旅行时长和日期**（中文格式）
 - **货币汇率**：当地货币 → 人民币 → 瑞典克朗
-
-**英文版：**
-- **Title**: City Name Travel Itinerary
-- **Trip duration and dates**（英文格式）
-- **Currency exchange rates**: Local → CNY → SEK
+- **只有主页按钮**（左上角🏠主页）
 
 ### 2. 住宿信息部分
 **必须包含**:
@@ -68,7 +42,7 @@
 ```html
 <div class="day-card">
     <div class="day-header" onclick="toggleDay('accommodation-content')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-        <span>🏠 住宿信息 Accommodation</span>
+        <span>🏠 住宿信息</span>
         <span class="toggle-icon" id="accommodation-content-icon">▼</span>
     </div>
     <div class="day-content" id="accommodation-content">
@@ -79,11 +53,11 @@
 
 ### 3. 每日行程
 **每天包含**:
-- 日期和星期（中文版：12月7日 - 星期日 / 英文版：December 7 - Sunday）
+- 日期和星期（中文格式：12月7日 - 星期日）
 - 🚇 交通方式和预估费用
 - 编号活动（1️⃣, 2️⃣, 3️⃣...）
 - 每个活动应该有：
-  - 活动名称（中英文）
+  - 活动名称（中文 + 英文 + 当地语言）
   - 价格：当地货币 → 人民币 → 瑞典克朗
   - 描述和小贴士
   - Google地图链接
@@ -121,7 +95,7 @@
 ```html
 <div class="day-card">
     <div class="day-header" onclick="toggleDay('to-experience-content')" style="background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);">
-        <span>🎯 待体验/待去 To Experience</span>
+        <span>🎯 待体验/待去景点</span>
         <span class="toggle-icon" id="to-experience-content-icon">▼</span>
     </div>
     <div class="day-content" id="to-experience-content">
@@ -203,30 +177,18 @@
 ## 语言要求
 
 ### 中文版 (`_cn.html`)
-- **所有部分标题**：中文 + 英文（如"住宿信息 Accommodation"）
+- **所有部分标题**：纯中文（不需要英文）
 - **景点/活动名称**：中文 + 英文 + 当地语言（如适用）
-  - 示例：国立国乐院 National Gugak Center
-  - 示例：景福宫 Gyeongbokgung Palace
-  - 示例：东大门购物 Dongdaemun Shopping
-- **描述**：主要为中文
+  - 示例：国立国乐院 National Gugak Center 국립국악원
+  - 示例：景福宫 Gyeongbokgung Palace 경복궁
+  - 示例：东大门购物 Dongdaemun Shopping 동대문
+- **描述**：纯中文
 - **货币**：当地货币 → 人民币 → 瑞典克朗
 - **日期**：中文格式（如"12月7日 - 星期日"）
-- **语言切换器**：右上角链接到英文版
-
-### 英文版 (`_en.html`)
-- **所有部分标题**：英文 + 中文（如"Accommodation 住宿信息"）
-- **景点/活动名称**：英文 + 中文 + 当地语言（如适用）
-  - 示例：National Gugak Center 国立国乐院
-  - 示例：Gyeongbokgung Palace 景福宫
-  - 示例：Dongdaemun Shopping 东大门购物
-- **描述**：主要为英文
-- **货币**：当地货币 → CNY → SEK（保持相同）
-- **日期**：英文格式（如"December 7 - Sunday"）
-- **语言切换器**：右上角链接到中文版
+- **不要添加语言切换按钮**
 
 ### 多语言命名原则
-- 中文版：中文作为主语言，然后英文，最后当地语言（如与英文不同）
-- 英文版：英文作为主语言，然后中文，最后当地语言（如与英文不同）
+- 景点名称：中文在前，然后英文，最后当地语言（如与英文不同）
 - 当地语言包括但不限于：韩语、日语、泰语、越南语等
 - 如果景点有官方多语言名称，尽量使用官方拼写
 
@@ -253,20 +215,20 @@ onclick="toggleDay('section-id')"
 
 ## 文件命名规范
 - 中文版：`{city-name-english}_itinerary_cn.html`
-- 英文版：`{city-name-english}_itinerary_en.html`
 
 示例：
-- `seoul_itinerary_cn.html` + `seoul_itinerary_en.html`
-- `tokyo_itinerary_cn.html` + `tokyo_itinerary_en.html`
+- `seoul_itinerary_cn.html`
+- `tokyo_itinerary_cn.html`
+- `kyoto_itinerary_cn.html`
 
 ## 使用示例
 
 当用户说："帮我创建东京的行程"
 
 1. 询问所需信息（日期、住宿、汇率、偏好）
-2. 创建**两个**HTML文件使用此模板结构
+2. 创建**一个**中文版HTML文件使用此模板结构
 3. 包含所有必需部分：
-   - 带语言切换器的标题
+   - 标题（只有主页按钮，没有语言切换）
    - 带汇率转换的标题
    - 住宿信息
    - 每日行程（灵活日子标为"待安排"）
@@ -275,12 +237,14 @@ onclick="toggleDay('section-id')"
    - 页脚
 4. 填充东京特定内容（交通系统、应用、活动）
 5. 确保所有价格显示 JPY → CNY → SEK 转换
-6. 中文版主要用中文描述，英文版主要用英文描述
+6. 所有描述用中文，景点名称包含中英文及当地语言
 
 ## 注意事项
 - 始终基于首尔行程示例的结构
 - 保持相同的CSS类和样式
-- 两个版本都要维护双语内容（标题和关键词）
+- 景点名称要包含多语言（中文+英文+当地语言）
 - 包含实用、诚实和详细的信息
 - 通过"待体验"部分使行程保持灵活性
-- **记住：始终创建两个文件（中文版和英文版）**
+- **记住：只创建一个中文版文件**
+- **不要添加语言切换按钮**
+- 伴侣可以使用Google翻译查看内容
