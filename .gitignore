@@ -1,3 +1,7 @@
 # Private files - not for public repo
 current-trips/2025-2026-asian-adventure/*/host_review_and_messages.md
 **/host_review_and_messages.md
+
+# macOS system files
+.DS_Store
+**/.DS_Store
