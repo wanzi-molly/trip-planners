@@ -145,6 +145,42 @@
             display: block;
         }
 
+        /* Collapsible category styles */
+        .category-header {
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .category-header:hover {
+            opacity: 0.9;
+            transform: translateX(5px);
+        }
+
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .category-content.open {
+            max-height: 5000px;
+        }
+
+        .category-toggle {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .category-toggle.collapsed {
+            transform: rotate(-90deg);
+        }
+
         .transport {
             background: #e3f2fd;
             padding: 15px;
@@ -800,9 +836,13 @@
                 </div>
 
                 <!-- Tokyo Districts -->
-                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #2196F3;">
-                    <h3 style="color: #1976D2; margin-bottom: 15px;">🏙️ 东京主要区域</h3>
-                    <ul class="itinerary-list">
+                <div class="category-header" onclick="toggleCategory('category-districts-content')" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h3 style="color: #1976D2; margin: 0;">🏙️ 东京主要区域</h3>
+                    <span class="category-toggle" id="category-districts-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="category-districts-content">
+                    <div style="background: #e3f2fd; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #2196F3;">
+                        <ul class="itinerary-list">
                         <li>
                             <strong>浅草 Asakusa</strong> 淺草<br>
                             <span style="font-size: 0.9em; color: #666;">传统老城区，浅草寺和仲见世商店街</span>
@@ -827,15 +867,50 @@
                             <strong>秋叶原 Akihabara</strong> 秋葉原<br>
                             <span style="font-size: 0.9em; color: #666;">电器和动漫文化圣地</span>
                         </li>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Hidden Gems & Local Neighborhoods -->\n                <div style=\"background: #f3e5f5; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #9c27b0;\">\n                    <h3 style=\"color: #7b1fa2; margin-bottom: 15px;\">💎 特色街区探索 (Airbnb推荐)</h3>\n                    <ul class=\"itinerary-list\">\n                        <li>\n                            <strong>神宫前 Jingumae</strong> 神宮前<br>\n                            <span style=\"font-size: 0.9em; color: #666;\">设计精良的咖啡馆和专业商店 • 邻近表参道和原宿</span>\n                        </li>\n                        <li>\n                            <strong>下北泽 Shimokitazawa</strong> 下北沢<br>\n                            <span style=\"font-size: 0.9em; color: #666;\">潮人聚集地 • 二手书店、唱片行、旧货店、咖喱店和居酒屋</span>\n                        </li>\n                        <li>\n                            <strong>中目黑 Nakameguro</strong> 中目黒<br>\n                            <span style=\"font-size: 0.9em; color: #666;\">运河沿线精致小区 • 精品店、咖啡馆、高档居酒屋</span>\n                        </li>\n                        <li>\n                            <strong>代官山 Daikanyama</strong> 代官山<br>\n                            <span style=\"font-size: 0.9em; color: #666;\">豪华时尚区域 • 早午餐、高端家居店和精品书店</span>\n                        </li>\n                        <li>\n                            <strong>蔵前 Kuramae</strong> 蔵前<br>\n                            <span style=\"font-size: 0.9em; color: #666;\">独特手工艺体验 • 皮革工坊和手工艺品工作室集中地</span>\n                        </li>\n                    </ul>\n                </div>
+                <!-- Hidden Gems & Local Neighborhoods -->
+                <div class="category-header" onclick="toggleCategory('category-neighborhoods-content')" style="background: #f3e5f5; border-left: 4px solid #9c27b0;">
+                    <h3 style="color: #7b1fa2; margin: 0;">💎 特色街区探索 (Airbnb推荐)</h3>
+                    <span class="category-toggle" id="category-neighborhoods-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="category-neighborhoods-content">
+                    <div style="background: #f3e5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #9c27b0;">
+                        <ul class="itinerary-list">
+                        <li>
+                            <strong>神宫前 Jingumae</strong> 神宮前<br>
+                            <span style="font-size: 0.9em; color: #666;">设计精良的咖啡馆和专业商店 • 邻近表参道和原宿</span>
+                        </li>
+                        <li>
+                            <strong>下北泽 Shimokitazawa</strong> 下北沢<br>
+                            <span style="font-size: 0.9em; color: #666;">潮人聚集地 • 二手书店、唱片行、旧货店、咖喱店和居酒屋</span>
+                        </li>
+                        <li>
+                            <strong>中目黑 Nakameguro</strong> 中目黒<br>
+                            <span style="font-size: 0.9em; color: #666;">运河沿线精致小区 • 精品店、咖啡馆、高档居酒屋</span>
+                        </li>
+                        <li>
+                            <strong>代官山 Daikanyama</strong> 代官山<br>
+                            <span style="font-size: 0.9em; color: #666;">豪华时尚区域 • 早午餐、高端家居店和精品书店</span>
+                        </li>
+                        <li>
+                            <strong>蔵前 Kuramae</strong> 蔵前<br>
+                            <span style="font-size: 0.9em; color: #666;">独特手工艺体验 • 皮革工坊和手工艺品工作室集中地</span>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
 
                 <!-- Landmarks -->
-                <div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #ff9800;">
-                    <h3 style="color: #e65100; margin-bottom: 15px;">🗼 标志性景点</h3>
-                    <ul class="itinerary-list">
+                <div class="category-header" onclick="toggleCategory('category-landmarks-content')" style="background: #fff3e0; border-left: 4px solid #ff9800;">
+                    <h3 style="color: #e65100; margin: 0;">🗼 标志性景点</h3>
+                    <span class="category-toggle" id="category-landmarks-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="category-landmarks-content">
+                    <div style="background: #fff3e0; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff9800;">
+                        <ul class="itinerary-list">
                         <li>
                             <strong>东京晴空塔 Tokyo Skytree</strong><br>
                             <span style="font-size: 0.9em; color: #666;">634米高，世界最高塔楼之一 • ¥2,100-3,400</span>
@@ -856,13 +931,18 @@
                             <strong>皇居 Imperial Palace</strong><br>
                             <span style="font-size: 0.9em; color: #666;">日本皇室住所，东御苑免费开放</span>
                         </li>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Day Trips -->
-                <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #4caf50;">
-                    <h3 style="color: #2e7d32; margin-bottom: 15px;">🚆 周边一日游</h3>
-                    <ul class="itinerary-list">
+                <div class="category-header" onclick="toggleCategory('category-daytrips-content')" style="background: #e8f5e9; border-left: 4px solid #4caf50;">
+                    <h3 style="color: #2e7d32; margin: 0;">🚆 周边一日游</h3>
+                    <span class="category-toggle" id="category-daytrips-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="category-daytrips-content">
+                    <div style="background: #e8f5e9; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #4caf50;">
+                        <ul class="itinerary-list">
                         <li>
                             <strong>镰仓 Kamakura</strong> 鎌倉<br>
                             <span style="font-size: 0.9em; color: #666;">历史海滨小镇，大佛和寺庙 • JR约1小时</span>
@@ -879,13 +959,18 @@
                             <strong>横滨 Yokohama</strong> 横浜<br>
                             <span style="font-size: 0.9em; color: #666;">港口城市，中华街和海滨 • 约30分钟</span>
                         </li>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Food Experiences -->
-                <div style="background: #fce4ec; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #e91e63;">
-                    <h3 style="color: #c2185b; margin-bottom: 15px;">🍜 必尝美食</h3>
-                    <ul class="itinerary-list">
+                <div class="category-header" onclick="toggleCategory('category-food-content')" style="background: #fce4ec; border-left: 4px solid #e91e63;">
+                    <h3 style="color: #c2185b; margin: 0;">🍜 必尝美食</h3>
+                    <span class="category-toggle" id="category-food-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="category-food-content">
+                    <div style="background: #fce4ec; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #e91e63;">
+                        <ul class="itinerary-list">
                         <li>
                             <strong>筑地市场海鲜</strong><br>
                             <span style="font-size: 0.9em; color: #666;">新鲜寿司和海鲜丼</span>
@@ -906,7 +991,8 @@
                             <strong>回转寿司</strong><br>
                             <span style="font-size: 0.9em; color: #666;">实惠的传送带寿司</span>
                         </li>
-                    </ul>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1018,14 +1104,31 @@
             }
         }
 
+        function toggleCategory(categoryId) {
+            const content = document.getElementById(categoryId);
+            const toggle = document.getElementById(categoryId + '-toggle');
+
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                toggle.classList.add('collapsed');
+                // Save closed state
+                localStorage.setItem(categoryId, 'closed');
+            } else {
+                content.classList.add('open');
+                toggle.classList.remove('collapsed');
+                // Save open state
+                localStorage.setItem(categoryId, 'open');
+            }
+        }
+
         // Restore saved states on page load
         document.addEventListener('DOMContentLoaded', function() {
             // Get all day content elements
-            const dayContents = document.querySelectorAll('[id$="-content"]');
+            const dayContents = document.querySelectorAll('[id$="-content"]:not([id*="category-"])');
 
             let hasOpenDay = false;
 
-            // Restore saved states
+            // Restore day section states
             dayContents.forEach(content => {
                 const dayId = content.id;
                 const savedState = localStorage.getItem(dayId);
@@ -1045,6 +1148,22 @@
             if (!hasOpenDay && !localStorage.getItem('day1-content')) {
                 document.getElementById('day1-content').classList.add('open');
             }
+
+            // Restore category states
+            const categoryContents = document.querySelectorAll('.category-content');
+            categoryContents.forEach(content => {
+                const categoryId = content.id;
+                const savedState = localStorage.getItem(categoryId);
+                const toggle = document.getElementById(categoryId + '-toggle');
+
+                if (savedState === 'open') {
+                    content.classList.add('open');
+                    if (toggle) toggle.classList.remove('collapsed');
+                } else if (savedState === 'closed') {
+                    content.classList.remove('open');
+                    if (toggle) toggle.classList.add('collapsed');
+                }
+            });
         });
     </script>
 </body>

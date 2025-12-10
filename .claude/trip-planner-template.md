@@ -68,6 +68,55 @@
 - ⚠️ 失望的体验：使用黄色警告框
 - 待定的日子：显示为"待安排"或"还未安排"
 
+**景点详情格式（重要！）**:
+
+每个景点使用以下结构：
+
+```html
+<h3 style="margin-top: 20px; color: #667eea;">🏯 景点名称（建议逗留时间）<span style="background: #fce4ec; color: #c2185b; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🏠 房东推荐</span></h3>
+
+<div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #ff9800;">
+    <!-- 交通信息 - 始终可见 -->
+    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+        <strong>🚶 交通：</strong>从XX步行/乘巴士XX分钟
+    </div>
+
+    <!-- 地址链接 - 可点击跳转Google地图 -->
+    <div style="font-size: 0.9em; margin-bottom: 15px;">
+        <a href="https://maps.app.goo.gl/xxx" target="_blank" class="location-link" style="color: #e65100; font-weight: 500;">
+            📍 完整地址
+        </a>
+    </div>
+
+    <!-- 可折叠的详细信息 -->
+    <div class="category-header" onclick="toggleCategory('place-id-content')" style="background: #ffe0b2; border-left: 3px solid #ff9800; padding: 10px 15px; margin: 0;">
+        <span style="color: #e65100; font-weight: 500;">📖 了解更多景点信息</span>
+        <span class="category-toggle" id="place-id-content-toggle">▼</span>
+    </div>
+    <div class="category-content" id="place-id-content">
+        <div style="background: #ffe0b2; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #ff9800;">
+            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                <strong>特色：</strong>...<br>
+                <strong>等级：</strong>...<br>
+                <strong>开放：</strong>...<br>
+                <strong>门票：</strong>...
+            </p>
+        </div>
+    </div>
+</div>
+```
+
+**景点格式要点**:
+1. **标题**：景点名称（XX分钟）格式，如"东寺 Tō-ji（60分钟）"
+2. **交通**：始终显示，不可折叠
+3. **地址**：整个地址作为Google Maps链接，可点击
+4. **详细信息**：使用"📖 了解更多景点信息"按钮，可折叠
+5. **状态保存**：使用localStorage记住折叠状态
+
+**交通选择原则**:
+- 如果景点间步行约30分钟左右，优先推荐步行
+- 标注"步行30分钟（喜欢走路的话）"或"建议步行"
+
 **HTML格式**:
 ```html
 <div class="day-card">
@@ -76,7 +125,7 @@
         <span class="toggle-icon" id="day1-content-icon">▼</span>
     </div>
     <div class="day-content" id="day1-content">
-        <!-- 每日活动 -->
+        <!-- 每日活动使用上述景点详情格式 -->
     </div>
 </div>
 ```
@@ -193,11 +242,135 @@
 - 如果景点有官方多语言名称，尽量使用官方拼写
 
 ## 交互功能
-所有可折叠部分必须包含：
-```javascript
-onclick="toggleDay('section-id')"
+
+### 必需的CSS样式
+在`<style>`标签中添加以下类用于可折叠分类：
+
+```css
+/* Collapsible category styles */
+.category-header {
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.category-header:hover {
+    opacity: 0.9;
+    transform: translateX(5px);
+}
+
+.category-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.category-content.open {
+    max-height: 5000px;
+}
+
+.category-toggle {
+    font-size: 0.9em;
+    transition: transform 0.3s ease;
+}
+
+.category-toggle.collapsed {
+    transform: rotate(-90deg);
+}
 ```
-以及对应的切换图标ID：`section-id-icon`
+
+### 必需的JavaScript函数
+
+在`<script>`标签中添加以下函数：
+
+```javascript
+// 日期section的折叠功能
+function toggleDay(dayId) {
+    const content = document.getElementById(dayId);
+    const icon = document.getElementById(dayId + '-icon');
+
+    if (content.classList.contains('open')) {
+        content.classList.remove('open');
+        icon.classList.add('collapsed');
+        localStorage.setItem(dayId, 'closed');
+    } else {
+        content.classList.add('open');
+        icon.classList.remove('collapsed');
+        localStorage.setItem(dayId, 'open');
+    }
+}
+
+// 分类/景点详情的折叠功能
+function toggleCategory(categoryId) {
+    const content = document.getElementById(categoryId);
+    const toggle = document.getElementById(categoryId + '-toggle');
+
+    if (content.classList.contains('open')) {
+        content.classList.remove('open');
+        toggle.classList.add('collapsed');
+        localStorage.setItem(categoryId, 'closed');
+    } else {
+        content.classList.add('open');
+        toggle.classList.remove('collapsed');
+        localStorage.setItem(categoryId, 'open');
+    }
+}
+
+// 页面加载时恢复保存的状态
+document.addEventListener('DOMContentLoaded', function() {
+    // 恢复日期sections的状态
+    const dayContents = document.querySelectorAll('[id$="-content"]:not([id*="category-"])');
+    let hasOpenDay = false;
+
+    dayContents.forEach(content => {
+        const dayId = content.id;
+        const savedState = localStorage.getItem(dayId);
+        const icon = document.getElementById(dayId + '-icon');
+
+        if (savedState === 'open') {
+            content.classList.add('open');
+            if (icon) icon.classList.remove('collapsed');
+            hasOpenDay = true;
+        } else if (savedState === 'closed') {
+            content.classList.remove('open');
+            if (icon) icon.classList.add('collapsed');
+        }
+    });
+
+    // 如果没有保存状态，默认打开第一天
+    if (!hasOpenDay && !localStorage.getItem('day1-content')) {
+        const firstDay = document.getElementById('day1-content');
+        if (firstDay) firstDay.classList.add('open');
+    }
+
+    // 恢复分类的状态
+    const categoryContents = document.querySelectorAll('.category-content');
+    categoryContents.forEach(content => {
+        const categoryId = content.id;
+        const savedState = localStorage.getItem(categoryId);
+        const toggle = document.getElementById(categoryId + '-toggle');
+
+        if (savedState === 'open') {
+            content.classList.add('open');
+            if (toggle) toggle.classList.remove('collapsed');
+        } else if (savedState === 'closed') {
+            content.classList.remove('open');
+            if (toggle) toggle.classList.add('collapsed');
+        }
+    });
+});
+```
+
+所有可折叠部分必须包含：
+- 日期sections: `onclick="toggleDay('section-id')"`
+- 景点/分类: `onclick="toggleCategory('category-id')"`
+
+以及对应的切换图标ID：`section-id-icon` 或 `category-id-toggle`
 
 ## 价格格式
 始终以此格式显示价格：

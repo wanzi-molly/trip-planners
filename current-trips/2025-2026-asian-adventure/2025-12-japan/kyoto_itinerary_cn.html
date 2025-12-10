@@ -145,6 +145,42 @@
             display: block;
         }
 
+        /* Collapsible category styles */
+        .category-header {
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .category-header:hover {
+            opacity: 0.9;
+            transform: translateX(5px);
+        }
+
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .category-content.open {
+            max-height: 5000px;
+        }
+
+        .category-toggle {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .category-toggle.collapsed {
+            transform: rotate(-90deg);
+        }
+
         .transport {
             background: #e3f2fd;
             padding: 15px;
@@ -654,128 +690,144 @@
             </div>
             <div class="day-content" id="day2-content">
 
-                <div class="note" style="background: #e8f5e9; border-left-color: #4caf50;">
-                    <strong>💡 今日策略：</strong>精选京都5大核心景点 - 黄金平衡路线！<br>
-                    <strong>⏰ 工作时间：</strong>下午16:00-23:00（7小时）<br>
-                    <strong>🚶 行程特点：</strong>上午9:00-下午15:30游览，节奏适中，涵盖2个UNESCO世界遗产（东寺+清水寺）+ 锦市场美食 + 八坂神社 + 二年坂传统街道
-                </div>
-
-                <div class="note" style="background: #e3f2fd; border-left-color: #2196f3; margin-top: 15px;">
-                    <strong style="color: #1565c0;">✅ 优化后的优势：</strong><br>
-                    • 从7个景点优化到5个，节奏刚好！<br>
-                    • 保留2个UNESCO世界遗产（东寺、清水寺）<br>
-                    • 新增八坂神社（免费，顺路）<br>
-                    • 16:00前回到住宿，准时开始工作
-                </div>
-
-                <h3 style="margin-top: 20px; color: #667eea;">🏯 东寺 Tō-ji（9:00-10:00）</h3>
+                <h3 style="margin-top: 20px; color: #667eea;">🏯 东寺 Tō-ji（60分钟）<span style="background: #fce4ec; color: #c2185b; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🏠 房东推荐</span></h3>
 
                 <div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #ff9800;">
-                    <h4 style="color: #e65100; margin: 0 0 10px 0;">🏯 东寺 Tō-ji（東寺）- 第1站 <span style="background: #fce4ec; color: #c2185b; padding: 3px 8px; border-radius: 4px; font-size: 0.85em; margin-left: 8px;">🏠 房东推荐</span></h4>
-                    <p style="margin: 8px 0; line-height: 1.6;">
-                        <strong>特色：</strong>京都标志性的五重塔，日本最高木塔（54.8米）<br>
-                        <strong>等级：</strong>世界文化遗产<br>
-                        <strong>开放：</strong>境内 5:00-17:00，金堂·讲堂 8:00-17:00<br>
-                        <strong>门票：</strong>境内免费，金堂+讲堂 ¥500<br>
-                        <strong style="color: #c2185b;">⭐ 房东推荐理由：</strong>617位本地人推荐！京都标志性景点
-                    </p>
-                    <div style="font-size: 0.9em; color: #e65100; margin-top: 10px; font-weight: 500;">
-                        📍 <strong>完整地址：</strong>〒601-8473 京都府京都市南区九条町1
+                    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                        <strong>🚶 交通：</strong>从住宿步行15分钟（最近！）
                     </div>
-                    <div style="margin-top: 12px;">
-                        <a href="https://maps.app.goo.gl/EArGpz2SMwPY7ucB9" target="_blank" class="location-link">📍 东寺 Google地图</a>
+                    <div style="font-size: 0.9em; margin-bottom: 15px;">
+                        <a href="https://maps.app.goo.gl/EArGpz2SMwPY7ucB9" target="_blank" class="location-link" style="color: #e65100; font-weight: 500;">
+                            📍 〒601-8473 京都府京都市南区九条町1
+                        </a>
+                    </div>
+
+                    <div class="category-header" onclick="toggleCategory('place-toji-content')" style="background: #ffe0b2; border-left: 3px solid #ff9800; padding: 10px 15px; margin: 0;">
+                        <span style="color: #e65100; font-weight: 500;">📖 了解更多景点信息</span>
+                        <span class="category-toggle" id="place-toji-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="place-toji-content">
+                        <div style="background: #ffe0b2; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #ff9800;">
+                            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                <strong>特色：</strong>京都标志性的五重塔，日本最高木塔（54.8米）<br>
+                                <strong>等级：</strong>世界文化遗产<br>
+                                <strong>开放：</strong>境内 5:00-17:00，金堂·讲堂 8:00-17:00<br>
+                                <strong>门票：</strong>境内免费，金堂+讲堂 ¥500<br>
+                                <strong style="color: #c2185b;">⭐ 房东推荐理由：</strong>617位本地人推荐！京都标志性景点
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="transport">
-                    <strong>🚶 交通：</strong>从住宿步行15分钟（最近！）
-                </div>
-
-                <h3 style="margin-top: 20px; color: #667eea;">🍜 锦市场午餐 Nishiki Market（10:30-12:00）</h3>
+                <h3 style="margin-top: 20px; color: #667eea;">🍜 锦市场午餐 Nishiki Market（90分钟）</h3>
 
                 <div style="background: #f3e5f5; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #9c27b0;">
-                    <h4 style="color: #6a1b9a; margin: 0 0 10px 0;">🏪 锦市场 Nishiki Market（錦市場）- 第2站</h4>
-                    <p style="margin: 8px 0; line-height: 1.6;">
-                        <strong>特色：</strong>京都的厨房，400年历史，130+店铺<br>
-                        <strong>推荐：</strong>海鲜、玉子烧、抹茶甜点、腌菜<br>
-                        <strong>营业：</strong>10:00-18:00
-                    </p>
-                    <div style="font-size: 0.9em; color: #6a1b9a; margin-top: 10px; font-weight: 500;">
-                        📍 <strong>完整地址：</strong>〒604-8054 京都府京都市中京区錦小路通
+                    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                        <strong>🚌 交通：</strong>从东寺乘巴士9号至四条乌丸（25分钟，¥230）→ 步行5分钟至锦市场<br>
+                        或步行30分钟（喜欢走路的话）
                     </div>
-                    <div style="margin-top: 12px;">
-                        <a href="https://maps.app.goo.gl/YSAEquEQ1ETS1SxE9" target="_blank" class="location-link">📍 锦市场 Google地图</a>
+                    <div style="font-size: 0.9em; margin-bottom: 15px;">
+                        <a href="https://maps.app.goo.gl/YSAEquEQ1ETS1SxE9" target="_blank" class="location-link" style="color: #6a1b9a; font-weight: 500;">
+                            📍 〒604-8054 京都府京都市中京区錦小路通
+                        </a>
+                    </div>
+
+                    <div class="category-header" onclick="toggleCategory('place-nishiki-content')" style="background: #e1bee7; border-left: 3px solid #9c27b0; padding: 10px 15px; margin: 0;">
+                        <span style="color: #6a1b9a; font-weight: 500;">📖 了解更多景点信息</span>
+                        <span class="category-toggle" id="place-nishiki-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="place-nishiki-content">
+                        <div style="background: #e1bee7; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #9c27b0;">
+                            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                <strong>特色：</strong>京都的厨房，400年历史，130+店铺<br>
+                                <strong>推荐：</strong>海鲜、玉子烧、抹茶甜点、腌菜<br>
+                                <strong>营业：</strong>10:00-18:00
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="transport">
-                    <strong>🚌 交通：</strong>从东寺乘巴士9号至四条乌丸（25分钟，¥230）→ 步行5分钟至锦市场<br>
-                    或步行30分钟（喜欢走路的话）
-                </div>
-
-                <h3 style="margin-top: 20px; color: #667eea;">⛩️ 八坂神社 Yasaka Shrine（12:15-12:45）</h3>
+                <h3 style="margin-top: 20px; color: #667eea;">⛩️ 八坂神社 Yasaka Shrine（30分钟）</h3>
 
                 <div style="background: #e8eaf6; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #3f51b5;">
-                    <h4 style="color: #283593; margin: 0 0 10px 0;">⛩️ 八坂神社 Yasaka Shrine（八坂神社）- 第3站</h4>
-                    <p style="margin: 8px 0; line-height: 1.6;">
-                        <strong>特色：</strong>祇园的守护神社，656年建立<br>
-                        <strong>必看：</strong>朱红色的西楼门、本殿<br>
-                        <strong>开放：</strong>24小时<br>
-                        <strong>门票：</strong>免费 ✨
-                    </p>
-                    <div style="font-size: 0.9em; color: #283593; margin-top: 10px; font-weight: 500;">
-                        📍 <strong>完整地址：</strong>〒605-0073 京都府京都市东山区祇園町北側625
+                    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                        <strong>🚶 交通：</strong>从锦市场步行15分钟（沿四条通向东，非常好找）
                     </div>
-                    <div style="margin-top: 12px;">
-                        <a href="https://maps.app.goo.gl/sDtz6HS9raTTTsFn8" target="_blank" class="location-link">📍 八坂神社 Google地图</a>
+                    <div style="font-size: 0.9em; margin-bottom: 15px;">
+                        <a href="https://maps.app.goo.gl/sDtz6HS9raTTTsFn8" target="_blank" class="location-link" style="color: #283593; font-weight: 500;">
+                            📍 〒605-0073 京都府京都市东山区祇園町北側625
+                        </a>
+                    </div>
+
+                    <div class="category-header" onclick="toggleCategory('place-yasaka-content')" style="background: #c5cae9; border-left: 3px solid #3f51b5; padding: 10px 15px; margin: 0;">
+                        <span style="color: #283593; font-weight: 500;">📖 了解更多景点信息</span>
+                        <span class="category-toggle" id="place-yasaka-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="place-yasaka-content">
+                        <div style="background: #c5cae9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #3f51b5;">
+                            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                <strong>特色：</strong>祇园的守护神社，656年建立<br>
+                                <strong>必看：</strong>朱红色的西楼门、本殿<br>
+                                <strong>开放：</strong>24小时<br>
+                                <strong>门票：</strong>免费 ✨
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="transport">
-                    <strong>🚶 交通：</strong>从锦市场步行15分钟（沿四条通向东，非常好找）
-                </div>
-
-                <h3 style="margin-top: 20px; color: #667eea;">🏘️ 二年坂 Ninenzaka（13:00-13:45）</h3>
+                <h3 style="margin-top: 20px; color: #667eea;">🏘️ 二年坂 Ninenzaka（45分钟）</h3>
 
                 <div style="background: #fff8e1; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #fbc02d;">
-                    <h4 style="color: #f57c00; margin: 0 0 10px 0;">🏘️ 二年坂 Ninenzaka（二年坂）- 第4站</h4>
-                    <p style="margin: 8px 0; line-height: 1.6;">
-                        <strong>特色：</strong>通往清水寺的传统石板坡道，两旁是古色古香的商店<br>
-                        <strong>推荐：</strong>买纪念品、和风小物、抹茶甜点<br>
-                        <strong>拍照：</strong>非常出片的传统街景
-                    </p>
-                    <div style="font-size: 0.9em; color: #f57c00; margin-top: 10px; font-weight: 500;">
-                        📍 <strong>位置：</strong>〒605-0826 京都府京都市东山区清水2丁目
+                    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                        <strong>🚶 交通：</strong>从八坂神社步行8分钟（向南走，经过高台寺方向）
                     </div>
-                    <div style="margin-top: 12px;">
-                        <a href="https://maps.app.goo.gl/QcEjXm7gZDRGnqzN8" target="_blank" class="location-link">📍 二年坂 Google地图</a>
+                    <div style="font-size: 0.9em; margin-bottom: 15px;">
+                        <a href="https://maps.app.goo.gl/QcEjXm7gZDRGnqzN8" target="_blank" class="location-link" style="color: #f57c00; font-weight: 500;">
+                            📍 〒605-0826 京都府京都市东山区清水2丁目
+                        </a>
+                    </div>
+
+                    <div class="category-header" onclick="toggleCategory('place-ninenzaka-content')" style="background: #fff9c4; border-left: 3px solid #fbc02d; padding: 10px 15px; margin: 0;">
+                        <span style="color: #f57c00; font-weight: 500;">📖 了解更多景点信息</span>
+                        <span class="category-toggle" id="place-ninenzaka-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="place-ninenzaka-content">
+                        <div style="background: #fff9c4; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #fbc02d;">
+                            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                <strong>特色：</strong>通往清水寺的传统石板坡道，两旁是古色古香的商店<br>
+                                <strong>推荐：</strong>买纪念品、和风小物、抹茶甜点<br>
+                                <strong>拍照：</strong>非常出片的传统街景
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="transport">
-                    <strong>🚶 交通：</strong>从八坂神社步行8分钟（向南走，经过高台寺方向）
-                </div>
-
-                <h3 style="margin-top: 20px; color: #667eea;">⛩️ 清水寺 Kiyomizu-dera（14:00-15:30）</h3>
+                <h3 style="margin-top: 20px; color: #667eea;">⛩️ 清水寺 Kiyomizu-dera（90分钟）</h3>
 
                 <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #4caf50;">
-                    <h4 style="color: #2e7d32; margin: 0 0 10px 0;">⛩️ 清水寺 Kiyomizu-dera（清水寺）- 第5站</h4>
-                    <p style="margin: 8px 0; line-height: 1.6;">
-                        <strong>特色：</strong>世界文化遗产，著名的悬空清水舞台<br>
-                        <strong>必看：</strong>清水舞台、音羽瀑布、地主神社<br>
-                        <strong>开放：</strong>6:00-18:00（12月）<br>
-                        <strong>门票：</strong>¥400
-                    </p>
-                    <div style="font-size: 0.9em; color: #2e7d32; margin-top: 10px; font-weight: 500;">
-                        📍 <strong>完整地址：</strong>〒605-0862 京都府京都市東山区清水1-294
+                    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                        <strong>🚶 交通：</strong>从二年坂步行5分钟上坡即到（顺路！）
                     </div>
-                    <div style="margin-top: 12px;">
-                        <a href="https://maps.app.goo.gl/5DUTFxGyBSiksa8b9" target="_blank" class="location-link">📍 清水寺 Google地图</a>
+                    <div style="font-size: 0.9em; margin-bottom: 15px;">
+                        <a href="https://maps.app.goo.gl/5DUTFxGyBSiksa8b9" target="_blank" class="location-link" style="color: #2e7d32; font-weight: 500;">
+                            📍 〒605-0862 京都府京都市東山区清水1-294
+                        </a>
                     </div>
-                </div>
 
-                <div class="transport">
-                    <strong>🚶 交通：</strong>从二年坂步行5分钟上坡即到（顺路！）
+                    <div class="category-header" onclick="toggleCategory('place-kiyomizu-content')" style="background: #c8e6c9; border-left: 3px solid #4caf50; padding: 10px 15px; margin: 0;">
+                        <span style="color: #2e7d32; font-weight: 500;">📖 了解更多景点信息</span>
+                        <span class="category-toggle" id="place-kiyomizu-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="place-kiyomizu-content">
+                        <div style="background: #c8e6c9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #4caf50;">
+                            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                <strong>特色：</strong>世界文化遗产，著名的悬空清水舞台<br>
+                                <strong>必看：</strong>清水舞台、音羽瀑布、地主神社<br>
+                                <strong>开放：</strong>6:00-18:00（12月）<br>
+                                <strong>门票：</strong>¥400
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <h3 style="margin-top: 20px; color: #667eea;">🚌 返回住宿（15:30-16:00）</h3>
@@ -1627,16 +1679,20 @@
                 </div>
 
                 <!-- Host Recommendations - MOVED TO TOP -->
-                <div style="background: #fce4ec; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #e91e63;">
-                    <h3 style="color: #c2185b; margin-bottom: 15px;">🏠 房东Yuzi推荐</h3>
-                    <div class="note" style="background: white; border-left-color: #e91e63; margin-bottom: 15px;">
-                        <strong style="color: #c2185b;">💡 本地人精选：</strong><br>
-                        这些是房东Yuzi特别推荐的京都本地餐厅和景点，都是当地人喜欢去的地方！
-                    </div>
+                <div class="category-header" onclick="toggleCategory('category-host-content')" style="background: #fce4ec; border-left: 4px solid #e91e63;">
+                    <h3 style="color: #c2185b; margin: 0;">🏠 房东Yuzi推荐</h3>
+                    <span class="category-toggle" id="category-host-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="category-host-content">
+                    <div style="background: #fce4ec; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #e91e63;">
+                        <div class="note" style="background: white; border-left-color: #e91e63; margin-bottom: 15px;">
+                            <strong style="color: #c2185b;">💡 本地人精选：</strong><br>
+                            这些是房东Yuzi特别推荐的京都本地餐厅和景点，都是当地人喜欢去的地方！
+                        </div>
 
-                    <!-- Restaurants -->
-                    <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                        <h4 style="color: #c2185b; margin-bottom: 10px;">🍜 推荐餐厅</h4>
+                        <!-- Restaurants -->
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                            <h4 style="color: #c2185b; margin-bottom: 10px;">🍜 推荐餐厅</h4>
                         <ul class="itinerary-list">
                             <li>
                                 <strong>本家 第一旭 本店</strong> Honke Daiichi Asahi 本家 第一旭<br>
@@ -1755,11 +1811,16 @@
                             </li>
                         </ul>
                     </div>
+                    </div>
                 </div>
 
                 <!-- Autumn Leaves Info -->
-                <div style="background: #fff8e1; padding: 20px; border-radius: 10px; margin-top: 15px; margin-bottom: 20px; border-left: 4px solid #ffa726;">
-                    <h3 style="color: #e65100; margin-bottom: 15px;">🍁 秋季红叶/枫叶观赏（12月上旬）</h3>
+                <div class="category-header" onclick="toggleCategory('category-autumn-content')" style="background: #fff8e1; border-left: 4px solid #ffa726;">
+                    <h3 style="color: #e65100; margin: 0;">🍁 秋季红叶/枫叶观赏（12月上旬）</h3>
+                    <span class="category-toggle" id="category-autumn-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="category-autumn-content">
+                    <div style="background: #fff8e1; padding: 20px; border-radius: 0 0 10px 10px; margin-bottom: 20px; border-left: 4px solid #ffa726;">
                     <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #ffa726;">
                         <p style="line-height: 1.8; color: #666;">
                             <strong style="color: #e65100;">🎉 好消息！</strong>2025年因为天气较暖，京都的秋叶季节延长了！<br>
@@ -1782,11 +1843,16 @@
                             </p>
                         </div>
                     </div>
+                    </div>
                 </div>
 
                 <!-- Kyoto Temples & Shrines -->
-                <div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #ff9800;">
-                    <h3 style="color: #e65100; margin-bottom: 15px;">⛩️ 京都寺庙神社</h3>
+                <div class="category-header" onclick="toggleCategory('category-temples-content')" style="background: #fff3e0; border-left: 4px solid #ff9800;">
+                    <h3 style="color: #e65100; margin: 0;">⛩️ 京都寺庙神社</h3>
+                    <span class="category-toggle" id="category-temples-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="category-temples-content">
+                    <div style="background: #fff3e0; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff9800;">
                     <ul class="itinerary-list">
                         <li>
                             <strong>伏见稻荷大社</strong> Fushimi Inari Taisha 伏見稲荷大社<br>
@@ -1809,11 +1875,16 @@
                             <span style="font-size: 0.9em; color: #666;">传统艺伎街区 • 免费漫步</span>
                         </li>
                     </ul>
+                    </div>
                 </div>
 
                 <!-- Osaka -->
-                <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #2196F3;">
-                    <h3 style="color: #1976D2; margin-bottom: 15px;">🏙️ 大阪</h3>
+                <div class="category-header" onclick="toggleCategory('category-osaka-content')" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
+                    <h3 style="color: #1976D2; margin: 0;">🏙️ 大阪</h3>
+                    <span class="category-toggle" id="category-osaka-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="category-osaka-content">
+                    <div style="background: #e3f2fd; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #2196F3;">
                     <ul class="itinerary-list">
                         <li>
                             <strong>道顿堀</strong> Dotonbori 道頓堀<br>
@@ -1828,11 +1899,16 @@
                             <span style="font-size: 0.9em; color: #666;">新鲜海鲜和街头小吃 • 免费进入</span>
                         </li>
                     </ul>
+                    </div>
                 </div>
 
                 <!-- Nara -->
-                <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #4caf50;">
-                    <h3 style="color: #2e7d32; margin-bottom: 15px;">🦌 奈良一日游</h3>
+                <div class="category-header" onclick="toggleCategory('category-nara-content')" style="background: #e8f5e9; border-left: 4px solid #4caf50;">
+                    <h3 style="color: #2e7d32; margin: 0;">🦌 奈良一日游</h3>
+                    <span class="category-toggle" id="category-nara-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="category-nara-content">
+                    <div style="background: #e8f5e9; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #4caf50;">
                     <ul class="itinerary-list">
                         <li>
                             <strong>奈良公园</strong> Nara Park 奈良公園<br>
@@ -1843,6 +1919,7 @@
                             <span style="font-size: 0.9em; color: #666;">巨大的佛像 • ¥600 ≈ 28 SEK ≈ 28 CNY</span>
                         </li>
                     </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1983,12 +2060,29 @@
             }
         }
 
+        function toggleCategory(categoryId) {
+            const content = document.getElementById(categoryId);
+            const toggle = document.getElementById(categoryId + '-toggle');
+
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                toggle.classList.add('collapsed');
+                // Save closed state
+                localStorage.setItem(categoryId, 'closed');
+            } else {
+                content.classList.add('open');
+                toggle.classList.remove('collapsed');
+                // Save open state
+                localStorage.setItem(categoryId, 'open');
+            }
+        }
+
         // Restore saved states on page load
         document.addEventListener('DOMContentLoaded', function() {
             // Get all day content elements
-            const dayContents = document.querySelectorAll('[id$="-content"]');
+            const dayContents = document.querySelectorAll('[id$="-content"]:not([id*="category-"])');
 
-            // Restore saved states
+            // Restore day section states
             dayContents.forEach(content => {
                 const dayId = content.id;
                 const savedState = localStorage.getItem(dayId);
@@ -2001,6 +2095,22 @@
                     // Default to collapsed
                     content.classList.remove('open');
                     if (icon) icon.classList.add('collapsed');
+                }
+            });
+
+            // Restore category states
+            const categoryContents = document.querySelectorAll('.category-content');
+            categoryContents.forEach(content => {
+                const categoryId = content.id;
+                const savedState = localStorage.getItem(categoryId);
+                const toggle = document.getElementById(categoryId + '-toggle');
+
+                if (savedState === 'open') {
+                    content.classList.add('open');
+                    if (toggle) toggle.classList.remove('collapsed');
+                } else if (savedState === 'closed') {
+                    content.classList.remove('open');
+                    if (toggle) toggle.classList.add('collapsed');
                 }
             });
         });
