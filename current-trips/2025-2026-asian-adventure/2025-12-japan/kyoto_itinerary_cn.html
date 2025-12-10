@@ -512,20 +512,19 @@
             }
         }
 
-        /* Floating scroll button */
+        /* Floating scroll buttons */
         .scroll-button {
             position: fixed;
-            bottom: 30px;
             right: 30px;
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
+            background: #ffffff;
+            border: 2px solid #667eea;
             border-radius: 50%;
-            color: white;
+            color: #667eea;
             font-size: 1.8em;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
             z-index: 1000;
             display: flex;
@@ -533,14 +532,23 @@
             justify-content: center;
         }
 
+        .scroll-button-up {
+            bottom: 110px;
+        }
+
+        .scroll-button-down {
+            bottom: 30px;
+        }
+
         .scroll-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-            background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            background: #667eea;
+            color: white;
         }
 
         .scroll-button:active {
-            transform: translateY(-1px);
+            transform: scale(1.05);
         }
 
         @media (max-width: 768px) {
@@ -548,8 +556,15 @@
                 width: 50px;
                 height: 50px;
                 font-size: 1.5em;
-                bottom: 20px;
                 right: 20px;
+            }
+
+            .scroll-button-up {
+                bottom: 90px;
+            }
+
+            .scroll-button-down {
+                bottom: 20px;
             }
         }
     </style>
@@ -764,8 +779,7 @@
 
                 <div style="background: #f3e5f5; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #9c27b0;">
                     <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
-                        <strong>🚌 交通：</strong>从东寺乘巴士9号至四条乌丸（25分钟，¥230）→ 步行5分钟至锦市场<br>
-                        或步行30分钟（喜欢走路的话）
+                        <strong>🚶 交通：</strong>步行30分钟
                     </div>
                     <div style="font-size: 0.9em; margin-bottom: 15px;">
                         <a href="https://maps.app.goo.gl/YSAEquEQ1ETS1SxE9" target="_blank" class="location-link" style="color: #6a1b9a; font-weight: 500;">
@@ -820,7 +834,7 @@
 
                 <div style="background: #fff8e1; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #fbc02d;">
                     <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
-                        <strong>🚶 交通：</strong>从八坂神社步行8分钟（向南走，经过高台寺方向）
+                        <strong>🚶 交通：</strong>步行8分钟
                     </div>
                     <div style="font-size: 0.9em; margin-bottom: 15px;">
                         <a href="https://maps.app.goo.gl/QcEjXm7gZDRGnqzN8" target="_blank" class="location-link" style="color: #f57c00; font-weight: 500;">
@@ -2257,14 +2271,20 @@
             });
         });
 
-        // Floating scroll button functionality
-        const scrollButton = document.createElement('button');
-        scrollButton.className = 'scroll-button';
-        scrollButton.innerHTML = '↑';
-        scrollButton.setAttribute('aria-label', '滚动到顶部或底部');
-        document.body.appendChild(scrollButton);
+        // Floating scroll buttons functionality
+        // Create scroll to top button
+        const scrollUpButton = document.createElement('button');
+        scrollUpButton.className = 'scroll-button scroll-button-up';
+        scrollUpButton.innerHTML = '↑';
+        scrollUpButton.setAttribute('aria-label', '滚动到顶部');
+        document.body.appendChild(scrollUpButton);
 
-        let isAtTop = true; // Track current state
+        // Create scroll to bottom button
+        const scrollDownButton = document.createElement('button');
+        scrollDownButton.className = 'scroll-button scroll-button-down';
+        scrollDownButton.innerHTML = '↓';
+        scrollDownButton.setAttribute('aria-label', '滚动到底部');
+        document.body.appendChild(scrollDownButton);
 
         // Fast scroll function
         function fastScrollTo(targetPosition, duration = 500) {
@@ -2292,36 +2312,14 @@
             requestAnimationFrame(animation);
         }
 
-        scrollButton.addEventListener('click', function() {
-            if (isAtTop) {
-                // Scroll to bottom - fast!
-                fastScrollTo(document.body.scrollHeight, 800);
-                scrollButton.innerHTML = '↓';
-                isAtTop = false;
-            } else {
-                // Scroll to top - fast!
-                fastScrollTo(0, 800);
-                scrollButton.innerHTML = '↑';
-                isAtTop = true;
-            }
+        // Scroll to top button click
+        scrollUpButton.addEventListener('click', function() {
+            fastScrollTo(0, 800);
         });
 
-        // Update button state based on scroll position
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.body.scrollHeight;
-
-            // If near top (within 100px)
-            if (scrollPosition < 100) {
-                scrollButton.innerHTML = '↓';
-                isAtTop = true;
-            }
-            // If near bottom (within 100px)
-            else if (scrollPosition + windowHeight > documentHeight - 100) {
-                scrollButton.innerHTML = '↑';
-                isAtTop = false;
-            }
+        // Scroll to bottom button click
+        scrollDownButton.addEventListener('click', function() {
+            fastScrollTo(document.body.scrollHeight, 800);
         });
     </script>
 </body>
