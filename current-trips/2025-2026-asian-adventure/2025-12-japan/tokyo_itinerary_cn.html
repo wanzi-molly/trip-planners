@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="language" content="Chinese">
+    <meta http-equiv="content-language" content="zh-CN">
     <title>东京旅行行程 Dec 14-21</title>
     <style>
         * {
@@ -828,6 +830,8 @@
                     </ul>
                 </div>
 
+                <!-- Hidden Gems & Local Neighborhoods -->\n                <div style=\"background: #f3e5f5; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #9c27b0;\">\n                    <h3 style=\"color: #7b1fa2; margin-bottom: 15px;\">💎 特色街区探索 (Airbnb推荐)</h3>\n                    <ul class=\"itinerary-list\">\n                        <li>\n                            <strong>神宫前 Jingumae</strong> 神宮前<br>\n                            <span style=\"font-size: 0.9em; color: #666;\">设计精良的咖啡馆和专业商店 • 邻近表参道和原宿</span>\n                        </li>\n                        <li>\n                            <strong>下北泽 Shimokitazawa</strong> 下北沢<br>\n                            <span style=\"font-size: 0.9em; color: #666;\">潮人聚集地 • 二手书店、唱片行、旧货店、咖喱店和居酒屋</span>\n                        </li>\n                        <li>\n                            <strong>中目黑 Nakameguro</strong> 中目黒<br>\n                            <span style=\"font-size: 0.9em; color: #666;\">运河沿线精致小区 • 精品店、咖啡馆、高档居酒屋</span>\n                        </li>\n                        <li>\n                            <strong>代官山 Daikanyama</strong> 代官山<br>\n                            <span style=\"font-size: 0.9em; color: #666;\">豪华时尚区域 • 早午餐、高端家居店和精品书店</span>\n                        </li>\n                        <li>\n                            <strong>蔵前 Kuramae</strong> 蔵前<br>\n                            <span style=\"font-size: 0.9em; color: #666;\">独特手工艺体验 • 皮革工坊和手工艺品工作室集中地</span>\n                        </li>\n                    </ul>\n                </div>
+
                 <!-- Landmarks -->
                 <div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #ff9800;">
                     <h3 style="color: #e65100; margin-bottom: 15px;">🗼 标志性景点</h3>
@@ -1004,15 +1008,43 @@
             if (content.classList.contains('open')) {
                 content.classList.remove('open');
                 icon.classList.add('collapsed');
+                // Save closed state
+                localStorage.setItem(dayId, 'closed');
             } else {
                 content.classList.add('open');
                 icon.classList.remove('collapsed');
+                // Save open state
+                localStorage.setItem(dayId, 'open');
             }
         }
 
-        // Open first day by default
+        // Restore saved states on page load
         document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('day1-content').classList.add('open');
+            // Get all day content elements
+            const dayContents = document.querySelectorAll('[id$="-content"]');
+
+            let hasOpenDay = false;
+
+            // Restore saved states
+            dayContents.forEach(content => {
+                const dayId = content.id;
+                const savedState = localStorage.getItem(dayId);
+                const icon = document.getElementById(dayId + '-icon');
+
+                if (savedState === 'open') {
+                    content.classList.add('open');
+                    if (icon) icon.classList.remove('collapsed');
+                    hasOpenDay = true;
+                } else if (savedState === 'closed') {
+                    content.classList.remove('open');
+                    if (icon) icon.classList.add('collapsed');
+                }
+            });
+
+            // If no saved states, open first day by default
+            if (!hasOpenDay && !localStorage.getItem('day1-content')) {
+                document.getElementById('day1-content').classList.add('open');
+            }
         });
     </script>
 </body>

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="language" content="Chinese">
+    <meta http-equiv="content-language" content="zh-CN">
     <title>首尔旅行行程 Dec 3-9</title>
     <style>
         * {
@@ -560,17 +562,35 @@
                 if (content.classList.contains('open')) {
                     content.classList.remove('open');
                     icon.classList.add('collapsed');
+                    // Save closed state
+                    localStorage.setItem(dayId, 'closed');
                 } else {
                     content.classList.add('open');
                     icon.classList.remove('collapsed');
+                    // Save open state
+                    localStorage.setItem(dayId, 'open');
                 }
             }
 
-            // Initialize all icons as collapsed on page load
+            // Restore saved states on page load
             document.addEventListener('DOMContentLoaded', function() {
-                const icons = document.querySelectorAll('.toggle-icon');
-                icons.forEach(icon => {
-                    icon.classList.add('collapsed');
+                // Get all day content elements
+                const dayContents = document.querySelectorAll('[id$="-content"]');
+
+                // Restore saved states
+                dayContents.forEach(content => {
+                    const dayId = content.id;
+                    const savedState = localStorage.getItem(dayId);
+                    const icon = document.getElementById(dayId + '-icon');
+
+                    if (savedState === 'open') {
+                        content.classList.add('open');
+                        if (icon) icon.classList.remove('collapsed');
+                    } else {
+                        // Default to collapsed
+                        content.classList.remove('open');
+                        if (icon) icon.classList.add('collapsed');
+                    }
                 });
             });
         </script>
