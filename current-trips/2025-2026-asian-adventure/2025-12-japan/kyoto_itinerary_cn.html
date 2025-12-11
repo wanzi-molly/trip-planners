@@ -932,7 +932,7 @@
                     <div style="background: #e8eaf6; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #3f51b5;">
                         <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
                             <strong>🕘 出发时间：</strong>9:30 从住宿出发<br>
-                            <strong>🚌 交通：</strong>从住宿乘巴士100号/5号至「银阁寺道站 Ginkakuji-michi」（30分钟，¥230）→ 步行5分钟
+                            <strong>🚌 交通：</strong>乘巴士，约30分钟，¥230
                         </div>
                         <div style="font-size: 0.9em; margin-bottom: 12px;">
                             <a href="https://www.google.com/maps/search/?api=1&query=京都府京都市左京区銀閣寺町2" target="_blank" class="location-link" style="color: #283593; font-weight: 500;">
@@ -955,17 +955,40 @@
                                     <strong>建筑：</strong>银阁（观音殿）、东求堂、银沙滩、向月台<br>
                                     <strong>庭园：</strong>枯山水庭园和池泉回游式庭园结合<br>
                                     <strong>电话：</strong>+81 75-771-5725<br>
-                                    <strong>💡 小贴士：</strong>虽然叫银阁寺，其实并未贴银箔，是侘寂美学的代表
+                                    <strong>💡 小贴士：</strong>虽然叫银阁寺，其实并未贴银箔，是侘寂美学的代表。⚠️ 只收现金，记得提前准备！
                                 </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="note" style="background: #e8f5e9; border-left-color: #4caf50; margin-top: 15px;">
-                    <strong style="color: #2e7d32;">✨ 特别发现：</strong><br>
-                    <strong>Honeninkyozo 経蔵</strong> - 银阁寺后面，少有人，超级好看！免费参观 ✨<br>
-                    💡 <strong>小贴士：</strong>银阁寺只收现金，记得提前准备！
+                <div class="category-header" onclick="toggleCategory('honeninkyozo-main-content')" style="background: #e8f5e9; border-left: 4px solid #4caf50; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #2e7d32; margin: 0;">✨ Honeninkyozo 経蔵（0.5小时）</h3>
+                    <span class="category-toggle" id="honeninkyozo-main-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="honeninkyozo-main-content">
+                    <div style="background: #e8f5e9; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #4caf50;">
+                        <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>🚶 交通：</strong>银阁寺后面，步行1分钟
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 15px;">
+                            <strong>门票：</strong>免费 ✨
+                        </div>
+
+                        <div class="category-header" onclick="toggleCategory('place-honeninkyozo-detail')" style="background: #c8e6c9; border-left: 3px solid #4caf50; padding: 10px 15px; margin: 0;">
+                            <span style="color: #2e7d32; font-weight: 500;">📖 了解更多景点信息</span>
+                            <span class="category-toggle" id="place-honeninkyozo-detail-toggle">▼</span>
+                        </div>
+                        <div class="category-content" id="place-honeninkyozo-detail">
+                            <div style="background: #c8e6c9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #4caf50;">
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                    <strong>特色：</strong>银阁寺附近的隐藏景点，游客稀少<br>
+                                    <strong>体验：</strong>安静清幽，可以独自享受宁静的日式庭园氛围<br>
+                                    <strong>💡 小贴士：</strong>少有人，超级好看！值得一探
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="category-header" onclick="toggleCategory('philosopher-main-content')" style="background: #e0f2f1; border-left: 4px solid #009688; padding: 10px 15px; margin: 15px 0 0 0;">
@@ -1005,7 +1028,7 @@
                 </div>
 
                 <div class="category-header" onclick="toggleCategory('lunch-junsei-content')" style="background: #f3e5f5; border-left: 4px solid #9c27b0; padding: 10px 15px; margin: 15px 0 0 0;">
-                    <h3 style="color: #6a1b9a; margin: 0;">🍽️ 午餐：Junsei 顺正豆腐</h3>
+                    <h3 style="color: #6a1b9a; margin: 0;">🍽️ 午餐：Junsei 顺正豆腐（1小时）</h3>
                     <span class="category-toggle" id="lunch-junsei-content-toggle">▼</span>
                 </div>
                 <div class="category-content" id="lunch-junsei-content">
@@ -1058,63 +1081,75 @@
                     </div>
                 </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">🍁 永观堂 Eikando 永観堂（1小时）<span style="background: #fff3cd; color: #856404; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🍂 赏枫名所</span></h3>
+                <div class="category-header" onclick="toggleCategory('eikando-main-content')" style="background: #fff8e1; border-left: 4px solid #ffa726; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #e65100; margin: 0;">🍁 永观堂 Eikando 永観堂（1小时）<span style="background: #fff3cd; color: #856404; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🍂 赏枫名所</span></h3>
+                    <span class="category-toggle" id="eikando-main-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="eikando-main-content">
+                    <div style="background: #fff8e1; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ffa726;">
+                        <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>🚶 交通：</strong>步行5分钟
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=京都府京都市左京区永観堂町48" target="_blank" class="location-link" style="color: #e65100; font-weight: 500;">
+                                📍 〒606-8445 京都府京都市左京区永観堂町48
+                            </a>
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 15px;">
+                            <strong>开放：</strong>9:00-17:00（最后入场16:00）<br>
+                            <strong>门票：</strong>¥600 ≈ 28 SEK ≈ 28 CNY
+                        </div>
 
-                <div style="background: #fff8e1; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #ffa726;">
-                    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
-                        <strong>🚶 交通：</strong>步行5分钟
-                    </div>
-                    <div style="font-size: 0.9em; margin-bottom: 15px;">
-                        <a href="https://www.google.com/maps/search/?api=1&query=京都府京都市左京区永観堂町48" target="_blank" class="location-link" style="color: #e65100; font-weight: 500;">
-                            📍 〒606-8445 京都府京都市左京区永観堂町48
-                        </a>
-                    </div>
-
-                    <div class="category-header" onclick="toggleCategory('place-eikando-content')" style="background: #ffecb3; border-left: 3px solid #ffa726; padding: 10px 15px; margin: 0;">
-                        <span style="color: #e65100; font-weight: 500;">📖 了解更多景点信息</span>
-                        <span class="category-toggle" id="place-eikando-content-toggle">▼</span>
-                    </div>
-                    <div class="category-content" id="place-eikando-content">
-                        <div style="background: #ffecb3; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #ffa726;">
-                            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
-                                <strong>特色：</strong>正式名称禅林寺，京都最著名的赏枫寺庙之一<br>
-                                <strong>必看：</strong>回首阿弥陀如来像（国宝）、多宝塔、枫叶庭园<br>
-                                <strong>秋季：</strong>约3,000棵枫树，12月上旬正好是观赏期！<br>
-                                <strong>开放：</strong>9:00-17:00（最后入场16:00）<br>
-                                <strong>门票：</strong>¥600 ≈ 28 SEK ≈ 28 CNY<br>
-                                <strong>电话：</strong>+81 75-761-0007 | <strong>官网：</strong><a href="http://www.eikando.or.jp/" target="_blank" style="color: #e65100;">eikando.or.jp</a><br>
-                                <strong>💡 小贴士：</strong>12月是淡季，相比11月的红叶季，游客少很多，可以悠闲欣赏！
-                            </p>
+                        <div class="category-header" onclick="toggleCategory('place-eikando-detail')" style="background: #ffecb3; border-left: 3px solid #ffa726; padding: 10px 15px; margin: 0;">
+                            <span style="color: #e65100; font-weight: 500;">📖 了解更多景点信息</span>
+                            <span class="category-toggle" id="place-eikando-detail-toggle">▼</span>
+                        </div>
+                        <div class="category-content" id="place-eikando-detail">
+                            <div style="background: #ffecb3; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #ffa726;">
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                    <strong>特色：</strong>正式名称禅林寺，京都最著名的赏枫寺庙之一<br>
+                                    <strong>必看：</strong>回首阿弥陀如来像（国宝）、多宝塔、枫叶庭园<br>
+                                    <strong>秋季：</strong>约3,000棵枫树，12月上旬正好是观赏期！<br>
+                                    <strong>电话：</strong>+81 75-761-0007 | <strong>官网：</strong><a href="http://www.eikando.or.jp/" target="_blank" style="color: #e65100;">eikando.or.jp</a><br>
+                                    <strong>💡 小贴士：</strong>12月是淡季，相比11月的红叶季，游客少很多，可以悠闲欣赏！
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">⛩️ 平安神宫 Heian Shrine（1小时）</h3>
+                <div class="category-header" onclick="toggleCategory('heian-main-content')" style="background: #fce4ec; border-left: 4px solid #e91e63; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #c2185b; margin: 0;">⛩️ 平安神宫 Heian Shrine（1小时）</h3>
+                    <span class="category-toggle" id="heian-main-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="heian-main-content">
+                    <div style="background: #fce4ec; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #e91e63;">
+                        <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>🚶 交通：</strong>步行12分钟
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=京都府京都市左京区岡崎西天王町97" target="_blank" class="location-link" style="color: #c2185b; font-weight: 500;">
+                                📍 〒606-8341 京都府京都市左京区岡崎西天王町97
+                            </a>
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 15px;">
+                            <strong>开放：</strong>境内 6:00-18:00，神苑 8:30-17:00（冬季至16:30）<br>
+                            <strong>门票：</strong>境内免费，神苑¥600
+                        </div>
 
-                <div style="background: #fce4ec; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #e91e63;">
-                    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
-                        <strong>🚶 交通：</strong>步行12分钟
-                    </div>
-                    <div style="font-size: 0.9em; margin-bottom: 15px;">
-                        <a href="https://www.google.com/maps/search/?api=1&query=京都府京都市左京区岡崎西天王町97" target="_blank" class="location-link" style="color: #c2185b; font-weight: 500;">
-                            📍 〒606-8341 京都府京都市左京区岡崎西天王町97
-                        </a>
-                    </div>
-
-                    <div class="category-header" onclick="toggleCategory('place-heian-content')" style="background: #f8bbd0; border-left: 3px solid #e91e63; padding: 10px 15px; margin: 0;">
-                        <span style="color: #c2185b; font-weight: 500;">📖 了解更多景点信息</span>
-                        <span class="category-toggle" id="place-heian-content-toggle">▼</span>
-                    </div>
-                    <div class="category-content" id="place-heian-content">
-                        <div style="background: #f8bbd0; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #e91e63;">
-                            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
-                                <strong>特色：</strong>1895年建造，纪念平安京建都1100年<br>
-                                <strong>建筑：</strong>朱红色建筑，按平安京大内皇宫5/8比例复制<br>
-                                <strong>必看：</strong>大鸟居（高24.4米，京都最大）、神苑（池泉回游式庭园，¥600）<br>
-                                <strong>开放：</strong>境内 6:00-18:00，神苑 8:30-17:00（冬季至16:30）<br>
-                                <strong>门票：</strong>境内免费，神苑¥600<br>
-                                <strong>电话：</strong>+81 75-761-0221 | <strong>官网：</strong><a href="http://www.heianjingu.or.jp/" target="_blank" style="color: #c2185b;">heianjingu.or.jp</a>
-                            </p>
+                        <div class="category-header" onclick="toggleCategory('place-heian-detail')" style="background: #f8bbd0; border-left: 3px solid #e91e63; padding: 10px 15px; margin: 0;">
+                            <span style="color: #c2185b; font-weight: 500;">📖 了解更多景点信息</span>
+                            <span class="category-toggle" id="place-heian-detail-toggle">▼</span>
+                        </div>
+                        <div class="category-content" id="place-heian-detail">
+                            <div style="background: #f8bbd0; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #e91e63;">
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                    <strong>特色：</strong>1895年建造，纪念平安京建都1100年<br>
+                                    <strong>建筑：</strong>朱红色建筑，按平安京大内皇宫5/8比例复制<br>
+                                    <strong>必看：</strong>大鸟居（高24.4米，京都最大）、神苑（池泉回游式庭园，¥600）<br>
+                                    <strong>电话：</strong>+81 75-761-0221 | <strong>官网：</strong><a href="http://www.heianjingu.or.jp/" target="_blank" style="color: #c2185b;">heianjingu.or.jp</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

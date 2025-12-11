@@ -79,7 +79,7 @@
 
 ### 📋 HTML格式参考模板
 
-生成行程时，使用以下HTML格式（参考12月11日的格式）：
+生成行程时，使用以下HTML格式（参考12月11日的最新两层折叠格式）：
 
 ```html
 <!-- Day X -->
@@ -96,85 +96,85 @@
             <strong>💡 推荐：</strong>饭团🍙、三明治🥪、面包🥐、咖啡☕ - 便宜又方便，约¥300-500/人
         </div>
 
-        <!-- 第一站景点 - 有出发时间 -->
-        <h3 style="margin-top: 20px; color: #667eea;">🏯 景点名称 英文名 日文名（X小时）<span style="background: #fce4ec; color: #c2185b; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🏠 房东推荐</span></h3>
+        <!-- 第一站景点 - 两层折叠结构 -->
+        <!-- 第一层：点击景点标题展开，显示基本信息 -->
+        <div class="category-header" onclick="toggleCategory('attraction-id-main-content')" style="background: #e8eaf6; border-left: 4px solid #3f51b5; padding: 10px 15px; margin: 15px 0 0 0;">
+            <h3 style="color: #283593; margin: 0;">🏯 景点名称 英文名 日文名（X小时）<span style="background: #fce4ec; color: #c2185b; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🏠 房东推荐</span></h3>
+            <span class="category-toggle" id="attraction-id-main-content-toggle">▼</span>
+        </div>
+        <div class="category-content" id="attraction-id-main-content">
+            <div style="background: #e8eaf6; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #3f51b5;">
+                <!-- 基本信息：交通、地址、开放时间、门票 -->
+                <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                    <strong>🕘 出发时间：</strong>XX:XX 从住宿出发<br>
+                    <strong>🚌 交通：</strong>乘巴士，约X分钟，¥XXX / 步行X分钟
+                </div>
+                <div style="font-size: 0.9em; margin-bottom: 12px;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=地址" target="_blank" class="location-link" style="color: #283593; font-weight: 500;">
+                        📍 完整地址
+                    </a>
+                </div>
+                <div style="font-size: 0.9em; margin-bottom: 15px;">
+                    <strong>开放：</strong>开放时间<br>
+                    <strong>门票：</strong>¥XXX ≈ XX SEK ≈ XX CNY / 免费 ✨
+                </div>
 
-        <div style="background: #e8eaf6; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #3f51b5;">
-            <!-- 第一站：显示出发时间 + 交通 + 地址 -->
-            <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
-                <strong>🕘 出发时间：</strong>XX:XX 从住宿出发<br>
-                <strong>🚌 交通：</strong>步行X分钟 / 巴士X号（X分钟）
-            </div>
-            <div style="font-size: 0.9em; margin-bottom: 15px;">
-                <a href="https://www.google.com/maps/search/?api=1&query=地址" target="_blank" class="location-link" style="color: #283593; font-weight: 500;">
-                    📍 完整地址
-                </a>
-            </div>
-
-            <!-- 可折叠：门票、开放时间、特色、官网、房东推荐理由等详细信息 -->
-            <div class="category-header" onclick="toggleCategory('place-id-content')" style="background: #c5cae9; border-left: 3px solid #3f51b5; padding: 10px 15px; margin: 0;">
-                <span style="color: #283593; font-weight: 500;">📖 了解更多景点信息</span>
-                <span class="category-toggle" id="place-id-content-toggle">▼</span>
-            </div>
-            <div class="category-content" id="place-id-content">
-                <div style="background: #c5cae9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #3f51b5;">
-                    <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
-                        <strong>特色：</strong>景点特色<br>
-                        <strong>开放：</strong>开放时间<br>
-                        <strong>门票：</strong>¥XXX ≈ XX SEK ≈ XX CNY<br>
-                        <strong>电话：</strong>电话号码<br>
-                        <strong>官网：</strong><a href="网址" target="_blank" style="color: #283593;">网址</a><br>
-                        <strong style="color: #c2185b;">⭐ 房东推荐理由：</strong>推荐理由（如果是房东推荐的话）<br>
-                        <strong>💡 小贴士：</strong>小贴士内容
-                    </p>
+                <!-- 第二层：点击"了解更多"展开详细信息 -->
+                <div class="category-header" onclick="toggleCategory('place-id-detail')" style="background: #c5cae9; border-left: 3px solid #3f51b5; padding: 10px 15px; margin: 0;">
+                    <span style="color: #283593; font-weight: 500;">📖 了解更多景点信息</span>
+                    <span class="category-toggle" id="place-id-detail-toggle">▼</span>
+                </div>
+                <div class="category-content" id="place-id-detail">
+                    <div style="background: #c5cae9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #3f51b5;">
+                        <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                            <strong>特色：</strong>景点特色<br>
+                            <strong>建筑/必看：</strong>建筑特点或必看内容<br>
+                            <strong>电话：</strong>电话号码<br>
+                            <strong>官网：</strong><a href="网址" target="_blank" style="color: #283593;">网址</a><br>
+                            <strong style="color: #c2185b;">⭐ 房东推荐理由：</strong>推荐理由（仅房东推荐时）<br>
+                            <strong>💡 小贴士：</strong>实用小贴士
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- 其他景点：只有交通和地址，没有出发时间 -->
+        <!-- 其他景点：同样的两层折叠结构，但交通部分不显示出发时间 -->
 
-        <!-- 最后一站景点：在详细信息后添加返回时间 -->
-        <h3 style="margin-top: 20px; color: #667eea;">🏯 最后一个景点名称（X小时）</h3>
-        <div style="background: #e8eaf6; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #3f51b5;">
-            <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
-                <strong>🚌 交通：</strong>步行X分钟<br>
-                <strong>🏠 返回时间：</strong>XX:XX 回到住宿
-            </div>
-            <div style="font-size: 0.9em; margin-bottom: 15px;">
-                <a href="https://www.google.com/maps/search/?api=1&query=地址" target="_blank" class="location-link">
-                    📍 完整地址
-                </a>
-            </div>
-            <!-- 可折叠部分... -->
+        <!-- 午餐（可折叠） -->
+        <div class="category-header" onclick="toggleCategory('lunch-id-content')" style="background: #f3e5f5; border-left: 4px solid #9c27b0; padding: 10px 15px; margin: 15px 0 0 0;">
+            <h3 style="color: #6a1b9a; margin: 0;">🍽️ 午餐：餐厅名称（1小时）</h3>
+            <span class="category-toggle" id="lunch-id-content-toggle">▼</span>
         </div>
-
-        <!-- 午餐推荐（可折叠） -->
-        <div class="category-header" onclick="toggleCategory('lunch-options-content')" style="background: #f3e5f5; border-left: 4px solid #9c27b0; padding: 10px 15px; margin: 15px 0 0 0;">
-            <h3 style="color: #6a1b9a; margin: 0;">🍜 午餐推荐 <span style="background: #fce4ec; color: #c2185b; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🏠 房东推荐选项</span></h3>
-            <span class="category-toggle" id="lunch-options-content-toggle">▼</span>
-        </div>
-        <div class="category-content" id="lunch-options-content">
+        <div class="category-content" id="lunch-id-content">
             <div style="background: #f3e5f5; padding: 20px; border-radius: 0 0 10px 10px; margin: 0 0 15px 0; border-left: 4px solid #9c27b0;">
-                <!-- 餐厅选项 -->
-                <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 10px;">
-                    <strong>餐厅名称</strong> <span style="background: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.75em;">🏠 房东推荐</span><br>
-                    <span style="font-size: 0.9em; color: #666;">
-                        📍 地址<br>
+                <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid #4caf50;">
+                    <strong style="color: #6a1b9a;">✅ 实际选择：餐厅名称</strong><br>
+                    <span style="font-size: 0.9em; color: #666; line-height: 1.8;">
                         🍜 菜系<br>
-                        🕐 营业时间<br>
-                        💰 预估费用：¥XXX/人
+                        📍 地址<br>
+                        💰 套餐/费用 ¥XXX（2人）<br>
+                        🌸 <strong>特色：</strong>餐厅特色<br>
+                        ⭐ <strong>体验：</strong>用餐体验
                     </span>
                 </div>
             </div>
         </div>
 
+        <!-- 返回住宿 -->
+        <h3 style="margin-top: 20px; color: #667eea;">🚌 返回住宿</h3>
+        <div class="transport">
+            <strong>🚌 返程：</strong>乘巴士返回，约X分钟，¥XXX × 2人<br>
+            <strong>⏰ 实际XX:XX到达住宿</strong>
+        </div>
+
         <!-- 每日预算总结 -->
-        <div class="summary-box">
-            <h4 style="color: #667eea; margin-top: 0;">💰 今日预算总结（2人）</h4>
-            <strong>🚇 交通：</strong>¥XXX ≈ XX SEK ≈ XX CNY<br>
-            <strong>🍽️ 餐饮：</strong>¥XXX ≈ XX SEK ≈ XX CNY<br>
-            <strong>🎫 门票：</strong>¥XXX ≈ XX SEK ≈ XX CNY<br>
-            <strong>总计：</strong>¥XXX ≈ XX SEK ≈ XX CNY<br>
+        <div class="total-budget">
+            <strong>💰 今日预算总计（2人）：</strong><br>
+            交通费：¥XXX<br>
+            门票费：¥XXX<br>
+            餐饮费：¥XXX<br>
+            <strong>总计：¥XXX ≈ XX SEK ≈ XX CNY</strong><br>
             <strong style="font-size: 1.1em; color: #fff59d;">💰 每人平均：XX SEK ≈ XX CNY</strong>
         </div>
 
@@ -183,18 +183,25 @@
 ```
 
 **重要提示：**
-- ✅ **游玩时长用小时**：标题里写"（1小时）"、"（0.5小时）"、"（1.5小时）"，不要用分钟
+- ✅ **两层折叠结构**：
+  - **第一层**：景点标题可折叠，展开显示基本信息（交通、地址、开放时间、门票）
+  - **第二层**："了解更多景点信息"可折叠，包含详细介绍（特色、建筑、电话、小贴士等）
+- ✅ **游玩时长**：只用0.5小时增量（0.5、1、1.5、2小时），不要用0.75、1.25等
+- ✅ **交通信息简化**：
+  - 不要写具体路线（如"乘巴士100号/5号至XX站"）
+  - 只写：`乘巴士，约X分钟，¥XXX` 或 `步行X分钟`
 - ✅ **出发/返回时间**：
   - 第一站显示：`🕘 出发时间：XX:XX 从住宿出发`
-  - 最后一站显示：`🏠 返回时间：XX:XX 回到住宿`
-  - 中间景点不显示出发时间
-- ✅ **外面只显示**：交通方式、时间、地址（最重要的信息）
-- ✅ **可折叠里放**：门票、开放时间、特色、官网、房东推荐理由、小贴士等详细信息
+  - 其他景点不显示出发时间
+  - 返回住宿单独列出，显示到达时间
+- ✅ **基本信息层**：交通、地址、开放时间、门票
+- ✅ **详细信息层**：特色、建筑/必看、电话、官网、房东推荐理由、小贴士
 - ✅ **房东推荐标签**：`<span style="background: #fce4ec; color: #c2185b; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🏠 房东推荐</span>`
-- ✅ **房东推荐理由**：放在可折叠部分，用`<strong style="color: #c2185b;">⭐ 房东推荐理由：</strong>`
+- ✅ **唯一ID命名**：
+  - 主内容：`attraction-name-main-content`
+  - 详细信息：`place-name-detail`
+  - 午餐/晚餐：`lunch-name-content` / `dinner-name-content`
 - ✅ **地图链接格式**：`https://www.google.com/maps/search/?api=1&query=地址`
-- ✅ **唯一ID**：每个可折叠部分需要唯一ID（如 `place-ginkakuji-content`）
-- ✅ **保持样式一致**：参考12月10日、11日的颜色和格式
 
 ---
 
