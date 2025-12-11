@@ -1216,14 +1216,12 @@
             </div>
             <div class="day-content" id="day3-content">
 
-                <div class="note" style="background: #fff3e0; border-left-color: #ff9800;">
-                    <strong>💡 今日策略：</strong>早起看伏见稻荷日出，游览东福寺，下午自由安排！<br>
-                    <strong>🚶 行程特点：</strong>早起值得！清晨的千本鸟居人少景美，东福寺就在旁边
+                <div class="category-header" onclick="toggleCategory('fushimiinari-fri-main-content')" style="background: #fff8e1; border-left: 4px solid #ff6f00; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #e65100; margin: 0;">⛩️ 伏见稻荷大社 Fushimi Inari Taisha 伏見稲荷大社 日出（6:00出发，90-120分钟）</h3>
+                    <span class="category-toggle" id="fushimiinari-fri-main-content-toggle">▼</span>
                 </div>
-
-                <h3 style="margin-top: 20px; color: #667eea;">⛩️ 伏见稻荷大社 Fushimi Inari Taisha 伏見稲荷大社 日出（90-120分钟）</h3>
-
-                <div style="background: #fff8e1; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #ff6f00;">
+                <div class="category-content" id="fushimiinari-fri-main-content">
+                <div style="background: #fff8e1; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff6f00;">
                     <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
                         <strong>🕕 出发时间：</strong>6:00 从住宿出发（日出约6:50）<br>
                         <strong>🚇 交通：</strong>从住宿乘地铁至「京都站 Kyoto Station」→ 转JR奈良线至「稻荷站 Inari Station」（约20分钟，¥240）→ 步行1分钟即到
@@ -1252,10 +1250,38 @@
                         </div>
                     </div>
                 </div>
+                </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">🍁 东福寺 Tofuku-ji 東福寺（60分钟）</h3>
+                <div class="category-header" onclick="toggleCategory('breakfast-fri-content')" style="background: #e1f5fe; border-left: 4px solid #0288d1; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #01579b; margin: 0;">🥐 早餐：稻荷站便利店</h3>
+                    <span class="category-toggle" id="breakfast-fri-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="breakfast-fri-content">
+                    <div style="background: #e1f5fe; padding: 20px; border-radius: 0 0 10px 10px; margin: 0 0 15px 0; border-left: 4px solid #0288d1;">
+                        <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>📍 地点：</strong>稻荷站附近 7-11 或 FamilyMart<br>
+                            <strong>💰 预算：</strong>¥300-500/人 ≈ 24-40 SEK/人<br>
+                            <strong>⏰ 用餐时间：</strong>30分钟
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <strong>🍱 推荐购买：</strong><br>
+                            • 饭团 🍙 2-3个（¥100-150/个）<br>
+                            • 三明治 🥪（¥200-300）<br>
+                            • 热咖啡 ☕（¥100-150）<br>
+                            • 水果或酸奶（¥150-200）
+                        </div>
+                        <div style="background: #fff9c4; padding: 10px; border-radius: 5px; border-left: 3px solid #fbc02d;">
+                            <strong>💡 策略：</strong>快速简单的早餐，看完日出后补充能量，边走边吃。便利店7:00就开门，完美配合早起行程！
+                        </div>
+                    </div>
+                </div>
 
-                <div style="background: #fce4ec; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #c2185b;">
+                <div class="category-header" onclick="toggleCategory('tofukuji-fri-main-content')" style="background: #fce4ec; border-left: 4px solid #c2185b; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #880e4f; margin: 0;">🍁 东福寺 Tofuku-ji 東福寺（60分钟）</h3>
+                    <span class="category-toggle" id="tofukuji-fri-main-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="tofukuji-fri-main-content">
+                <div style="background: #fce4ec; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #c2185b;">
                     <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
                         <strong>🚶 交通：</strong>步行15-20分钟
                     </div>
@@ -1283,15 +1309,48 @@
                         </div>
                     </div>
                 </div>
-
-                <h3 style="margin-top: 20px; color: #667eea;">🍜 早餐（9:30-10:30）</h3>
-                <div class="transport">
-                    从东福寺附近或返回京都站周边用早餐/早午餐
                 </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">🏯 金阁寺 Kinkaku-ji 金閣寺（60-90分钟）</h3>
+                <div class="category-header" onclick="toggleCategory('lunch-fri-content')" style="background: #f3e5f5; border-left: 4px solid #9c27b0; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #6a1b9a; margin: 0;">🍜 午餐：本家 第一旭 本店 🏠房东推荐</h3>
+                    <span class="category-toggle" id="lunch-fri-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="lunch-fri-content">
+                    <div style="background: #f3e5f5; padding: 20px; border-radius: 0 0 10px 10px; margin: 0 0 15px 0; border-left: 4px solid #9c27b0;">
+                        <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>🚶 交通：</strong>从东福寺站坐JR奈良线回京都站（5分钟，¥150）→ 步行8分钟至拉面店<br>
+                            <strong>📍 地点：</strong>本家 第一旭 本店 Honke Daiichi Asahi - 845 Higashishiokōji Mukaihatachō<br>
+                            <strong>💰 预算：</strong>¥1,000-1,500/人 ≈ 79-119 SEK/人<br>
+                            <strong>⏰ 营业时间：</strong>6:00-1:00（周四休息 Thursday closed）
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <strong>🍜 餐厅介绍：</strong><br>
+                            京都老字号拉面店，深受本地人喜爱！正宗的京都拉面体验，汤底浓郁，面条筋道。
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <strong>💡 推荐菜品：</strong><br>
+                            • <strong>招牌拉面</strong> - 店内必点！<br>
+                            • <strong>叉烧拉面</strong> - 叉烧肉质软嫩<br>
+                            • <strong>加蛋</strong> - 半熟溏心蛋，完美搭配<br>
+                            • <strong>饺子</strong> - 可作为配菜
+                        </div>
+                        <div style="background: #fce4ec; padding: 10px; border-radius: 5px; border-left: 3px solid #f44336;">
+                            <strong>🏠 房东Yuzi推荐：</strong>本地人超爱的老字号拉面店！地道京都拉面，价格实惠，分量足。<br>
+                            <strong>💡 小贴士：</strong>用餐高峰期可能需要排队，但翻台很快
+                        </div>
+                        <div style="background: #e1f5fe; padding: 10px; border-radius: 5px; border-left: 3px solid #2196f3; margin-top: 10px;">
+                            <strong>🎯 备选：ラーメン 藤 京都总店</strong> Ramen Fuji<br>
+                            如果第一旭休息或排队太久，可以选择拉面藤（离住宿更近，步行可达，10:00-19:00营业）
+                        </div>
+                    </div>
+                </div>
 
-                <div style="background: #fff9c4; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #fbc02d;">
+                <div class="category-header" onclick="toggleCategory('kinkakuji-fri-main-content')" style="background: #fff9c4; border-left: 4px solid #fbc02d; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #f57c00; margin: 0;">🏯 金阁寺 Kinkaku-ji 金閣寺（60-90分钟）</h3>
+                    <span class="category-toggle" id="kinkakuji-fri-main-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="kinkakuji-fri-main-content">
+                <div style="background: #fff9c4; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #fbc02d;">
                     <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
                         <strong>🚌 交通：</strong>从「京都站 Kyoto Station」乘巴士101/205号至「金阁寺道站 Kinkakuji-michi」（约40分钟，¥230）→ 步行3分钟
                     </div>
@@ -1320,20 +1379,79 @@
                         </div>
                     </div>
                 </div>
+                </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">🚌 返回住宿</h3>
-                <div class="transport">
-                    <strong>🚌 返程：</strong>从「金阁寺道站 Kinkakuji-michi」乘巴士101/205号返回「京都站 Kyoto Station」（约40分钟，¥230）→ 步行5分钟回住宿<br>
-                    <strong>⏰ 约16:00返回住宿</strong>
+                <div class="category-header" onclick="toggleCategory('dinner-fri-content')" style="background: #ede7f6; border-left: 4px solid #673ab7; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #4527a0; margin: 0;">🍜 晚餐：先斗町美食街 🏠房东推荐</h3>
+                    <span class="category-toggle" id="dinner-fri-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="dinner-fri-content">
+                    <div style="background: #ede7f6; padding: 20px; border-radius: 0 0 10px 10px; margin: 0 0 15px 0; border-left: 4px solid #673ab7;">
+                        <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>🚇 交通：</strong>从住宿/京都站乘地铁至「祗园四条站 Gion-Shijo」（10分钟，¥220）→ 步行5分钟<br>
+                            <strong>📍 地点：</strong>先斗町 Pontocho Alley - 鸭川旁的传统美食街<br>
+                            <strong>💰 预算：</strong>¥2,000-3,500/人 ≈ 159-278 SEK/人<br>
+                            <strong>⏰ 用餐时间：</strong>1.5-2小时
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <strong>🏮 区域介绍：</strong><br>
+                            窄窄的石板小巷，两侧全是传统居酒屋和餐厅，红灯笼高挂，京都最有氛围的用餐地！夜晚特别美，能感受真正的京都夜生活。
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <strong>💡 推荐美食：</strong><br>
+                            • <strong>烤鸡肉串（焼き鳥）</strong> - 各种串烧，配清酒绝配<br>
+                            • <strong>天妇罗</strong> - 新鲜炸物<br>
+                            • <strong>京都风味料理</strong> - 怀石料理简化版<br>
+                            • <strong>寿司、刺身</strong> - 新鲜海鲜
+                        </div>
+                        <div style="background: #fce4ec; padding: 10px; border-radius: 5px; border-left: 3px solid #f44336;">
+                            <strong>🏠 房东推荐：</strong>京都最有氛围的用餐地！建议随便找一家看起来顺眼的餐厅进去，不会踩雷。<br>
+                            <strong>💡 小贴士：</strong>有些餐厅面向鸭川，可以边吃边看河景（夏天还有纳凉床）
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-header" onclick="toggleCategory('return-fri-content')" style="background: #e3f2fd; border-left: 4px solid #2196f3; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #0d47a1; margin: 0;">🚌 返回住宿（16:00）</h3>
+                    <span class="category-toggle" id="return-fri-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="return-fri-content">
+                <div class="transport" style="background: #e3f2fd; padding: 15px; border-radius: 0 0 10px 10px; border-left: 4px solid #2196f3;">
+                    <strong>⏰ 约16:00返回住宿</strong><br>
+                    <strong>💡 策略：</strong>下午游完金阁寺后直接返回，准备晚上工作
+                </div>
+                </div>
+
+                <div class="category-header" onclick="toggleCategory('work-fri-content')" style="background: #f3e5f5; border-left: 4px solid #7b1fa2; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #4a148c; margin: 0;">💼 晚上：工作时间（17:00-00:00）</h3>
+                    <span class="category-toggle" id="work-fri-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="work-fri-content">
+                <div class="transport" style="background: #f3e5f5; padding: 15px; border-radius: 0 0 10px 10px; border-left: 4px solid #7b1fa2;">
+                    <strong>⏰ 工作时长：</strong>7小时（17:00-00:00）<br>
+                    <strong>📍 地点：</strong>在住宿地完成工作<br>
+                    <strong>🍽️ 晚餐建议：</strong>16:30-17:00 在住宿附近便利店或快餐解决<br>
+                    <strong>💡 策略：</strong>早点回住宿，留足够时间工作
+                </div>
                 </div>
 
                 <div class="total-budget">
                     <strong>💰 今日预算总计（2人）：</strong><br>
-                    交通费：¥1,400（伏见稻荷+金阁寺往返，¥700 × 2人）<br>
-                    门票费：¥3,200（东福寺¥1,100 + 金阁寺¥500，× 2人）<br>
-                    餐饮费：¥3,000-4,000（早餐/早午餐 + 午餐/晚餐 × 2人）<br>
-                    <strong>总计：¥7,600-8,600 ≈ 608-688 SEK ≈ 380-430 CNY</strong><br>
-                    <strong style="font-size: 1.1em; color: #fff59d;">💰 每人平均：304-344 SEK ≈ 190-215 CNY</strong>
+                    <strong>交通费：</strong>¥1,840<br>
+                    • 伏见稻荷往返：¥240 × 2人 = ¥480<br>
+                    • 东福寺→京都站：¥150 × 2人 = ¥300<br>
+                    • 京都站→金阁寺往返：¥460 × 2人 = ¥920<br>
+                    • 晚餐往返先斗町：¥220 × 2 = ¥440（往返）<br>
+
+                    <strong>门票费：</strong>¥3,200（东福寺¥1,100 + 金阁寺¥500，× 2人）<br>
+
+                    <strong>餐饮费：</strong>¥9,600-13,000<br>
+                    • 早餐（便利店）：¥400 × 2人 = ¥800<br>
+                    • 午餐（拉面小路）：¥1,250 × 2人 = ¥2,500<br>
+                    • 晚餐（先斗町）：¥2,750 × 2人 = ¥5,500<br>
+
+                    <strong>总计：¥14,640-18,040 ≈ 1,165-1,435 SEK ≈ 730-900 CNY</strong><br>
+                    <strong style="font-size: 1.1em; color: #fff59d;">💰 每人平均：583-718 SEK ≈ 365-450 CNY</strong>
                 </div>
 
 
@@ -1349,10 +1467,21 @@
             <div class="day-content" id="day5-content">
 
                 <div class="note" style="background: #e8f5e9; border-left-color: #4caf50;">
-                    <strong>💡 今日策略：</strong>周五选择较远的岚山地区，全天游览无需担心返回时间！<br>
-                    <strong>⏰ 时间安排：</strong>早上9:00出发，下午5:00返回，晚上6:00-11:00工作<br>
-                    <strong>🚶 行程特点：</strong>京都西部最美景区，竹林、古寺、河景一网打尽<br>
+                    <strong>💡 今日策略：</strong>租和服穿着游岚山，全天美美拍照！<br>
+                    <strong>⏰ 时间安排：</strong>9:00出发 → 9:40到岚山租和服 → 11:00-17:00穿和服游览 → 17:30归还 → 18:00返回<br>
+                    <strong>🚶 行程特点：</strong>京都西部最美景区，穿和服游竹林、古寺、河景<br>
                     <strong style="color: #c2185b;">🏠 房东推荐：</strong>岚山地区是本地人也喜欢的京都必游景点！
+                </div>
+
+                <div class="note" style="background: #fff3e0; border-left-color: #ff9800; margin-top: 15px;">
+                    <strong style="color: #e65100;">❄️ 天气提醒：</strong><br>
+                    12月13日预计温度：白天12°C，夜间3°C，平均8°C<br>
+                    <strong>穿和服会冷吗？</strong>有点冷但可以接受！<br>
+                    <strong>💡 保暖建议：</strong><br>
+                    • 里面穿保暖内衣/打底衫<br>
+                    • 选择长袖和服<br>
+                    • 租赁店会提供围巾、披肩等配件<br>
+                    • 12月是淡季，游客少，拍照更美！
                 </div>
 
                 <div class="note" style="background: #ffebee; border-left-color: #f44336; margin-top: 15px;">
@@ -1381,7 +1510,47 @@
                     <strong>⚠️ 注意：</strong>周末可能堵车，不推荐
                 </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">🎋 竹林小径（9:40-10:30）</h3>
+                <div class="category-header" onclick="toggleCategory('kimono-rental-content')" style="background: #fce4ec; border-left: 4px solid #e91e63; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #880e4f; margin: 0;">🎎 和服租赁：和楽 Waraku 岚山店（9:40-11:00）</h3>
+                    <span class="category-toggle" id="kimono-rental-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="kimono-rental-content">
+                    <div style="background: #fce4ec; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #e91e63;">
+                        <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>📍 店铺地址：</strong>和楽（Waraku）岚山店 - 岚电「岚山站」徒步5分钟<br>
+                            <strong>💰 价格：</strong>¥1,980/人（含发型设计）≈ 157 SEK/人<br>
+                            <strong>⏰ 营业时间：</strong>9:30-18:00（最晚着装16:00，归还17:30）<br>
+                            <strong>⌚ 换装时间：</strong>约1-1.5小时（选和服 + 换装 + 发型设计）
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <strong>🎎 包含内容：</strong><br>
+                            • 和服本体 + 腰带 + 配件<br>
+                            • 发型设计（简单盘发/编发）<br>
+                            • 包包、凉鞋等配套<br>
+                            • 免费行李寄存服务
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <strong>📝 建议流程：</strong><br>
+                            1. 9:40 到达岚山，直接前往和楽店铺<br>
+                            2. 9:45 开始选和服（花30分钟慢慢挑）<br>
+                            3. 10:15 换装 + 做发型（45分钟）<br>
+                            4. 11:00 换装完毕，开始穿和服游览！<br>
+                            5. 17:00-17:30 返回店铺归还和服
+                        </div>
+                        <div style="background: #fff9c4; padding: 10px; border-radius: 5px; border-left: 3px solid #fbc02d; margin-top: 10px;">
+                            <strong>💡 预订建议：</strong>建议提前1-2天在线预订，确保有位置。周六人可能较多。<br>
+                            <strong>🌐 官网：</strong><a href="https://waraku-kimono.jp/store-info/kyoto/arashiyama/" target="_blank" style="color: #880e4f;">waraku-kimono.jp</a>
+                        </div>
+                        <div style="background: #e1f5fe; padding: 10px; border-radius: 5px; border-left: 3px solid #2196f3; margin-top: 10px;">
+                            <strong>🎯 其他选择（如果和楽满了）：</strong><br>
+                            • ぎをん锦（Gion Nishiki）- ¥2,090起（最便宜）<br>
+                            • 愛和服（Aiwafuku）- ¥2,500起（学生优惠）<br>
+                            • Wakamurasaki - ¥2,750起
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 20px; color: #667eea;">🎋 竹林小径（11:00-11:40）</h3>
 
                 <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #4caf50;">
                     <h4 style="color: #2e7d32; margin: 0 0 10px 0;">🎋 竹林小径 Bamboo Grove（竹林の道）</h4>
