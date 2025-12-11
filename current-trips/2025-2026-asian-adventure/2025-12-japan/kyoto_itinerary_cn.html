@@ -914,7 +914,7 @@
         <!-- Day 3 -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('day4-content')">
-                <span>12月11日 - 星期四（东山区 - 银阁寺 + 哲学之道 + 南禅寺 + 永观堂 + 平安神宫）</span>
+                <span>✅ 12月11日 - 星期四（东山区 - 银阁寺 + 哲学之道 + 南禅寺 + 永观堂 + 平安神宫）</span>
                 <span class="toggle-icon" id="day4-content-icon">▼</span>
             </div>
             <div class="day-content" id="day4-content">
@@ -924,154 +924,148 @@
                     <strong>💡 推荐：</strong>饭团🍙、三明治🥪、面包🥐、咖啡☕ - 便宜又方便，约¥300-500/人
                 </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">🏯 银阁寺 Ginkaku-ji 銀閣寺（30-45分钟）</h3>
+                <div class="category-header" onclick="toggleCategory('ginkakuji-main-content')" style="background: #e8eaf6; border-left: 4px solid #3f51b5; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #283593; margin: 0;">🏯 银阁寺 Ginkaku-ji 銀閣寺（0.5小时）</h3>
+                    <span class="category-toggle" id="ginkakuji-main-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="ginkakuji-main-content">
+                    <div style="background: #e8eaf6; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #3f51b5;">
+                        <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>🕘 出发时间：</strong>9:30 从住宿出发<br>
+                            <strong>🚌 交通：</strong>从住宿乘巴士100号/5号至「银阁寺道站 Ginkakuji-michi」（30分钟，¥230）→ 步行5分钟
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=京都府京都市左京区銀閣寺町2" target="_blank" class="location-link" style="color: #283593; font-weight: 500;">
+                                📍 〒606-8402 京都府京都市左京区銀閣寺町2
+                            </a>
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 15px;">
+                            <strong>开放：</strong>8:30-17:00（12-2月 9:00-16:30）<br>
+                            <strong>门票：</strong>¥500 ≈ 23 SEK ≈ 23 CNY
+                        </div>
 
-                <div style="background: #e8eaf6; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #3f51b5;">
-                    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
-                        <strong>🕘 出发时间：</strong>9:30 从住宿出发<br>
-                        <strong>🚌 交通：</strong>从住宿乘巴士100号/5号至「银阁寺道站 Ginkakuji-michi」（30分钟，¥230）→ 步行5分钟
-                    </div>
-                    <div style="font-size: 0.9em; margin-bottom: 15px;">
-                        <a href="https://www.google.com/maps/place/Ginkaku-ji+Temple/@35.0269561,135.7979637,17z" target="_blank" class="location-link" style="color: #283593; font-weight: 500;">
-                            📍 〒606-8402 京都府京都市左京区銀閣寺町2
-                        </a>
-                    </div>
-
-                    <div class="category-header" onclick="toggleCategory('place-ginkakuji-content')" style="background: #c5cae9; border-left: 3px solid #3f51b5; padding: 10px 15px; margin: 0;">
-                        <span style="color: #283593; font-weight: 500;">📖 了解更多景点信息</span>
-                        <span class="category-toggle" id="place-ginkakuji-content-toggle">▼</span>
-                    </div>
-                    <div class="category-content" id="place-ginkakuji-content">
-                        <div style="background: #c5cae9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #3f51b5;">
-                            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
-                                <strong>特色：</strong>正式名称慈照寺，与金阁寺齐名的京都名刹<br>
-                                <strong>建筑：</strong>银阁（观音殿）、东求堂、银沙滩、向月台<br>
-                                <strong>庭园：</strong>枯山水庭园和池泉回游式庭园结合<br>
-                                <strong>开放：</strong>8:30-17:00（12-2月 9:00-16:30）<br>
-                                <strong>门票：</strong>¥500 ≈ 23 SEK ≈ 23 CNY<br>
-                                <strong>电话：</strong>+81 75-771-5725<br>
-                                <strong>💡 小贴士：</strong>虽然叫银阁寺，其实并未贴银箔，是侘寂美学的代表
-                            </p>
+                        <div class="category-header" onclick="toggleCategory('place-ginkakuji-detail')" style="background: #c5cae9; border-left: 3px solid #3f51b5; padding: 10px 15px; margin: 0;">
+                            <span style="color: #283593; font-weight: 500;">📖 了解更多景点信息</span>
+                            <span class="category-toggle" id="place-ginkakuji-detail-toggle">▼</span>
+                        </div>
+                        <div class="category-content" id="place-ginkakuji-detail">
+                            <div style="background: #c5cae9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #3f51b5;">
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                    <strong>特色：</strong>正式名称慈照寺，与金阁寺齐名的京都名刹<br>
+                                    <strong>建筑：</strong>银阁（观音殿）、东求堂、银沙滩、向月台<br>
+                                    <strong>庭园：</strong>枯山水庭园和池泉回游式庭园结合<br>
+                                    <strong>电话：</strong>+81 75-771-5725<br>
+                                    <strong>💡 小贴士：</strong>虽然叫银阁寺，其实并未贴银箔，是侘寂美学的代表
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">🍃 哲学之道 Philosopher's Path 哲学の道（60-75分钟）</h3>
+                <div class="note" style="background: #e8f5e9; border-left-color: #4caf50; margin-top: 15px;">
+                    <strong style="color: #2e7d32;">✨ 特别发现：</strong><br>
+                    <strong>Honeninkyozo 経蔵</strong> - 银阁寺后面，少有人，超级好看！免费参观 ✨<br>
+                    💡 <strong>小贴士：</strong>银阁寺只收现金，记得提前准备！
+                </div>
 
-                <div style="background: #e0f2f1; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #009688;">
-                    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
-                        <strong>🚶 交通：</strong>步行3分钟
-                    </div>
-                    <div style="font-size: 0.9em; margin-bottom: 15px;">
-                        <a href="https://www.google.com/maps/place/Philosopher's+Walk/@35.0255467,135.7948034,16z" target="_blank" class="location-link" style="color: #00695c; font-weight: 500;">
-                            📍 〒606-8406 京都府京都市左京区鹿ケ谷法然院西町（银阁寺附近）
-                        </a>
-                    </div>
+                <div class="category-header" onclick="toggleCategory('philosopher-main-content')" style="background: #e0f2f1; border-left: 4px solid #009688; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #00695c; margin: 0;">🍃 哲学之道 Philosopher's Path 哲学の道（1-1.5小时）</h3>
+                    <span class="category-toggle" id="philosopher-main-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="philosopher-main-content">
+                    <div style="background: #e0f2f1; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #009688;">
+                        <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>🚶 交通：</strong>步行3分钟
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=京都府京都市左京区鹿ケ谷法然院西町" target="_blank" class="location-link" style="color: #00695c; font-weight: 500;">
+                                📍 〒606-8406 京都府京都市左京区鹿ケ谷法然院西町（银阁寺附近）
+                            </a>
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 15px;">
+                            <strong>门票：</strong>免费 ✨
+                        </div>
 
-                    <div class="category-header" onclick="toggleCategory('place-philosopher-content')" style="background: #b2dfdb; border-left: 3px solid #009688; padding: 10px 15px; margin: 0;">
-                        <span style="color: #00695c; font-weight: 500;">📖 了解更多景点信息</span>
-                        <span class="category-toggle" id="place-philosopher-content-toggle">▼</span>
-                    </div>
-                    <div class="category-content" id="place-philosopher-content">
-                        <div style="background: #b2dfdb; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #009688;">
-                            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
-                                <strong>特色：</strong>沿运河的2公里石板小路，两旁种满樱花树（春天绝美）<br>
-                                <strong>名字由来：</strong>京都大学哲学教授西田几多郎常在此散步思考<br>
-                                <strong>冬季特色：</strong>虽无樱花，但清幽宁静，游客较少，适合静心漫步<br>
-                                <strong>路线：</strong>银阁寺（北端）→ 南禅寺（南端），全程约30-40分钟<br>
-                                <strong>门票：</strong>免费 ✨<br>
-                                <strong>午餐建议：</strong>沿途有よーじやカフェ（抹茶甜点）、ゴスペル（西式简餐）
-                            </p>
+                        <div class="category-header" onclick="toggleCategory('place-philosopher-detail')" style="background: #b2dfdb; border-left: 3px solid #009688; padding: 10px 15px; margin: 0;">
+                            <span style="color: #00695c; font-weight: 500;">📖 了解更多景点信息</span>
+                            <span class="category-toggle" id="place-philosopher-detail-toggle">▼</span>
+                        </div>
+                        <div class="category-content" id="place-philosopher-detail">
+                            <div style="background: #b2dfdb; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #009688;">
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                    <strong>特色：</strong>沿运河的2公里石板小路，两旁种满樱花树（春天绝美）<br>
+                                    <strong>名字由来：</strong>京都大学哲学教授西田几多郎常在此散步思考<br>
+                                    <strong>冬季特色：</strong>虽无樱花，但清幽宁静，游客较少，适合静心漫步<br>
+                                    <strong>路线：</strong>银阁寺（北端）→ 南禅寺（南端），全程约30-40分钟<br>
+                                    <strong>午餐建议：</strong>沿途有よーじやカフェ（抹茶甜点）、ゴスペル（西式简餐）
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="category-header" onclick="toggleCategory('lunch-options-content')" style="background: #f3e5f5; border-left: 4px solid #9c27b0; padding: 10px 15px; margin: 15px 0 0 0;">
-                    <h3 style="color: #6a1b9a; margin: 0;">🍜 午餐推荐 <span style="background: #fce4ec; color: #c2185b; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🏠 房东推荐选项</span></h3>
-                    <span class="category-toggle" id="lunch-options-content-toggle">▼</span>
+                <div class="category-header" onclick="toggleCategory('lunch-junsei-content')" style="background: #f3e5f5; border-left: 4px solid #9c27b0; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #6a1b9a; margin: 0;">🍽️ 午餐：Junsei 顺正豆腐</h3>
+                    <span class="category-toggle" id="lunch-junsei-content-toggle">▼</span>
                 </div>
-                <div class="category-content" id="lunch-options-content">
+                <div class="category-content" id="lunch-junsei-content">
                     <div style="background: #f3e5f5; padding: 20px; border-radius: 0 0 10px 10px; margin: 0 0 15px 0; border-left: 4px solid #9c27b0;">
-                        <div style="margin-bottom: 15px;">
-                            <strong style="color: #6a1b9a;">💡 午餐选项（按距离排序）：</strong>
-                        </div>
-
-                        <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 10px; border-left: 3px solid #4caf50;">
-                            <strong>✅ 推荐：哲学之道沿途咖啡厅</strong> <span style="background: #e8f5e9; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.75em;">🚶 0分钟 就在路上</span><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                                • よーじやカフェ - 抹茶甜点，京都特色<br>
-                                • ゴスペル - 西式简餐，轻松休闲<br>
-                                💡 最方便！散步途中就能吃
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 10px;">
-                            <strong>选项2：南禅寺周边餐厅</strong><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                                🚶 从哲学之道步行至南禅寺约15分钟<br>
-                                💡 南禅寺周边有豆腐料理、素食餐厅（湯豆腐）
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 10px;">
-                            <strong>选项3：京都寿司 桃の木</strong> <span style="background: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.75em;">🏠 房东推荐</span><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                                🍣 寿司 • 11:30-14:00<br>
-                                📍 99 Maoyachō, Shimogyo Ward（京都站附近）<br>
-                                🚶 从哲学之道需要返回市中心，约30-40分钟车程<br>
-                                ⚠️ 距离较远，不建议今天去
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 12px; border-radius: 6px;">
-                            <strong>其他房东推荐（需查地图确认距离）：</strong><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                                • <strong>Soba-Shubō Tokubei</strong> 🏠 - 荞麦面，11:00-23:00<br>
-                                • <strong>Sushi Masa</strong> 🏠 - 寿司，11:30-14:00，⭐18位本地人推荐<br>
-                                • <strong>Koryōri Takaya</strong> 🏠 - 日本料理，周一-四 12:00-14:00<br>
-                                💡 使用Google Maps搜索确认距离后再选择
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid #4caf50;">
+                            <strong style="color: #6a1b9a;">✅ 实际选择：Junsei 顺正豆腐（南禅寺顺正）</strong><br>
+                            <span style="font-size: 0.9em; color: #666; line-height: 1.8;">
+                                🍜 日本豆腐料理（湯豆腐）<br>
+                                📍 南禅寺附近<br>
+                                💰 小套餐 × 2份 ¥7,810（每人一个套餐）<br>
+                                🌸 <strong>特色：</strong>餐厅庭园景色超美，日式传统氛围<br>
+                                ⭐ <strong>体验：</strong>价格很值得！景色和味道都很棒
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">⛩️ 南禅寺 Nanzen-ji 南禅寺（60-75分钟）</h3>
+                <div class="category-header" onclick="toggleCategory('nanzenji-main-content')" style="background: #fff3e0; border-left: 4px solid #ff9800; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #e65100; margin: 0;">⛩️ 南禅寺 Nanzen-ji 南禅寺（1-1.5小时）</h3>
+                    <span class="category-toggle" id="nanzenji-main-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="nanzenji-main-content">
+                    <div style="background: #fff3e0; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff9800;">
+                        <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>🚶 交通：</strong>步行15分钟
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=京都府京都市左京区南禅寺福地町" target="_blank" class="location-link" style="color: #e65100; font-weight: 500;">
+                                📍 〒606-8435 京都府京都市左京区南禅寺福地町
+                            </a>
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 15px;">
+                            <strong>开放：</strong>8:40-17:00（12-2月至16:30）<br>
+                            <strong>门票：</strong>境内免费，三门+方丈各¥600
+                        </div>
 
-                <div style="background: #fff3e0; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #ff9800;">
-                    <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
-                        <strong>🚶 交通：</strong>步行15分钟
-                    </div>
-                    <div style="font-size: 0.9em; margin-bottom: 15px;">
-                        <a href="https://www.google.com/maps/place/Nanzen-ji+Temple/@35.0112668,135.7928672,17z" target="_blank" class="location-link" style="color: #e65100; font-weight: 500;">
-                            📍 〒606-8435 京都府京都市左京区南禅寺福地町
-                        </a>
-                    </div>
-
-                    <div class="category-header" onclick="toggleCategory('place-nanzenji-content')" style="background: #ffe0b2; border-left: 3px solid #ff9800; padding: 10px 15px; margin: 0;">
-                        <span style="color: #e65100; font-weight: 500;">📖 了解更多景点信息</span>
-                        <span class="category-toggle" id="place-nanzenji-content-toggle">▼</span>
-                    </div>
-                    <div class="category-content" id="place-nanzenji-content">
-                        <div style="background: #ffe0b2; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #ff9800;">
-                            <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
-                                <strong>特色：</strong>临济宗南禅寺派总本山，京都五山之首<br>
-                                <strong>必看：</strong>三门（国宝，22米高，¥600）、水路阁（红砖拱桥，超出片！）、方丈庭园（枯山水，¥600）<br>
-                                <strong>开放：</strong>8:40-17:00（12-2月至16:30）<br>
-                                <strong>门票：</strong>境内免费，三门+方丈各¥600<br>
-                                <strong>电话：</strong>+81 75-771-0365 | <strong>官网：</strong><a href="http://www.nanzen.net/" target="_blank" style="color: #e65100;">nanzen.net</a>
-                            </p>
+                        <div class="category-header" onclick="toggleCategory('place-nanzenji-detail')" style="background: #ffe0b2; border-left: 3px solid #ff9800; padding: 10px 15px; margin: 0;">
+                            <span style="color: #e65100; font-weight: 500;">📖 了解更多景点信息</span>
+                            <span class="category-toggle" id="place-nanzenji-detail-toggle">▼</span>
+                        </div>
+                        <div class="category-content" id="place-nanzenji-detail">
+                            <div style="background: #ffe0b2; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #ff9800;">
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                    <strong>特色：</strong>临济宗南禅寺派总本山，京都五山之首<br>
+                                    <strong>必看：</strong>三门（国宝，22米高，¥600）、水路阁（红砖拱桥，超出片！）、方丈庭园（枯山水，¥600）<br>
+                                    <strong>电话：</strong>+81 75-771-0365 | <strong>官网：</strong><a href="http://www.nanzen.net/" target="_blank" style="color: #e65100;">nanzen.net</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">🍁 永观堂 Eikando 永観堂（45-60分钟）<span style="background: #fff3cd; color: #856404; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🍂 赏枫名所</span></h3>
+                <h3 style="margin-top: 20px; color: #667eea;">🍁 永观堂 Eikando 永観堂（1小时）<span style="background: #fff3cd; color: #856404; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🍂 赏枫名所</span></h3>
 
                 <div style="background: #fff8e1; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #ffa726;">
                     <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
                         <strong>🚶 交通：</strong>步行5分钟
                     </div>
                     <div style="font-size: 0.9em; margin-bottom: 15px;">
-                        <a href="https://www.google.com/maps/place/Eikando+Zenrinji+Temple/@35.0150111,135.7952278,17z" target="_blank" class="location-link" style="color: #e65100; font-weight: 500;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=京都府京都市左京区永観堂町48" target="_blank" class="location-link" style="color: #e65100; font-weight: 500;">
                             📍 〒606-8445 京都府京都市左京区永観堂町48
                         </a>
                     </div>
@@ -1095,14 +1089,14 @@
                     </div>
                 </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">⛩️ 平安神宫 Heian Shrine（45-60分钟）</h3>
+                <h3 style="margin-top: 20px; color: #667eea;">⛩️ 平安神宫 Heian Shrine（1小时）</h3>
 
                 <div style="background: #fce4ec; padding: 20px; border-radius: 10px; margin: 15px 0; border-left: 4px solid #e91e63;">
                     <div class="transport" style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
                         <strong>🚶 交通：</strong>步行12分钟
                     </div>
                     <div style="font-size: 0.9em; margin-bottom: 15px;">
-                        <a href="https://www.google.com/maps/place/Heian+Shrine/@35.0161942,135.7826156,17z" target="_blank" class="location-link" style="color: #c2185b; font-weight: 500;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=京都府京都市左京区岡崎西天王町97" target="_blank" class="location-link" style="color: #c2185b; font-weight: 500;">
                             📍 〒606-8341 京都府京都市左京区岡崎西天王町97
                         </a>
                     </div>
@@ -1127,71 +1121,30 @@
 
                 <h3 style="margin-top: 20px; color: #667eea;">🚌 返回住宿</h3>
                 <div class="transport">
-                    <strong>🚌 返程：</strong>从平安神宫前乘巴士5号/100号至「京都站 Kyoto Station」（30分钟，¥230）→ 步行5分钟回住宿<br>
-                    <strong>⏰ 约15:15从平安神宫出发</strong> → <strong>预计15:50到达住宿</strong>，可以休息或直接开始工作
+                    <strong>🚌 返程：</strong>乘巴士返回，约30分钟，¥230 × 2人<br>
+                    <strong>⏰ 实际17:00到达住宿</strong>
                 </div>
 
-                <div class="category-header" onclick="toggleCategory('dinner-options-content')" style="background: #fff8e1; border-left: 4px solid #ffa726; padding: 10px 15px; margin: 15px 0 0 0;">
-                    <h3 style="color: #e65100; margin: 0;">🍜 晚餐推荐 <span style="background: #fce4ec; color: #c2185b; padding: 3px 8px; border-radius: 4px; font-size: 0.6em; margin-left: 8px;">🏠 房东推荐选项</span></h3>
-                    <span class="category-toggle" id="dinner-options-content-toggle">▼</span>
+                <div class="category-header" onclick="toggleCategory('dinner-711-content')" style="background: #fff8e1; border-left: 4px solid #ffa726; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #e65100; margin: 0;">🍱 晚餐：7-Eleven 便利店</h3>
+                    <span class="category-toggle" id="dinner-711-content-toggle">▼</span>
                 </div>
-                <div class="category-content" id="dinner-options-content">
+                <div class="category-content" id="dinner-711-content">
                     <div style="background: #fff8e1; padding: 20px; border-radius: 0 0 10px 10px; margin: 0 0 15px 0; border-left: 4px solid #ffa726;">
-                        <div style="margin-bottom: 15px;">
-                            <strong style="color: #e65100;">💡 晚餐选项（住宿附近或外卖）：</strong>
-                        </div>
-
-                        <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 10px; border-left: 3px solid #4caf50;">
-                            <strong>✅ 推荐1：ラーメン 藤 京都总店</strong> <span style="background: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.75em;">🏠 房东推荐</span> <span style="background: #e8f5e9; color: #2e7d32; padding: 2px 6px; border-radius: 3px; font-size: 0.75em;">🚶 步行可达</span><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                                🍜 拉面 • 10:00-19:00<br>
-                                📍 111-1 Higashikujō Minamiishidachō<br>
-                                💡 离住宿很近！步行可达，工作前快速解决晚餐
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 10px;">
-                            <strong>选项2：本家 第一旭 本店</strong> <span style="background: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.75em;">🏠 房东推荐</span><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                                🍜 拉面（招牌菜）• 6:00-1:00<br>
-                                📍 845 Higashishiokōji Mukaihatachō<br>
-                                ⭐ 本地人超爱的老字号拉面店！<br>
-                                ⚠️ 今天（周四）休息！不能去
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 10px;">
-                            <strong>选项3：先斗町 炭楽屋とりうめ</strong> <span style="background: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.75em;">🏠 房东推荐</span><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                                🍗 烤鸡串（Yakitori）• 17:00-23:00<br>
-                                📍 先斗町ビル (Pontocho Building)<br>
-                                💡 先斗町是京都著名的美食街！<br>
-                                ⚠️ 17:00才开门，工作前来不及
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 12px; border-radius: 6px; margin-bottom: 10px;">
-                            <strong>选项4：Niigataya</strong> <span style="background: #fce4ec; color: #c2185b; padding: 2px 6px; border-radius: 3px; font-size: 0.75em;">🏠 房东推荐</span><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                                🍽️ 餐厅 • 16:00-22:00（每天）<br>
-                                💡 16:00开门，刚好可以工作前吃
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 12px; border-radius: 6px;">
-                            <strong>选项5：便利店或京都站美食</strong><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                                🏪 便利店便当、饭团<br>
-                                🍜 京都站拉面小路、伊势丹地下美食街<br>
-                                💡 最快捷方便，工作前快速解决
+                        <div style="background: white; padding: 15px; border-radius: 8px; border-left: 3px solid #4caf50;">
+                            <strong style="color: #e65100;">✅ 实际选择：7-Eleven 便利店</strong><br>
+                            <span style="font-size: 0.9em; color: #666; line-height: 1.8;">
+                                🏪 便利店便当<br>
+                                💰 ¥1,800（2人）<br>
+                                💡 方便快捷，回住宿前购买，准备开始工作
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <h3 style="margin-top: 20px; color: #667eea;">💼 下午至晚上：工作时间（16:00-00:00）</h3>
+                <h3 style="margin-top: 20px; color: #667eea;">💼 晚上：工作时间（17:00-00:00）</h3>
                 <div class="transport">
-                    在住宿地完成8小时工作，凌晨00:00结束
+                    在住宿地完成7小时工作，凌晨00:00结束
                 </div>
 
                 <div class="total-budget">
@@ -1201,6 +1154,20 @@
                     餐饮费：¥3,600-5,000（便利店早餐¥600-1,000 + 午餐¥2,000-3,000 + 晚餐¥1,000，× 2人）<br>
                     <strong>总计：¥7,720-11,520 ≈ 617-921 SEK ≈ 386-576 CNY</strong><br>
                     <strong style="font-size: 1.1em; color: #fff59d;">💰 每人平均：309-461 SEK ≈ 193-288 CNY</strong>
+                </div>
+
+                <div style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #ff9800;">
+                    <strong style="color: #e65100;">💰 实际消费（2人）：</strong><br>
+                    🚇 <strong>交通：</strong>¥1,380（¥230 × 3次 × 2人）<br>
+                    🍽️ <strong>餐饮：</strong>¥12,170<br>
+                    　• 早餐（711便利店）¥770<br>
+                    　• 小吃（哲学之道抹茶冰淇淋¥1,190 + 甜品¥600）¥1,790<br>
+                    　• 午餐（Junsei顺正豆腐 小套餐 × 2份）¥7,810<br>
+                    　• 晚餐（711便利店）¥1,800<br>
+                    🎫 <strong>门票：</strong>¥1,200（永观堂¥600 × 2人，银阁寺未进-只收现金）<br>
+                    <strong style="color: #e65100;">总计：¥14,750</strong><br>
+                    <strong style="font-size: 1.1em; color: #ff9800;">💰 每人平均：¥7,375 ≈ 586 SEK ≈ 368 CNY</strong><br>
+                    <span style="font-size: 0.9em; color: #666;">对比预算：实际比预算高 ¥3,230-7,030（主要是午餐豆腐料理比预期贵）</span>
                 </div>
 
             </div>
@@ -1875,6 +1842,30 @@
             </div>
         </div>
 
+        <!-- To-Do List Section -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('todo-list-content')" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">
+                <span>✅ 待做事项</span>
+                <span class="toggle-icon collapsed" id="todo-list-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="todo-list-content">
+
+                <div style="background: #fff8e1; padding: 20px; border-radius: 10px; border-left: 4px solid #ffa726;">
+                    <ul class="itinerary-list">
+                        <li>
+                            <input type="checkbox" id="todo-luggage" style="margin-right: 8px;">
+                            <label for="todo-luggage"><strong>查看行李箱寄存</strong></label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="todo-swimsuit" style="margin-right: 8px;">
+                            <label for="todo-swimsuit"><strong>购买泳衣</strong> - 如果计划去温泉或游泳</label>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
         <!-- To Experience Section -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('to-experience-content')" style="background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);">
@@ -1882,10 +1873,6 @@
                 <span class="toggle-icon collapsed" id="to-experience-content-icon">▼</span>
             </div>
             <div class="day-content" id="to-experience-content">
-                <div class="note" style="background: #f3e5f5; border-left-color: #9c27b0;">
-                    <strong style="color: #7b1fa2;">💡 关于这个列表：</strong><br>
-                    京都和关西地区必看景点和体验合集。从这个列表中规划每天的活动！
-                </div>
 
                 <!-- Host Recommendations - MOVED TO TOP -->
                 <div class="category-header" onclick="toggleCategory('category-host-content')" style="background: #fce4ec; border-left: 4px solid #e91e63;">
@@ -2015,37 +2002,6 @@
                     </div>
                 </div>
 
-                <!-- Autumn Leaves Info -->
-                <div class="category-header" onclick="toggleCategory('category-autumn-content')" style="background: #fff8e1; border-left: 4px solid #ffa726;">
-                    <h3 style="color: #e65100; margin: 0;">🍁 秋季红叶/枫叶观赏（12月上旬）</h3>
-                    <span class="category-toggle" id="category-autumn-content-toggle">▼</span>
-                </div>
-                <div class="category-content" id="category-autumn-content">
-                    <div style="background: #fff8e1; padding: 20px; border-radius: 0 0 10px 10px; margin-bottom: 20px; border-left: 4px solid #ffa726;">
-                    <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #ffa726;">
-                        <p style="line-height: 1.8; color: #666;">
-                            <strong style="color: #e65100;">🎉 好消息！</strong>2025年因为天气较暖，京都的秋叶季节延长了！<br>
-                            <strong>预测峰值：</strong>12月15日左右<br>
-                            <strong>最佳观赏期：</strong>11月底至12月中旬（你们正好赶上！）
-                        </p>
-                        <p style="line-height: 1.8; color: #666; margin-top: 10px;">
-                            <strong style="color: #e65100;">🍂 最佳赏枫地点：</strong>
-                        </p>
-                        <ul style="line-height: 1.8; color: #666; margin-top: 5px;">
-                            <li><strong>岚山</strong> - 渡月桥和天龙寺周边，红叶特别美</li>
-                            <li><strong>永观堂</strong> - 京都最著名的赏枫寺庙之一</li>
-                            <li><strong>东福寺</strong> - 通天桥被红叶包围</li>
-                            <li><strong>哲学之道</strong> - 沿着运河的枫叶小径</li>
-                        </ul>
-                        <div style="margin-top: 12px; padding: 12px; background: #e3f2fd; border-radius: 6px; border-left: 3px solid #2196F3;">
-                            <p style="color: #1565c0; font-size: 0.95em; line-height: 1.6;">
-                                <strong>⏰ 最佳时间：</strong>因为你们的工作时间是下午4点到晚上11点，建议早上（9点-下午1点）去参观，光线最好，游客也较少。大部分寺庙早上8-9点开门！
-                            </p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-
                 <!-- Kyoto Temples & Shrines -->
                 <div class="category-header" onclick="toggleCategory('category-temples-content')" style="background: #fff3e0; border-left: 4px solid #ff9800;">
                     <h3 style="color: #e65100; margin: 0;">⛩️ 京都寺庙神社</h3>
@@ -2065,30 +2021,6 @@
                         <li>
                             <strong>岚山竹林</strong> Arashiyama Bamboo Grove 嵐山竹林<br>
                             <span style="font-size: 0.9em; color: #666;">标志性竹林小径 • 免费</span>
-                        </li>
-                    </ul>
-                    </div>
-                </div>
-
-                <!-- Osaka -->
-                <div class="category-header" onclick="toggleCategory('category-osaka-content')" style="background: #e3f2fd; border-left: 4px solid #2196F3;">
-                    <h3 style="color: #1976D2; margin: 0;">🏙️ 大阪</h3>
-                    <span class="category-toggle" id="category-osaka-content-toggle">▼</span>
-                </div>
-                <div class="category-content" id="category-osaka-content">
-                    <div style="background: #e3f2fd; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #2196F3;">
-                    <ul class="itinerary-list">
-                        <li>
-                            <strong>道顿堀</strong> Dotonbori 道頓堀<br>
-                            <span style="font-size: 0.9em; color: #666;">著名美食街，霓虹灯招牌 • 免费</span>
-                        </li>
-                        <li>
-                            <strong>大阪城</strong> Osaka Castle 大阪城<br>
-                            <span style="font-size: 0.9em; color: #666;">历史悠久的城堡和公园 • ¥600 ≈ 28 SEK ≈ 28 CNY</span>
-                        </li>
-                        <li>
-                            <strong>黑门市场</strong> Kuromon Market 黒門市場<br>
-                            <span style="font-size: 0.9em; color: #666;">新鲜海鲜和街头小吃 • 免费进入</span>
                         </li>
                     </ul>
                     </div>
