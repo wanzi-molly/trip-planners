@@ -548,79 +548,162 @@
             </div>
         </div>
 
-        <!-- Day 1: Dec 14 (Sunday) -->
+        <!-- Day 1: Dec 15 (Monday) -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('day1-content')">
-                <span>📅 Day 1: Dec 14 (周日) - 京都最后一天</span>
+                <span>📅 Day 1: Dec 15 (周一) - 抵达东京 & 浅草轻松游</span>
                 <span class="toggle-icon" id="day1-content-icon">▼</span>
             </div>
-            <div class="day-content open" id="day1-content">
-                <div class="note">
-                    <strong>📍 仍在京都：</strong> 今天白天还在京都，可以继续观光<br>
-                    <strong>🚌 晚上出发：</strong> Willer Express夜行巴士前往东京<br>
-                    <strong>📍 上车地点：</strong> 京都站八条口 (Kyoto Station Hachijo Gate)<br>
-                    <strong>🕐 建议巴士：</strong> 晚上9-11点出发 → 次日早上6-8点到达<br>
-                    <strong>💺 座位推荐：</strong><br>
-                    • Prime/Relax ¥5,000-7,000（腿部支撑、可斜躺）<br>
-                    • Comodo ¥7,000-9,000（3排座、更宽敞、大幅度斜躺）<br>
-                    • Luxs/Executive ¥9,000-12,000（接近平躺、隔板隐私）
+            <div class="day-content" id="day1-content">
+                <!-- Transportation Info -->
+                <div class="transport">
+                    <div class="transport-title">🚇 今日交通</div>
+                    新宿站 → 住宿：JR + 地铁，约30-40分钟，<span class="price">¥200-300（≈ 9-14 CNY）</span><br>
+                    住宿 ⇄ 浅草寺：步行约15-20分钟，免费<br>
+                    <strong>💰 今日交通总费用：</strong> <span class="price">约 ¥200-300（≈ 9-14 CNY）</span><br>
+                    <strong>💡 建议：</strong> 购买单程票即可，不需要日票
                 </div>
-                <ul class="itinerary-list">
-                    <li>
-                        <strong>白天</strong><br>
-                        在京都继续观光，下午4点前完成
-                    </li>
-                    <li>
-                        <strong>下午/傍晚</strong><br>
-                        回住宿收拾行李，前往京都站
-                    </li>
-                    <li>
-                        <strong>晚上</strong><br>
-                        工作时间 (4 PM - 11 PM)，可以在巴士上工作或休息
-                    </li>
-                    <li>
-                        <strong>深夜</strong><br>
-                        在巴士上睡觉前往东京
-                    </li>
-                </ul>
-            </div>
-        </div>
 
-        <!-- Day 2: Dec 15 (Monday) -->
-        <div class="day-card">
-            <div class="day-header" onclick="toggleDay('day2-content')">
-                <span>📅 Day 2: Dec 15 (周一) - 抵达东京 & 浅草</span>
-                <span class="toggle-icon" id="day2-content-icon">▼</span>
-            </div>
-            <div class="day-content" id="day2-content">
-                <div class="note">
-                    <strong>🚌 早上到达：</strong> 夜行巴士早上到达新宿站<br>
-                    <strong>🚇 到住宿：</strong> 新宿站 → JR/地铁 → 秋叶原/浅草 → 步行到柳桥（约30-40分钟）<br>
-                    <strong>🏨 Check-in：</strong> 1-chōme-11-6 Yanagibashi, Taito City<br>
-                    <strong>📍 周边：</strong> 住宿靠近浅草区，步行可达晴空塔和浅草寺
+                <!-- Morning Arrival -->
+                <div style="background: #e3f2fd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #2196F3;">
+                    <strong style="color: #1976D2;">🌅 早上到达（7:30-9:00）</strong><br>
+                    <span style="font-size: 0.95em; color: #555;">
+                        🚌 7:30 夜行巴士到达新宿站<br>
+                        🚇 7:30-8:15 从新宿站前往住宿（柳桥）<br>
+                        🎒 8:15-9:00 到达住宿，寄存行李，洗漱休息
+                    </span>
                 </div>
-                <ul class="itinerary-list">
-                    <li>
-                        <strong>早上</strong><br>
-                        到达新宿，前往住宿办理入住（或寄存行李），洗漱休息
-                    </li>
-                    <li>
-                        <strong>上午 - 浅草寺 Senso-ji Temple</strong> 淺草寺<br>
-                        <span style="font-size: 0.9em; color: #666;">东京最古老的寺庙，雷门和仲见世商店街 • 免费</span>
-                    </li>
-                    <li>
-                        <strong>中午 - 浅草美食</strong><br>
-                        <span style="font-size: 0.9em; color: #666;">尝试天妇罗、鳗鱼饭或传统和菓子</span>
-                    </li>
-                    <li>
-                        <strong>下午 - 熟悉周边环境</strong><br>
-                        <span style="font-size: 0.9em; color: #666;">步行探索柳桥、浅草地区，去超市采购</span>
-                    </li>
-                    <li>
-                        <strong>晚上</strong><br>
-                        工作时间 (4 PM - 11 PM)
-                    </li>
-                </ul>
+
+                <!-- Attraction 1: Senso-ji Temple -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('senso-ji-main-content')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 0;">
+                        <h3 style="margin: 0; font-size: 1.2em;">1️⃣ 浅草寺 Senso-ji Temple（9:00-11:30）</h3>
+                        <span class="category-toggle" id="senso-ji-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="senso-ji-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #764ba2;">
+
+                            <p style="margin: 10px 0;"><strong>🕘 出发时间：</strong> 9:00 从住宿出发</p>
+
+                            <p style="margin: 10px 0;"><strong>🚶 交通：</strong> 步行约15-20分钟</p>
+
+                            <p style="margin: 10px 0;">
+                                <strong>📍 地址：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=2-3-1+Asakusa+Taito+City+Tokyo+111-0032" target="_blank" style="color: #1976D2;">
+                                    2-3-1 Asakusa, Taito City, Tokyo 111-0032
+                                </a>
+                            </p>
+
+                            <p style="margin: 10px 0;"><strong>🕐 开放时间：</strong> 6:00-17:00（寺庙全年开放）</p>
+
+                            <p style="margin: 10px 0;"><strong>💴 门票：</strong> <span class="price">免费</span></p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('senso-ji-detail')" style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 10px 15px;">
+                                    <strong style="color: #1976D2; font-size: 0.95em;">📖 了解更多景点信息</strong>
+                                    <span class="category-toggle" id="senso-ji-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="senso-ji-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #2196F3;">
+
+                                        <p style="margin: 10px 0;"><strong style="color: #764ba2;">✨ 特色：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                            <li>东京最古老、最重要的寺庙，建于628年</li>
+                                            <li>标志性的雷门（Kaminarimon）和巨大的红色灯笼</li>
+                                            <li>仲见世商店街连接雷门和寺庙主殿，约250米长</li>
+                                            <li>可以求签、购买御守护身符</li>
+                                        </ul>
+
+                                        <p style="margin: 10px 0;"><strong style="color: #764ba2;">🎯 必看/必做：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                            <li>雷门拍照（巨大的红色灯笼）</li>
+                                            <li>在仲见世商店街品尝传统小吃（人形烧、仙贝、抹茶冰淇淋等）</li>
+                                            <li>在常香炉前用香烟"洗净"身体（传统习俗）</li>
+                                            <li>参观主殿，抽签祈福</li>
+                                            <li>探索宝藏门和五重塔</li>
+                                        </ul>
+
+                                        <p style="margin: 10px 0;"><strong style="color: #764ba2;">📞 电话：</strong> +81 3-3842-0181</p>
+
+                                        <p style="margin: 10px 0;">
+                                            <strong style="color: #764ba2;">🌐 官网：</strong>
+                                            <a href="https://www.senso-ji.jp/" target="_blank" style="color: #1976D2;">
+                                                https://www.senso-ji.jp/
+                                            </a>
+                                        </p>
+
+                                        <div style="background: #fff3cd; padding: 12px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #ffc107;">
+                                            <p style="margin: 5px 0; color: #856404;"><strong>💡 小贴士：</strong></p>
+                                            <ul style="margin: 5px 0; padding-left: 20px; color: #856404;">
+                                                <li>上午时间游客相对较少，拍照更好</li>
+                                                <li>仲见世商店街的小吃可以作为早餐/早午餐</li>
+                                                <li>抽签后如果是凶签，可以系在寺庙的架子上留下</li>
+                                                <li>寺庙周边有很多小巷可以探索，氛围很好</li>
+                                                <li>轻松游览，不要赶时间，享受传统氛围</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Breakfast Recommendation -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('breakfast-nakamise-content')" style="background: #fce4ec; border-left: 4px solid #e91e63;">
+                        <h3 style="color: #c2185b; margin: 0; font-size: 1.1em;">🍜 早餐/早午餐推荐 - 仲见世商店街</h3>
+                        <span class="category-toggle" id="breakfast-nakamise-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="breakfast-nakamise-content">
+                        <div style="background: #fce4ec; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #e91e63;">
+                            <p style="margin: 10px 0;"><strong>📍 位置：</strong> 仲见世商店街（浅草寺雷门到主殿之间）</p>
+
+                            <p style="margin: 10px 0;"><strong>🍴 推荐美食：</strong></p>
+                            <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                <li><strong>人形烧（Ningyoyaki）</strong> - 约 ¥500-800（≈ 23-36 CNY）- 浅草特色小点心，形状像人形或寺庙</li>
+                                <li><strong>仙贝/煎饼</strong> - 约 ¥300-500（≈ 14-23 CNY）- 现烤的大米饼干</li>
+                                <li><strong>抹茶冰淇淋</strong> - 约 ¥400-600（≈ 18-27 CNY）</li>
+                                <li><strong>雷门三鬼堂的团子</strong> - 约 ¥400（≈ 18 CNY）</li>
+                                <li><strong>炸肉饼（Menchi-katsu）</strong> - 约 ¥300（≈ 14 CNY）</li>
+                            </ul>
+
+                            <p style="margin: 10px 0;"><strong>💰 预估费用：</strong> <span class="price">¥1,000-1,500（≈ 45-68 CNY）</span></p>
+
+                            <div style="background: #fff3cd; padding: 12px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #ffc107;">
+                                <p style="margin: 5px 0; color: #856404;"><strong>💡 小贴士：</strong> 商店街上有很多小吃摊位，可以边走边吃，体验传统东京街头美食！大部分商店10点左右开门。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Return to Accommodation -->
+                <div style="background: #e8f5e9; padding: 15px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #4caf50;">
+                    <strong style="color: #2e7d32;">🏠 返回时间：11:30-12:00 回到住宿</strong><br>
+                    <span style="font-size: 0.95em; color: #555;">
+                        🚶 步行约15-20分钟从浅草寺回到住宿<br>
+                        🏨 12:00 正式入住/放行李<br>
+                        🛁 12:30-15:30 休息、洗澡、吃午餐<br>
+                        💼 16:00-24:00 工作时间
+                    </span>
+                </div>
+
+                <!-- Lunch Note -->
+                <div class="note" style="margin-top: 20px;">
+                    <strong>🍱 午餐建议：</strong><br>
+                    入住后可以在住宿附近找便利店（7-Eleven、FamilyMart）或简餐店，轻松解决。如果早午餐在仲见世商店街吃得比较饱，也可以选择晚一点再吃或吃点轻食。
+                </div>
+
+                <!-- Daily Summary -->
+                <div style="background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%); color: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <h3 style="margin: 0 0 10px 0;">📊 今日预算总结</h3>
+                    <p style="margin: 5px 0;">🚇 交通费用：¥200-300（≈ 9-14 CNY）</p>
+                    <p style="margin: 5px 0;">🍜 餐饮费用：¥1,000-1,500（≈ 45-68 CNY）</p>
+                    <p style="margin: 5px 0;">🎫 门票费用：¥0（浅草寺免费）</p>
+                    <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.3); margin: 10px 0;">
+                    <p style="margin: 5px 0; font-size: 1.2em;"><strong>💰 今日总预算：约 ¥1,200-1,800（≈ 54-82 CNY）</strong></p>
+                </div>
             </div>
         </div>
 
