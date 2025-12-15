@@ -141,8 +141,34 @@
             .day-card { margin: 14px 8px; }
             .day-header { padding: 14px 16px; font-size: 1.15em; }
             .day-content { padding: 16px; }
-            .calculator { margin: 12px; padding: 14px; }
-            .input-group input { width: 130px; font-size: 1em; }
+            .calculator {
+                margin: 10px 8px;
+                padding: 12px;
+            }
+            .calculator h3 {
+                font-size: 0.95em;
+                margin-bottom: 6px;
+            }
+            .calculator-inputs {
+                flex-direction: row;
+                gap: 6px;
+                align-items: center;
+            }
+            .calculator-inputs > div[style*="font-size: 1.5em"] {
+                font-size: 1em !important;
+            }
+            .input-group {
+                flex: 1;
+            }
+            .input-group label {
+                font-size: 0.75em;
+                margin-bottom: 2px;
+            }
+            .input-group input {
+                padding: 6px 8px;
+                font-size: 16px;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -150,25 +176,25 @@
     <div class="container">
         <div class="header">
             <h1>12/16 浅草和服日</h1>
-            <p>08:30 和服预约 · 下午自由安排</p>
+            <p>08:30 和服预约, 下午4点Molly和Tobias需回住宿上班,琼林和lyx自由安排</p>
         </div>
 
         <div class="calculator">
             <h3>💰 货币计算器</h3>
             <div class="calculator-inputs">
                 <div class="input-group">
-                    <label for="jpy-input-top">日元 (¥)</label>
-                    <input type="number" id="jpy-input-top" placeholder="输入日元" oninput="convertFromJPY('top')" step="any">
+                    <label for="jpy-input">日元 (¥)</label>
+                    <input type="number" id="jpy-input" placeholder="输入日元" oninput="convertFromJPY()" step="any">
                 </div>
-                <div style="color: white; font-size: 1.4em; font-weight: bold;">⇄</div>
+                <div style="color: white; font-size: 1.5em; font-weight: bold;">⇄</div>
                 <div class="input-group">
-                    <label for="cny-input-top">人民币 (¥)</label>
-                    <input type="number" id="cny-input-top" placeholder="输入人民币" oninput="convertFromCNY('top')" step="any">
+                    <label for="sek-input">瑞典克朗 (kr)</label>
+                    <input type="number" id="sek-input" placeholder="输入克朗" oninput="convertFromSEK()" step="any">
                 </div>
-                <div style="color: white; font-size: 1.4em; font-weight: bold;">⇄</div>
+                <div style="color: white; font-size: 1.5em; font-weight: bold;">⇄</div>
                 <div class="input-group">
-                    <label for="sek-input-top">瑞典克朗 (kr)</label>
-                    <input type="number" id="sek-input-top" placeholder="输入克朗" oninput="convertFromSEK('top')" step="any">
+                    <label for="cny-input">人民币 (¥)</label>
+                    <input type="number" id="cny-input" placeholder="输入人民币" oninput="convertFromCNY()" step="any">
                 </div>
             </div>
         </div>
@@ -177,10 +203,76 @@
             💱 参考汇率：100 JPY ≈ 6.04 SEK ≈ 4.54 CNY
         </div>
 
+        <!-- 东京城市介绍 -->
+        <div class="day-card" style="background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); border-left: 5px solid #ff9800;">
+            <div class="day-header" onclick="toggleDay('tokyo-intro-content')" style="background: #ff9800; color: white;">
+                <span>🏙️ 关于东京 - 日本的首都与心脏</span>
+                <span class="toggle-icon" id="tokyo-intro-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="tokyo-intro-content">
+                <div style="background: white; padding: 25px; border-radius: 10px; border-left: 4px solid #ff9800; margin: 15px;">
+                    <p style="margin: 0 0 20px 0; line-height: 2; font-size: 1.05em; color: #555;">
+                        东京是日本的首都,也是世界上最大的都市圈之一。这座城市完美融合了传统与现代,既有古老的寺庙神社,也有高耸入云的摩天大楼和霓虹闪烁的街道。
+                    </p>
+
+                    <div style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #2196F3;">
+                        <h3 style="color: #1976D2; margin-bottom: 15px; font-size: 1.2em;">📊 基本信息</h3>
+                        <p style="margin: 8px 0; line-height: 1.8; color: #555;">
+                            <strong style="color: #1976D2;">📍 地理位置：</strong>位于日本本州岛关东地区<br>
+                            <strong style="color: #1976D2;">🏛️ 行政区划：</strong>东京都（Tokyo Metropolis / 東京都）<br>
+                            <strong style="color: #1976D2;">📏 面积：</strong><br>
+                            &nbsp;&nbsp;• 东京23区：约2,194平方公里<br>
+                            &nbsp;&nbsp;• 东京都：约2,194平方公里<br>
+                            &nbsp;&nbsp;• 🔍 对比：约是<strong>斯德哥尔摩市（188平方公里）的12倍大</strong><br>
+                            <strong style="color: #1976D2;">👥 人口：</strong><br>
+                            &nbsp;&nbsp;• 东京23区：约970万人<br>
+                            &nbsp;&nbsp;• 东京都：约1,400万人<br>
+                            &nbsp;&nbsp;• 东京都市圈：约3,800万人（世界最大都市圈）<br>
+                            &nbsp;&nbsp;• 🔍 对比：东京23区人口约是<strong>斯德哥尔摩市（约98万人）的10倍</strong>,东京都市圈是<strong>整个瑞典人口（约1,050万）的3.6倍</strong><br>
+                            <strong style="color: #1976D2;">🌐 语言：</strong>日语<br>
+                            <strong style="color: #1976D2;">💴 货币：</strong>日元（JPY / ¥）<br>
+                            <strong style="color: #1976D2;">⏰ 时区：</strong>UTC+9（日本标准时间 JST）
+                        </p>
+                    </div>
+
+                    <div style="background: #f3e5f5; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #9c27b0;">
+                        <h3 style="color: #7b1fa2; margin-bottom: 15px; font-size: 1.2em;">✨ 城市特色</h3>
+                        <p style="margin: 8px 0; line-height: 1.8; color: #555;">
+                            <strong style="color: #7b1fa2;">🏯 历史底蕴：</strong>江户时代（1603-1868）的古都,原名江户,1868年明治维新后成为日本首都<br><br>
+                            <strong style="color: #7b1fa2;">🚇 交通系统：</strong>世界上最复杂、最准时的铁路系统之一,拥有13条地铁线路和多条JR线路<br><br>
+                            <strong style="color: #7b1fa2;">🗼 标志性建筑：</strong>东京塔、晴空塔、彩虹桥、涩谷十字路口等<br><br>
+                            <strong style="color: #7b1fa2;">🍜 美食天堂：</strong>拥有世界上最多的米其林星级餐厅,从高级料理到街头小吃应有尽有<br><br>
+                            <strong style="color: #7b1fa2;">🎌 文化中心：</strong>动漫、电子游戏、时尚潮流的全球中心<br><br>
+                            <strong style="color: #7b1fa2;">🌸 四季分明：</strong>春季樱花、夏季烟火、秋季红叶、冬季雪景
+                        </p>
+                    </div>
+
+                    <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
+                        <h3 style="color: #2e7d32; margin-bottom: 15px; font-size: 1.2em;">🎯 有趣的事实</h3>
+                        <p style="margin: 8px 0; line-height: 1.8; color: #555;">
+                            ✓ 东京的涩谷十字路口是世界上<strong>最繁忙的行人交叉路口</strong>,高峰期每次绿灯约3,000人同时过马路<br><br>
+                            ✓ 东京拥有超过<strong>160座博物馆和100多座美术馆</strong><br><br>
+                            ✓ 东京地铁系统每天运送超过<strong>880万乘客</strong>,年客流量达32亿人次<br><br>
+                            ✓ 东京是世界上<strong>最安全的大城市之一</strong>,犯罪率极低<br><br>
+                            ✓ 筑地市场曾创下<strong>278万美元</strong>一条金枪鱼的拍卖纪录<br><br>
+                            ✓ 东京有超过<strong>5,000家拉面店</strong>和<strong>10,000家居酒屋</strong>
+                        </p>
+                    </div>
+
+                    <div style="background: #fff3cd; padding: 15px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #ffc107;">
+                        <p style="margin: 5px 0; color: #856404; line-height: 1.8;">
+                            <strong>💡 旅行小贴士：</strong><br>
+                            东京23区由浅草的传统街区、新宿涩谷的现代商业区、银座的高端购物区等不同特色区域组成。每个区域都有独特的魅力,建议按区域规划行程,充分利用便捷的地铁系统!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Day 3 -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('day3-content')">
-                <span>📅 Day 3: Dec 16 (周二) - 浅草和服 & 雷门周边</span>
+                <span>📅 Dec 16 (周二) - 浅草和服 & 雷门周边</span>
                 <span class="toggle-icon" id="day3-content-icon">▼</span>
             </div>
             <div class="day-content open" id="day3-content">
@@ -351,15 +443,7 @@
 
                 <div class="note">
                     👘 归还和服：14:30-15:00 回店更衣；预留 30 分钟。<br>
-                    🕒 归还后可自由活动或解散，按各自节奏安排。
-                </div>
-
-                <div class="summary">
-                    <h3>📊 预算总结（不含已付和服）</h3>
-                    <p style="margin: 4px 0;">🚇 交通：步行为主；如打车单次 ¥1,000-1,200</p>
-                    <p style="margin: 4px 0;">🍜 餐饮：¥1,000-1,500</p>
-                    <p style="margin: 4px 0;">🎫 体验：主行程免费；可选国博 ¥1,000</p>
-                    <p style="margin: 6px 0; font-size: 1.05em;"><strong>💰 估算：约 ¥1,000-2,700</strong></p>
+                    🕒 归还后可自由活动。
                 </div>
             </div>
         </div>
@@ -375,36 +459,36 @@
             SEK_TO_CNY: 0.75
         };
 
-        function convertFromJPY(scope = 'top') {
-            const jpy = parseFloat(document.getElementById(`jpy-input-${scope}`).value);
+        function convertFromJPY() {
+            const jpy = parseFloat(document.getElementById('jpy-input').value);
             if (!isNaN(jpy)) {
-                document.getElementById(`cny-input-${scope}`).value = (jpy * rates.JPY_TO_CNY).toFixed(2);
-                document.getElementById(`sek-input-${scope}`).value = (jpy * rates.JPY_TO_SEK).toFixed(2);
+                document.getElementById('cny-input').value = (jpy * rates.JPY_TO_CNY).toFixed(2);
+                document.getElementById('sek-input').value = (jpy * rates.JPY_TO_SEK).toFixed(2);
             } else {
-                document.getElementById(`cny-input-${scope}`).value = '';
-                document.getElementById(`sek-input-${scope}`).value = '';
+                document.getElementById('cny-input').value = '';
+                document.getElementById('sek-input').value = '';
             }
         }
 
-        function convertFromCNY(scope = 'top') {
-            const cny = parseFloat(document.getElementById(`cny-input-${scope}`).value);
+        function convertFromCNY() {
+            const cny = parseFloat(document.getElementById('cny-input').value);
             if (!isNaN(cny)) {
-                document.getElementById(`jpy-input-${scope}`).value = (cny * rates.CNY_TO_JPY).toFixed(2);
-                document.getElementById(`sek-input-${scope}`).value = (cny * rates.CNY_TO_SEK).toFixed(2);
+                document.getElementById('jpy-input').value = (cny * rates.CNY_TO_JPY).toFixed(2);
+                document.getElementById('sek-input').value = (cny * rates.CNY_TO_SEK).toFixed(2);
             } else {
-                document.getElementById(`jpy-input-${scope}`).value = '';
-                document.getElementById(`sek-input-${scope}`).value = '';
+                document.getElementById('jpy-input').value = '';
+                document.getElementById('sek-input').value = '';
             }
         }
 
-        function convertFromSEK(scope = 'top') {
-            const sek = parseFloat(document.getElementById(`sek-input-${scope}`).value);
+        function convertFromSEK() {
+            const sek = parseFloat(document.getElementById('sek-input').value);
             if (!isNaN(sek)) {
-                document.getElementById(`jpy-input-${scope}`).value = (sek * rates.SEK_TO_JPY).toFixed(2);
-                document.getElementById(`cny-input-${scope}`).value = (sek * rates.SEK_TO_CNY).toFixed(2);
+                document.getElementById('jpy-input').value = (sek * rates.SEK_TO_JPY).toFixed(2);
+                document.getElementById('cny-input').value = (sek * rates.SEK_TO_CNY).toFixed(2);
             } else {
-                document.getElementById(`jpy-input-${scope}`).value = '';
-                document.getElementById(`cny-input-${scope}`).value = '';
+                document.getElementById('jpy-input').value = '';
+                document.getElementById('cny-input').value = '';
             }
         }
 
