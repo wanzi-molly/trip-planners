@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>东京行程｜12月16日｜浅草和服日</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px 28px;
+            text-align: center;
+            position: relative;
+        }
+        .header h1 { font-size: 2.1em; margin-bottom: 6px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .header p { font-size: 1.05em; opacity: 0.9; }
+        .exchange-rate {
+            background: #f8f9fa;
+            padding: 18px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            font-size: 1em;
+            color: #333;
+        }
+        .calculator {
+            background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
+            padding: 20px;
+            margin: 18px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .calculator h3 { color: white; margin-bottom: 12px; text-align: center; font-size: 1.1em; }
+        .calculator-inputs { display: flex; gap: 15px; align-items: center; justify-content: center; flex-wrap: wrap; }
+        .input-group { display: flex; flex-direction: column; gap: 5px; }
+        .input-group label { color: white; font-weight: bold; font-size: 0.95em; }
+        .input-group input {
+            padding: 10px 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05em;
+            width: 150px;
+            text-align: center;
+        }
+        .day-card {
+            margin: 30px;
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .day-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .day-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.4em;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .toggle-icon { font-size: 1.1em; transition: transform 0.3s ease; }
+        .toggle-icon.collapsed { transform: rotate(-90deg); }
+        .day-content { padding: 22px; display: none; }
+        .day-content.open { display: block; }
+        .transport {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+        .transport-title { font-weight: bold; color: #1976D2; margin-bottom: 8px; font-size: 1.05em; }
+        .price { color: #2e7d32; font-weight: bold; }
+        .category-header {
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .category-header:hover { opacity: 0.9; transform: translateX(5px); }
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .category-content.open { max-height: 5000px; }
+        .category-toggle { font-size: 0.9em; transition: transform 0.3s ease; }
+        .category-toggle.collapsed { transform: rotate(-90deg); }
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-top: 15px;
+            color: #856404;
+        }
+        .itinerary-list { list-style: none; padding: 0; margin: 0; }
+        .itinerary-list li {
+            padding: 12px 15px;
+            margin: 10px 0;
+            background: #f5f5f5;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+        }
+        .summary {
+            background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .summary h3 { margin: 0 0 10px 0; }
+        a { color: #1976D2; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            body { padding: 10px 5px; }
+            .header { padding: 32px 16px 20px; }
+            .header h1 { font-size: 1.4em; }
+            .day-card { margin: 14px 8px; }
+            .day-header { padding: 14px 16px; font-size: 1.15em; }
+            .day-content { padding: 16px; }
+            .calculator { margin: 12px; padding: 14px; }
+            .input-group input { width: 130px; font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>12/16 浅草和服日</h1>
+            <p>08:30 和服预约 · 下午自由安排</p>
+        </div>
+
+        <div class="calculator">
+            <h3>💰 货币计算器</h3>
+            <div class="calculator-inputs">
+                <div class="input-group">
+                    <label for="jpy-input-top">日元 (¥)</label>
+                    <input type="number" id="jpy-input-top" placeholder="输入日元" oninput="convertFromJPY('top')" step="any">
+                </div>
+                <div style="color: white; font-size: 1.4em; font-weight: bold;">⇄</div>
+                <div class="input-group">
+                    <label for="cny-input-top">人民币 (¥)</label>
+                    <input type="number" id="cny-input-top" placeholder="输入人民币" oninput="convertFromCNY('top')" step="any">
+                </div>
+                <div style="color: white; font-size: 1.4em; font-weight: bold;">⇄</div>
+                <div class="input-group">
+                    <label for="sek-input-top">瑞典克朗 (kr)</label>
+                    <input type="number" id="sek-input-top" placeholder="输入克朗" oninput="convertFromSEK('top')" step="any">
+                </div>
+            </div>
+        </div>
+
+        <div class="exchange-rate">
+            💱 参考汇率：100 JPY ≈ 6.04 SEK ≈ 4.54 CNY
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day3-content')">
+                <span>📅 Day 3: Dec 16 (周二) - 浅草和服 & 雷门周边</span>
+                <span class="toggle-icon" id="day3-content-icon">▼</span>
+            </div>
+            <div class="day-content open" id="day3-content">
+                <div class="transport">
+                    <div class="transport-title">🚇 今日交通</div>
+                    建议步行游览浅草，各点步行 5-15 分钟；如需节省体力，可在浅草站附近乘地铁或打车。
+                </div>
+
+                <!-- Kimono Rental -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('kimono-hanatsuru-main-content')" style="background: linear-gradient(135deg, #ff8a65 0%, #ff7043 100%); color: white; margin-top: 0;">
+                        <h3 style="margin: 0; font-size: 1.15em;">1️⃣ 浅草花筏和服写真館（08:30-10:30）</h3>
+                        <span class="category-toggle" id="kimono-hanatsuru-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="kimono-hanatsuru-main-content">
+                        <div style="background: #f5f5f5; padding: 18px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff7043;">
+                            <p style="margin: 10px 0;">
+                                <strong>📍 地址：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=2-16-9+Kaminarimon+Taito+City+Tokyo+111-0034" target="_blank" style="color: #1976D2;">
+                                    2-16-9 Kaminarimon, 台东区
+                                </a>（雷门旁）
+                            </p>
+                            <p style="margin: 10px 0;"><strong>🕐 预约：</strong> 08:30 选款/换装/发型（建议 08:05 前到）</p>
+                            <p style="margin: 10px 0;"><strong>🎒 行李：</strong> 可寄存；归还建议 14:30-15:00</p>
+                            <div style="margin-top: 12px;">
+                                <div class="category-header" onclick="toggleCategory('kimono-hanatsuru-detail')" style="background: #ffe0b2; border-left: 4px solid #fb8c00; padding: 10px 15px;">
+                                    <strong style="color: #e65100; font-size: 0.95em;">📖 了解更多</strong>
+                                    <span class="category-toggle" id="kimono-hanatsuru-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="kimono-hanatsuru-detail">
+                                    <div style="background: #fff8e1; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #fb8c00;">
+                                        <p style="margin: 8px 0;"><strong style="color: #e65100;">💡 小贴士：</strong></p>
+                                        <ul style="margin: 4px 0 0 18px; color: #555;">
+                                            <li>提前想好花色/发型，节省选款时间</li>
+                                            <li>带移动电源，便于外出拍照</li>
+                                            <li>雨天可借透明伞/油纸伞，照片更有氛围</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Senso-ji -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('senso-ji-main-content')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.15em;">2️⃣ 浅草寺（10:30-12:00）</h3>
+                        <span class="category-toggle" id="senso-ji-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="senso-ji-main-content">
+                        <div style="background: #f5f5f5; padding: 18px; border-radius: 0 0 10px 10px; border-left: 4px solid #764ba2;">
+                            <p style="margin: 10px 0;"><strong>🚶 交通：</strong> 店步行 2-5 分钟到雷门，穿仲见世到本堂</p>
+                            <p style="margin: 10px 0;">
+                                <strong>📍 地址：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=2-3-1+Asakusa+Taito+City+Tokyo+111-0032" target="_blank" style="color: #1976D2;">
+                                    2-3-1 Asakusa, Taito City, Tokyo 111-0032
+                                </a>
+                            </p>
+                            <p style="margin: 10px 0;"><strong>🕐 开放：</strong> 本堂 6:00-17:00</p>
+                            <p style="margin: 10px 0;"><strong>💴 门票：</strong> <span class="price">免费</span></p>
+
+                            <div style="margin-top: 12px;">
+                                <div class="category-header" onclick="toggleCategory('senso-ji-detail')" style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 10px 15px;">
+                                    <strong style="color: #1976D2; font-size: 0.95em;">📖 了解更多景点信息</strong>
+                                    <span class="category-toggle" id="senso-ji-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="senso-ji-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #2196F3;">
+                                        <p style="margin: 10px 0;"><strong style="color: #764ba2;">🎯 拍摄点：</strong></p>
+                                        <ul style="margin: 5px 0 0 18px; color: #555;">
+                                            <li>雷门大灯笼、仲见世廊下</li>
+                                            <li>宝藏门前、本堂正面、五重塔侧面</li>
+                                            <li>本堂右侧浅草神社方向的小路人少好拍</li>
+                                        </ul>
+                                        <p style="margin: 10px 0;"><strong style="color: #764ba2;">💡 小贴士：</strong></p>
+                                        <ul style="margin: 5px 0 0 18px; color: #856404;">
+                                            <li>先拍雷门与仲见世，10-11 点人流相对可控</li>
+                                            <li>香炉净手后再拍本堂，画面更有仪式感</li>
+                                            <li>如遇雨，可利用廊下和伞拍日式氛围</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Asakusa Shrine -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('asakusa-shrine-main-content')" style="background: #4db6ac; color: white;">
+                        <h3 style="margin: 0; font-size: 1.05em;">3️⃣ 浅草神社 & 二天门（12:00-12:30）</h3>
+                        <span class="category-toggle" id="asakusa-shrine-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="asakusa-shrine-main-content">
+                        <div style="background: #e0f2f1; padding: 16px; border-radius: 0 0 10px 10px; border-left: 4px solid #00897b;">
+                            <p style="margin: 10px 0;"><strong>🚶 交通：</strong> 本堂右侧 2-3 分钟即达；二天门在宝藏门东侧</p>
+                            <p style="margin: 10px 0;"><strong>💴 门票：</strong> <span class="price">免费</span></p>
+                            <p style="margin: 10px 0;"><strong>💡 拍摄点：</strong> 鸟居、石灯笼；二天门前可取晴空塔背景</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sumida Park -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('sumida-park-main-content')" style="background: #90caf9; color: #0d47a1;">
+                        <h3 style="margin: 0; font-size: 1.05em;">4️⃣ 隅田公园（12:30-13:10）</h3>
+                        <span class="category-toggle" id="sumida-park-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="sumida-park-main-content">
+                        <div style="background: #e3f2fd; padding: 16px; border-radius: 0 0 10px 10px; border-left: 4px solid #1976d2;">
+                            <p style="margin: 10px 0;"><strong>🚶 交通：</strong> 宝藏门向北步行 5-8 分钟，经吾妻桥到河岸</p>
+                            <p style="margin: 10px 0;"><strong>💴 门票：</strong> <span class="price">免费</span></p>
+                            <p style="margin: 10px 0;"><strong>🎯 看点：</strong> 吾妻桥红桥 + 晴空塔 + 河岸长椅</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lunch -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('lunch-asakusa-options-content')" style="background: #fce4ec; border-left: 4px solid #e91e63;">
+                        <h3 style="color: #c2185b; margin: 0; font-size: 1.05em;">🍜 午餐（13:10-13:50）</h3>
+                        <span class="category-toggle" id="lunch-asakusa-options-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="lunch-asakusa-options-content">
+                        <div style="background: #fce4ec; padding: 16px; border-radius: 0 0 10px 10px; border-left: 4px solid #e91e63;">
+                            <p style="margin: 8px 0;"><strong>选项：</strong></p>
+                            <ul style="margin: 4px 0 0 18px; color: #555;">
+                                <li><strong>大黑家天丼</strong>（可能排队）</li>
+                                <li><strong>花月堂菠萝包</strong> + 咖啡</li>
+                                <li><strong>丸龟制面 / 松屋</strong>（快且不排队）</li>
+                            </ul>
+                            <p style="margin: 8px 0;"><strong>💰 预算：</strong> ¥1,000-1,500 / 人</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View / Shopping -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('asakusa-view-main-content')" style="background: #ffe082; color: #8d6e63;">
+                        <h3 style="margin: 0; font-size: 1.05em;">5️⃣ 观景 / 伴手礼（13:50-14:30）</h3>
+                        <span class="category-toggle" id="asakusa-view-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="asakusa-view-main-content">
+                        <div style="background: #fff8e1; padding: 16px; border-radius: 0 0 10px 10px; border-left: 4px solid #ffb300;">
+                            <p style="margin: 8px 0;"><strong>选 A：</strong> 浅草文化观光中心 8F 免费展望台（雷门对面，电梯直达，俯瞰雷门+晴空塔）</p>
+                            <p style="margin: 8px 0;"><strong>选 B：</strong> 仲见世 / 传法院通买伴手礼，小巷继续拍和服照</p>
+                            <p style="margin: 8px 0;"><strong>⏳ 提示：</strong> 若午餐排队，可跳过此段直接归还和服。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optional Ueno -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('ueno-optional-main-content')" style="background: #c5e1a5; color: #33691e;">
+                        <h3 style="margin: 0; font-size: 1.05em;">✨ 可选：上野公园 + 东京国立博物馆速览（13:00-14:40）</h3>
+                        <span class="category-toggle" id="ueno-optional-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content" id="ueno-optional-main-content">
+                        <div style="background: #e8f5e9; padding: 16px; border-radius: 0 0 10px 10px; border-left: 4px solid #66bb6a;">
+                            <p style="margin: 8px 0; color: #e65100; font-weight: bold;">⚠️ 前提：放弃“观景/伴手礼”，并提前至 12:50 归还和服或改约；全程压缩时间紧张。</p>
+                            <p style="margin: 8px 0;"><strong>动线：</strong> 12:50-13:00 归还 → 13:05-13:20 地铁浅草→上野 → 13:20-14:20 国博速览 → 14:20-14:40 返回浅草</p>
+                            <p style="margin: 8px 0;"><strong>门票：</strong> 东京国立博物馆 ¥1,000</p>
+                            <p style="margin: 8px 0;"><strong>时间风险：</strong> 14:20 必须离馆；如超时请直接打车。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="note">
+                    👘 归还和服：14:30-15:00 回店更衣；预留 30 分钟。<br>
+                    🕒 归还后可自由活动或解散，按各自节奏安排。
+                </div>
+
+                <div class="summary">
+                    <h3>📊 预算总结（不含已付和服）</h3>
+                    <p style="margin: 4px 0;">🚇 交通：步行为主；如打车单次 ¥1,000-1,200</p>
+                    <p style="margin: 4px 0;">🍜 餐饮：¥1,000-1,500</p>
+                    <p style="margin: 4px 0;">🎫 体验：主行程免费；可选国博 ¥1,000</p>
+                    <p style="margin: 6px 0; font-size: 1.05em;"><strong>💰 估算：约 ¥1,000-2,700</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const rates = {
+            JPY_TO_SEK: 0.0604,
+            JPY_TO_CNY: 0.0454,
+            CNY_TO_SEK: 1.33,
+            CNY_TO_JPY: 22.03,
+            SEK_TO_JPY: 16.56,
+            SEK_TO_CNY: 0.75
+        };
+
+        function convertFromJPY(scope = 'top') {
+            const jpy = parseFloat(document.getElementById(`jpy-input-${scope}`).value);
+            if (!isNaN(jpy)) {
+                document.getElementById(`cny-input-${scope}`).value = (jpy * rates.JPY_TO_CNY).toFixed(2);
+                document.getElementById(`sek-input-${scope}`).value = (jpy * rates.JPY_TO_SEK).toFixed(2);
+            } else {
+                document.getElementById(`cny-input-${scope}`).value = '';
+                document.getElementById(`sek-input-${scope}`).value = '';
+            }
+        }
+
+        function convertFromCNY(scope = 'top') {
+            const cny = parseFloat(document.getElementById(`cny-input-${scope}`).value);
+            if (!isNaN(cny)) {
+                document.getElementById(`jpy-input-${scope}`).value = (cny * rates.CNY_TO_JPY).toFixed(2);
+                document.getElementById(`sek-input-${scope}`).value = (cny * rates.CNY_TO_SEK).toFixed(2);
+            } else {
+                document.getElementById(`jpy-input-${scope}`).value = '';
+                document.getElementById(`sek-input-${scope}`).value = '';
+            }
+        }
+
+        function convertFromSEK(scope = 'top') {
+            const sek = parseFloat(document.getElementById(`sek-input-${scope}`).value);
+            if (!isNaN(sek)) {
+                document.getElementById(`jpy-input-${scope}`).value = (sek * rates.SEK_TO_JPY).toFixed(2);
+                document.getElementById(`cny-input-${scope}`).value = (sek * rates.SEK_TO_CNY).toFixed(2);
+            } else {
+                document.getElementById(`jpy-input-${scope}`).value = '';
+                document.getElementById(`cny-input-${scope}`).value = '';
+            }
+        }
+
+        function toggleDay(dayId) {
+            const content = document.getElementById(dayId);
+            const icon = document.getElementById(dayId + '-icon');
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                if (icon) icon.classList.add('collapsed');
+                localStorage.setItem(dayId, 'closed');
+            } else {
+                content.classList.add('open');
+                if (icon) icon.classList.remove('collapsed');
+                localStorage.setItem(dayId, 'open');
+            }
+        }
+
+        function toggleCategory(categoryId) {
+            const content = document.getElementById(categoryId);
+            const toggle = document.getElementById(categoryId + '-toggle');
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                if (toggle) toggle.classList.add('collapsed');
+                localStorage.setItem(categoryId, 'closed');
+            } else {
+                content.classList.add('open');
+                if (toggle) toggle.classList.remove('collapsed');
+                localStorage.setItem(categoryId, 'open');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const dayContents = document.querySelectorAll('[id$="-content"]:not([id*="category-"])');
+            let hasOpenDay = false;
+            dayContents.forEach(content => {
+                const dayId = content.id;
+                const savedState = localStorage.getItem(dayId);
+                const icon = document.getElementById(dayId + '-icon');
+                if (savedState === 'open') {
+                    content.classList.add('open');
+                    if (icon) icon.classList.remove('collapsed');
+                    hasOpenDay = true;
+                } else if (savedState === 'closed') {
+                    content.classList.remove('open');
+                    if (icon) icon.classList.add('collapsed');
+                }
+            });
+            if (!hasOpenDay) {
+                const first = document.getElementById('day3-content');
+                if (first) first.classList.add('open');
+            }
+
+            const categoryContents = document.querySelectorAll('.category-content');
+            categoryContents.forEach(content => {
+                const categoryId = content.id;
+                const savedState = localStorage.getItem(categoryId);
+                const toggle = document.getElementById(categoryId + '-toggle');
+                if (savedState === 'open') {
+                    content.classList.add('open');
+                    if (toggle) toggle.classList.remove('collapsed');
+                } else if (savedState === 'closed') {
+                    content.classList.remove('open');
+                    if (toggle) toggle.classList.add('collapsed');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
