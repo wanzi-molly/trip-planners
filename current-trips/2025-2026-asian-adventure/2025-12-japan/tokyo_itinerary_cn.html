@@ -615,6 +615,95 @@
             </div>
         </div>
 
+        <!-- Day 1: Dec 15 (Monday) -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day1-content')">
+                <span>✅ Day 1: Dec 15 (周一) - 抵达东京 & 住宿安顿</span>
+                <span class="toggle-icon" id="day1-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day1-content">
+                <!-- Transportation Info (Collapsible) -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('day1-transport-content')" style="background: #e3f2fd; border-left: 4px solid #2196F3; margin-top: 0; padding: 15px 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                            <strong style="color: #1976D2; font-size: 1.1em;">🚇 今日交通总费用：约 ¥200-300 💡 推荐：单程票</strong>
+                            <span class="category-toggle" id="day1-transport-content-toggle">▼</span>
+                        </div>
+                    </div>
+                    <div class="category-content" id="day1-transport-content">
+                        <div class="transport" style="margin: 0; border-radius: 0 0 10px 10px;">
+                            <div class="transport-title">🚇 交通明细</div>
+                            新宿站 → 柳桥住宿：JR + 地铁约30-40分钟，<span class="price">¥200-300</span><br>
+                            住宿周边步行：早餐/休息 & 晚餐外出，<span class="price">¥0</span><br>
+                            <strong>💰 今日交通总费用：</strong> <span class="price">约 ¥200-300</span><br>
+                            <strong>💡 实际情况：</strong> 以步行为主，未使用日票
+
+                            <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #4caf50;">
+                                <p style="margin: 5px 0; color: #2e7d32; line-height: 1.6;">
+                                    <strong>💡 日票 vs 单程票分析：</strong><br><br>
+                                    <strong style="color: #1976D2;">日票选项：</strong><br>
+                                    • Tokyo Metro 24小时票：¥600<br>
+                                    • JR都区内一日票：¥760<br><br>
+                                    <strong style="color: #1976D2;">单程票总费用：</strong><br>
+                                    • 仅1段行程：¥200-300<br><br>
+                                    <strong style="color: #2e7d32;">✅ 推荐方案：购买单程票</strong><br>
+                                    • 今天只有从新宿到柳桥一段行程<br>
+                                    • 单程票（¥200-300）比日票（¥600+）便宜一半以上<br>
+                                    • 使用IC卡（Suica/Pasmo）刷卡即可<br>
+                                    • 其他时间主要步行和休息，完全不需要日票
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actual Flow -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('day1-arrival-content')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 0;">
+                        <h3 style="margin: 0; font-size: 1.2em;">1️⃣ 抵达新宿 → 柳桥住宿（清晨）</h3>
+                        <span class="category-toggle" id="day1-arrival-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="day1-arrival-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #764ba2;">
+                            <p style="margin: 10px 0;">🚌 7:30 夜行巴士抵达新宿，转 JR+地铁抵达柳桥住宿点。</p>
+                            <p style="margin: 10px 0;">🧳 抵达后在附近先坐着休息，慢慢走到住所。</p>
+                            <p style="margin: 10px 0;">🍴 在住所附近吃早餐，继续在周边放松。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px%;">
+                    <div class="category-header" onclick="toggleCategory('day1-checkin-content')" style="background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">2️⃣ 12:00 入住 & 午休</h3>
+                        <span class="category-toggle" id="day1-checkin-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="day1-checkin-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #2e7d32;">
+                            <p style="margin: 10px 0;">🏨 房东允许12:00寄存行李，官方入住时间16:00；房间已打扫完成，我们当日直接提前入住。</p>
+                            <p style="margin: 10px 0;">🛁 洗澡后补觉，主要休息恢复体力。</p>
+                            <div style="background: #e8f5e9; padding: 12px; border-radius: 8px; margin-top: 12px; border-left: 4px solid #4caf50;">
+                                <p style="margin: 5px 0; color: #2e7d32;"><strong>💭 观后感（房间/午休）：</strong> 地铁/车站很近，楼下餐厅一条街，离浅草寺也近，位置便利；建筑很窄，搬行李上楼不太方便且无电梯。房子不大但干净，厨房/冰箱/洗衣机/微波炉/空调齐全，五脏俱全；厕浴分离，使用方便；房东指令清晰。隔音一般，上一家民宿也类似，可能是日本普遍情况。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('day1-dinner-content')" style="background: linear-gradient(135deg, #ff8a65 0%, #ff7043 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.1em;">3️⃣ 晚餐 & 工作（20:00-21:00 外出晚餐）</h3>
+                        <span class="category-toggle" id="day1-dinner-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="day1-dinner-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff7043;">
+                            <p style="margin: 10px 0;">🍽️ 20:00-21:00 住宿附近晚餐。</p>
+                            <p style="margin: 10px 0;">💼 返回后继续上班，并规划后续行程。</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <!-- Day 2: Dec 16 (Tuesday) -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('day2-content')">
@@ -622,13 +711,41 @@
                 <span class="toggle-icon" id="day2-content-icon">▼</span>
             </div>
             <div class="day-content" id="day2-content">
-                <!-- Transportation Info -->
-                <div class="transport">
-                    <div class="transport-title">🚇 今日交通</div>
-                    住宿 ⇄ 浅草雷门：步行约15-20分钟，<span class="price">¥0</span><br>
-                    浅草各点互相步行 5-15 分钟；下午前往银座乘坐地铁/JR，单程约 <span class="price">¥200-300</span><br>
-                    <strong>💰 今日交通总费用：</strong> <span class="price">步行为主，+ 往返银座地铁/JR 约 ¥400-600</span><br>
-                    <strong>💡 实际情况：</strong> 上午基本步行，下午前往银座短暂停留后返回住宿
+                <!-- Transportation Info (Collapsible) -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('day2-transport-content')" style="background: #e3f2fd; border-left: 4px solid #2196F3; margin-top: 0; padding: 15px 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                            <strong style="color: #1976D2; font-size: 1.1em;">🚇 今日交通总费用：约 ¥400-600 💡 推荐：单程票</strong>
+                            <span class="category-toggle" id="day2-transport-content-toggle">▼</span>
+                        </div>
+                    </div>
+                    <div class="category-content" id="day2-transport-content">
+                        <div class="transport" style="margin: 0; border-radius: 0 0 10px 10px;">
+                            <div class="transport-title">🚇 交通明细</div>
+                            住宿 ⇄ 浅草雷门：步行约15-20分钟，<span class="price">¥0</span><br>
+                            浅草各景点之间：步行 5-15 分钟，<span class="price">¥0</span><br>
+                            浅草 → 银座：地铁/JR约20-30分钟，<span class="price">¥200-300</span><br>
+                            银座 → 住宿：地铁/JR约20-30分钟，<span class="price">¥200-300</span><br>
+                            <strong>💰 今日交通总费用：</strong> <span class="price">约 ¥400-600</span><br>
+                            <strong>💡 实际情况：</strong> 上午基本步行，下午前往银座短暂停留后返回住宿
+
+                            <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #4caf50;">
+                                <p style="margin: 5px 0; color: #2e7d32; line-height: 1.6;">
+                                    <strong>💡 日票 vs 单程票分析：</strong><br><br>
+                                    <strong style="color: #1976D2;">日票选项：</strong><br>
+                                    • Tokyo Metro 24小时票：¥600<br>
+                                    • 都营地下铁一日票：¥500<br><br>
+                                    <strong style="color: #1976D2;">单程票总费用：</strong><br>
+                                    • 仅2段地铁行程：¥400-600<br><br>
+                                    <strong style="color: #2e7d32;">✅ 推荐方案：购买单程票</strong><br>
+                                    • 今天主要靠步行，仅往返银座需要地铁<br>
+                                    • 单程票费用 ≈ 日票价格，无明显优势<br>
+                                    • 使用IC卡（Suica/Pasmo）刷卡即可<br>
+                                    • 如果取消银座行程，交通费为¥0
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Attraction 1: Kimono Rental -->
@@ -790,159 +907,699 @@
             </div>
         </div>
 
-        <!-- Day 1: Dec 15 (Monday) -->
+        <!-- Day 3: Dec 17 (Wednesday) -->
         <div class="day-card">
-            <div class="day-header" onclick="toggleDay('day1-content')">
-                <span>✅ Day 1: Dec 15 (周一) - 抵达东京 & 住宿安顿</span>
-                <span class="toggle-icon" id="day1-content-icon">▼</span>
+            <div class="day-header" onclick="toggleDay('day3-content')">
+                <span>✅ Day 3: Dec 17 (周三) - 搬家 + 东京站 + 涩谷 SHIBUYA SKY</span>
+                <span class="toggle-icon" id="day3-content-icon">▼</span>
             </div>
-            <div class="day-content" id="day1-content">
-                <!-- Transportation Info -->
-                <div class="transport">
-                    <div class="transport-title">🚇 今日交通</div>
-                    新宿站 → 柳桥住宿：JR + 地铁约30-40分钟，<span class="price">¥200-300</span><br>
-                    住宿周边步行：早餐/休息 & 晚餐外出<br>
-                    <strong>💰 今日交通总费用：</strong> <span class="price">约 ¥200-300</span><br>
-                    <strong>💡 实际情况：</strong> 以步行为主，未使用日票
-                </div>
-
-                <!-- Actual Flow -->
+            <div class="day-content" id="day3-content">
+                <!-- Transportation Info (Collapsible) -->
                 <div style="margin-bottom: 20px;">
-                    <div class="category-header" onclick="toggleCategory('day1-arrival-content')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 0;">
-                        <h3 style="margin: 0; font-size: 1.2em;">1️⃣ 抵达新宿 → 柳桥住宿（清晨）</h3>
-                        <span class="category-toggle" id="day1-arrival-content-toggle">▼</span>
+                    <div class="category-header" onclick="toggleCategory('day3-transport-content')" style="background: #e3f2fd; border-left: 4px solid #2196F3; margin-top: 0; padding: 15px 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                            <strong style="color: #1976D2; font-size: 1.1em;">🚇 今日交通总费用：约 ¥1,100-1,350 💡 推荐：单程票</strong>
+                            <span class="category-toggle" id="day3-transport-content-toggle">▼</span>
+                        </div>
                     </div>
-                    <div class="category-content open" id="day1-arrival-content">
-                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #764ba2;">
-                            <p style="margin: 10px 0;">🚌 7:30 夜行巴士抵达新宿，转 JR+地铁抵达柳桥住宿点。</p>
-                            <p style="margin: 10px 0;">🧳 抵达后在附近先坐着休息，慢慢走到住所。</p>
-                            <p style="margin: 10px 0;">🍴 在住所附近吃早餐，继续在周边放松。</p>
+                    <div class="category-content" id="day3-transport-content">
+                        <div class="transport" style="margin: 0; border-radius: 0 0 10px 10px;">
+                            <div class="transport-title">🚇 交通明细</div>
+                            柳桥 → 东京站：JR/地铁约15-20分钟，<span class="price">¥200-250</span><br>
+                            东京站 → 涩谷：JR山手线约25分钟，<span class="price">¥200</span><br>
+                            涩谷周边：步行为主<br>
+                            涩谷 → 东京站（取行李）：JR山手线约25分钟，<span class="price">¥200</span><br>
+                            东京站 → 芝（新住宿）：JR约15-20分钟，<span class="price">¥200</span><br>
+                            行李寄存：东京站储物柜，<span class="price">¥500-700</span><br>
+                            <strong>💰 交通总费用（不含寄存）：</strong> <span class="price">约 ¥800-850</span><br>
+                            <strong>💰 总费用（含寄存）：</strong> <span class="price">约 ¥1,300-1,550</span>
+
+                            <div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #4caf50;">
+                                <p style="margin: 5px 0; color: #2e7d32; line-height: 1.6;">
+                                    <strong>💡 日票 vs 单程票分析：</strong><br><br>
+                                    <strong style="color: #1976D2;">日票选项：</strong><br>
+                                    • Tokyo Metro 24小时票：¥600（但今天主要用JR，不适用）<br>
+                                    • JR都区内一日票：¥760（仅限JR东日本普通线）<br><br>
+                                    <strong style="color: #1976D2;">单程票总费用：</strong><br>
+                                    • 交通费用：¥800-850<br>
+                                    • 储物柜：¥500-700<br><br>
+                                    <strong style="color: #2e7d32;">✅ 推荐方案：购买单程票</strong><br>
+                                    • 今天主要使用JR山手线（4段行程）<br>
+                                    • JR都区内一日票（¥760）vs 单程票（¥800）：差价仅¥40<br>
+                                    • 考虑到行程灵活性，单程票更方便<br>
+                                    • 使用IC卡（Suica/Pasmo）刷卡即可，无需购买专门日票
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div style="margin-bottom: 20px%;">
-                    <div class="category-header" onclick="toggleCategory('day1-checkin-content')" style="background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); color: white;">
-                        <h3 style="margin: 0; font-size: 1.2em;">2️⃣ 12:00 入住 & 午休</h3>
-                        <span class="category-toggle" id="day1-checkin-content-toggle">▼</span>
+                <!-- Activity 1: Check out -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('day3-checkout-main-content')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 0;">
+                        <h3 style="margin: 0; font-size: 1.2em;">1️⃣ 柳桥退房（10:00）</h3>
+                        <span class="category-toggle" id="day3-checkout-main-content-toggle">▼</span>
                     </div>
-                    <div class="category-content open" id="day1-checkin-content">
+                    <div class="category-content open" id="day3-checkout-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #764ba2;">
+                            <p style="margin: 10px 0;"><strong>🕘 出发时间：</strong> 10:00 从柳桥住宿退房</p>
+                            <p style="margin: 10px 0;">
+                                <strong>📍 从：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=1-chōme-11-6+Yanagibashi+Taito+City+Tokyo+111-0052" target="_blank" style="color: #1976D2;">
+                                    1-chōme-11-6 Yanagibashi, Taito City, Tokyo 111-0052
+                                </a>
+                            </p>
+                            <p style="margin: 10px 0;"><strong>🎒 行李安排：</strong> 退房后携带行李前往东京站寄存</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 2: Tokyo Station -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('day3-tokyo-station-main-content')" style="background: linear-gradient(135deg, #ff8a65 0%, #ff7043 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">2️⃣ 东京站 Tokyo Station（10:40-12:30）</h3>
+                        <span class="category-toggle" id="day3-tokyo-station-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="day3-tokyo-station-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff7043;">
+                            <p style="margin: 10px 0;"><strong>🚇 交通：</strong> 从柳桥乘JR/地铁，约15-20分钟，¥200-250</p>
+                            <p style="margin: 10px 0;">
+                                <strong>📍 地址：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Tokyo+Station+Chiyoda+City+Tokyo" target="_blank" style="color: #1976D2;">
+                                    Tokyo Station, Chiyoda City, Tokyo
+                                </a>
+                            </p>
+                            <p style="margin: 10px 0;"><strong>💰 寄存费用：</strong> <span class="price">¥500-700</span>（大型储物柜）</p>
+                            <p style="margin: 10px 0;"><strong>🍴 早午餐：</strong> 在东京站内或周边餐厅用餐</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('day3-tokyo-station-detail')" style="background: #ffe0b2; border-left: 4px solid #fb8c00; padding: 10px 15px;">
+                                    <strong style="color: #e65100; font-size: 0.95em;">📖 了解更多东京站信息</strong>
+                                    <span class="category-toggle" id="day3-tokyo-station-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="day3-tokyo-station-detail">
+                                    <div style="background: #fff8e1; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #fb8c00;">
+                                        <p style="margin: 10px 0;"><strong style="color: #e65100;">✨ 特色：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                            <li>日本最重要的交通枢纽之一</li>
+                                            <li>红砖建筑的历史车站，建于1914年</li>
+                                            <li>站内有大量美食选择和购物店铺</li>
+                                            <li>地下街「八重洲地下街」和「东京一番街」</li>
+                                        </ul>
+                                        <p style="margin: 10px 0;"><strong style="color: #e65100;">🍜 美食推荐：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                            <li>东京拉面街（8家人气拉面店）</li>
+                                            <li>Kitchen Street（各类日式料理）</li>
+                                            <li>大丸百货美食楼层</li>
+                                        </ul>
+                                        <p style="margin: 10px 0;"><strong style="color: #e65100;">💡 小贴士：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #856404;">
+                                            <li>储物柜位于各个出口附近，大型柜子数量有限，建议尽早寄存</li>
+                                            <li>站内很大，建议使用Google Maps导航到具体餐厅位置</li>
+                                            <li>用餐时间避开12:00-13:00的高峰期</li>
+                                        </ul>
+                                        <div style="background: #e8f5e9; padding: 12px; border-radius: 8px; margin-top: 12px; border-left: 4px solid #4caf50;">
+                                            <p style="margin: 5px 0; color: #2e7d32;"><strong>💭 实际经验：</strong> 1F（一楼）的储物柜基本都满了，最后在B1F（地下一楼）找到了空的大型储物柜。<strong style="color: #c62828;">⚠️ 重要：一定要记住或拍照记录储物柜的具体位置（楼层、区域、编号），东京站非常大，取行李时很容易迷路找不到！</strong>建议在手机里记下："B1F + 具体出口名称 + 柜子编号"。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 3: Shibuya Area -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('day3-shibuya-walk-main-content')" style="background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">3️⃣ 涩谷附近闲逛 Shibuya Area（12:50-14:00）</h3>
+                        <span class="category-toggle" id="day3-shibuya-walk-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="day3-shibuya-walk-main-content">
                         <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #2e7d32;">
-                            <p style="margin: 10px 0;">🏨 房东允许12:00寄存行李，官方入住时间16:00；房间已打扫完成，我们当日直接提前入住。</p>
-                            <p style="margin: 10px 0;">🛁 洗澡后补觉，主要休息恢复体力。</p>
-                            <div style="background: #e8f5e9; padding: 12px; border-radius: 8px; margin-top: 12px; border-left: 4px solid #4caf50;">
-                                <p style="margin: 5px 0; color: #2e7d32;"><strong>💭 观后感（房间/午休）：</strong> 地铁/车站很近，楼下餐厅一条街，离浅草寺也近，位置便利；建筑很窄，搬行李上楼不太方便且无电梯。房子不大但干净，厨房/冰箱/洗衣机/微波炉/空调齐全，五脏俱全；厕浴分离，使用方便；房东指令清晰。隔音一般，上一家民宿也类似，可能是日本普遍情况。</p>
+                            <p style="margin: 10px 0;"><strong>🚇 交通：</strong> 从东京站乘JR山手线，约25分钟，¥200</p>
+                            <p style="margin: 10px 0;">
+                                <strong>📍 地址：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Shibuya+Station+Tokyo" target="_blank" style="color: #1976D2;">
+                                    Shibuya Station, Tokyo
+                                </a>
+                            </p>
+                            <p style="margin: 10px 0;"><strong>⏰ 游览时长：</strong> 约1小时随意逛逛</p>
+                            <p style="margin: 10px 0;"><strong>💴 费用：</strong> <span class="price">免费</span>（仅逛街）</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('day3-shibuya-walk-detail')" style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 10px 15px;">
+                                    <strong style="color: #1976D2; font-size: 0.95em;">📖 了解更多涩谷街区信息</strong>
+                                    <span class="category-toggle" id="day3-shibuya-walk-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="day3-shibuya-walk-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #2196F3;">
+                                        <p style="margin: 10px 0;"><strong style="color: #2e7d32;">✨ 特色：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                            <li>东京最繁华的年轻时尚区之一</li>
+                                            <li>世界著名的涩谷十字路口（Scramble Crossing）</li>
+                                            <li>忠犬八公像（Hachiko Statue）</li>
+                                            <li>各类潮流品牌店、百货商场</li>
+                                        </ul>
+                                        <p style="margin: 10px 0;"><strong style="color: #2e7d32;">🎯 推荐打卡点：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                            <li>涩谷十字路口 - 从星巴克2楼俯瞰人潮</li>
+                                            <li>忠犬八公像 - 涩谷站外著名地标</li>
+                                            <li>涩谷109百货 - 年轻女性时尚中心</li>
+                                            <li>Center街 - 潮流服饰和小店云集</li>
+                                        </ul>
+                                        <p style="margin: 10px 0;"><strong style="color: #2e7d32;">💡 小贴士：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #856404;">
+                                            <li>涩谷十字路口每次绿灯可容纳约3,000人同时过马路</li>
+                                            <li>拍摄十字路口最佳位置：星巴克（涩谷TSUTAYA店）2楼</li>
+                                            <li>车站周边有多个出口，建议使用Google Maps导航</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 4: SHIBUYA SKY -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('day3-shibuya-sky-main-content')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">4️⃣ SHIBUYA SKY 观景台（14:20-16:00）</h3>
+                        <span class="category-toggle" id="day3-shibuya-sky-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="day3-shibuya-sky-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #764ba2;">
+                            <p style="margin: 10px 0;"><strong>🚶 交通：</strong> 从涩谷站步行，约5分钟</p>
+                            <p style="margin: 10px 0;">
+                                <strong>📍 地址：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Shibuya+Scramble+Square+2-24-12+Shibuya+Tokyo" target="_blank" style="color: #1976D2;">
+                                    Shibuya Scramble Square, 2-24-12 Shibuya, Tokyo
+                                </a>
+                            </p>
+                            <p style="margin: 10px 0;"><strong>🕐 预约时间：</strong> 14:20 入场（已预约）</p>
+                            <p style="margin: 10px 0;"><strong>⏰ 游览时长：</strong> 约1.5小时</p>
+                            <p style="margin: 10px 0;"><strong>💴 门票：</strong> <span class="price">约 ¥2,000-2,500</span>（线上预约价格）</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('day3-shibuya-sky-detail')" style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 10px 15px;">
+                                    <strong style="color: #1976D2; font-size: 0.95em;">📖 了解更多SHIBUYA SKY信息</strong>
+                                    <span class="category-toggle" id="day3-shibuya-sky-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="day3-shibuya-sky-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #2196F3;">
+                                        <p style="margin: 10px 0;"><strong style="color: #764ba2;">✨ 特色：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                            <li>位于涩谷Scramble Square大楼45-46楼及屋顶</li>
+                                            <li>229米高，360度全景俯瞰东京</li>
+                                            <li>天气好可远眺富士山、东京塔、晴空塔</li>
+                                            <li>屋顶Sky Stage为露天观景台</li>
+                                        </ul>
+                                        <p style="margin: 10px 0;"><strong style="color: #764ba2;">📸 拍摄建议：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                            <li>直接俯瞰涩谷十字路口的独特角度</li>
+                                            <li>夕阳时分景色最美（冬季约16:30日落）</li>
+                                            <li>室内和露天区域都值得拍摄</li>
+                                            <li>46楼有"Sky Gallery"艺术装置</li>
+                                        </ul>
+                                        <p style="margin: 10px 0;"><strong style="color: #764ba2;">🌐 官网：</strong> <a href="https://www.shibuya-scramble-square.com/sky/" target="_blank" style="color: #1976D2;">www.shibuya-scramble-square.com/sky/</a></p>
+                                        <p style="margin: 10px 0;"><strong style="color: #764ba2;">💡 小贴士：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #856404;">
+                                            <li>建议提前10-15分钟到达，需要安检和乘电梯</li>
+                                            <li>冬季屋顶较冷，建议带外套</li>
+                                            <li>周末和节假日人多，工作日体验更好</li>
+                                            <li>可携带相机和三脚架，但需遵守场地规定</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 5: Shibuya Shopping -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('day3-shibuya-shopping-main-content')" style="background: linear-gradient(135deg, #ffe082 0%, #ffca28 100%); color: #5d4037;">
+                        <h3 style="margin: 0; font-size: 1.2em;">5️⃣ 涩谷周边继续逛 Shopping（16:00-17:00）</h3>
+                        <span class="category-toggle" id="day3-shibuya-shopping-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="day3-shibuya-shopping-main-content">
+                        <div style="background: #fffde7; padding: 18px; border-radius: 0 0 10px 10px; border-left: 4px solid #ffb300;">
+                            <p style="margin: 10px 0;"><strong>🚶 交通：</strong> 从SHIBUYA SKY步行到周边商圈</p>
+                            <p style="margin: 10px 0;"><strong>🛍️ 购物区域：</strong> 涩谷109、PARCO、MODI等商场</p>
+                            <p style="margin: 10px 0;"><strong>⏰ 游览时长：</strong> 约1小时</p>
+                            <p style="margin: 10px 0;"><strong>💴 费用：</strong> <span class="price">根据购物需求</span></p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('day3-shibuya-shopping-detail')" style="background: #ffe0b2; border-left: 4px solid #fb8c00; padding: 10px 15px;">
+                                    <strong style="color: #e65100; font-size: 0.95em;">📖 了解更多涩谷购物信息</strong>
+                                    <span class="category-toggle" id="day3-shibuya-shopping-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="day3-shibuya-shopping-detail">
+                                    <div style="background: #fff8e1; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #fb8c00;">
+                                        <p style="margin: 10px 0;"><strong style="color: #e65100;">🏬 主要商场：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                            <li><strong>涩谷109：</strong>年轻女性时尚，日系潮流品牌</li>
+                                            <li><strong>SHIBUYA PARCO：</strong>潮牌、设计师品牌、任天堂旗舰店</li>
+                                            <li><strong>MODI：</strong>快时尚、生活杂货</li>
+                                            <li><strong>涩谷Hikarie：</strong>高端购物、美食餐厅</li>
+                                        </ul>
+                                        <p style="margin: 10px 0;"><strong style="color: #e65100;">🎯 推荐店铺：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #555;">
+                                            <li>任天堂东京（Nintendo TOKYO）- PARCO 6楼</li>
+                                            <li>Uniqlo、GU、ZARA等快时尚品牌</li>
+                                            <li>唐吉诃德（激安の殿堂）- 24小时营业折扣店</li>
+                                            <li>各类潮牌店和独立设计师店铺</li>
+                                        </ul>
+                                        <p style="margin: 10px 0;"><strong style="color: #e65100;">💡 小贴士：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px; color: #856404;">
+                                            <li>购物满一定金额可享受免税服务</li>
+                                            <li>商场营业时间一般到20:00-21:00</li>
+                                            <li>唐吉诃德24小时营业，适合晚上逛</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 6: Return to Accommodation -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('day3-return-main-content')" style="background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">6️⃣ 返回新住宿（17:30-19:00）</h3>
+                        <span class="category-toggle" id="day3-return-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="day3-return-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #2e7d32;">
+                            <p style="margin: 10px 0;"><strong>📍 第一站：东京站取行李（17:30-18:30）</strong></p>
+                            <p style="margin: 10px 0;"><strong>🚇 交通：</strong> 从涩谷乘JR山手线，约25分钟，¥200</p>
+                            <p style="margin: 10px 0;">
+                                <strong>📍 地址：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Tokyo+Station+Chiyoda+City+Tokyo" target="_blank" style="color: #1976D2;">
+                                    Tokyo Station, Chiyoda City, Tokyo
+                                </a>
+                            </p>
+                            <p style="margin: 10px 0;"><strong>🧳 任务：</strong> 取回早上寄存在B1F储物柜的行李</p>
+                            <p style="margin: 10px 0;"><strong>⏰ 时间：</strong> 预留1小时（东京站很大，找储物柜花了不少时间）</p>
+
+                            <div style="background: #fff3e0; padding: 12px; border-radius: 8px; margin-top: 15px; border-left: 4px solid #fb8c00;">
+                                <p style="margin: 5px 0; color: #e65100;"><strong>⚠️ 重要提醒：</strong> 一定要记得储物柜的位置（B1F + 出口 + 编号），否则会花很长时间找！</p>
+                            </div>
+
+                            <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+
+                            <p style="margin: 10px 0;"><strong>📍 第二站：前往芝新住宿（18:30-19:00）</strong></p>
+                            <p style="margin: 10px 0;"><strong>🚇 交通：</strong> 从东京站携带行李乘JR，约15-20分钟，¥200</p>
+                            <p style="margin: 10px 0;">
+                                <strong>📍 地址：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=2-chōme-9-9+Shiba+Minato+City+Tokyo+105-0014" target="_blank" style="color: #1976D2;">
+                                    2-chōme-9-9 Shiba, Minato City, Tokyo 105-0014
+                                </a>
+                            </p>
+                            <p style="margin: 10px 0;"><strong>🏠 到达时间：</strong> 19:00 到达新住宿</p>
+                            <p style="margin: 10px 0;"><strong>💼 之后安排：</strong> 安顿后准备16:00-23:00工作时间</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Day 4: Dec 18 (Thursday) -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day4-content')">
+                <span>📅 Day 4: Dec 18 (周四) - 富士山一日游</span>
+                <span class="toggle-icon" id="day4-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day4-content">
+                <!-- Transportation -->
+                <div style="background: #fff3e0; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #ff9800;">
+                    <h3 style="color: #e65100; margin-top: 0;">🚌 交通安排（已预订）</h3>
+                    <p style="margin: 10px 0;"><strong>去程：</strong> 12月18日 07:45 新宿高速巴士总站(Busta新宿) → 10:09 山中湖平野 | 车次：1121 1号车</p>
+                    <p style="margin: 10px 0;"><strong>返程：</strong> 12月18日 16:40 山中湖平野 → 19:10 新宿高速巴士总站(Busta新宿) | 车次：1158 1号车</p>
+                    <p style="margin: 10px 0; color: #e65100;"><strong>⚠️ 注意：</strong> 往返车票已订，请提前10-15分钟到达巴士站候车。</p>
+                </div>
+
+                <!-- Checklist -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('departure-checklist-content')" style="background: #fff3e0; border-left: 4px solid #ff9800;">
+                        <h3 style="color: #e65100; margin: 0; font-size: 1.1em;">✅ 出发检查清单</h3>
+                        <span class="category-toggle" id="departure-checklist-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="departure-checklist-content">
+                        <div style="background: #fff3e0; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff9800;">
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>✅ 巴士票（已订，请截图保存）</li>
+                                <li>✅ 早餐（便利店购买）</li>
+                                <li>✅ 保暖装备（手套、围巾、帽子、厚外套）</li>
+                                <li>✅ 面包（喂鸭子和天鹅）</li>
+                                <li>✅ 水和零食</li>
+                                <li>✅ 充电宝（手机拍照会耗电）</li>
+                                <li>✅ 现金（租车、午餐、鸭饭等可能需要现金）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Itinerary -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('yamanakako-bike-rental-main-content')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 0;">
+                        <h3 style="margin: 0; font-size: 1.2em;">1️⃣ 租自行车 Bike Rental（10:15-10:45）</h3>
+                        <span class="category-toggle" id="yamanakako-bike-rental-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="yamanakako-bike-rental-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #764ba2;">
+                        <p style="margin: 10px 0;"><strong>🕘 到达时间：</strong> 10:09 到达山中湖平野，步行前往租车店</p>
+                        <p style="margin: 10px 0;"><strong>📍 地址：</strong>
+                            <a href="https://www.google.com/maps/search/?api=1&query=富士五湖レストラン" target="_blank" style="color: #1976D2;">
+                                富士五湖レストラン（平野靠近711的长田租车店）
+                            </a>
+                        </p>
+                        <p style="margin: 10px 0;"><strong>💰 租车费用：</strong> 日租3000日元 | E-bike约1000日元/小时（<strong style="color: #e65100;">强烈推荐E-bike</strong>，有电力助力，上下坡轻松很多）</p>
+                        <p style="margin: 10px 0;"><strong>⏰ 开门时间：</strong> 9:00（老板有时不准时，可以直接call他）</p>
+                        <p style="margin: 10px 0;"><strong>📞 预订方式：</strong> 通过豆豆熊小程序租车，老板是中国人，人很好</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('yamanakako-bike-rental-detail')" style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 10px 15px;">
+                                    <strong style="color: #1976D2; font-size: 0.95em;">📖 了解更多租车信息</strong>
+                                    <span class="category-toggle" id="yamanakako-bike-rental-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="yamanakako-bike-rental-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #2196F3;">
+                                        <p style="margin: 8px 0;"><strong>租车店选择：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>有很多家租车店，价格透明，差距不大</li>
+                                            <li>一般自行车700日元/小时，E-bike 1000日元/小时</li>
+                                            <li>推荐：富士五湖レストラン（中国人老板，豆豆熊小程序可预订）</li>
+                                        </ul>
+                                        <p style="margin: 8px 0; color: #e65100;"><strong>⚠️ 为什么推荐E-bike？</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>环湖路线16公里，有上下坡</li>
+                                            <li>普通自行车骑全程会很累，还会大汗淋漓</li>
+                                            <li>E-bike有电力助力，骑起来轻松很多</li>
+                                            <li>可以节省体力，有更多精力拍照和享受风景</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div style="margin-bottom: 20px;">
-                    <div class="category-header" onclick="toggleCategory('day1-dinner-content')" style="background: linear-gradient(135deg, #ff8a65 0%, #ff7043 100%); color: white;">
-                        <h3 style="margin: 0; font-size: 1.1em;">3️⃣ 晚餐 & 工作（20:00-21:00 外出晚餐）</h3>
-                        <span class="category-toggle" id="day1-dinner-content-toggle">▼</span>
+                    <div class="category-header" onclick="toggleCategory('hirano-beach-main-content')" style="background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">2️⃣ 平野之滨 Hirano Beach（10:45-11:30）</h3>
+                        <span class="category-toggle" id="hirano-beach-main-content-toggle">▼</span>
                     </div>
-                    <div class="category-content open" id="day1-dinner-content">
-                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff7043;">
-                            <p style="margin: 10px 0;">🍽️ 20:00-21:00 住宿附近晚餐。</p>
-                            <p style="margin: 10px 0;">💼 返回后继续上班，并规划后续行程。</p>
+                    <div class="category-content open" id="hirano-beach-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #2e7d32;">
+                        <p style="margin: 10px 0;"><strong>🚴 交通：</strong> 从租车店骑行出发</p>
+                        <p style="margin: 10px 0;"><strong>📍 地址：</strong>
+                            <a href="https://www.google.com/maps/search/?api=1&query=平野之滨+山中湖" target="_blank" style="color: #1976D2;">
+                                平野之滨，山中湖
+                            </a>
+                        </p>
+                        <p style="margin: 10px 0;"><strong>🎯 特色：</strong> 日出/日落最佳观测点，富士山正面景观，喂天鹅和鸭子</p>
+                        <p style="margin: 10px 0;"><strong>⏰ 最佳时间：</strong> 上午顺光，拍摄富士山绝佳</p>
+                        <p style="margin: 10px 0;"><strong>🦆 活动：</strong> 喂天鹅和鸭子（准备面包），9点左右当地人会来喂天鹅</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('hirano-beach-detail')" style="background: #e8f5e9; border-left: 4px solid #4caf50; padding: 10px 15px;">
+                                    <strong style="color: #2e7d32; font-size: 0.95em;">📖 了解更多景点信息</strong>
+                                    <span class="category-toggle" id="hirano-beach-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="hirano-beach-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #4caf50;">
+                                        <p style="margin: 8px 0;"><strong>📸 拍摄建议：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>上午顺光，出片一系列特别美的湖景和富士山照片</li>
+                                            <li>人人人很多，出片不难，但也比较拥挤</li>
+                                            <li>可以看到富士山正正正景</li>
+                                        </ul>
+                                        <p style="margin: 8px 0;"><strong>🦢 喂天鹅小贴士：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>有鸭饭售卖，但鸭比较少</li>
+                                            <li>也可以自带面包喂食</li>
+                                            <li>与天鹅/鸭子保持适当距离，不要惊扰它们</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-        </div>
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('cycling-route-1-main-content')" style="background: linear-gradient(135deg, #ff8a65 0%, #ff7043 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">3️⃣ 骑行路线1：平野之滨→小作面馆（11:30-13:00）</h3>
+                        <span class="category-toggle" id="cycling-route-1-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="cycling-route-1-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff7043;">
+                        <p style="margin: 10px 0;"><strong>🚴 路线：</strong> 从平野之滨顺时针绕湖骑行</p>
+                        <p style="margin: 10px 0;"><strong>📏 距离：</strong> 约9公里</p>
+                        <p style="margin: 10px 0;"><strong>⏱️ 时长：</strong> 约1.5小时（包括拍照停留）</p>
+                        <p style="margin: 10px 0;"><strong>🎯 看点：</strong> 圆圆胖胖白白雪顶的富士山倒影在湖里，赏心悦目</p>
 
-        <!-- Day 4: Dec 17 (Wednesday) -->
-        <div class="day-card">
-            <div class="day-header" onclick="toggleDay('day4-content')">
-                <span>📅 Day 4: Dec 17 (周三) - 搬去新民宿（芝） + 涩谷 SHIBUYA SKY</span>
-                <span class="toggle-icon" id="day4-content-icon">▼</span>
-            </div>
-            <div class="day-content" id="day4-content">
-                <div class="note">
-                    <strong>🏠 住宿变更：</strong> 早上从柳桥住宿退房，带行李前往芝的新民宿（2-chōme-9-9 Shiba, Minato City），从 12/17 起连续住 3 晚，直到 12/21 清晨去机场。<br>
-                    <strong>🗼 已确认预约：</strong> 当天下午 14:20 的 SHIBUYA SKY 观景台时段（从芝出发乘 JR 山手线到涩谷）。<br>
-                    <span style="font-size: 0.9em; color: #666;">建议上午优先完成搬家和入住，预留路上时间后再去涩谷；上野 / 秋叶原行程视当天精力机动安排。</span>
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('cycling-route-1-detail')" style="background: #ffe0b2; border-left: 4px solid #fb8c00; padding: 10px 15px;">
+                                    <strong style="color: #e65100; font-size: 0.95em;">📖 了解更多路线信息</strong>
+                                    <span class="category-toggle" id="cycling-route-1-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="cycling-route-1-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #fb8c00;">
+                                        <p style="margin: 8px 0;"><strong>📸 拍摄建议：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li><strong style="color: #2e7d32;">上午时分，顺光，出片质量最佳</strong></li>
+                                            <li>可以拍到一系列特别美的湖景和富士山的照片</li>
+                                            <li>富士山倒影在湖里，景色绝美</li>
+                                        </ul>
+                                        <p style="margin: 8px 0;"><strong>🗺️ 路线特点：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>这一段是看富士山的最佳路线</li>
+                                            <li>顺时针方向骑行，一路都能看到富士山</li>
+                                            <li>沿途可以随时停下拍照</li>
+                                        </ul>
+                                        <p style="margin: 8px 0; color: #e65100;"><strong>💡 沿途隐藏景点：</strong></p>
+                                        <p style="margin: 5px 0;">最安静的一处（标志：一栋柳树和一艘破船），骑车会经过，无需特意寻找。可以一边放《富士山下》一边拍照。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <ul class="itinerary-list">
-                    <li>
-                        <strong>上午 - 退房 & 搬去芝的新民宿</strong><br>
-                        <span style="font-size: 0.9em; color: #666;">柳桥 → 芝；放下行李、熟悉新附近环境（最近车站、便利店等）</span>
-                    </li>
-                    <li>
-                        <strong>中午前后 - 上野 / 秋叶原（选配，时间有限）</strong><br>
-                        <span style="font-size: 0.9em; color: #666;">
-                            • 如早上搬家顺利，可简短去上野公园 Ueno Park 或在秋叶原 Akihabara 逛一圈<br>
-                            • 注意 14:20 需要到达涩谷 SHIBUYA SKY，务必预留充足交通时间
-                        </span>
-                    </li>
-                    <li>
-                        <strong>下午 - 涩谷 SHIBUYA SKY（14:20 入场）</strong><br>
-                        <span style="font-size: 0.9em; color: #666;">从芝的新住宿出发，乘 JR 山手线到涩谷站，再步行前往涩谷 Scramble Square；建议提前 20-30 分钟到达大楼排队入场。</span>
-                    </li>
-                    <li>
-                        <strong>晚上</strong><br>
-                        工作时间 (4 PM - 11 PM)
-                    </li>
-                </ul>
+
+                <!-- Lunch -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('kosaku-lunch-content')" style="background: #fce4ec; border-left: 4px solid #e91e63;">
+                        <h3 style="color: #c2185b; margin: 0; font-size: 1.1em;">🍜 午餐：小作山中湖店 Kosaku Yamanakako（13:00-14:00）</h3>
+                        <span class="category-toggle" id="kosaku-lunch-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="kosaku-lunch-content">
+                        <div style="background: #fce4ec; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #e91e63;">
+                            <p style="margin: 10px 0;"><strong>📍 地址：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=小作山中湖店" target="_blank" style="color: #1976D2;">
+                                    小作山中湖店
+                                </a>
+                            </p>
+                            <p style="margin: 10px 0;"><strong>🍲 特色：</strong> 当地特色烩面（ほうとう），浓汁浓都，放了很多时令蔬菜和大块南瓜</p>
+                            <p style="margin: 10px 0;"><strong>💰 参考价格：</strong> 约¥1,000-1,500/人</p>
+                            <p style="margin: 10px 0; color: #e65100;"><strong>⚠️ 注意：</strong> 人很多，经常要排队，但轮得很快，可以轮到</p>
+                            <p style="margin: 10px 0;"><strong>💡 推荐理由：</strong> 冷冷的天，吃完浑身暖暖的，非常治愈！</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('shirotori-beach-main-content')" style="background: linear-gradient(135deg, #42a5f5 0%, #1976d2 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">4️⃣ 白鸟之滨 Shirotori Beach（14:00-15:00）</h3>
+                        <span class="category-toggle" id="shirotori-beach-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="shirotori-beach-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #1976d2;">
+                        <p style="margin: 10px 0;"><strong>🚴 交通：</strong> 从小作骑行前往，约3公里</p>
+                        <p style="margin: 10px 0;"><strong>📍 地址：</strong>
+                            <a href="https://www.google.com/maps/search/?api=1&query=白鸟之滨+山中湖" target="_blank" style="color: #1976D2;">
+                                白鸟之滨，山中湖
+                            </a>
+                        </p>
+                        <p style="margin: 10px 0;"><strong>🎯 特色：</strong> 喂天鹅绝佳地点，天鹅又肥又美</p>
+                        <p style="margin: 10px 0;"><strong>⏰ 最佳时间：</strong> 10点前人少不逆光，下午也可以（会逆光）</p>
+                        <p style="margin: 10px 0;"><strong>🦢 活动：</strong> 喂天鹅（门口有鸭饭售卖，200日元/杯，比其他点位贵但也值）</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('shirotori-beach-detail')" style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 10px 15px;">
+                                    <strong style="color: #1976D2; font-size: 0.95em;">📖 了解更多景点信息</strong>
+                                    <span class="category-toggle" id="shirotori-beach-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="shirotori-beach-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #2196F3;">
+                                        <p style="margin: 8px 0;"><strong>🦢 喂天鹅体验：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>有几十只天鹅，嘎嘎肥！</li>
+                                            <li>门口卖鸭饭200日元一杯，比其他点位贵但也值了</li>
+                                            <li><strong style="color: #e65100;">一定早一点去，10点前人少不逆光</strong></li>
+                                            <li>下午时分会逆光，但仍可以看夕阳下的富士山</li>
+                                        </ul>
+                                        <p style="margin: 8px 0;"><strong>📸 拍摄建议：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>可以拍到天鹅和富士山的合影</li>
+                                            <li>途中可能会经过网红咖啡馆（可停留）</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('cycling-route-4-main-content')" style="background: linear-gradient(135deg, #ffa726 0%, #f57c00 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">5️⃣ 骑行路线4：白鸟滨→平野之滨（15:00-15:45）</h3>
+                        <span class="category-toggle" id="cycling-route-4-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="cycling-route-4-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #f57c00;">
+                        <p style="margin: 10px 0;"><strong>🚴 路线：</strong> 从白鸟滨返回平野之滨</p>
+                        <p style="margin: 10px 0;"><strong>📏 距离：</strong> 约6公里</p>
+                        <p style="margin: 10px 0;"><strong>⏱️ 时长：</strong> 约45分钟</p>
+                        <p style="margin: 10px 0;"><strong>🎯 看点：</strong> 夕阳照射在树林和湖边金黄的芦苇丛，迎着风，看着碧绿的湖面，真是美极了</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('cycling-route-4-detail')" style="background: #ffe0b2; border-left: 4px solid #fb8c00; padding: 10px 15px;">
+                                    <strong style="color: #e65100; font-size: 0.95em;">📖 了解更多路线信息</strong>
+                                    <span class="category-toggle" id="cycling-route-4-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="cycling-route-4-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #fb8c00;">
+                                        <p style="margin: 8px 0;"><strong>📸 拍摄建议：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>夕阳照射在树林和湖边金黄的芦苇丛</li>
+                                            <li>迎着风，看着碧绿的湖面过去</li>
+                                            <li>傍晚的光线非常柔和</li>
+                                        </ul>
+                                        <p style="margin: 8px 0; color: #e65100;"><strong>⚠️ 注意：</strong></p>
+                                        <p style="margin: 5px 0;">如果是17:00后从白鸟滨返回，光线会很美，但也要注意赶上返程巴士的时间！</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('bike-return-main-content')" style="background: linear-gradient(135deg, #ab47bc 0%, #8e24aa 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">6️⃣ 还车 & 补给（15:45-16:20）</h3>
+                        <span class="category-toggle" id="bike-return-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="bike-return-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #8e24aa;">
+                        <p style="margin: 10px 0;"><strong>⏰ 还车时间：</strong> 16:00前（还车截止时间17:00）</p>
+                        <p style="margin: 10px 0;"><strong>📍 地址：</strong>
+                            <a href="https://www.google.com/maps/search/?api=1&query=富士五湖レストラン" target="_blank" style="color: #1976D2;">
+                                富士五湖レストラン（长田租车店）
+                            </a>
+                        </p>
+                        <p style="margin: 10px 0;"><strong>🏪 补给：</strong> 还车后在711买点水果和热食</p>
+                        <p style="margin: 10px 0;"><strong>🌅 看日落（可选）：</strong> 如果时间充裕，可以去长野之滨看日落（步行约5-10分钟）</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('bike-return-detail')" style="background: #f3e5f5; border-left: 4px solid #9c27b0; padding: 10px 15px;">
+                                    <strong style="color: #7b1fa2; font-size: 0.95em;">📖 看日落建议</strong>
+                                    <span class="category-toggle" id="bike-return-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="bike-return-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #9c27b0;">
+                                        <p style="margin: 8px 0;"><strong>🌅 长野之滨：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>从711步行约5-10分钟</li>
+                                            <li>可以看到美美的富士山日落</li>
+                                            <li>时间：16:10-16:35左右</li>
+                                        </ul>
+                                        <p style="margin: 8px 0; color: #e65100;"><strong>⚠️ 注意：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>12月天气较冷，如果云雾罩罩山头，可能看不到日落</li>
+                                            <li>16:40必须赶回巴士站，不要错过返程巴士</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('return-bus-main-content')" style="background: linear-gradient(135deg, #26c6da 0%, #00acc1 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">7️⃣ 返程（16:40-19:10）</h3>
+                        <span class="category-toggle" id="return-bus-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="return-bus-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #00acc1;">
+                        <p style="margin: 10px 0;"><strong>🚌 巴士：</strong> 16:40 山中湖平野 → 19:10 新宿高速巴士总站(Busta新宿)</p>
+                        <p style="margin: 10px 0;"><strong>🏠 返回时间：</strong> 19:10 到达新宿</p>
+                        <p style="margin: 10px 0;"><strong>💡 之后安排：</strong> 晚餐 + 逛街</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('return-bus-detail')" style="background: #e0f7fa; border-left: 4px solid #00acc1; padding: 10px 15px;">
+                                    <strong style="color: #00838f; font-size: 0.95em;">📖 晚餐和逛街建议</strong>
+                                    <span class="category-toggle" id="return-bus-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="return-bus-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #00acc1;">
+                                        <p style="margin: 8px 0;"><strong>🍜 晚餐选择（新宿附近）：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>一兰拉面（新宿有多家分店）</li>
+                                            <li>烧肉店（和牛烧肉）</li>
+                                            <li>居酒屋（体验日式居酒屋文化）</li>
+                                            <li>商场美食街（新宿各大百货）</li>
+                                        </ul>
+                                        <p style="margin: 8px 0;"><strong>🛍️ 逛街选择：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>新宿站周边：伊势丹、高岛屋、Lumine等百货</li>
+                                            <li>歌舞伎町：体验夜晚的繁华街区</li>
+                                            <li>新宿三丁目：购物和美食聚集地</li>
+                                            <li>东急Hands：生活杂货和创意商品</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div style="background: #e8f5e9; padding: 15px; border-radius: 10px; margin-top: 20px; border-left: 4px solid #4caf50;">
+                    <h3 style="color: #2e7d32; margin-top: 0;">📋 行程总结</h3>
+                    <ul style="margin: 10px 0; padding-left: 20px;">
+                        <li><strong>总骑行距离：</strong> 约16-18公里（环湖大半圈）</li>
+                        <li><strong>总骑行时间：</strong> 约3-4小时（包括拍照和喂天鹅）</li>
+                        <li><strong>体力要求：</strong> 中等（E-bike会轻松很多）</li>
+                        <li><strong>最佳拍照时间：</strong> 上午10:00-13:00（顺光）</li>
+                        <li><strong>交通费用：</strong> 巴士往返已订</li>
+                        <li><strong>租车费用：</strong> 3000日元（日租）或1000日元/小时（E-bike）</li>
+                        <li><strong>餐饮预算：</strong> 午餐¥1,000-1,500 + 晚餐¥1,500-3,000</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <!-- Day 5: Dec 18 (Thursday) -->
+        <!-- Day 5: Dec 19 (Friday) -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('day5-content')">
-                <span>📅 Day 5: Dec 18 (周四) - 富士山一日游</span>
+                <span>📅 Day 5: Dec 19 (周五) - 东京购物日</span>
                 <span class="toggle-icon" id="day5-content-icon">▼</span>
             </div>
             <div class="day-content" id="day5-content">
-                <div class="note" style="margin-bottom: 12px;">
-                    <strong>🗻 富士山方向一日游：</strong> 以<strong>河口湖 / 富士五湖</strong>为主的轻松版，不追求爬山，主要是看富士山远景、湖景和小镇散步。注意天气和云量，视当天预报灵活调整出发与停留点。
-                </div>
-                <ul class="itinerary-list">
-                    <li>
-                        <strong>清晨 - 从东京出发前往河口湖</strong><br>
-                        <span style="font-size: 0.9em; color: #666;">
-                            选项：<br>
-                            • 新宿站乘高速巴士到河口湖站（约2小时，需提前网上预订车票）<br>
-                            • 或从新宿乘JR到大月，再换乘富士急行线到河口湖
-                        </span>
-                    </li>
-                    <li>
-                        <strong>上午 - 河口湖周边散步 & 拍富士山</strong><br>
-                        <span style="font-size: 0.9em; color: #666;">
-                            围着河口湖简单走一走，找能看到富士山倒影的观景点；根据天气情况安排拍照/喝咖啡
-                        </span>
-                    </li>
-                    <li>
-                        <strong>中午 - 河口湖镇上简单用餐</strong><br>
-                        <span style="font-size: 0.9em; color: #666;">在车站附近或湖边小店吃午饭，不强求网红餐厅，避免排队浪费时间</span>
-                    </li>
-                    <li>
-                        <strong>下午 - 继续散步 / 乘缆车 / 小景点（机动）</strong><br>
-                        <span style="font-size: 0.9em; color: #666;">
-                            可视体力和天气选择：缆车上山看富士山全景、湖边咖啡店坐会儿，或简单逛纪念品店<br>
-                            预留足够时间搭乘返程巴士/电车回东京，避免太晚回到芝的住宿
-                        </span>
-                    </li>
-                    <li>
-                        <strong>傍晚/晚上 - 回到东京</strong><br>
-                        <span style="font-size: 0.9em; color: #666;">
-                            晚上不再安排额外景点，回芝住宿附近简单吃饭、洗澡、休息。<br>
-                            如这天仍需工作，可根据实际返回时间压缩行程，提前回东京。
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Day 6: Dec 19 (Friday) -->
-        <div class="day-card">
-            <div class="day-header" onclick="toggleDay('day6-content')">
-                <span>📅 Day 6: Dec 19 (周五) - 东京购物日</span>
-                <span class="toggle-icon" id="day6-content-icon">▼</span>
-            </div>
-            <div class="day-content" id="day6-content">
                 <ul class="itinerary-list">
                     <li>
                         <strong>上午 - 银座 Ginza / 日本桥 Nihonbashi 逛街</strong><br>
@@ -964,13 +1621,13 @@
             </div>
         </div>
 
-        <!-- Day 7: Dec 20 (Saturday) -->
+        <!-- Day 6: Dec 20 (Saturday) -->
         <div class="day-card">
-            <div class="day-header" onclick="toggleDay('day7-content')">
-                <span>📅 Day 7: Dec 20 (周六) - 新宿歌舞伎町 / 红灯区夜逛</span>
-                <span class="toggle-icon" id="day7-content-icon">▼</span>
+            <div class="day-header" onclick="toggleDay('day6-content')">
+                <span>📅 Day 6: Dec 20 (周六) - 新宿歌舞伎町 / 红灯区夜逛</span>
+                <span class="toggle-icon" id="day6-content-icon">▼</span>
             </div>
-            <div class="day-content" id="day7-content">
+            <div class="day-content" id="day6-content">
                 <ul class="itinerary-list">
                     <li>
                         <strong>白天 - 轻松补觉 / 整理行李</strong><br>
@@ -992,13 +1649,13 @@
             </div>
         </div>
 
-        <!-- Day 8: Dec 21 (Sunday) -->
+        <!-- Day 7: Dec 21 (Sunday) -->
         <div class="day-card">
-            <div class="day-header" onclick="toggleDay('day8-content')">
-                <span>📅 Day 8: Dec 21 (周日) - 清晨离开东京 ✈️</span>
-                <span class="toggle-icon" id="day8-content-icon">▼</span>
+            <div class="day-header" onclick="toggleDay('day7-content')">
+                <span>📅 Day 7: Dec 21 (周日) - 清晨离开东京 ✈️</span>
+                <span class="toggle-icon" id="day7-content-icon">▼</span>
             </div>
-            <div class="day-content" id="day8-content">
+            <div class="day-content" id="day7-content">
                 <ul class="itinerary-list">
                     <li>
                         <strong>凌晨 - 前往机场</strong><br>
