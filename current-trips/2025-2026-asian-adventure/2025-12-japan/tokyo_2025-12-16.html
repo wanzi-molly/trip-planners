@@ -199,8 +199,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>12/16 浅草和服日</h1>
-            <p>08:30 和服预约, 下午4点Molly和Tobias需回住宿上班,琼林和lyx自由安排</p>
+            <h1>东京</h1>
         </div>
 
         <div class="calculator">
@@ -504,6 +503,241 @@
                 </div>
             </div>
         </div>
+
+        <!-- Day 4 -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day4-content')">
+                <span>📅 Day 4: Dec 18 (周四) - 富士山一日游</span>
+                <span class="toggle-icon" id="day4-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day4-content">
+                <!-- Transportation -->
+                <div style="background: #fff3e0; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #ff9800;">
+                    <h3 style="color: #e65100; margin-top: 0;">🚌 交通安排（已预订）</h3>
+                    <p style="margin: 10px 0;"><strong>去程：</strong> 12月18日 07:45 新宿高速巴士总站(Busta新宿) → 10:09 山中湖平野 | 车次：1121 1号车</p>
+                    <p style="margin: 10px 0;"><strong>返程：</strong> 12月18日 16:40 山中湖平野 → 19:10 新宿高速巴士总站(Busta新宿) | 车次：1158 1号车</p>
+                    <p style="margin: 10px 0; color: #e65100;"><strong>⚠️ 注意：</strong> 往返车票已订，请提前10-15分钟到达巴士站候车。</p>
+                </div>
+
+                <!-- Checklist -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('departure-checklist-content')" style="background: #fff3e0; border-left: 4px solid #ff9800;">
+                        <h3 style="color: #e65100; margin: 0; font-size: 1.1em;">✅ 出发检查清单</h3>
+                        <span class="category-toggle" id="departure-checklist-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="departure-checklist-content">
+                        <div style="background: #fff3e0; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff9800;">
+                            <ul style="margin: 10px 0; padding-left: 20px;">
+                                <li>✅ 巴士票（已订，请截图保存）</li>
+                                <li>✅ 早餐（便利店购买）</li>
+                                <li>✅ 保暖装备（手套、围巾、帽子、厚外套）</li>
+                                <li>✅ 面包（喂鸭子和天鹅）</li>
+                                <li>✅ 水和零食</li>
+                                <li>✅ 充电宝（手机拍照会耗电）</li>
+                                <li>✅ 现金（租车、午餐、鸭饭等可能需要现金）</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Itinerary -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('yamanakako-bike-rental-main-content')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; margin-top: 0;">
+                        <h3 style="margin: 0; font-size: 1.2em;">1️⃣ 租自行车 Bike Rental（10:15-10:45）</h3>
+                        <span class="category-toggle" id="yamanakako-bike-rental-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="yamanakako-bike-rental-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #764ba2;">
+                        <p style="margin: 10px 0;"><strong>🕘 到达时间：</strong> 10:09 到达山中湖平野，步行前往租车店</p>
+                        <p style="margin: 10px 0;"><strong>📍 地址：</strong>
+                            <a href="https://www.google.com/maps/search/?api=1&query=富士五湖レストラン" target="_blank" style="color: #1976D2;">
+                                富士五湖レストラン（平野靠近711的长田租车店）
+                            </a>
+                        </p>
+                        <p style="margin: 10px 0;"><strong>💰 租车费用：</strong> 日租3000日元 | E-bike约1000日元/小时（<strong style="color: #e65100;">强烈推荐E-bike</strong>，有电力助力，上下坡轻松很多）</p>
+                        <p style="margin: 10px 0;"><strong>⏰ 开门时间：</strong> 9:00（老板有时不准时，可以直接call他）</p>
+                        <p style="margin: 10px 0;"><strong>📞 预订方式：</strong> 通过豆豆熊小程序租车，老板是中国人，人很好</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('yamanakako-bike-rental-detail')" style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 10px 15px;">
+                                    <strong style="color: #1976D2; font-size: 0.95em;">📖 了解更多租车信息</strong>
+                                    <span class="category-toggle" id="yamanakako-bike-rental-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="yamanakako-bike-rental-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #2196F3;">
+                                        <p style="margin: 8px 0;"><strong>租车店选择：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>有很多家租车店，价格透明，差距不大</li>
+                                            <li>一般自行车700日元/小时，E-bike 1000日元/小时</li>
+                                            <li>推荐：富士五湖レストラン（中国人老板，豆豆熊小程序可预订）</li>
+                                        </ul>
+                                        <p style="margin: 8px 0; color: #e65100;"><strong>⚠️ 为什么推荐E-bike？</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>环湖路线16公里，有上下坡</li>
+                                            <li>普通自行车骑全程会很累，还会大汗淋漓</li>
+                                            <li>E-bike有电力助力，骑起来轻松很多</li>
+                                            <li>可以节省体力，有更多精力拍照和享受风景</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('hirano-beach-main-content')" style="background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">2️⃣ 平野之滨 Hirano Beach（10:45-11:30）</h3>
+                        <span class="category-toggle" id="hirano-beach-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="hirano-beach-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #2e7d32;">
+                        <p style="margin: 10px 0;"><strong>🚴 交通：</strong> 从租车店骑行出发</p>
+                        <p style="margin: 10px 0;"><strong>📍 地址：</strong>
+                            <a href="https://www.google.com/maps/search/?api=1&query=平野之滨+山中湖" target="_blank" style="color: #1976D2;">
+                                平野之滨，山中湖
+                            </a>
+                        </p>
+                        <p style="margin: 10px 0;"><strong>🎯 特色：</strong> 日出/日落最佳观测点，富士山正面景观，喂天鹅和鸭子</p>
+                        <p style="margin: 10px 0;"><strong>⏰ 最佳时间：</strong> 上午顺光，拍摄富士山绝佳</p>
+                        <p style="margin: 10px 0;"><strong>🦆 活动：</strong> 喂天鹅和鸭子（准备面包），9点左右当地人会来喂天鹅</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('hirano-beach-detail')" style="background: #e8f5e9; border-left: 4px solid #4caf50; padding: 10px 15px;">
+                                    <strong style="color: #2e7d32; font-size: 0.95em;">📖 了解更多景点信息</strong>
+                                    <span class="category-toggle" id="hirano-beach-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="hirano-beach-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #4caf50;">
+                                        <p style="margin: 8px 0;"><strong>📸 拍摄建议：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>上午顺光，出片一系列特别美的湖景和富士山照片</li>
+                                            <li>人人人很多，出片不难，但也比较拥挤</li>
+                                            <li>可以看到富士山正正正景</li>
+                                        </ul>
+                                        <p style="margin: 8px 0;"><strong>🦢 喂天鹅小贴士：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>有鸭饭售卖，但鸭比较少</li>
+                                            <li>也可以自带面包喂食</li>
+                                            <li>与天鹅/鸭子保持适当距离，不要惊扰它们</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('cycling-route-1-main-content')" style="background: linear-gradient(135deg, #ff8a65 0%, #ff7043 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">3️⃣ 骑行路线1：平野之滨→小作面馆（11:30-13:00）</h3>
+                        <span class="category-toggle" id="cycling-route-1-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="cycling-route-1-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #ff7043;">
+                        <p style="margin: 10px 0;"><strong>🚴 路线：</strong> 从平野之滨顺时针绕湖骑行</p>
+                        <p style="margin: 10px 0;"><strong>📏 距离：</strong> 约9公里</p>
+                        <p style="margin: 10px 0;"><strong>⏱️ 时长：</strong> 约1.5小时（包括拍照停留）</p>
+                        <p style="margin: 10px 0;"><strong>🎯 看点：</strong> 圆圆胖胖白白雪顶的富士山倒影在湖里，赏心悦目</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('cycling-route-1-detail')" style="background: #ffe0b2; border-left: 4px solid #fb8c00; padding: 10px 15px;">
+                                    <strong style="color: #e65100; font-size: 0.95em;">📖 了解更多路线信息</strong>
+                                    <span class="category-toggle" id="cycling-route-1-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="cycling-route-1-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #fb8c00;">
+                                        <p style="margin: 8px 0;"><strong>📸 拍摄建议：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li><strong style="color: #2e7d32;">上午时分，顺光，出片质量最佳</strong></li>
+                                            <li>可以拍到一系列特别美的湖景和富士山的照片</li>
+                                            <li>富士山倒影在湖里，景色绝美</li>
+                                        </ul>
+                                        <p style="margin: 8px 0;"><strong>🗺️ 路线特点：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>这一段是看富士山的最佳路线</li>
+                                            <li>顺时针方向骑行，一路都能看到富士山</li>
+                                            <li>沿途可以随时停下拍照</li>
+                                        </ul>
+                                        <p style="margin: 8px 0; color: #e65100;"><strong>💡 沿途隐藏景点：</strong></p>
+                                        <p style="margin: 5px 0;">最安静的一处（标志：一栋柳树和一艘破船），骑车会经过，无需特意寻找。可以一边放《富士山下》一边拍照。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lunch -->
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('kosaku-lunch-content')" style="background: #fce4ec; border-left: 4px solid #e91e63;">
+                        <h3 style="color: #c2185b; margin: 0; font-size: 1.1em;">🍜 午餐：小作山中湖店 Kosaku Yamanakako（13:00-14:00）</h3>
+                        <span class="category-toggle" id="kosaku-lunch-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="kosaku-lunch-content">
+                        <div style="background: #fce4ec; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #e91e63;">
+                            <p style="margin: 10px 0;"><strong>📍 地址：</strong>
+                                <a href="https://www.google.com/maps/search/?api=1&query=小作山中湖店" target="_blank" style="color: #1976D2;">
+                                    小作山中湖店
+                                </a>
+                            </p>
+                            <p style="margin: 10px 0;"><strong>🍲 特色：</strong> 当地特色烩面（ほうとう），浓汁浓都，放了很多时令蔬菜和大块南瓜</p>
+                            <p style="margin: 10px 0;"><strong>💰 参考价格：</strong> 约¥1,000-1,500/人</p>
+                            <p style="margin: 10px 0; color: #e65100;"><strong>⚠️ 注意：</strong> 人很多，经常要排队，但轮得很快，可以轮到</p>
+                            <p style="margin: 10px 0;"><strong>💡 推荐理由：</strong> 冷冷的天，吃完浑身暖暖的，非常治愈！</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <div class="category-header" onclick="toggleCategory('shirotori-beach-main-content')" style="background: linear-gradient(135deg, #42a5f5 0%, #1976d2 100%); color: white;">
+                        <h3 style="margin: 0; font-size: 1.2em;">4️⃣ 白鸟之滨 Shirotori Beach（14:00-15:00）</h3>
+                        <span class="category-toggle" id="shirotori-beach-main-content-toggle">▼</span>
+                    </div>
+                    <div class="category-content open" id="shirotori-beach-main-content">
+                        <div style="background: #f5f5f5; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #1976d2;">
+                        <p style="margin: 10px 0;"><strong>🚴 交通：</strong> 从小作骑行前往，约3公里</p>
+                        <p style="margin: 10px 0;"><strong>📍 地址：</strong>
+                            <a href="https://www.google.com/maps/search/?api=1&query=白鸟之滨+山中湖" target="_blank" style="color: #1976D2;">
+                                白鸟之滨，山中湖
+                            </a>
+                        </p>
+                        <p style="margin: 10px 0;"><strong>🎯 特色：</strong> 喂天鹅绝佳地点，天鹅又肥又美</p>
+                        <p style="margin: 10px 0;"><strong>⏰ 最佳时间：</strong> 10点前人少不逆光，下午也可以（会逆光）</p>
+                        <p style="margin: 10px 0;"><strong>🦢 活动：</strong> 喂天鹅（门口有鸭饭售卖，200日元/杯，比其他点位贵但也值）</p>
+
+                            <!-- Detailed Info (Collapsible) -->
+                            <div style="margin-top: 15px;">
+                                <div class="category-header" onclick="toggleCategory('shirotori-beach-detail')" style="background: #e3f2fd; border-left: 4px solid #2196F3; padding: 10px 15px;">
+                                    <strong style="color: #1976D2; font-size: 0.95em;">📖 了解更多景点信息</strong>
+                                    <span class="category-toggle" id="shirotori-beach-detail-toggle">▼</span>
+                                </div>
+                                <div class="category-content" id="shirotori-beach-detail">
+                                    <div style="background: #f9f9f9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 4px solid #2196F3;">
+                                        <p style="margin: 8px 0;"><strong>🦢 喂天鹅体验：</strong></p>
+                                        <ul style="margin: 5px 0; padding-left: 20px;">
+                                            <li>有几十只天鹅，嘎嘎肥！</li>
+                                            <li>门口卖鸭饭200日元一杯，比其他点位贵但也值了</li>
+                                            <li><strong style="color: #e65100;">一定早一点去，10点前人少不逆光</strong></li>
+                                            <li>下午时分会逆光，但仍可以看夕阳下的富士山</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Return -->
+                <div class="note">
+                    <p style="margin: 6px 0;"><strong>🚴 16:00 前归还自行车，步行回山中湖平野巴士站。</strong></p>
+                    <p style="margin: 6px 0;"><strong>🚌 16:40–19:10：</strong> 乘巴士返回新宿高速巴士总站，之后回芝住宿，洗澡、整理照片、休息。</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -616,3 +850,5 @@
 </body>
 </html>
 
+───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+23号，东北虎，观光车。
