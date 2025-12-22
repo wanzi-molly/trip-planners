@@ -357,6 +357,201 @@
             margin-top: 15px;
             text-align: center;
         }
+
+        /* 移动端响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 5px;
+            }
+
+            .header {
+                padding: 40px 15px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.3em;
+                word-wrap: break-word;
+                margin-bottom: 5px;
+            }
+
+            .header p {
+                font-size: 0.9em;
+            }
+
+            .home-button {
+                padding: 5px 10px;
+                font-size: 0.75em;
+                top: 8px;
+                left: 8px;
+            }
+
+            .exchange-rate {
+                padding: 10px 8px;
+                font-size: 0.75em;
+                line-height: 1.5;
+            }
+
+            .exchange-rate strong {
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            .exchange-rate br {
+                display: block;
+                margin: 4px 0;
+            }
+
+            .accommodation-info {
+                padding: 12px;
+                margin: 15px 8px;
+            }
+
+            .accommodation-info h3 {
+                font-size: 1em;
+            }
+
+            .day-card {
+                margin: 12px 8px;
+                border-width: 1px;
+            }
+
+            .day-header {
+                padding: 12px 15px;
+                font-size: 1.1em;
+            }
+
+            .day-content {
+                padding: 15px;
+            }
+
+            .transport {
+                padding: 10px;
+                margin-bottom: 12px;
+            }
+
+            .transport-title {
+                font-size: 0.95em;
+                margin-bottom: 5px;
+            }
+
+            .price {
+                font-size: 0.9em;
+            }
+
+            .note {
+                padding: 10px;
+                font-size: 0.85em;
+                margin-top: 10px;
+                line-height: 1.4;
+            }
+
+            .place {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+
+            .place-title {
+                font-size: 1.05em;
+                margin-bottom: 8px;
+            }
+
+            .place-info {
+                font-size: 0.85em;
+                line-height: 1.5;
+            }
+
+            .place-info strong {
+                font-size: 0.9em;
+            }
+
+            .detail-section {
+                margin-top: 10px;
+            }
+
+            .detail-header {
+                padding: 8px 10px;
+                font-size: 0.9em;
+            }
+
+            .detail-content {
+                padding: 10px;
+                font-size: 0.85em;
+                line-height: 1.5;
+            }
+
+            .meal-section {
+                padding: 12px;
+                margin-bottom: 12px;
+            }
+
+            .meal-section > div {
+                font-size: 1em;
+            }
+
+            .category-header {
+                padding: 10px 12px;
+                font-size: 1em;
+            }
+
+            .category-content {
+                font-size: 0.9em;
+            }
+
+            .itinerary-list li {
+                padding: 10px 12px;
+                margin: 8px 0;
+                font-size: 0.9em;
+            }
+
+            .calculator {
+                margin: 10px 8px;
+                padding: 12px 10px;
+                border-radius: 12px;
+            }
+
+            .calculator h3 {
+                font-size: 0.9em;
+                margin-bottom: 10px;
+            }
+
+            .calculator p {
+                font-size: 0.75em;
+                margin-bottom: 10px;
+            }
+
+            .calculator-inputs {
+                flex-direction: row;
+                gap: 8px;
+                align-items: center;
+            }
+
+            .calculator-inputs > div[style*="font-size"] {
+                font-size: 1em !important;
+                padding: 0 4px;
+            }
+
+            .input-group {
+                flex: 1;
+            }
+
+            .input-group label {
+                font-size: 0.75em;
+                margin-bottom: 3px;
+                display: block;
+            }
+
+            /* 重要：输入框字体大小必须>=16px，避免iOS自动放大页面 */
+            .input-group input {
+                padding: 6px 8px;
+                font-size: 16px;
+                width: 100%;
+            }
+
+            .calculator-result {
+                padding: 10px;
+                font-size: 0.9em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -409,36 +604,30 @@
         <!-- Day 2: December 22 (Sunday) -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('day2-content', 'day2-icon')">
-                <span>📅 Day 2 - 12月22日（周日）索菲亚大教堂 + 购物 + 中央大街</span>
+                <span>✅ Day 2 - 12月22日（周日）中央大街 + 索菲亚大教堂 + 购物</span>
                 <span class="toggle-icon" id="day2-icon">▼</span>
             </div>
             <div class="day-content" id="day2-content">
-                <div class="note">
-                    <strong>💡 今日重点：</strong>邮寄行李（10公斤），中国移动补卡，游览圣索菲亚大教堂，逛衣彬之家服装城，漫步中央大街，品尝锅包肉，16:00前返回宾馆远程办公
-                </div>
-
-                <div class="note" style="background: #ffebee; border-left-color: #f44336;">
-                    <strong style="color: #c62828;">⚠️ 重要提醒：</strong>今天第一件事是邮寄行李（10公斤），然后去中国移动补卡，<strong>记得带身份证！</strong>
+                <div class="note" style="background: #e8f5e9; border-left-color: #4caf50;">
+                    <strong style="color: #2e7d32;">✅ 今日完成：</strong>邮寄行李（10公斤），漫步中央大街，老厨家品尝锅包肉，游览圣索菲亚大教堂，衣彬之家购买滑雪保暖衣物，返回酒店
                 </div>
 
                 <!-- 交通信息 -->
                 <div class="transport" style="cursor: pointer;" onclick="toggleDetail('day2-transport-detail')">
                     <div class="transport-title">
-                        🚗 今日交通总费用：约 ¥30-45 💡 推荐：打车出行
+                        🚗 今日实际交通
                         <span style="float: right; font-size: 0.9em;">▼ 点击查看详情</span>
                     </div>
                     <div class="detail-content" id="day2-transport-detail">
                         <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px;">
-                            <strong>🚗 交通明细：</strong><br><br>
-                            • 宾馆 → 附近中国移动：打车/步行，约5-10分钟<br>
-                            • 中国移动 → 圣索菲亚大教堂：打车约15分钟，¥15<br>
-                            • 圣索菲亚 → 曼哈顿潮力场：打车/步行，约¥10（很近）<br>
-                            • 中央大街 → 宾馆：打车约20分钟，¥15-20<br><br>
-
-                            <strong>💡 交通建议：</strong><br>
-                            • 哈尔滨打车便宜方便，主要景点间打车即可<br>
-                            • 索菲亚大教堂、曼哈顿商圈、中央大街都在道里区，距离很近<br>
-                            • 可使用滴滴或高德打车
+                            <strong>🚗 实际交通路线：</strong><br><br>
+                            • 10:30 宾馆出发<br>
+                            • 寄快递<br>
+                            • 11:30 打车到中央大街<br>
+                            • 中央大街步行到老厨家<br>
+                            • 老厨家步行到圣索菲亚大教堂<br>
+                            • 索菲亚步行到衣彬之家（曼哈顿潮力场）<br>
+                            • 衣彬之家打车返回酒店
                         </div>
                     </div>
                 </div>
@@ -512,170 +701,19 @@
                     </div>
                 </div>
 
-                <!-- 第二站: 中国移动补卡 -->
-                <div class="place" style="background: #ffebee; border-left-color: #f44336;">
-                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('china-mobile-main-content')">
-                        2️⃣ 中国移动补卡 China Mobile（10:30-11:00）
-                        <span style="float: right; font-size: 0.8em; color: #f44336;">▼</span>
-                    </div>
-                    <div class="detail-content open" id="china-mobile-main-content">
-                        <div class="place-info">
-                            <strong>🚗 交通：</strong>从邮局/快递点步行/打车到附近中国移动营业厅，约5分钟<br>
-                            <strong>📍 地址：</strong>搜索"中国移动 道外区"找最近的营业厅
-                            <a href="https://map.baidu.com/search/中国移动营业厅道外区" target="_blank">查看地图</a><br>
-                            <strong>⏱️ 建议时长：</strong>30分钟<br>
-                            <strong>⚠️ 必带物品：</strong><span style="color: #f44336; font-weight: bold;">身份证！</span>
-                        </div>
-
-                        <div class="detail-section" onclick="toggleDetail('china-mobile-detail')">
-                            <div class="detail-header">
-                                <span>📖 了解更多信息</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="detail-content" id="china-mobile-detail">
-                                <strong>💡 办理流程：</strong>
-                                <ul style="margin: 10px 0; padding-left: 20px;">
-                                    <li>带好身份证原件</li>
-                                    <li>告知工作人员需要补卡</li>
-                                    <li>补卡费用一般¥10-20</li>
-                                    <li>等待5-15分钟即可拿到新卡</li>
-                                    <li>建议选择宾馆附近的营业厅，方便快捷</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 景点3: 圣索菲亚大教堂 -->
-                <div class="place">
-                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('sophia-cathedral-main-content')">
-                        3️⃣ 圣索菲亚大教堂 Saint Sophia Cathedral（11:15-12:00）
-                        <span style="float: right; font-size: 0.8em; color: #4facfe;">▼</span>
-                    </div>
-                    <div class="detail-content open" id="sophia-cathedral-main-content">
-                        <div class="place-info">
-                            <strong>🚗 交通：</strong>从中国移动打车，约10-15分钟，¥10-15<br>
-                            <strong>📍 地址：</strong>哈尔滨市道里区透笼街88号
-                            <a href="https://map.baidu.com/search/哈尔滨市道里区透笼街88号圣索菲亚大教堂" target="_blank">查看地图</a><br>
-                            <strong>🕐 开放时间：</strong>8:30-17:00<br>
-                            <strong>💰 门票：</strong>¥20<br>
-                        </div>
-
-                        <div class="detail-section" onclick="toggleDetail('sophia-cathedral-detail')">
-                            <div class="detail-header">
-                                <span>📖 了解更多景点信息</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="detail-content" id="sophia-cathedral-detail">
-                                <strong>✨ 特色：</strong>哈尔滨标志性建筑，拜占庭式风格，拍照圣地<br>
-                                <strong>🏛️ 必看：</strong>绿色洋葱头穹顶、红砖外墙、欧式建筑风格<br>
-                                <strong>📞 电话：</strong>0451-84684170<br>
-                                <strong>💡 小贴士：</strong>
-                                <ul style="margin: 10px 0; padding-left: 20px;">
-                                    <li>建议游玩45分钟，主要是拍照和参观外观</li>
-                                    <li>内部是哈尔滨建筑艺术馆，展示城市历史</li>
-                                    <li>冬季雪景配合教堂建筑，照片效果极佳</li>
-                                    <li>教堂广场周围有鸽子，可以互动拍照</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 景点4: 衣彬之家服装城 -->
-                <div class="place">
-                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('yibin-shopping-main-content')">
-                        4️⃣ 衣彬之家服装城 Yibin Shopping（12:15-13:15）
-                        <span style="float: right; font-size: 0.8em; color: #4facfe;">▼</span>
-                    </div>
-                    <div class="detail-content open" id="yibin-shopping-main-content">
-                        <div class="place-info">
-                            <strong>🚗 交通：</strong>从圣索菲亚打车/步行，约10分钟，¥10或步行<br>
-                            <strong>📍 地址：</strong>衣彬之家服装城(曼哈顿潮力场店)
-                            <a href="https://map.baidu.com/search/哈尔滨衣彬之家服装城曼哈顿潮力场店" target="_blank">查看地图</a><br>
-                            <strong>🕐 营业时间：</strong>通常10:00-21:00<br>
-                            <strong>⏱️ 建议时长：</strong>1小时
-                        </div>
-
-                        <div class="detail-section" onclick="toggleDetail('yibin-shopping-detail')">
-                            <div class="detail-header">
-                                <span>📖 了解更多信息</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="detail-content" id="yibin-shopping-detail">
-                                <strong>🛍️ 购物类型：</strong>服装城，冬季服装为主<br>
-                                <strong>💡 小贴士：</strong>
-                                <ul style="margin: 10px 0; padding-left: 20px;">
-                                    <li>哈尔滨冬季服装专卖，羽绒服、雪地靴等</li>
-                                    <li>可以货比三家，适当砍价</li>
-                                    <li>注意避开司机推荐的合作店（可能会贵）</li>
-                                    <li>预留1小时购物时间</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 午餐推荐 -->
-                <div class="meal-section" style="cursor: pointer;" onclick="toggleDetail('day2-lunch-content')">
-                    <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 10px;">
-                        🍜 午餐推荐（13:15-14:15）
-                        <span style="float: right; font-size: 0.9em;">▼</span>
-                    </div>
-                    <div class="detail-content open" id="day2-lunch-content">
-                        <strong>推荐菜品：</strong>锅包肉（必点！）<br>
-                        <strong>推荐餐厅：</strong><br>
-
-                        <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">1. 老昌春饼（中央大街店）</strong><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                            📍 中央大街附近<br>
-                            💰 人均：¥40-60<br>
-                            🌟 推荐：锅包肉（¥38）、春饼、东北菜<br>
-                            💡 性价比高，份量足，百年老店
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">2. 张包铺</strong><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                            📍 中央大街/道里区<br>
-                            💰 人均：¥30-50<br>
-                            🌟 推荐：锅包肉（¥32）、地三鲜、东北家常菜<br>
-                            💡 连锁店，环境干净，价格实惠
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">3. 东方饺子王</strong><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                            📍 多家分店<br>
-                            💰 人均：¥30-45<br>
-                            🌟 推荐：锅包肉（¥35）+ 东北饺子（¥18）<br>
-                            💡 快餐式，上菜快，适合赶时间
-                            </span>
-                        </div>
-
-                        <p style="margin-top: 10px; color: #e65100;">
-                            <strong>💡 省钱建议：</strong>选择东方饺子王，上菜快，价格实惠，1小时足够用餐
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 景点5: 中央大街 -->
+                <!-- 第二站: 中央大街 -->
                 <div class="place">
                     <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('zhongyang-street-main-content')">
-                        5️⃣ 中央大街 Zhongyang Street（14:15-15:30）
+                        2️⃣ 中央大街 Zhongyang Street（11:30-12:30）
                         <span style="float: right; font-size: 0.8em; color: #4facfe;">▼</span>
                     </div>
                     <div class="detail-content open" id="zhongyang-street-main-content">
                         <div class="place-info">
-                            <strong>🚶 交通：</strong>从午餐地点步行即到，约5分钟<br>
+                            <strong>🚗 交通：</strong>从快递点打车，11:30到达<br>
                             <strong>📍 地址：</strong>哈尔滨市道里区中央大街
                             <a href="https://map.baidu.com/search/哈尔滨市道里区中央大街" target="_blank">查看地图</a><br>
                             <strong>🕐 开放时间：</strong>全天开放<br>
-                            <strong>💰 门票：</strong>免费<br>
-                            <strong>⏱️ 建议时长：</strong>1.5小时
+                            <strong>💰 门票：</strong>免费
                         </div>
 
                         <div class="detail-section" onclick="toggleDetail('zhongyang-street-detail')">
@@ -706,315 +744,251 @@
                     </div>
                 </div>
 
-                <!-- 返回宾馆 -->
+                <!-- 第三站: 老厨家午餐 -->
+                <div class="meal-section">
+                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('laochu-restaurant-content')">
+                        3️⃣ 老厨家 Lao Chu Jia Restaurant（12:30-14:00）
+                        <span style="float: right; font-size: 0.8em; color: #ff9800;">▼</span>
+                    </div>
+                    <div class="detail-content open" id="laochu-restaurant-content">
+                        <div class="place-info">
+                            <strong>🚶 交通：</strong>从中央大街步行<br>
+                            <strong>📍 地址：</strong>老厨家
+                            <a href="https://map.baidu.com/search/哈尔滨老厨家" target="_blank">查看地图</a><br>
+                            <strong>🍜 点餐：</strong>锅包肉<br>
+                            <strong>⏱️ 用餐时长：</strong>约1.5小时（含等位）
+                        </div>
+
+                        <div class="detail-section" onclick="toggleDetail('laochu-detail')">
+                            <div class="detail-header">
+                                <span>📖 了解更多信息</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="detail-content" id="laochu-detail">
+                                <strong>💡 餐厅类型：</strong>网红东北菜餐厅<br>
+                                <strong>⚠️ 注意事项：</strong>
+                                <ul style="margin: 10px 0; padding-left: 20px;">
+                                    <li>等位时间较长，建议提前取号</li>
+                                    <li>锅包肉上菜较慢</li>
+                                    <li>人气旺盛，用餐高峰期需要耐心等待</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第四站: 圣索菲亚大教堂 -->
+                <div class="place">
+                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('sophia-cathedral-main-content')">
+                        4️⃣ 圣索菲亚大教堂 Saint Sophia Cathedral（14:00-14:45）
+                        <span style="float: right; font-size: 0.8em; color: #4facfe;">▼</span>
+                    </div>
+                    <div class="detail-content open" id="sophia-cathedral-main-content">
+                        <div class="place-info">
+                            <strong>🚶 交通：</strong>从老厨家步行<br>
+                            <strong>📍 地址：</strong>哈尔滨市道里区透笼街88号
+                            <a href="https://map.baidu.com/search/哈尔滨市道里区透笼街88号圣索菲亚大教堂" target="_blank">查看地图</a><br>
+                            <strong>🕐 开放时间：</strong>8:30-17:00<br>
+                            <strong>💰 门票：</strong>¥20
+                        </div>
+
+                        <div class="detail-section" onclick="toggleDetail('sophia-cathedral-detail')">
+                            <div class="detail-header">
+                                <span>📖 了解更多景点信息</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="detail-content" id="sophia-cathedral-detail">
+                                <strong>✨ 特色：</strong>哈尔滨标志性建筑，拜占庭式风格，拍照圣地<br>
+                                <strong>🏛️ 必看：</strong>绿色洋葱头穹顶、红砖外墙、欧式建筑风格<br>
+                                <strong>📞 电话：</strong>0451-84684170<br>
+                                <strong>💡 小贴士：</strong>
+                                <ul style="margin: 10px 0; padding-left: 20px;">
+                                    <li>建议游玩45分钟，主要是拍照和参观外观</li>
+                                    <li>内部是哈尔滨建筑艺术馆，展示城市历史</li>
+                                    <li>冬季雪景配合教堂建筑，照片效果极佳</li>
+                                    <li>教堂广场周围有鸽子，可以互动拍照</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第五站: 衣彬之家服装城 -->
+                <div class="place">
+                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('yibin-shopping-main-content')">
+                        5️⃣ 衣彬之家服装城 Yibin Shopping（14:45-15:30）
+                        <span style="float: right; font-size: 0.8em; color: #4facfe;">▼</span>
+                    </div>
+                    <div class="detail-content open" id="yibin-shopping-main-content">
+                        <div class="place-info">
+                            <strong>🚶 交通：</strong>从圣索菲亚步行，在教堂旁边<br>
+                            <strong>📍 地址：</strong>衣彬之家服装城(曼哈顿潮力场店)
+                            <a href="https://map.baidu.com/search/哈尔滨衣彬之家服装城曼哈顿潮力场店" target="_blank">查看地图</a><br>
+                            <strong>🕐 营业时间：</strong>通常10:00-21:00<br>
+                            <strong>🛍️ 购买：</strong>滑雪保暖衣物
+                        </div>
+
+                        <div class="detail-section" onclick="toggleDetail('yibin-shopping-detail')">
+                            <div class="detail-header">
+                                <span>📖 了解更多信息</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="detail-content" id="yibin-shopping-detail">
+                                <strong>🛍️ 购物类型：</strong>服装城，冬季服装为主<br>
+                                <strong>💡 小贴士：</strong>
+                                <ul style="margin: 10px 0; padding-left: 20px;">
+                                    <li>哈尔滨冬季服装专卖，羽绒服、雪地靴等</li>
+                                    <li>可以货比三家，适当砍价</li>
+                                    <li>注意避开司机推荐的合作店（可能会贵）</li>
+                                    <li>价格非常实惠，比司机推荐的小店便宜2-3倍</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 返回酒店 -->
                 <div class="place" style="background: #e8f5e9; border-left-color: #4caf50;">
                     <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('day2-return-content')">
-                        🏠 返回宾馆（15:30-16:00）
+                        6️⃣ 返回酒店（15:30）
                         <span style="float: right; font-size: 0.8em; color: #4caf50;">▼</span>
                     </div>
                     <div class="detail-content open" id="day2-return-content">
                         <div class="place-info">
-                            <strong>🚗 交通：</strong>从中央大街打车回宾馆，约20分钟，¥15-20<br>
-                            <strong>🏠 到达时间：</strong>16:00 到达宾馆，开始远程办公<br>
-                            <strong>🍜 晚餐建议：</strong>点外卖（美团/饿了么）
-                        </div>
-
-                        <div class="detail-section" onclick="toggleDetail('day2-dinner-detail')">
-                            <div class="detail-header">
-                                <span>🍜 晚餐外卖推荐</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="detail-content" id="day2-dinner-detail">
-                                <strong>推荐外卖：</strong><br>
-                                <ul style="margin: 10px 0; padding-left: 20px;">
-                                    <li><strong>铁锅炖</strong> - 今天没吃到，晚上可以点外卖尝试（¥60-100）</li>
-                                    <li><strong>东北饺子</strong> - 东方饺子王、喜家德（¥20-40）</li>
-                                    <li><strong>东北菜</strong> - 地三鲜、小鸡炖蘑菇、酸菜粉条（¥30-60）</li>
-                                </ul>
-                                <p style="color: #2e7d32;">
-                                    <strong>💡 建议：</strong>铁锅炖份量大，如果一个人吃可能会剩很多，可以考虑点饺子或东北小菜更合适
-                                </p>
-                            </div>
+                            <strong>🚗 交通：</strong>从衣彬之家打车回酒店<br>
+                            <strong>🏠 到达：</strong>返回酒店休息
                         </div>
                     </div>
                 </div>
 
-                <!-- 今日总结 -->
-                <div class="note" style="background: #e8f5e9; border-left-color: #4caf50; margin-top: 20px;">
-                    <strong style="color: #2e7d32;">📊 今日费用总结：</strong><br>
-                    • 邮寄费用：约¥50-150（10公斤行李）<br>
-                    • 补卡费用：约¥10-20<br>
-                    • 交通费：约¥30-45<br>
-                    • 门票：圣索菲亚大教堂 ¥20<br>
-                    • 午餐：约¥40-60<br>
-                    • 其他：马迭尔冰棍 ¥5，购物（按需）<br>
-                    <strong>总计：约¥155-310（不含购物和晚餐外卖）</strong>
-                </div>
             </div>
         </div>
 
         <!-- Day 3: December 23 (Monday) -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('day3-content', 'day3-icon')">
-                <span>📅 Day 3 - 12月23日（周一）东北虎林园 + 松花江冰雪体验</span>
+                <span>📅 Day 3 - 12月23日（周一）⛷️ 亚布力滑雪一日游</span>
                 <span class="toggle-icon" id="day3-icon">▼</span>
             </div>
             <div class="day-content" id="day3-content">
                 <div class="note">
-                    <strong>💡 今日重点：</strong>东北虎林园看老虎，松花江冰面玩冰上项目，市区品尝东北美食
+                    <strong>💡 今日重点：</strong>亚布力滑雪一日游（跟团），包含3小时滑雪、滑雪工具、午餐，早出晚归，体验东北滑雪乐趣！
                 </div>
 
-                <div class="note" style="background: #e8f5e9; border-left-color: #4caf50;">
-                    <strong style="color: #2e7d32;">🎉 好消息：</strong>今天不上班，可以玩到下午！时间充裕！
+                <div class="note" style="background: #fff3e0; border-left-color: #ff9800;">
+                    <strong style="color: #e65100;">⚠️ 保暖提醒：</strong>滑雪场气温极低（-15°C到-25°C），必备：厚羽绒服、滑雪裤/羽绒裤、雪地靴、帽子、围巾、手套、暖宝宝、雪镜（防雪盲）！
                 </div>
 
                 <!-- 交通信息 -->
                 <div class="transport" style="cursor: pointer;" onclick="toggleDetail('day3-transport-detail')">
                     <div class="transport-title">
-                        🚗 今日交通总费用：约 ¥80-100 💡 推荐：打车出行
+                        🚄 今日交通总费用：约 ¥150/人（高铁往返） 💡 推荐：提前购票
                         <span style="float: right; font-size: 0.9em;">▼ 点击查看详情</span>
                     </div>
                     <div class="detail-content" id="day3-transport-detail">
                         <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px;">
-                            <strong>🚗 交通明细：</strong><br><br>
-                            • 宾馆 → 东北虎林园：打车约30-40分钟，¥40-50（约15-20公里）<br>
-                            • 东北虎林园 → 市区（中央大街/松花江）：打车约30分钟，¥35-45<br>
-                            • 市区 → 宾馆：打车约20分钟，¥15-20<br><br>
+                            <strong>🚄 交通明细：</strong><br><br>
+                            • 住宿 → 哈尔滨站：打车/公交，约20-30分钟，¥15-25<br>
+                            • 哈尔滨站 → 亚布力：高铁，约1.5小时，¥75/人（单程）<br>
+                            • 亚布力 → 哈尔滨站：高铁，约1.5小时，¥75/人（单程）<br>
+                            • 哈尔滨站 → 住宿：打车/公交，约20-30分钟，¥15-25<br><br>
 
                             <strong>💡 交通建议：</strong><br>
-                            • 东北虎林园位于松北区，距离市区较远，建议打车<br>
-                            • 可使用滴滴或高德打车<br>
-                            • 回市区后，松花江和中央大街距离很近，可步行
+                            • 高铁往返：2人约¥300（已购票）<br>
+                            • 建议提前20-30分钟到达哈尔滨站<br>
+                            • 亚布力站到滑雪场：跟团包含接送<br>
+                            • 回程高铁时间：16:00-17:00，约17:30-18:30到达哈尔滨
                         </div>
                     </div>
                 </div>
 
-                <!-- 景点1: 东北虎林园 -->
+                <!-- 行程安排 -->
                 <div class="place">
-                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('tiger-park-main-content')">
-                        1️⃣ 东北虎林园 Siberian Tiger Park（09:30-11:30）
+                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('yabuli-main-content')">
+                        ⛷️ 亚布力滑雪度假区 Yabuli Ski Resort（全天）
                         <span style="float: right; font-size: 0.8em; color: #4facfe;">▼</span>
                     </div>
-                    <div class="detail-content open" id="tiger-park-main-content">
+                    <div class="detail-content open" id="yabuli-main-content">
                         <div class="place-info">
-                            <strong>🕘 出发时间：</strong>09:00 从宾馆出发<br>
-                            <strong>🚗 交通：</strong>打车，约30-40分钟，¥40-50<br>
-                            <strong>📍 地址：</strong>哈尔滨市松北区松北街88号
-                            <a href="https://map.baidu.com/search/哈尔滨市松北区松北街88号东北虎林园" target="_blank">查看地图</a><br>
-                            <strong>🕐 开放时间：</strong>8:00-16:30<br>
-                            <strong>💰 门票：</strong>¥90 + 观光车¥60 = ¥150<br>
-                            <strong>⏱️ 建议时长：</strong>1.5-2小时
+                            <strong>🕘 出发时间：</strong>06:00 从住宿出发（建议05:45起床）<br>
+                            <strong>🚄 交通：</strong>高铁G3652次，06:30发车，约1.5小时到达亚布力站<br>
+                            <strong>📍 地址：</strong>黑龙江省哈尔滨市尚志市亚布力镇<br>
+                            <strong>🕐 活动时间：</strong>09:00-15:00（滑雪3小时 + 午餐）<br>
+                            <strong>💰 跟团费用：</strong>¥130/人（包含滑雪3小时、滑雪工具、午餐）<br>
+                            <strong>🏠 返回时间：</strong>17:30-18:30 到达哈尔滨站，约19:00回到住宿
                         </div>
 
-                        <div class="detail-section" onclick="toggleDetail('tiger-park-detail')">
+                        <div class="detail-section" onclick="toggleDetail('yabuli-detail')">
                             <div class="detail-header">
-                                <span>📖 了解更多景点信息</span>
+                                <span>📖 了解更多行程信息</span>
                                 <span>▼</span>
                             </div>
-                            <div class="detail-content" id="tiger-park-detail">
-                                <strong>✨ 特色：</strong>世界最大的东北虎饲养繁育基地，近距离观赏东北虎<br>
-                                <strong>🐯 必看/必体验：</strong>
+                            <div class="detail-content" id="yabuli-detail">
+                                <strong>✨ 特色：</strong>亚布力是中国最著名的滑雪胜地，2025年亚冬会举办地，雪质优良，设施完善<br><br>
+
+                                <strong>⛷️ 行程安排：</strong>
                                 <ul style="margin: 10px 0; padding-left: 20px;">
-                                    <li><strong>观光车游览</strong> - 乘坐专用观光车穿越虎群区域</li>
-                                    <li><strong>成年虎散放区</strong> - 看东北虎在雪地里奔跑</li>
-                                    <li><strong>幼虎园</strong> - 近距离观看小老虎（可以合影，需另付费）</li>
-                                    <li><strong>喂食表演</strong> - 观看饲养员喂食老虎（需提前确认时间）</li>
-                                </ul>
-                                <strong>📞 电话：</strong>0451-88080098<br>
-                                <strong>💡 小贴士：</strong>
+                                    <li><strong>06:00</strong> - 从住宿出发，前往哈尔滨站</li>
+                                    <li><strong>06:30</strong> - 高铁出发（G3652次）</li>
+                                    <li><strong>08:00</strong> - 到达亚布力站，旅行团接送至滑雪场</li>
+                                    <li><strong>09:00-12:00</strong> - 滑雪3小时（包含滑雪装备：雪板、雪鞋、雪杖）</li>
+                                    <li><strong>12:00-13:00</strong> - 午餐（跟团包含）</li>
+                                    <li><strong>13:00-15:00</strong> - 自由活动（可继续滑雪或休息）</li>
+                                    <li><strong>15:00</strong> - 集合返回亚布力站</li>
+                                    <li><strong>16:00-17:00</strong> - 高铁返程</li>
+                                    <li><strong>17:30-18:30</strong> - 到达哈尔滨站</li>
+                                    <li><strong>19:00</strong> - 回到住宿</li>
+                                </ul><br>
+
+                                <strong>💡 滑雪小贴士：</strong>
                                 <ul style="margin: 10px 0; padding-left: 20px;">
-                                    <li>建议游玩2小时，包含观光车和步行参观</li>
-                                    <li>观光车约30-40分钟，会穿越多个虎群散放区</li>
-                                    <li>冬季雪地里的东北虎更活跃，拍照效果好</li>
-                                    <li>带好相机/手机，但在车内拍照要注意安全</li>
-                                    <li>园区内有餐厅，但建议回市区用餐（选择更多）</li>
-                                    <li>与幼虎合影需另付费（¥50-100）</li>
+                                    <li>初学者建议先在初级道练习，适应后再尝试中级道</li>
+                                    <li>滑雪前务必做热身运动，避免受伤</li>
+                                    <li>摔倒时身体放松，顺势倒下，不要用手撑地</li>
+                                    <li>注意防晒防雪盲，建议佩戴雪镜和防晒霜</li>
+                                    <li>多层衣物：内层速干衣+中层抓绒+外层防风滑雪服</li>
+                                    <li>手机注意保暖（低温耗电快），可准备充电宝</li>
+                                    <li>如需雪服、雪镜等额外装备，可在现场租赁（约¥50-100）</li>
+                                    <li>滑雪场有储物柜，可存放随身物品（约¥20-30）</li>
+                                </ul><br>
+
+                                <strong>📸 拍照建议：</strong>
+                                <ul style="margin: 10px 0; padding-left: 20px;">
+                                    <li>雪场全景：山顶俯瞰，白雪皑皑非常壮观</li>
+                                    <li>滑雪动作：请朋友帮忙拍摄滑雪瞬间</li>
+                                    <li>装备合影：穿戴好装备在雪场入口拍照</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 午餐推荐 -->
-                <div class="meal-section" style="cursor: pointer;" onclick="toggleDetail('day3-lunch-content')">
+                <!-- 晚餐推荐 -->
+                <div class="meal-section" style="cursor: pointer;" onclick="toggleDetail('day3-dinner-content')">
                     <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 10px;">
-                        🍜 午餐推荐（12:00-13:00）- 回市区用餐
+                        🍜 晚餐推荐（19:00-20:00）- 回到住宿附近用餐
                         <span style="float: right; font-size: 0.9em;">▼</span>
                     </div>
-                    <div class="detail-content open" id="day3-lunch-content">
-                        <strong>📍 推荐在中央大街/道里区用餐</strong>（松花江附近，方便下午玩冰上项目）<br><br>
+                    <div class="detail-content" id="day3-dinner-content">
+                        <strong>💡 建议：</strong>滑雪一天比较累，建议就近用餐或叫外卖<br><br>
 
                         <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">选项1: 铁锅炖 🍖（推荐！）</strong><br>
+                            <strong style="color: #ff9800;">选项1: 东北家常菜 🍖</strong><br>
                             <span style="font-size: 0.9em; color: #666;">
-                            📍 老六杀猪菜 / 东北铁锅炖（中央大街附近）<br>
-                            💰 人均：¥60-100<br>
-                            🌟 推荐：铁锅炖鱼/炖鸡/炖排骨 + 玉米饼子<br>
-                            ⏰ 用餐时间：约1小时（炖菜需要等待）<br>
-                            💡 份量很大，适合2-3人，暖身又实惠
+                            📍 住宿附近东北菜馆<br>
+                            💰 人均：¥40-80<br>
+                            🌟 推荐：锅包肉、地三鲜、小鸡炖蘑菇<br>
+                            💡 热乎、实惠、快速
                             </span>
                         </div>
 
                         <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">选项2: 锅包肉 + 东北菜 🥩</strong><br>
+                            <strong style="color: #ff9800;">选项2: 外卖 📱</strong><br>
                             <span style="font-size: 0.9em; color: #666;">
-                            📍 老昌春饼 / 张包铺<br>
-                            💰 人均：¥40-60<br>
-                            🌟 推荐：锅包肉（¥38）+ 地三鲜 + 春饼<br>
-                            ⏰ 用餐时间：约40-50分钟（上菜较快）<br>
-                            💡 经典东北味，性价比高
+                            💰 人均：¥30-60<br>
+                            🌟 推荐：米饭套餐、饺子、面条<br>
+                            💡 方便快捷，回到住宿好好休息
                             </span>
-                        </div>
-
-                        <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">选项3: 俄式西餐 🍽️</strong><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                            📍 华梅西餐厅（中央大街，百年老店）<br>
-                            💰 人均：¥80-150<br>
-                            🌟 推荐：俄式红菜汤、罐焖牛肉、沙律<br>
-                            ⏰ 用餐时间：约1小时<br>
-                            💡 体验俄罗斯风情，环境优雅
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">选项4: 东北饺子 🥟（快速）</strong><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                            📍 东方饺子王 / 喜家德<br>
-                            💰 人均：¥30-45<br>
-                            🌟 推荐：酸菜馅饺子 + 锅包肉<br>
-                            ⏰ 用餐时间：约30-40分钟（最快）<br>
-                            💡 快速实惠，适合赶时间
-                            </span>
-                        </div>
-
-                        <p style="margin-top: 10px; color: #e65100;">
-                            <strong>💡 建议：</strong>如果想吃铁锅炖，建议选选项1（今天时间充裕）；如果想快点去松花江玩，选选项2或4
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 景点2: 松花江冰面 -->
-                <div class="place">
-                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('songhua-river-main-content')">
-                        2️⃣ 松花江冰面 Songhua River Ice（13:00-15:00）
-                        <span style="float: right; font-size: 0.8em; color: #4facfe;">▼</span>
-                    </div>
-                    <div class="detail-content open" id="songhua-river-main-content">
-                        <div class="place-info">
-                            <strong>🚶 交通：</strong>从午餐地点步行至防洪纪念塔/松花江，约10-15分钟<br>
-                            <strong>📍 地址：</strong>哈尔滨市道里区斯大林公园沿江一带
-                            <a href="https://map.baidu.com/search/哈尔滨松花江防洪纪念塔" target="_blank">查看地图</a><br>
-                            <strong>🕐 开放时间：</strong>全天（冬季江面冰封）<br>
-                            <strong>💰 费用：</strong>江面免费进入，项目单独收费<br>
-                            <strong>⏱️ 建议时长：</strong>1.5-2小时
-                        </div>
-
-                        <div class="detail-section" onclick="toggleDetail('songhua-river-detail')">
-                            <div class="detail-header">
-                                <span>📖 了解更多景点信息 + 项目选择</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="detail-content" id="songhua-river-detail">
-                                <strong>✨ 特色：</strong>冬季松花江江面完全冰封，变成天然冰雪游乐场<br><br>
-
-                                <strong>🎿 冰上项目选择（现场决定）：</strong>
-                                <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                                    <strong style="color: #1976D2;">项目1: 冰爬犁（冰上拉爬犁）🛷</strong><br>
-                                    <span style="font-size: 0.9em; color: #666;">
-                                    💰 价格：¥20-30/次<br>
-                                    ⏰ 时长：约10-15分钟<br>
-                                    💡 传统冰上项目，坐在爬犁上被拉着滑行，适合拍照
-                                    </span>
-                                </div>
-
-                                <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                                    <strong style="color: #1976D2;">项目2: 雪地摩托 🏍️</strong><br>
-                                    <span style="font-size: 0.9em; color: #666;">
-                                    💰 价格：¥50-100/次（价格因距离不同）<br>
-                                    ⏰ 时长：约5-10分钟<br>
-                                    💡 刺激项目，在冰面上高速驾驶，速度快很爽
-                                    </span>
-                                </div>
-
-                                <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                                    <strong style="color: #1976D2;">项目3: 冰上自行车 🚴</strong><br>
-                                    <span style="font-size: 0.9em; color: #666;">
-                                    💰 价格：¥30-50/30分钟<br>
-                                    ⏰ 时长：可选15分钟或30分钟<br>
-                                    💡 在冰面上骑特制自行车，轻松有趣
-                                    </span>
-                                </div>
-
-                                <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                                    <strong style="color: #1976D2;">项目4: 冰滑梯 🎿</strong><br>
-                                    <span style="font-size: 0.9em; color: #666;">
-                                    💰 价格：¥20/次<br>
-                                    ⏰ 时长：约5分钟<br>
-                                    💡 从冰制滑梯上滑下，简单好玩
-                                    </span>
-                                </div>
-
-                                <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                                    <strong style="color: #1976D2;">项目5: 冰上陀螺/抽冰尜 ⛸️</strong><br>
-                                    <span style="font-size: 0.9em; color: #666;">
-                                    💰 价格：¥10-20/次<br>
-                                    ⏰ 时长：约15-20分钟<br>
-                                    💡 东北传统冰上游戏，用鞭子抽打冰陀螺
-                                    </span>
-                                </div>
-
-                                <p style="margin-top: 10px; color: #1976D2; background: white; padding: 10px; border-radius: 5px;">
-                                    <strong>💡 预算参考：</strong><br>
-                                    • 体验2-3个项目：约¥80-150<br>
-                                    • 全都体验：约¥200-300<br>
-                                    • 建议：根据现场兴趣选择，不用全部都玩
-                                </p>
-
-                                <strong>💡 小贴士：</strong>
-                                <ul style="margin: 10px 0; padding-left: 20px;">
-                                    <li>穿厚实保暖，江面风大很冷</li>
-                                    <li>带暖宝宝贴在手脚上</li>
-                                    <li>项目可以砍价，尤其是雪地摩托</li>
-                                    <li>注意安全，冰面虽然厚但要听从工作人员指挥</li>
-                                    <li>拍照很出片，记得多拍照留念</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 返回宾馆 -->
-                <div class="place" style="background: #e8f5e9; border-left-color: #4caf50;">
-                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('day3-return-content')">
-                        🏠 返回宾馆（15:00-16:00）
-                        <span style="float: right; font-size: 0.8em; color: #4caf50;">▼</span>
-                    </div>
-                    <div class="detail-content open" id="day3-return-content">
-                        <div class="place-info">
-                            <strong>🚗 交通：</strong>从松花江/中央大街打车回宾馆，约20分钟，¥15-20<br>
-                            <strong>🏠 到达时间：</strong>16:00 到达宾馆<br>
-                            <strong>🍜 晚餐安排：</strong>回宾馆休息，点外卖
-                        </div>
-
-                        <div class="detail-section" onclick="toggleDetail('day3-dinner-detail')">
-                            <div class="detail-header">
-                                <span>🍜 晚餐外卖推荐</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="detail-content" id="day3-dinner-detail">
-                                <strong>推荐外卖：</strong><br>
-                                <ul style="margin: 10px 0; padding-left: 20px;">
-                                    <li><strong>铁锅炖</strong> - 如果午餐没吃，晚上可以点（¥60-100）</li>
-                                    <li><strong>东北饺子</strong> - 东方饺子王、喜家德（¥20-40）</li>
-                                    <li><strong>东北家常菜</strong> - 地三鲜、小鸡炖蘑菇、酸菜粉条（¥30-60）</li>
-                                    <li><strong>烧烤</strong> - 东北烤串（¥40-80）</li>
-                                    <li><strong>粥/面</strong> - 如果玩累了想吃点清淡的（¥20-40）</li>
-                                </ul>
-                                <p style="color: #2e7d32;">
-                                    <strong>💡 建议：</strong>今天午餐如果吃的比较重（铁锅炖/俄式西餐），晚上可以点饺子或面条等清淡一些的
-                                </p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -1022,12 +996,20 @@
                 <!-- 今日总结 -->
                 <div class="note" style="background: #e8f5e9; border-left-color: #4caf50; margin-top: 20px;">
                     <strong style="color: #2e7d32;">📊 今日费用预算：</strong><br>
-                    • 交通费：约¥80-100<br>
-                    • 东北虎林园：门票¥90 + 观光车¥60 = ¥150<br>
-                    • 午餐：约¥40-100（根据选择）<br>
-                    • 松花江冰上项目：约¥80-200（根据选择）<br>
-                    • 晚餐外卖：约¥30-80<br>
-                    <strong>总计：约¥380-630</strong>（根据午餐和冰上项目选择不同）
+                    • 交通费（高铁往返）：约¥150/人<br>
+                    • 往返火车站打车：约¥30-50<br>
+                    • 跟团费用：¥130/人（含滑雪3小时+装备+午餐）<br>
+                    • 晚餐：约¥30-80<br>
+                    • 额外装备租赁（可选）：约¥50-100<br>
+                    <strong>总计（2人）：约¥650-900</strong>（已含高铁、跟团、晚餐）
+                </div>
+
+                <div class="note" style="background: #fff3e0; border-left-color: #ff9800; margin-top: 15px;">
+                    <strong style="color: #e65100;">🌟 温馨提示：</strong><br>
+                    • 早起不易，建议前一晚早睡<br>
+                    • 准备早餐：可前一晚买好面包、牛奶等，路上吃<br>
+                    • 高铁上可补觉休息<br>
+                    • 滑雪后可能会累，晚上早点休息，为第二天养足精神
                 </div>
             </div>
         </div>
@@ -1035,12 +1017,12 @@
         <!-- Day 4: December 24 (Tuesday) -->
         <div class="day-card">
             <div class="day-header" onclick="toggleDay('day4-content', 'day4-icon')">
-                <span>📅 Day 4 - 12月24日（周二）冰雪大世界 ❄️（已订票）</span>
+                <span>📅 Day 4 - 12月24日（周二）🐯 东北虎林园 + ❄️ 冰雪大世界（已订票）</span>
                 <span class="toggle-icon" id="day4-icon">▼</span>
             </div>
             <div class="day-content" id="day4-content">
                 <div class="note">
-                    <strong>💡 今日重点：</strong>冰雪大世界（已订票），下午15:00-16:00出发，玩到晚上20:00，欣赏震撼灯光秀
+                    <strong>💡 今日重点：</strong>早上东北虎林园看老虎，下午冰雪大世界（已订票）欣赏震撼灯光秀，充实的一天！
                 </div>
 
                 <div class="note" style="background: #fff3e0; border-left-color: #ff9800;">
@@ -1050,83 +1032,126 @@
                 <!-- 交通信息 -->
                 <div class="transport" style="cursor: pointer;" onclick="toggleDetail('day4-transport-detail')">
                     <div class="transport-title">
-                        🚗 今日交通总费用：约 ¥80-100 💡 推荐：打车往返
+                        🚗 今日交通总费用：约 ¥10-15（公交往返） 💡 推荐：公交经济实惠
                         <span style="float: right; font-size: 0.9em;">▼ 点击查看详情</span>
                     </div>
                     <div class="detail-content" id="day4-transport-detail">
                         <div style="margin-top: 15px; padding: 15px; background: white; border-radius: 8px;">
                             <strong>🚗 交通明细：</strong><br><br>
-                            • 宾馆 → 冰雪大世界：打车约40-50分钟，¥40-50（约20公里）<br>
-                            • 冰雪大世界 → 宾馆：打车约40-50分钟，¥40-50<br><br>
+                            <strong>上午（东北虎林园）：</strong><br>
+                            • 住宿 → 东北虎林园：公交车，约1-1.5小时，¥2-3<br>
+                            • 东北虎林园 → 住宿：公交车，约1-1.5小时，¥2-3<br><br>
+                            <strong>下午（冰雪大世界）：</strong><br>
+                            • 住宿 → 冰雪大世界：打车约40-50分钟，¥40-50（约20公里）<br>
+                            • 冰雪大世界 → 住宿：打车约40-50分钟，¥40-50<br><br>
 
                             <strong>💡 交通建议：</strong><br>
-                            • 冰雪大世界位于松北区太阳岛西侧，距离市区较远<br>
-                            • 建议打车往返，方便快捷<br>
+                            • 东北虎林园：可乘35路、122路公交车到松北区<br>
+                            • 冰雪大世界：位于松北区太阳岛西侧，建议打车<br>
                             • 晚上20:00离开时人很多，建议提前在园区门口打车<br>
-                            • 可使用滴滴或高德打车
+                            • 可使用高德地图查询公交路线，打车用滴滴或高德
                         </div>
                     </div>
                 </div>
 
-                <!-- 早午餐推荐 -->
-                <div class="meal-section" style="cursor: pointer;" onclick="toggleDetail('day4-brunch-content')">
+                <!-- 景点1: 东北虎林园 -->
+                <div class="place">
+                    <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('day4-tiger-park-main-content')">
+                        1️⃣ 东北虎林园 Siberian Tiger Park（09:00-12:00）
+                        <span style="float: right; font-size: 0.8em; color: #4facfe;">▼</span>
+                    </div>
+                    <div class="detail-content open" id="day4-tiger-park-main-content">
+                        <div class="place-info">
+                            <strong>🕘 出发时间：</strong>09:00 从住宿出发<br>
+                            <strong>🚌 交通：</strong>公交车，约1-1.5小时，¥2-3<br>
+                            <strong>📍 地址：</strong>哈尔滨市松北区松北街88号
+                            <a href="https://www.google.com/maps/search/?api=1&query=哈尔滨市松北区松北街88号东北虎林园" target="_blank">查看地图</a><br>
+                            <strong>🕐 开放时间：</strong>8:00-16:30<br>
+                            <strong>💰 门票：</strong>¥90 + 观光车¥60 = ¥150<br>
+                            <strong>⏱️ 建议时长：</strong>1.5-2小时<br>
+                            <strong>🏠 返回时间：</strong>12:00 返回住宿
+                        </div>
+
+                        <div class="detail-section" onclick="toggleDetail('day4-tiger-park-detail')">
+                            <div class="detail-header">
+                                <span>📖 了解更多景点信息</span>
+                                <span>▼</span>
+                            </div>
+                            <div class="detail-content" id="day4-tiger-park-detail">
+                                <strong>✨ 特色：</strong>世界最大的东北虎饲养繁育基地，近距离观赏东北虎<br><br>
+                                <strong>🐯 必看/必体验：</strong>
+                                <ul style="margin: 10px 0; padding-left: 20px;">
+                                    <li><strong>观光车游览</strong> - 乘坐专用观光车穿越虎群区域</li>
+                                    <li><strong>成年虎散放区</strong> - 看东北虎在雪地里奔跑</li>
+                                    <li><strong>幼虎园</strong> - 近距离观看小老虎（可以合影，需另付费）</li>
+                                    <li><strong>喂食表演</strong> - 观看饲养员喂食老虎（需提前确认时间）</li>
+                                </ul>
+                                <strong>📞 电话：</strong>0451-88080098<br><br>
+                                <strong>💡 小贴士：</strong>
+                                <ul style="margin: 10px 0; padding-left: 20px;">
+                                    <li>建议游玩2小时，包含观光车和步行参观</li>
+                                    <li>观光车约30-40分钟，会穿越多个虎群散放区</li>
+                                    <li>冬季雪地里的东北虎更活跃，拍照效果好</li>
+                                    <li>带好相机/手机，但在车内拍照要注意安全</li>
+                                    <li>园区内有餐厅，但建议回住宿附近用餐（选择更多）</li>
+                                    <li>与幼虎合影需另付费（¥50-100）</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 午餐推荐 -->
+                <div class="meal-section" style="cursor: pointer;" onclick="toggleDetail('day4-lunch-content')">
                     <div style="font-weight: bold; font-size: 1.1em; margin-bottom: 10px;">
-                        🍳 早午餐推荐（11:00-12:00）- 宾馆附近
+                        🍜 午餐推荐（12:00-13:00）- 住宿附近用餐
                         <span style="float: right; font-size: 0.9em;">▼</span>
                     </div>
-                    <div class="detail-content open" id="day4-brunch-content">
-                        <strong>📍 在宾馆附近（道外区）找早餐店</strong>（睡到自然醒，慢慢吃）<br><br>
+                    <div class="detail-content open" id="day4-lunch-content">
+                        <strong>📍 在住宿附近快速用餐</strong>（为下午冰雪大世界养精蓄锐）<br><br>
 
                         <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">选项1: 东北早餐铺 🥟</strong><br>
+                            <strong style="color: #ff9800;">选项1: 东北饺子 🥟（推荐！）</strong><br>
                             <span style="font-size: 0.9em; color: #666;">
-                            📍 搜索"早餐"或"包子铺"（宾馆附近）<br>
-                            💰 人均：¥10-20<br>
-                            🌟 推荐：豆浆 + 油条 + 包子/豆包 + 咸菜<br>
-                            💡 地道东北早餐，便宜实惠
+                            📍 东方饺子王 / 喜家德<br>
+                            💰 人均：¥30-45<br>
+                            🌟 推荐：酸菜馅饺子 + 锅包肉<br>
+                            ⏰ 用餐时间：约30-40分钟<br>
+                            💡 快速管饱，下午不会饿
                             </span>
                         </div>
 
                         <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">选项2: 豆腐脑 + 煎饼果子 🥞</strong><br>
+                            <strong style="color: #ff9800;">选项2: 东北菜馆 🍖</strong><br>
                             <span style="font-size: 0.9em; color: #666;">
-                            📍 路边早餐摊或小店<br>
-                            💰 人均：¥10-15<br>
-                            🌟 推荐：豆腐脑（咸味）+ 煎饼果子 + 茶叶蛋<br>
-                            💡 经典北方早餐组合
+                            📍 住宿附近东北菜馆<br>
+                            💰 人均：¥40-60<br>
+                            🌟 推荐：锅包肉、地三鲜、米饭<br>
+                            ⏰ 用餐时间：约40-50分钟<br>
+                            💡 经典东北味，性价比高
                             </span>
                         </div>
 
                         <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">选项3: 粥店 🍚</strong><br>
+                            <strong style="color: #ff9800;">选项3: 快餐/外卖 📱</strong><br>
                             <span style="font-size: 0.9em; color: #666;">
-                            📍 搜索"粥店"或"砂锅粥"<br>
-                            💰 人均：¥15-30<br>
-                            🌟 推荐：皮蛋瘦肉粥 + 小菜 + 包子<br>
-                            💡 暖胃舒服，适合冬天
-                            </span>
-                        </div>
-
-                        <div style="background: white; padding: 15px; border-radius: 8px; margin: 10px 0;">
-                            <strong style="color: #ff9800;">选项4: 东北饺子当早餐 🥟</strong><br>
-                            <span style="font-size: 0.9em; color: #666;">
-                            📍 东方饺子王 / 喜家德（如果营业）<br>
-                            💰 人均：¥20-30<br>
-                            🌟 推荐：酸菜馅饺子 + 小米粥<br>
-                            💡 管饱，下午不会饿
+                            💰 人均：¥20-40<br>
+                            🌟 推荐：盖浇饭、麻辣烫、米线<br>
+                            ⏰ 用餐时间：约20-30分钟<br>
+                            💡 最快选择，留更多时间休息
                             </span>
                         </div>
 
                         <p style="margin-top: 10px; color: #e65100;">
-                            <strong>💡 建议：</strong>选择选项1或2最地道，便宜又好吃。吃完回宾馆休息，准备零食和保暖装备
+                            <strong>💡 建议：</strong>选项1或2，吃饱一点，冰雪大世界晚上会很冷很累，需要体力
                         </p>
                     </div>
                 </div>
 
-                <!-- 准备零食和装备 -->
+                <!-- 休息&准备 -->
                 <div class="transport" style="background: #e3f2fd; border-left-color: #2196F3; margin: 20px 0; cursor: pointer;" onclick="toggleDetail('day4-preparation-detail')">
                     <div class="transport-title" style="color: #1976D2;">
-                        🎒 出发前准备清单（12:00-15:00）
+                        🎒 午休&准备冰雪大世界装备（13:00-15:00）
                         <span style="float: right; font-size: 0.9em;">▼ 点击查看详情</span>
                     </div>
                     <div class="detail-content" id="day4-preparation-detail">
@@ -1156,10 +1181,10 @@
                     </div>
                 </div>
 
-                <!-- 景点: 冰雪大世界 -->
+                <!-- 景点2: 冰雪大世界 -->
                 <div class="place">
                     <div class="place-title" style="cursor: pointer;" onclick="toggleDetail('ice-world-main-content')">
-                        1️⃣ 冰雪大世界 Harbin Ice and Snow World（15:40-20:00）
+                        2️⃣ 冰雪大世界 Harbin Ice and Snow World（15:40-20:00）
                         <span style="float: right; font-size: 0.8em; color: #4facfe;">▼</span>
                     </div>
                     <div class="detail-content open" id="ice-world-main-content">
@@ -1332,13 +1357,13 @@
                 <div class="category-content" id="category-landmarks-content">
                     <div style="background: #e3f2fd; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #2196F3;">
                         <ul class="itinerary-list">
-                        <li>
-                            <strong>中央大街 Zhongyang Street</strong> 中央大街<br>
+                        <li style="background: #e8f5e9; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+                            <strong>✅ 中央大街 Zhongyang Street</strong> 中央大街 <span style="color: #4caf50; font-weight: bold;">(已完成 12月22日)</span><br>
                             <span style="font-size: 0.9em; color: #666;">✅ 必去 • 哈尔滨最著名的步行街，欧式建筑林立 • 约1-2小时 • 免费</span><br>
                             <span style="font-size: 0.85em; color: #999;">📍 哈尔滨市道里区中央大街 • 全天开放</span>
                         </li>
-                        <li>
-                            <strong>圣索菲亚大教堂 Saint Sophia Cathedral</strong> 圣索菲亚大教堂<br>
+                        <li style="background: #e8f5e9; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
+                            <strong>✅ 圣索菲亚大教堂 Saint Sophia Cathedral</strong> 圣索菲亚大教堂 <span style="color: #4caf50; font-weight: bold;">(已完成 12月22日)</span><br>
                             <span style="font-size: 0.9em; color: #666;">✅ 必去 • 标志性拜占庭式建筑，拍照圣地 • 约30-60分钟 • ¥20</span><br>
                             <span style="font-size: 0.85em; color: #999;">📍 哈尔滨市道里区透笼街88号 • 8:30-17:00</span>
                         </li>
