@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="language" content="Chinese">
+    <meta http-equiv="content-language" content="zh-CN">
+    <title>迪拜旅行行程 Jan 2-7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #fce38a 0%, #f38181 100%);
+            /* Desert Sunset Gradient */
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #e1b382 0%, #c89666 100%);
+            /* Sand/Gold tones */
+            color: white;
+            padding: 60px 40px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .home-button {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .home-button:hover {
+            background: white;
+            color: #c89666;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .exchange-rate {
+            background: #fff8e1;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #ffca28;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .day-card {
+            margin: 30px;
+            border: 2px solid #ffe0b2;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #ffca28 0%, #ff6f00 100%);
+            color: white;
+            padding: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .day-header:hover {
+            opacity: 0.95;
+        }
+
+        .toggle-icon {
+            font-size: 1.2em;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .day-content {
+            padding: 25px;
+            display: none;
+        }
+
+        .day-content.open {
+            display: block;
+        }
+
+        /* Collapsible category styles */
+        .category-header {
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .category-header:hover {
+            opacity: 0.9;
+            transform: translateX(5px);
+        }
+
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .category-content.open {
+            max-height: 5000px;
+        }
+
+        .category-toggle {
+            font-size: 0.9em;
+            transition: transform 0.3s ease;
+        }
+
+        .category-toggle.collapsed {
+            transform: rotate(-90deg);
+        }
+
+        .transport {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .transport-title {
+            font-weight: bold;
+            color: #1976D2;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .price {
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.05em;
+        }
+
+        .itinerary-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .itinerary-list li {
+            padding: 12px 15px;
+            margin: 10px 0;
+            background: #f5f5f5;
+            border-radius: 8px;
+            border-left: 4px solid #ffb74d;
+            transition: background 0.3s ease;
+        }
+
+        .itinerary-list li:hover {
+            background: #fff3e0;
+        }
+
+        .activity-name {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .activity-price {
+            color: #2e7d32;
+            font-size: 0.95em;
+        }
+
+        .location-link {
+            font-size: 0.9em;
+            color: #1976D2;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .location-link:hover {
+            text-decoration: underline;
+        }
+
+        .total-budget {
+            background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+            color: white;
+            padding: 30px;
+            margin: 30px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .total-budget h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .total-budget p {
+            font-size: 1.3em;
+            margin: 10px 0;
+        }
+
+        .note {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin-top: 15px;
+            color: #856404;
+        }
+
+        .calculator {
+            background: linear-gradient(135deg, #009688 0%, #00796b 100%);
+            padding: 25px;
+            margin: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .calculator h3 {
+            color: white;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.4em;
+        }
+
+        .calculator-inputs {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .input-group label {
+            color: white;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .input-group input {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            width: 150px;
+            text-align: center;
+        }
+
+        .calculator-result {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #00796b;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 5px;
+            }
+
+            .header {
+                padding: 40px 15px 20px;
+            }
+
+            .header h1 {
+                font-size: 1.3em;
+                word-wrap: break-word;
+                margin-bottom: 5px;
+            }
+
+            .header p {
+                font-size: 0.9em;
+            }
+
+            .home-button {
+                padding: 5px 10px;
+                font-size: 0.75em;
+                top: 8px;
+                left: 8px;
+            }
+
+            .exchange-rate {
+                padding: 12px 10px;
+                font-size: 0.85em;
+                line-height: 1.4;
+            }
+
+            .exchange-rate strong {
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            .day-card {
+                margin: 12px 8px;
+                border-width: 1px;
+            }
+
+            .day-header {
+                padding: 12px 15px;
+                font-size: 1.1em;
+            }
+
+            .day-content {
+                padding: 15px;
+            }
+
+            .transport {
+                padding: 10px;
+                margin-bottom: 12px;
+            }
+
+            .transport-title {
+                font-size: 0.95em;
+                margin-bottom: 5px;
+            }
+
+            .price {
+                font-size: 0.9em;
+            }
+
+            .itinerary-list li {
+                padding: 10px 12px;
+                margin: 8px 0;
+                font-size: 0.9em;
+            }
+
+            .activity-name {
+                font-size: 0.95em;
+                margin-bottom: 3px;
+            }
+
+            .activity-price {
+                font-size: 0.85em;
+            }
+
+            .location-link {
+                font-size: 0.8em;
+            }
+
+            .note {
+                padding: 10px;
+                font-size: 0.85em;
+                margin-top: 10px;
+                line-height: 1.4;
+            }
+
+            .calculator {
+                margin: 10px 8px;
+                padding: 12px;
+            }
+
+            .calculator h3 {
+                font-size: 0.95em;
+                margin-bottom: 6px;
+            }
+
+            .calculator-inputs {
+                flex-direction: row;
+                gap: 8px;
+            }
+
+            .calculator-inputs>div[style*="font-size"] {
+                font-size: 1em !important;
+            }
+
+            .input-group {
+                flex: 1;
+            }
+
+            .input-group label {
+                font-size: 0.75em;
+                margin-bottom: 2px;
+            }
+
+            .input-group input {
+                padding: 6px 8px;
+                font-size: 16px;
+                width: 100%;
+            }
+
+            /* iOS Input fix */
+            input,
+            select,
+            textarea {
+                font-size: 16px !important;
+            }
+        }
+
+        /* Floating scroll buttons */
+        .scroll-button {
+            position: fixed;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #ffffff;
+            border: 2px solid #e1b382;
+            border-radius: 50%;
+            color: #e1b382;
+            font-size: 1.8em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-button-up {
+            bottom: 110px;
+        }
+
+        .scroll-button-down {
+            bottom: 30px;
+        }
+
+        .scroll-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(225, 179, 130, 0.4);
+            background: #e1b382;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+                right: 20px;
+            }
+
+            .scroll-button-up {
+                bottom: 90px;
+            }
+
+            .scroll-button-down {
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="../../../index.html" class="home-button">🏠 主页</a>
+            <h1>🇦🇪 迪拜/阿布扎比旅行行程</h1>
+            <p>2026年1月2日 - 1月7日 • 5晚</p>
+        </div>
+
+        <div class="exchange-rate">
+            <strong>📍 迪拜住宿 (Jan 3-7)：</strong> <a
+                href="https://www.google.com/maps/search/?api=1&query=President+Hotel+Trade+Center+Road+Karama+Dubai"
+                target="_blank" style="color: #1976D2; text-decoration: none;">President Hotel, Karama, Dubai</a><br>
+            <strong>📍 阿布扎比住宿 (Jan 2-3)：</strong> Khalifa City A<br>
+            <strong>💱 汇率参考：</strong> 1 AED ≈ 1.97 CNY ≈ 2.85 SEK<br>
+            <strong>⏰ 时差：</strong> UTC+4（比北京时间慢4小时，比瑞典快3小时）
+        </div>
+
+        <!-- Currency Calculator -->
+        <div class="calculator">
+            <h3>💰 货币计算器 (AED/SEK/CNY)</h3>
+            <div class="calculator-inputs">
+                <div class="input-group">
+                    <label for="aed-input">迪拉姆 (AED)</label>
+                    <input type="number" id="aed-input" placeholder="AED" oninput="convertFromAED()" step="any">
+                </div>
+                <div style="color: white; font-size: 1.5em; font-weight: bold;">⇄</div>
+                <div class="input-group">
+                    <label for="sek-input">瑞典克朗 (kr)</label>
+                    <input type="number" id="sek-input" placeholder="SEK" oninput="convertFromSEK()" step="any">
+                </div>
+                <div style="color: white; font-size: 1.5em; font-weight: bold;">⇄</div>
+                <div class="input-group">
+                    <label for="cny-input">人民币 (¥)</label>
+                    <input type="number" id="cny-input" placeholder="CNY" oninput="convertFromCNY()" step="any">
+                </div>
+            </div>
+            <div id="calc-result" class="calculator-result" style="display: none;"></div>
+        </div>
+
+        <!-- UAE Intro -->
+        <div class="day-card"
+            style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); border-left: 5px solid #ffca28;">
+            <div class="day-header" onclick="toggleDay('dubai-intro-content')"
+                style="background: #ffb300; color: white;">
+                <span>🏙️ 关于迪拜 - 沙漠中的奇迹之城</span>
+                <span class="toggle-icon" id="dubai-intro-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="dubai-intro-content">
+                <div
+                    style="background: white; padding: 25px; border-radius: 10px; border-left: 4px solid #ffca28; margin: 15px;">
+                    <p style="margin: 0 0 20px 0; line-height: 2; font-size: 1.05em; color: #555;">
+                        迪拜（Dubai）是阿联酋最著名的城市，以奢华的现代建筑、高端购物和独特的沙漠体验而闻名。这里拥有世界最高塔哈利法塔、最大的人工岛棕榈岛，以及传统的黄金市场和香料市场。
+                    </p>
+
+                    <div
+                        style="background: #e3f2fd; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #2196F3;">
+                        <h3 style="color: #1976D2; margin-bottom: 15px; font-size: 1.2em;">📊 基本信息</h3>
+                        <p style="margin: 8px 0; line-height: 1.8; color: #555;">
+                            <strong style="color: #1976D2;">💰 货币：</strong>阿联酋迪拉姆 (AED)<br>
+                            <strong style="color: #1976D2;">🔌 插座：</strong>英式三孔（G型），电压220V<br>
+                            <strong style="color: #1976D2;">🕌 最佳穿着：</strong>公共场合建议穿着得体（遮盖肩膀和膝盖），特别是在老城区和清真寺<br>
+                            <strong style="color: #1976D2;">🚇 交通：</strong>地铁（红线/绿线）、出租车（Careem/Uber）、租车<br>
+                            <strong style="color: #1976D2;">🗓️ 周末：</strong>周六和周日（自2022年起改为双休）
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 1: Arrival -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day1-content')">
+                <span>✅ 1月2日 - 星期五（抵达阿布扎比）</span>
+                <span class="toggle-icon" id="day1-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day1-content">
+                <div class="note">
+                    <strong>抵达信息：</strong><br>
+                    航班降落于阿布扎比国际机场 (AUH) - 晚上抵达<br>
+                    <strong>📍 住宿：</strong> Khalifa City A, Abu Dhabi
+                </div>
+                <ul class="itinerary-list">
+                    <li>
+                        <strong>晚上 - 抵达与入住</strong><br>
+                        <span style="font-size: 0.9em; color: #666;">
+                            • <strong>航班 EY5748 (由 MU237 执飞)：</strong> 21:30 抵达阿布扎比机场 (AUH)<br>
+                            &nbsp;&nbsp;<em>(前序航班：MU9036)</em><br>
+                            • 入境、取行李<br>
+                            • 打车前往 Khalifa City A 住宿（距离机场较近）
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 2: Move to Dubai -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day2-content')">
+                <span>✅ 1月3日 - 星期六（阿布扎比大清真寺 ➡️ 迪拜）</span>
+                <span class="toggle-icon" id="day2-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day2-content">
+
+                <!-- 10:00 早餐 & 寄存 -->
+                <div class="category-header" onclick="toggleCategory('breakfast-content')"
+                    style="background: #fff3e0; border-left: 4px solid #ff9800;">
+                    <h3 style="color: #ef6c00;">🥐 10:00 AM - 悠闲早餐 & 行李寄存</h3>
+                    <span class="category-toggle" id="breakfast-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="breakfast-content">
+                    <div style="padding: 15px; border-left: 4px solid #ff9800; background: #fff;">
+                        10:00 出门享用早餐，之后将行李寄存在民宿（Khalifa City A）。<br>
+                        轻装上阵前往景点。
+                    </div>
+                </div>
+
+                <!-- 大清真寺 -->
+                <div class="category-header" onclick="toggleCategory('mosque-content')"
+                    style="background: #e8eaf6; border-left: 4px solid #3f51b5;">
+                    <h3 style="color: #283593;">🕌 谢赫扎耶德大清真寺 (Grand Mosque)</h3>
+                    <span class="category-toggle" id="mosque-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="mosque-content">
+                    <div style="padding: 15px; border-left: 4px solid #3f51b5; background: #fff;">
+                        <div class="transport">
+                            <strong>🚕 交通：</strong>从 Khalifa City 打车前往
+                        </div>
+                        <p>
+                            阿布扎比最著名的地标，纯白大理石建筑，极尽奢华与神圣。<br>
+                            <strong>⚠️ 着装要求严格：</strong>女士必须包头巾、穿长袖长裤（不透），男士需穿长裤。<br><br>
+                            <span
+                                style="background: #ffebee; color: #c62828; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-top: 5px;">
+                                <strong>💡 亲身经验：</strong>现场<strong>没有服装租赁</strong>，只能购买（很贵）。<br>
+                                幸运的是穿了<strong>带帽子的卫衣</strong>，工作人员允许戴上帽子通过，省了一笔钱！🎉
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 15:00 返回 & 移动 -->
+                <div class="category-header" onclick="toggleCategory('transfer-content')"
+                    style="background: #e0f2f1; border-left: 4px solid #009688;">
+                    <h3 style="color: #00796b;">🚌 15:00 - 返回取行李 & 前往迪拜</h3>
+                    <span class="category-toggle" id="transfer-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="transfer-content">
+                    <div style="padding: 15px; border-left: 4px solid #009688; background: #fff;">
+                        <ul class="itinerary-list">
+                            <li>15:00 左右回到 Khalifa City 住宿取行李</li>
+                            <li>打车前往阿布扎比机场 (AUH)</li>
+                            <li>乘坐机场大巴前往迪拜 (Dubai)</li>
+                            <li>抵达迪拜后，转乘地铁前往住宿</li>
+                            <li><strong>📍 迪拜住宿：</strong>President Hotel, Karama</li>
+                        </ul>
+
+                        <div
+                            style="background: #e3f2fd; padding: 10px; border-radius: 5px; margin-top: 10px; font-size: 0.9em;">
+                            <strong>💡 省钱交通小贴士：</strong><br>
+                            亲测发现，<strong>在路边直接拦出租车</strong>比使用网约车APP（如Careem/Uber）要便宜！🚖📉
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 晚上 -->
+                <div class="note">
+                    <strong>🌙 晚上：</strong>而在旅馆休息，养精蓄锐。
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Day 3: Dubai -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day3-content')">
+                <span>✅ 1月4日 - 星期日（迪拜相框 + 哈利法塔）</span>
+                <span class="toggle-icon" id="day3-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day3-content">
+
+                <!-- 早餐建议 -->
+                <div class="note" style="background: #fff3e0; border-left-color: #ff9800; margin-bottom: 15px;">
+                    <strong>🥐 早餐：</strong>在 President Hotel 酒店享用早餐<br>
+                    <strong>🕘 出发：</strong>约 10:30 AM 从住宿出发
+                </div>
+
+                <!-- 第一站：迪拜相框 -->
+                <div class="category-header" onclick="toggleCategory('frame-main-content')"
+                    style="background: #e8eaf6; border-left: 4px solid #3f51b5; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #283593; margin: 0;">1️⃣ 迪拜相框 Dubai Frame（11:00-13:00）</h3>
+                    <span class="category-toggle" id="frame-main-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="frame-main-content">
+                    <div
+                        style="background: #e8eaf6; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #3f51b5;">
+                        <!-- 基本信息 -->
+                        <div class="transport"
+                            style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>🕘 出发时间：</strong>10:30 AM 从住宿出发<br>
+                            <strong>🚕 交通：</strong>距离住宿很近（Zabeel Park），建议打车，约15分钟
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Dubai+Frame" target="_blank"
+                                class="location-link" style="color: #283593; font-weight: 500;">
+                                📍 Zabeel Park Jogging Track - Za'abeel - Al Kifaf - Dubai
+                            </a>
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 15px;">
+                            <strong>开放：</strong>9:00 - 21:00<br>
+                            <strong>门票：</strong>约 50 AED（✅ 现场已购票）
+                        </div>
+
+                        <!-- 详细信息 -->
+                        <div class="category-header" onclick="toggleCategory('frame-detail')"
+                            style="background: #c5cae9; border-left: 3px solid #3f51b5; padding: 10px 15px; margin: 0;">
+                            <span style="color: #283593; font-weight: 500;">� 了解更多景点信息</span>
+                            <span class="category-toggle" id="frame-detail-toggle">▼</span>
+                        </div>
+                        <div class="category-content" id="frame-detail">
+                            <div
+                                style="background: #c5cae9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #3f51b5;">
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                    <strong>特色：</strong>世界上最大的相框建筑，高150米。顶部有透明玻璃桥，可以体验"空中漫步"。<br>
+                                    <strong>必看：</strong>
+                                    Old Dubai Gallery（底层博物馆，展示迪拜历史）、
+                                    Sky Deck（顶部观景台，左看老城，右看新城）、
+                                    Future Dubai Gallery（通过特效展示未来的迪拜）。<br>
+                                    <strong>💡 小贴士：</strong>上午去光线较好，适合拍照。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第二站：迪拜购物中心 & 哈利法塔 -->
+                <div class="category-header" onclick="toggleCategory('burj-main-content')"
+                    style="background: #e8eaf6; border-left: 4px solid #3f51b5; padding: 10px 15px; margin: 15px 0 0 0;">
+                    <h3 style="color: #283593; margin: 0;">2️⃣ 迪拜购物中心 & 哈利法塔 & 喷泉（13:30-19:00）</h3>
+                    <span class="category-toggle" id="burj-main-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="burj-main-content">
+                    <div
+                        style="background: #e8eaf6; padding: 20px; border-radius: 0 0 10px 10px; border-left: 4px solid #3f51b5;">
+                        <!-- 基本信息 -->
+                        <div class="transport"
+                            style="background: transparent; padding: 0; border: none; margin-bottom: 12px;">
+                            <strong>� 交通：</strong>从相框坐地铁前往 Dubai Mall 区域<br>
+                            <strong>📍 地点：</strong>所有活动均在 Dubai Mall 区域内
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 12px;">
+                            <a href="https://www.google.com/maps/search/?api=1&query=The+Dubai+Mall" target="_blank"
+                                class="location-link" style="color: #283593; font-weight: 500;">
+                                📍 Downtown Dubai (Dubai Mall & Burj Khalifa)
+                            </a>
+                        </div>
+                        <div style="font-size: 0.9em; margin-bottom: 15px;">
+                            <strong>开放：</strong>商场 10:00 - 00:00<br>
+                            <strong>门票：</strong>哈利法塔需门票 / 商场 & 喷泉免费
+                        </div>
+
+                        <!-- 详细信息 -->
+                        <div class="category-header" onclick="toggleCategory('burj-detail')"
+                            style="background: #c5cae9; border-left: 3px solid #3f51b5; padding: 10px 15px; margin: 0;">
+                            <span style="color: #283593; font-weight: 500;">📖 了解更多景点信息</span>
+                            <span class="category-toggle" id="burj-detail-toggle">▼</span>
+                        </div>
+                        <div class="category-content" id="burj-detail">
+                            <div
+                                style="background: #c5cae9; padding: 15px; border-radius: 0 0 8px 8px; border-left: 3px solid #3f51b5;">
+                                <p style="margin: 0; line-height: 1.6; font-size: 0.95em;">
+                                    <strong>1. 🛍️ 迪拜购物中心 (The Dubai Mall)：</strong><br>
+                                    世界最大的购物中心，甚至还有室内溜冰场和巨大的水族馆视窗。在这里逛街、吃饭、休息。<br><br>
+                                    <strong>2. 🏙️ 哈利法塔 (Burj Khalifa)：</strong><br>
+                                    世界最高建筑（828米）。在商场LG层入口登塔参观。<br><br>
+                                    <strong>3. 🎵 迪拜喷泉 (The Dubai Fountain)：</strong><br>
+                                    <strong>✅ 实际体验：</strong>观看了晚上 6:00 的第一场喷泉秀，非常震撼！
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <!-- Day 4: Dubai -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day4-content')">
+                <span>✅ 1月5日 - 星期一（未来博物馆 + 购物中心 + 海滩）</span>
+                <span class="toggle-icon" id="day4-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day4-content">
+
+                <!-- 早餐 & 出发 -->
+                <div class="note" style="background: #fff3e0; border-left-color: #ff9800; margin-bottom: 15px;">
+                    <strong>🥐 早餐：</strong>在酒店享用<br>
+                    <strong>🕘 出门：</strong>10:00 AM 左右出发<br>
+                    <strong>🌙 返回：</strong>约 18:00 - 19:00 回到及旅馆休息
+                </div>
+
+                <!-- 1. 未来博物馆 -->
+                <div class="category-header" onclick="toggleCategory('future-museum-content')"
+                    style="background: #f3e5f5; border-left: 4px solid #8e24aa;">
+                    <h3 style="color: #6a1b9a;">1️⃣ 未来博物馆（10:30-11:15）</h3>
+                    <span class="category-toggle" id="future-museum-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="future-museum-content">
+                    <div style="padding: 15px; border-left: 4px solid #8e24aa; background: #fff;">
+                        <p>
+                            拥有"世界上最美建筑"之称，外观是非常独特的环形书法设计。<br>
+                            <strong>👀 参观体验：</strong>作为今天的第一站，参观了外观和从外面欣赏。<br>
+                            <span style="color: #666; font-size: 0.9em;">（注：觉得门票性价比不高，所以没有购票入内）</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Mall of the Emirates -->
+                <div class="category-header" onclick="toggleCategory('moe-content')"
+                    style="background: #e1f5fe; border-left: 4px solid #0288d1;">
+                    <h3 style="color: #01579b;">2️⃣ 阿联酋购物中心（11:45-13:30）</h3>
+                    <span class="category-toggle" id="moe-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="moe-content">
+                    <div style="padding: 15px; border-left: 4px solid #0288d1; background: #fff;">
+                        <p>
+                            迪拜第二大著名的商场，以拥有巨大的室内滑雪场 (Ski Dubai) 闻名。<br>
+                            在这里逛街休闲。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. 帆船酒店海滩 -->
+                <div class="category-header" onclick="toggleCategory('burj-arab-content')"
+                    style="background: #fff3e0; border-left: 4px solid #ff9800;">
+                    <h3 style="color: #e65100;">3️⃣ 帆船酒店海滩（14:00-15:30）</h3>
+                    <span class="category-toggle" id="burj-arab-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="burj-arab-content">
+                    <div style="padding: 15px; border-left: 4px solid #ff9800; background: #fff;">
+                        <p>
+                            前往这著名的七星级酒店附近的海滩。<br>
+                            <span
+                                style="background: #ffebee; color: #c62828; padding: 4px 8px; border-radius: 4px; display: inline-block; margin-top: 5px;">
+                                <strong>💡 趣事：</strong>附近很多是私人沙滩，但我们成功从一个宾馆默默混进去啦！🤫<br>
+                                这里的沙滩氛围很奢华，人也看起来很有钱。
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. 棕榈岛沙滩 -->
+                <div class="category-header" onclick="toggleCategory('palm-beach-content')"
+                    style="background: #e8f5e9; border-left: 4px solid #2e7d32;">
+                    <h3 style="color: #1b5e20;">4️⃣ 棕榈岛附近海滩（16:00-17:30）</h3>
+                    <span class="category-toggle" id="palm-beach-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="palm-beach-content">
+                    <div style="padding: 15px; border-left: 4px solid #2e7d32; background: #fff;">
+                        <div class="transport">
+                            <strong>🚕 交通：</strong>从帆船酒店区域打车前往
+                        </div>
+                        <p>
+                            随后来到了著名的朱美拉棕榈岛附近的沙滩，继续享受海边时光。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Day 5: Dubai -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day5-content')">
+                <span>🏙️ 1月6日 - 星期二（老城区 Old Dubai 深度游）</span>
+                <span class="toggle-icon" id="day5-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day5-content">
+
+                <!-- 早餐 & 出发 -->
+                <div class="note" style="background: #fff3e0; border-left-color: #ff9800; margin-bottom: 15px;">
+                    <strong>🥐 早餐：</strong>在酒店享用<br>
+                    <strong>🕘 出门：</strong>约 10:30 AM 出发（距离老城区很近）
+                </div>
+
+                <div class="note" style="background: #e8f5e9; border-left-color: #2e7d32; margin-bottom: 20px;">
+                    <strong>💰 今日主打：</strong>超高性价比的文化体验（几乎都是免费或几迪拉姆）<br>
+                    <strong>🐪 关于骑骆驼：</strong>
+                    虽然老城区没有，但如果特别想体验，可以考虑去附近的开放海滩（如 JBR 或 Kite Beach）碰运气，通常 50-100 AED/人。<br>
+                    （今日行程重点放在以下文化体验上 👇）
+                </div>
+
+                <!-- 1. Al Fahidi 历史街区 -->
+                <div class="category-header" onclick="toggleCategory('fahidi-content')"
+                    style="background: #fff3e0; border-left: 4px solid #ff9800;">
+                    <h3 style="color: #ef6c00;">1️⃣ Al Fahidi 历史街区（11:00-13:00）</h3>
+                    <span class="category-toggle" id="fahidi-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="fahidi-content">
+                    <div style="padding: 15px; border-left: 4px solid #ff9800; background: #fff;">
+                        <p>
+                            迪拜最古老的遗址之一，可以看到传统的风塔建筑。<br>
+                            <strong>💰 费用：</strong>免费漫步<br>
+                            <strong>☕ 推荐：</strong>这里有<strong>咖啡博物馆 (Coffee Museum)</strong>，门票约 10 AED，还送一杯阿拉伯咖啡，非常划算！
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 2. Abra 水上巴士 -->
+                <div class="category-header" onclick="toggleCategory('abra-content')"
+                    style="background: #e1f5fe; border-left: 4px solid #0288d1;">
+                    <h3 style="color: #01579b;">2️⃣ 乘坐 Abra 横渡迪拜河（13:15-13:45）</h3>
+                    <span class="category-toggle" id="abra-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="abra-content">
+                    <div style="padding: 15px; border-left: 4px solid #0288d1; background: #fff;">
+                        <div class="transport">
+                            <strong>🚢 交通费：</strong>只需 1 AED（准备好硬币！）
+                        </div>
+                        <p>
+                            这是迪拜最经典、最便宜的体验。坐在传统的木船上，只需几分钟就能从老城区的一边（Bur Dubai）跨越到对面（Deira）。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3. 黄金与香料市场 -->
+                <div class="category-header" onclick="toggleCategory('souks-content')"
+                    style="background: #f3e5f5; border-left: 4px solid #7b1fa2;">
+                    <h3 style="color: #4a148c;">3️⃣ 黄金市场 & 香料市场（13:45-15:30）</h3>
+                    <span class="category-toggle" id="souks-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="souks-content">
+                    <div style="padding: 15px; border-left: 4px solid #7b1fa2; background: #fff;">
+                        <p>
+                            下船后就是热闹的市场区域。<br>
+                            <strong>✨ 体验：</strong><br>
+                            • <strong>香料市场 (Spice Souk)：</strong> 闻闻各种异域香料，拍照很好看。<br>
+                            • <strong>黄金市场 (Gold Souk)：</strong> 看看吉尼斯世界纪录的巨大金戒指，橱窗里的黄金饰品非常震撼。<br>
+                            （注：如果不买东西，看看是完全免费的！如果要买，记得疯狂砍价）
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 4. Al Seef 复古街区 -->
+                <div class="category-header" onclick="toggleCategory('alseef-content')"
+                    style="background: #efebe9; border-left: 4px solid #5d4037;">
+                    <h3 style="color: #3e2723;">4️⃣ Al Seef 街区日落（16:00-18:00）</h3>
+                    <span class="category-toggle" id="alseef-content-toggle">▼</span>
+                </div>
+                <div class="category-content" id="alseef-content">
+                    <div style="padding: 15px; border-left: 4px solid #5d4037; background: #fff;">
+                        <p>
+                            一个仿古的新建街区，就在迪拜河边。非常适合散步、拍照，尤其是在日落时分。<br>
+                            这里有很多餐厅，但如果要省钱，可以走回 Karama 或者在小巷里找平价 Shawarma (约 15-20 AED)。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Day 6: Departure -->
+        <div class="day-card">
+            <div class="day-header" onclick="toggleDay('day6-content')">
+                <span>✈️ 1月7日 - 星期三（离开）</span>
+                <span class="toggle-icon" id="day6-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="day6-content">
+                <div class="note" style="background: #e3f2fd; border-left-color: #1976d2; margin-bottom: 20px;">
+                    <strong>🚌 阿布扎比机场交通方案：</strong><br>
+                    乘坐阿提哈德航空 (Etihad) 免费大巴前往机场。<br>
+                    <strong>上车点：</strong> Al Wasl Centre (Sheikh Zayed Road, Safestway Supermarket 后)<br>
+                    <strong>注意：</strong> 需提前24小时在官网预订座位。
+                </div>
+
+                <ul class="itinerary-list">
+                    <li>
+                        <strong>07:30 - 起床与整理</strong><br>
+                        <span style="font-size: 0.9em; color: #666;">
+                            • 收拾行李，检查护照和机票<br>
+                            • 享用早餐 (08:00)
+                        </span>
+                    </li>
+                    <li>
+                        <strong>08:45 - 前往车站</strong><br>
+                        <span style="font-size: 0.9em; color: #666;">
+                            • 退房<br>
+                            • 打车前往 <strong>Al Wasl Centre</strong> (Etihad Coach Station)<br>
+                            • 约 15-20 分钟车程
+                        </span>
+                    </li>
+                    <li>
+                        <strong>09:50 - 大巴出发 (Coach EY5415)</strong><br>
+                        <span style="font-size: 0.9em; color: #666;">
+                            • 乘坐 Etihad 免费大巴前往阿布扎比机场 (AUH)<br>
+                            • 车程约 2 小时
+                        </span>
+                    </li>
+                    <li>
+                        <strong>11:50 - 抵达机场 (AUH)</strong><br>
+                        <span style="font-size: 0.9em; color: #666;">
+                            • 办理值机、托运、安检<br>
+                            • <strong>航班 EY67：</strong> 14:10 起飞 ➡️ 18:10 抵达伦敦 (LHR)
+                        </span>
+                    </li>
+                    <li>
+                        <strong>1月8日 - 转机/抵达</strong><br>
+                        <span style="font-size: 0.9em; color: #666;">
+                            • <strong>航班 EY3998 (由 SK534 执飞)：</strong> 伦敦 (LHR) ➡️ 斯德哥尔摩 (ARN)<br>
+                            <em>(注：需确认中转时间与1月8日的具体衔接)</em>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bucket List -->
+        <div class="day-card" style="border: 2px dashed #ffb74d;">
+            <div class="day-header" onclick="toggleDay('bucket-list-content')"
+                style="background: #e0e0e0; color: #333;">
+                <span>🎯 待体验清单 (Bucket List)</span>
+                <span class="toggle-icon" id="bucket-list-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="bucket-list-content">
+
+                <h3 style="margin-top: 20px; color: #ef6c00;">️ 沙漠与其他体验</h3>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">沙漠冲沙 (Desert Safari)</div>
+                        <div class="activity-price">约150-300 AED</div>
+                        <p style="font-size: 0.9em; margin-top: 5px;">包含冲沙、骑骆驼、BBQ晚餐、表演。通常下午3点出发，晚上9点回。</p>
+                    </li>
+                    <li>
+                        <div class="activity-name">老城区 (Al Fahidi / Al Seef)</div>
+                        <div class="activity-price">免费 / 游船1 AED</div>
+                        <p style="font-size: 0.9em; margin-top: 5px;">乘坐Abra小船横渡迪拜河(Dubai Creek)，逛黄金市场(Gold Souk)和香料市场
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Transportation Guide -->
+        <div class="day-card" style="border: 2px solid #90caf9;">
+            <div class="day-header" onclick="toggleDay('transport-guide-content')"
+                style="background: #e3f2fd; color: #0d47a1;">
+                <span>🚍 阿联酋交通攻略 (Transportation Guide)</span>
+                <span class="toggle-icon" id="transport-guide-content-icon">▼</span>
+            </div>
+            <div class="day-content" id="transport-guide-content">
+
+                <h3 style="margin-top: 20px; color: #1565c0;">🎫 迪拜交通卡 (Nol Card)</h3>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">银卡 (Silver Card) - 推荐✅</div>
+                        <p style="font-size: 0.9em; margin-top: 5px;">
+                            • <strong>售价：</strong>25 AED（含19 AED余额）<br>
+                            • <strong>单程车费：</strong>3 - 7.5 AED (取决于跨区数量)<br>
+                            • <strong>适用：</strong>常坐地铁/巴士的游客。最实惠的选择。<br>
+                            • <strong>注意：</strong>余额低于7.5 AED无法进站。
+                        </p>
+                    </li>
+                    <li>
+                        <div class="activity-name">金卡 (Gold Card) - 舒适首选✨</div>
+                        <p style="font-size: 0.9em; margin-top: 5px;">
+                            • <strong>售价：</strong>25 AED（含19 AED余额）—— <strong>购卡价与银卡相同！</strong><br>
+                            • <strong>单程车费：</strong>6 - 15 AED (银卡费用的2倍)<br>
+                            • <strong>区别：</strong>可进入地铁/Tram的第一节“金卡专属车厢”(Gold Class Cabin)。<br>
+                            • <strong>优点：</strong>人少、有座位、视野好（部分无人驾驶车头风景）。早晚高峰不想挤地铁的神器。
+                        </p>
+                    </li>
+                    <li>
+                        <div class="activity-name">红卡 (Red Ticket)</div>
+                        <p style="font-size: 0.9em; margin-top: 5px;">
+                            • <strong>性质：</strong>纸质一次性票（可充值10次）。<br>
+                            • <strong>适用：</strong>只坐一两次地铁的人。<br>
+                            • <strong>缺点：</strong>只能存一种类型的票（比如只能存Zone 1的票），换区麻烦。
+                        </p>
+                    </li>
+                </ul>
+
+                <h3 style="margin-top: 20px; color: #1565c0;">🚕 出租车 (Taxi)</h3>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">打车技巧 (Hailing)</div>
+                        <p style="font-size: 0.9em; margin-top: 5px;">
+                            • <strong>路边拦车 (Street Hail)：</strong>起步价更低（约5-12 AED），通常比叫车软件便宜。<br>
+                            • <strong>Careem / Uber：</strong>方便但有服务费，高峰期可能溢价。<br>
+                            • <strong>颜色：</strong>普通出租车是奶油色顶（红色/橙色/绿色顶），粉色顶是女性专用。
+                        </p>
+                    </li>
+                </ul>
+
+                <h3 style="margin-top: 20px; color: #1565c0;">🚌 城际交通 (Inter-city)</h3>
+                <ul class="itinerary-list">
+                    <li>
+                        <div class="activity-name">阿布扎比 ↔ 迪拜</div>
+                        <p style="font-size: 0.9em; margin-top: 5px;">
+                            • <strong>E101 巴士：</strong> 从 Ibn Battuta 地铁站出发，直达阿布扎比中央车站。<br>
+                            • <strong>E100 巴士：</strong> 从 Al Ghubaiba 站出发。<br>
+                            • <strong>费用：</strong> 约 25 AED (需刷Nol银卡)。
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="scroll-button scroll-button-up" onclick="scrollToTop()">↑</div>
+        <div class="scroll-button scroll-button-down" onclick="scrollToBottom()">↓</div>
+
+    </div>
+
+    <script>
+        function toggleDay(dayId) {
+            const content = document.getElementById(dayId);
+            const icon = document.getElementById(dayId + '-icon');
+
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                if (icon) icon.innerHTML = '▼';
+            } else {
+                content.classList.add('open');
+                if (icon) icon.innerHTML = '▲';
+            }
+        }
+
+        function toggleCategory(categoryId) {
+            const content = document.getElementById(categoryId);
+            const toggle = document.getElementById(categoryId + '-toggle');
+
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                if (toggle) toggle.classList.add('collapsed');
+            } else {
+                content.classList.add('open');
+                if (toggle) toggle.classList.remove('collapsed');
+            }
+        }
+
+        // Exchange Rates (Approx 2026/01)
+        const RATE_AED_TO_SEK = 2.85;
+        const RATE_AED_TO_CNY = 1.97;
+        const RATE_SEK_TO_CNY = RATE_AED_TO_CNY / RATE_AED_TO_SEK;
+
+        function convertFromAED() {
+            const aed = parseFloat(document.getElementById('jpy-input')?.value || document.getElementById('aed-input').value);
+            if (!isNaN(aed)) {
+                document.getElementById('sek-input').value = (aed * RATE_AED_TO_SEK).toFixed(2);
+                document.getElementById('cny-input').value = (aed * RATE_AED_TO_CNY).toFixed(2);
+            }
+        }
+
+        function convertFromSEK() {
+            const sek = parseFloat(document.getElementById('sek-input').value);
+            if (!isNaN(sek)) {
+                document.getElementById('aed-input').value = (sek / RATE_AED_TO_SEK).toFixed(2);
+                document.getElementById('cny-input').value = (sek * RATE_SEK_TO_CNY).toFixed(2);
+            }
+        }
+
+        function convertFromCNY() {
+            const cny = parseFloat(document.getElementById('cny-input').value);
+            if (!isNaN(cny)) {
+                document.getElementById('aed-input').value = (cny / RATE_AED_TO_CNY).toFixed(2);
+                document.getElementById('sek-input').value = (cny / RATE_SEK_TO_CNY).toFixed(2);
+            }
+        }
+
+        // Scroll functions
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToBottom() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>
